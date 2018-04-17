@@ -4,9 +4,10 @@ import styled from '../theme/styled-components'
 interface ButtonProps {
   primary?: boolean
   size?: 'small' | 'large'
+  className?: string
 }
 
-const Button: React.SFC<ButtonProps> = props => <button>{props.children}</button>
+const Button: React.SFC<ButtonProps> = props => <button className={props.className}>{props.children}</button>
 
 const ButtonStyled = styled(Button)`
   background: ${props => (props.primary ? props.theme.primary : 'white')};
