@@ -11,20 +11,18 @@ interface componentsInterface {
 }
 
 interface routesInterface {
-  document: documentInterface;
-  components: componentsInterface;
+  document: documentInterface
+  components: componentsInterface
 }
 
 const routes: routesInterface = {
-  document: {
-
-  },
+  document: {},
   components: {
-    'Basic': {
-      'button': require('./button'),
-      'layout': require('./layout'),
+    Basic: {
+      button: require('./button'),
+      layout: require('./layout')
     }
   }
-};
+}
 
-export default routes;
+export default routes

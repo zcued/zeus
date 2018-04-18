@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Button } from '../../../src';
+import * as React from 'react'
+import { Button } from '../../../src'
 
 export default class LayoutPage extends React.Component {
   render() {

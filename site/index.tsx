@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
+import * as React from 'react'
+import * as ReactDom from 'react-dom'
 
-import App from './pages/App';
+import App from './pages/App'
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'))
