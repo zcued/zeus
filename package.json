@@ -12,7 +12,7 @@
     "test": "jest --forceExit --verbose",
     "build": "rm -rf lib && tsc",
     "watch": "tsc -w",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "precommit": "lint-staged"
   },
   "repository": {
