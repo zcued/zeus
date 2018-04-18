@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
+const port = 3001;
 
 new WebpackDevServer(webpack({
   mode: 'development',
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
+    `webpack-dev-server/client?http://localhost:${port}`,
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     './index.tsx'
@@ -46,7 +47,7 @@ new WebpackDevServer(webpack({
   hot: true,
   historyApiFallback: true,
   stats: { colors: true }
-}).listen(3000, 'localhost', error => {
+}).listen(port, 'localhost', error => {
   if (error) {
     throw error;
   }

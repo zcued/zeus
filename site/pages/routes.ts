@@ -22,6 +22,7 @@ const routes: routesInterface = {
   components: {
     'Basic': {
       'button': require('./button'),
+      'layout': require('./layout'),
     }
   }
 };
