@@ -1,5 +1,5 @@
 # Zeus
 
-![](https://img.shields.io/travis/USER/REPO.svg)
+![](https://travis-ci.org/zcued/Zeus.svg?branch=master)
 
 UI Library
