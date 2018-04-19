@@ -20,6 +20,7 @@ const routes: routesInterface = {
   components: {
     Basic: {
       button: require('./button'),
+      heading: require('./heading'),
       layout: require('./layout')
     }
   }

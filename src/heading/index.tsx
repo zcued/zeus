@@ -1,30 +1,20 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
+import { T } from '../util'
 
 interface HeadingProps {
   className?: string
-  level?: number
-  fontSize?: number
+  size?: 1 | 2 | 3 | 4
 }
 
-const H: React.SFC<HeadingProps> = ({ className, level, children }) =>
-  React.createElement(`h${level}`, { className }, children)
+const H: React.SFC<HeadingProps> = ({ size, children, ...rest }) =>
+  React.createElement(`h${size}`, { ...rest }, children)
 
 const Heading = styled(H)`
-  color: #000;
+  margin: 1em 0;
+  color: ${T('palette.black')};
+  font-weight: 400;
+  line-height: 1.3;
 `
 
-const [H1, H2, H3, H4, H5, H6] = [1, 2, 3, 4, 5, 6].map(i => ({ children, fontSize }) => (
-  <Heading level={i} fontSize={fontSize}>
-    {children}
-  </Heading>
-))
-
-export default {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6
-}
+export default Heading
