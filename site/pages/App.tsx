@@ -27,6 +27,7 @@ class App extends React.Component {
             <Menu routes={routes} />
             {React.createElement(routes.components.Basic.button.default)}
             {React.createElement(routes.components.Basic.heading.default)}
+            {React.createElement(routes.components.Nav.tabs.default)}
           </StyledContainer>
           <Footer />
         </StyledApp>

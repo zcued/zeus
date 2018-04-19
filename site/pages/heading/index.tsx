@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Heading } from '../../../src'
 
-export default class ButtonPage extends React.Component {
+export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>

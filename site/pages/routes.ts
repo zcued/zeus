@@ -22,6 +22,9 @@ const routes: routesInterface = {
       button: require('./button'),
       heading: require('./heading'),
       layout: require('./layout')
+    },
+    Nav: {
+      tabs: require('./tabs')
     }
   }
 }
