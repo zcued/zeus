@@ -1,7 +1,7 @@
 # Zeus
 
 ![](https://travis-ci.org/zcued/Zeus.svg?branch=master)
-![MIT License][license-image]][license-url]
+[![MIT License][license-image]][license-url]
 
 Simple and elegant component-based UI library
 
