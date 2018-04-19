@@ -11,9 +11,9 @@ interface ButtonProps {
 const Button: React.SFC<ButtonProps> = ({ children, ...rest }) => <button {...rest}>{children}</button>
 
 const ButtonStyled = styled(Button)`
-  background: ${props => (props.primary ? get(props, 'palette.primary') : 'white')};
-  color: ${props => (props.primary ? 'white' : get(props, 'palette.primary'))};
-  font-size: ${props => get(props, 'fontSizes.' + props.size)};
+  background: ${props => (props.primary ? get(props, 'theme.palette.primary') : 'white')};
+  color: ${props => (props.primary ? 'white' : get(props, 'theme.palette.primary'))};
+  font-size: ${props => get(props, 'theme.fontSizes.' + props.size)};
   margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid ${T('palette.primary')};
@@ -22,7 +22,7 @@ const ButtonStyled = styled(Button)`
   cursor: pointer;
   &:hover,
   &:focus {
-    color: ${props => (props.primary ? 'white' : get(props, 'palette.primary'))};
+    color: ${props => (props.primary ? 'white' : get(props, 'theme.palette.primary'))};
   }
 `
 

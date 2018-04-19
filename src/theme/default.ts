@@ -19,7 +19,15 @@ export default interface ThemeInterface {
     lightgrey: string
   }
   spacing: Size
-  fontSizes: Size
+  font: {
+    family: string
+    weight: {
+      normal: number
+      medium: number
+      bold: number
+    }
+    size: Size
+  }
   misc: {
     radius: number
     animationDuration: string
@@ -61,12 +69,20 @@ export const theme: ThemeInterface = {
     lg: unit * 4,
     xl: unit * 5
   },
-  fontSizes: {
-    xs: 12,
-    sm: 14,
-    md: 960,
-    lg: 1280,
-    xl: 1920
+  font: {
+    family: '-apple-system, BlinkMacSystemFont, "Helvetica", "Segoe",sans-serif',
+    weight: {
+      normal: 400,
+      medium: 500,
+      bold: 700
+    },
+    size: {
+      xs: 12,
+      sm: 14,
+      md: 20,
+      lg: 24,
+      xl: 36
+    }
   },
   misc: {
     radius: 3,
