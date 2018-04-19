@@ -64,9 +64,9 @@ export const theme: ThemeInterface = {
   fontSizes: {
     xs: 12,
     sm: 14,
-    md: 960,
-    lg: 1280,
-    xl: 1920
+    md: 20,
+    lg: 24,
+    xl: 36
   },
   misc: {
     radius: 3,
