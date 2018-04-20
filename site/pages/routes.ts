@@ -1,4 +1,4 @@
-interface documentInterface {
+interface documentsInterface {
   [key: string]: {
     [key: string]: any
   }
@@ -11,12 +11,12 @@ interface componentsInterface {
 }
 
 interface routesInterface {
-  document: documentInterface
+  documents: documentsInterface
   components: componentsInterface
 }
 
 const routes: routesInterface = {
-  document: {},
+  documents: {},
   components: {
     Basic: {
       button: require('./button'),
