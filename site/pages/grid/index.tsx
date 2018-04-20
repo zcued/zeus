@@ -1,12 +1,14 @@
+/* tslint:disable */
+
 import * as React from 'react'
-import { Button } from '../../../src'
+import { Row } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
     return (
       <div>
-        <Button primary={true}>button</Button>
-        <Button className="hhh">button</Button>
+        <Row className="hhh">asdkfj</Row>
+        <Row gutter={40}>asdkfj</Row>
       </div>
     )
   }
