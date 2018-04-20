@@ -17,7 +17,66 @@ const StyledContainer = styled.div`
   height: 500px;
 `
 
-class App extends React.Component {
+interface AppState {
+  route: string
+}
+
+class App extends React.Component<{}, AppState> {
+  components = null
+
+  constructor(props: any) {
+    super(props)
+
+    this.hashChangeCallback = this.hashChangeCallback.bind(this)
+    this.state = {
+      route: null,
+    }
+  }
+
+  componentWillMount() {
+    window.addEventListener('hashchange', this.hashChangeCallback, false)
+  }
+
+  componentDidMount() {
+    this.setRoute()
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.hashChangeCallback, false)
+  }
+
+  hashChangeCallback() {
+    window.scrollTo(0, 0)
+
+    this.setRoute()
+  }
+
+  getRoute() {
+    const hashs: string[] = location.hash.split('/');
+
+    if (hashs) { return hashs[1] }
+
+    return 'quickStart'
+  }
+
+  setRoute() {
+    this.setState({
+      route: this.getRoute()
+    })
+  }
+
+  getComponent(route: string) {
+    this.components = this.components || Object.assign(
+      Object.values(routes.components).reduce((a, b) => {
+        return Object.assign(a, b);
+      },                                      {}),
+      routes.documents)
+
+    const component = this.components[route];
+
+    if (component) { return React.createElement(component.default) }
+  }
+
   render() {
     return (
       <Provider>
@@ -25,9 +84,7 @@ class App extends React.Component {
           <Header />
           <StyledContainer>
             <Menu routes={routes} />
-            {React.createElement(routes.components.Basic.button.default)}
-            {React.createElement(routes.components.Basic.heading.default)}
-            {React.createElement(routes.components.Nav.tabs.default)}
+            {this.getComponent(this.state.route)}
           </StyledContainer>
           <Footer />
         </StyledApp>

@@ -19,7 +19,11 @@
     "type": "git",
     "url": "git@git.hellorf.work:cuining/zcool-component.git"
   },
-  "keywords": ["react", "component", "styled-components"],
+  "keywords": [
+    "react",
+    "component",
+    "styled-components"
+  ],
   "author": "cuining",
   "license": "ISC",
   "dependencies": {
