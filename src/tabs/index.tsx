@@ -3,13 +3,7 @@ import styled from '../theme/styled-components'
 import { T } from '../util'
 import { FlexRow } from '../globals'
 
-interface TabProps {
-  selected?: boolean
-}
-
-const Tabs: React.SFC<{}> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
-
-export const StyledTabs = styled(Tabs)`
+export const StyledTabs = styled(FlexRow)`
   align-self: stretch;
   margin: 0 32px;
   margin-top: 16px;
@@ -23,7 +17,11 @@ export const StyledTabs = styled(Tabs)`
   }
 `
 
-const Tab: React.SFC<TabProps> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
+interface TabProp {
+  selected?: boolean
+}
+
+const Tab: React.SFC<TabProp> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
 
 export const StyledTab = styled(Tab)`
   margin: 8px 24px;
@@ -44,6 +42,7 @@ export const StyledTab = styled(Tab)`
   &:hover {
     color: ${T('palette.primary')};
   }
+
   @media (max-width: 768px) {
     flex: auto;
     justify-content: center;
