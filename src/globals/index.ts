@@ -5,7 +5,7 @@ export const fontFamily = css`
   font-family: ${T('font.family')};
 `
 
-export const Ellipsis = css`
+export const Truncate = css`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -14,10 +14,9 @@ export const Ellipsis = css`
 
 export const Flex = styled.div`
   display: flex;
-  justify-content: flex-start;
 `
+
 export const FlexRow = Flex.extend`
-  flex-direction: row;
   align-items: center;
 `
 
@@ -28,7 +27,6 @@ export const FlexCol = Flex.extend`
 
 export const Span = styled.span`
   color: ${T('palette.black')};
-  ${fontFamily};
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.4;
