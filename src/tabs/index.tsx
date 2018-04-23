@@ -3,13 +3,7 @@ import styled from '../theme/styled-components'
 import { T } from '../util'
 import { FlexRow } from '../globals'
 
-interface TabProps {
-  selected?: boolean
-}
-
-const Tabs: React.SFC<{}> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
-
-export const StyledTabs = styled(Tabs)`
+export const StyledTabs = styled(FlexRow)`
   align-self: stretch;
   margin: 0 32px;
   margin-top: 16px;
@@ -23,21 +17,24 @@ export const StyledTabs = styled(Tabs)`
   }
 `
 
-const Tab: React.SFC<TabProps> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
+interface TabProp {
+  selected?: boolean
+}
+
+const Tab: React.SFC<TabProp> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
 
 export const StyledTab = styled(Tab)`
-  padding: 8px 24px;
+  margin: 8px 24px;
   justify-content: center;
   align-items: center;
   text-align: center;
   line-height: 1;
-  font-size: 18px;
-  font-weight: 500;
-  color: ${props => (props.selected ? props.theme.palette.primary : props.theme.palette.black)}
+  font-size: 20px;
+  font-weight: ${props => (props.selected ? props.theme.font.weight.medium : props.theme.font.weight.normal)};
+  color: ${T('palette.black')};
   cursor: pointer;
   position: relative;
-  top: 2px;
-  border-bottom: 2px solid ${props => (props.selected ? props.theme.palette.primary : props.theme.palette.black)};
+  box-shadow: inset 0 -4px 0 ${props => (props.selected ? props.theme.palette.primary : 'transparent')};
   .icon {
     margin-right: 8px;
   }
@@ -45,6 +42,7 @@ export const StyledTab = styled(Tab)`
   &:hover {
     color: ${T('palette.primary')};
   }
+
   @media (max-width: 768px) {
     flex: auto;
     justify-content: center;
