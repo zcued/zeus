@@ -10,4 +10,5 @@ import { Row, Col } from './grid'
 export { Row as Row }
 export { Col as Col }
 
+export { default as Card } from './card'
 export { default as Provider } from './provider'
