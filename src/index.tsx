@@ -5,5 +5,6 @@ export { default as Input } from './input'
 export { default as Spinner } from './spinner'
 export { default as Tag } from './tag'
 export { default as Icon } from './icon'
+export { Row, Col } from './grid'
 
 export { default as Provider } from './provider'

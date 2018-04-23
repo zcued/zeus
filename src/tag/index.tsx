@@ -5,14 +5,15 @@ import Icon from '../icon'
 import { T } from '../util'
 
 interface TagProps {
-  type?: 'hot' | 'defalut'
+  type?: 'hot' | 'default'
   color?: string
-  dotColor: string
+  dotcolor: string
   checked?: boolean
   children?: any
 }
 
 const TagWraper = FlexRow.extend`
+  display: inline-flex;
   position: relative;
   overflow: hidden;
 
@@ -35,7 +36,7 @@ const TagWraper = FlexRow.extend`
 `
 
 const StyledTag = styled.span`
-  background: ${props => props.color || '#F0F4F5'};
+  background: ${props => props.color || props.theme.palette.daisy};
   color: ${T('palette.black')};
   padding: 9px;
   line-height: 22px;
@@ -48,7 +49,7 @@ const LeftRadiusTag = StyledTag.extend`
   border-radius: 100px 0 0 100px;
 `
 
-const Dot: React.SFC<{ dotColor?: string }> = props => <span {...props} />
+const Dot: React.SFC<{ dotcolor?: string }> = props => <span {...props} />
 
 const StyledDot = styled(Dot)`
   display: inline-block;
@@ -57,7 +58,7 @@ const StyledDot = styled(Dot)`
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: ${props => props.dotColor || 'white'};
+  background: ${props => props.dotcolor || 'white'};
 `
 
 const StyledIcon = styled(Icon)`
@@ -67,10 +68,10 @@ const StyledIcon = styled(Icon)`
   color: ${T('palette.white')};
 `
 
-export default ({ children, type, checked, dotColor, ...rest }: TagProps) => (
+export default ({ children, type, checked, dotcolor, ...rest }: TagProps) => (
   <TagWraper data-type={checked ? '' : type} aria-checked={checked}>
     <LeftRadiusTag {...rest}>{children}</LeftRadiusTag>
-    <StyledDot dotColor={dotColor} />
+    <StyledDot dotcolor={dotcolor} />
     {checked && <StyledIcon glyph="tag-close" />}
   </TagWraper>
 )
