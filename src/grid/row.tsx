@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
+import GridContext from './gridContext'
 import { px } from '../util'
 
 interface RowProps {
@@ -12,26 +13,20 @@ class Row extends React.Component<RowProps, {}> {
     super(props)
   }
 
-  getChildContext() {
-    return {
-      gutter: this.props.gutter
-    }
-  }
-
   render() {
-    const { children, gutter, ...rest } = this.props
+    const { children, gutter, className } = this.props
 
-    return <div {...rest}>{children}</div>
+    return (
+      <GridContext.Provider value={{ gutter: gutter }}>
+        <div className={className}>{children}</div>
+      </GridContext.Provider>
+    )
   }
 }
 
-// const Row: React.SFC<RowProps> = ({ children, ...rest}) => {
-//   return <div {...rest}>{children}</div>
-// }
-
 const RowStyled = styled(Row)`
-  display: flex;
   margin: ${props => props.gutter ? '0 -' + px(props.gutter / 2) : ''};
+  overflow: hidden;
 `
 
 export default RowStyled

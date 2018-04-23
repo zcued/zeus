@@ -12,11 +12,13 @@ export default interface ThemeInterface {
     primary: string
     secondary: string
     white: string
-    offwhite: string
     black: string
-    darkgrey: string
-    grey: string
-    lightgrey: string
+    spruce: string
+    stone: string
+    frost: string
+    daisy: string
+    black16: string
+    black30: string
   }
   spacing: Size
   font: {
@@ -53,14 +55,16 @@ export const theme: ThemeInterface = {
     xl: 1920
   },
   palette: {
-    primary: '#EB0000',
-    secondary: '#FFCB2D',
-    white: '#FFFFFF',
-    offwhite: '#F0F4F5',
-    black: '#1F1F1F',
-    darkgrey: '#282828',
-    grey: '#444444',
-    lightgrey: '#dddddd'
+    primary: '#ea4335',
+    secondary: '#ffd100',
+    white: '#ffffff',
+    black: '#1f1f1f',
+    spruce: '#666666',
+    stone: '#a3a3a3',
+    frost: '#dddddd',
+    daisy: '#f0f4f5',
+    black16: 'rgba(0, 0, 0, 0.16)',
+    black30: 'rgba(0, 0, 0, 0.3)'
   },
   spacing: {
     xs: unit,
@@ -73,7 +77,7 @@ export const theme: ThemeInterface = {
     family: '-apple-system, BlinkMacSystemFont, "Helvetica", "Segoe",sans-serif',
     weight: {
       normal: 400,
-      medium: 500,
+      medium: 600,
       bold: 700
     },
     size: {
