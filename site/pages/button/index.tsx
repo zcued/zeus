@@ -3,6 +3,11 @@ import { Button } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
-    return <Button>button</Button>
+    return (
+      <div>
+        <Button primary={true}>button</Button>
+        <Button className="hhh">button</Button>
+      </div>
+    )
   }
 }

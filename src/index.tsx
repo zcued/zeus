@@ -6,4 +6,8 @@ export { default as Spinner } from './spinner'
 export { default as Tag } from './tag'
 export { default as Icon } from './icon'
 
+import { Row, Col } from './grid'
+export { Row as Row }
+export { Col as Col }
+
 export { default as Provider } from './provider'
