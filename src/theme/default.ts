@@ -85,7 +85,7 @@ export const theme: ThemeInterface = {
       sm: 14,
       md: 20,
       lg: 24,
-      xl: 36
+      xl: 32
     }
   },
   misc: {
