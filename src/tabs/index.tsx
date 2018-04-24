@@ -21,7 +21,11 @@ interface TabProp {
   selected?: boolean
 }
 
-const Tab: React.SFC<TabProp> = ({ children, ...rest }) => <FlexRow {...rest}>{children}</FlexRow>
+const Tab: React.SFC<TabProp> = ({ children, selected, ...rest }) => (
+  <FlexRow data-selected={selected} {...rest}>
+    {children}
+  </FlexRow>
+)
 
 export const StyledTab = styled(Tab)`
   margin: 8px 24px;
