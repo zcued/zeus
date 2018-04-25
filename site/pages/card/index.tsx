@@ -1,7 +1,7 @@
 /* tslint:disable */
 
 import * as React from 'react'
-import { Row, Col, Card } from '../../../src'
+import { Row, Col, Card, Button } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
@@ -12,6 +12,7 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             title="我是标题啊"
             subTitle="此文案"
+            operator={<div>a</div>}
           />
         </Col>
         <Col span={6}>
@@ -27,7 +28,7 @@ export default class Page extends React.Component {
             type="atlas"
             title="我是标题啊"
             subTitle="此文案"
-            operator={<div>a</div>}
+            operator={<Button>a</Button>}
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
           />
         </Col>

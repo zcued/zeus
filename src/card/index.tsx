@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T } from '../util'
-// import Card from './card'
 
 interface CardPorps {
   type?: 'card' | 'atlas' | 'picture'
@@ -10,7 +9,7 @@ interface CardPorps {
   titlePosition?: 'bottom'
   title?: string
   subTitle?: string
-  operator?: React.SFC | React.ComponentClass
+  operator?: React.SFC | React.ComponentClass | Element
   className?: string
 }
 
