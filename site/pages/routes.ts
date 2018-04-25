@@ -21,7 +21,8 @@ const routes: routesInterface = {
     Basic: {
       button: require('./button'),
       heading: require('./heading'),
-      grid: require('./grid')
+      grid: require('./grid'),
+      card: require('./card')
     },
     Nav: {
       tabs: require('./tabs')
