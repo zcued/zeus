@@ -12,6 +12,20 @@ export const Truncate = css`
   min-width: 0;
 `
 
+export const Transition = {
+  hover: {
+    on: 'all 0.2s ease-in',
+    off: 'all 0.2s ease-out'
+  },
+  reaction: {
+    on: 'all 0.15s ease-in',
+    off: 'all 0.1s ease-out'
+  },
+  dropdown: {
+    off: 'all 0.35s ease-out'
+  }
+}
+
 export const Flex = styled.div`
   display: flex;
 `
