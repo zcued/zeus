@@ -7,4 +7,5 @@ export { default as Tag } from './tag'
 export { default as Icon } from './icon'
 export { Row, Col } from './grid'
 
+export { default as Card } from './card'
 export { default as Provider } from './provider'
