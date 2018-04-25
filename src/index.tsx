@@ -5,10 +5,7 @@ export { default as Input } from './input'
 export { default as Spinner } from './spinner'
 export { default as Tag } from './tag'
 export { default as Icon } from './icon'
-
-import { Row, Col } from './grid'
-export { Row as Row }
-export { Col as Col }
+export { Row, Col } from './grid'
 
 export { default as Card } from './card'
 export { default as Provider } from './provider'
