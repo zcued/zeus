@@ -58,7 +58,7 @@ class Checkbox extends React.Component<Props> {
     const { checked } = this.state
     this.setState({ checked: !checked })
 
-    if (!disabled && onChange) { onChange(!checked, e) }
+    if (!disabled && onChange) onChange(!checked, e)
   }
 
   render() {

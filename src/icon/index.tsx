@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-interface IconProps {
+interface Props {
   size?: number
   onClick?: Function
   glyph: string
@@ -13,6 +13,12 @@ export const Glyph = ({ glyph }) => {
       return (
         <g>
           <path d="M12,6 L0,6 L0,4 L12,4 L12,6 Z M12,8 L12,20 L6,16 L0,20 L0,8 L12,8 Z M12,2 L0,2 L0,0 L12,0 L12,2 Z" />
+        </g>
+      )
+    case 'arrow':
+      return (
+        <g>
+          <path d="M3.597 5L0 1.616 1.701 0 7 5l-5.299 5L0 8.384z" />
         </g>
       )
     case 'close':
@@ -72,7 +78,7 @@ const StyledSvgWrapper = styled(SvgWrapper)`
   color: inherit;
 `
 
-const Icon: React.SFC<IconProps> = ({ glyph, size, ...rest }) => (
+const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
   <StyledSvgWrapper size={size} {...rest}>
     <InlineSvg
       fillRule="evenodd"

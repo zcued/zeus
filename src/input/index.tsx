@@ -3,6 +3,7 @@ import { T } from '../util'
 
 const Input = styled.input`
   width: 100%;
+  outline: none;
   box-sizing: border-box;
   background: ${T('palette.white')};
   border: none;
@@ -10,7 +11,7 @@ const Input = styled.input`
   font-size: 32px;
   height: 56px;
   color: ${T('palette.black')};
-  padding: ${T('spacing.md') + 'px'};
+  padding: 0 ${T('spacing.md')}px;
   cursor: ${({ readOnly }) => (readOnly ? 'not-allowed' : 'auto')};
   &::-webkit-input-placeholder {
     color: ${T('palette.stone')};

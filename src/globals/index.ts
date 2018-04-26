@@ -1,10 +1,6 @@
 import styled, { css } from '../theme/styled-components'
 import { T } from '../util'
 
-export const fontFamily = css`
-  font-family: ${T('font.family')};
-`
-
 export const Truncate = css`
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -20,9 +16,6 @@ export const Transition = {
   reaction: {
     on: 'all 0.15s ease-in',
     off: 'all 0.1s ease-out'
-  },
-  dropdown: {
-    off: 'all 0.35s ease-out'
   }
 }
 
@@ -68,3 +61,20 @@ export const hexa = (hex, alpha) => {
     return `rgb(${r}, ${g}, ${b})`
   }
 }
+
+export const zIndex = new function() {
+  this.hide = -1
+  this.base = 0
+  this.selected = 25
+  this.active = 50
+  this.nav = 1000
+  this.navFixed = 1050
+  this.dropdown = 2000
+  this.popover = 3000
+  this.tooltip = 4000
+  this.banner = 5000
+  this.overlay = 8050
+  this.modal = 9000
+}()
+
+export const noop = () => {} // tslint:disable-line

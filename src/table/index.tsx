@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 
-interface TableProps {
+interface Props {
   head: Array<string>
 }
 
@@ -35,7 +35,7 @@ const TableHeadColumn = Column.withComponent('th').extend`
   opacity: 0.8;
 `
 
-const Table: React.SFC<TableProps> = ({ head, children }) => (
+const Table: React.SFC<Props> = ({ head, children }) => (
   <TableWrapper>
     <TableHead>
       <tr>
