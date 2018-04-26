@@ -11,7 +11,7 @@ interface ButtonProps {
   ghost?: boolean
   disabled?: boolean
   icon?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md'
   children?: any
 }
 
@@ -30,14 +30,16 @@ const StyledButton = styled(BaseButton)`
   box-sizing: border-box;
   outline: 0 !important;
   cursor: pointer;
-  font-size: ${({ size, theme }) => (size ? (theme.font.size[size] || 16) + 'px' : '16px')};
-  background: ${({ primary, theme }) => (primary ? theme.palette.primary : theme.palette.white)};
+  vertical-align: middle;
+  padding: 5px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
   color: ${({ primary, theme }) => (primary ? theme.palette.white : theme.palette.black)};
-  padding: ${props => (props.size ? '8px' : '4px')} 32px;
+  background: ${({ primary, theme }) => (primary ? theme.palette.primary : 'transparent')};
   border: 4px solid ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.black)};
-`
+  transition: background .3s;
 
-const SolidButton = StyledButton.extend`
   &:hover {
     background: ${({ primary, theme }) => (primary ? hexa(theme.palette.primary, 0.8) : theme.palette.daisy)};
   }
@@ -45,15 +47,35 @@ const SolidButton = StyledButton.extend`
   &:active {
     color: ${({ primary, theme }) => (primary ? theme.palette.white : theme.palette.black)};
   }
+
+  &[disabled] {
+    color: ${({ primary, theme }) => (primary ? theme.palette.white : theme.palette.frost)};
+    background: ${({ primary, theme }) => (primary ? theme.palette.frost : 'transparent')};
+    border-color: ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.frost)};
+    cursor: not-allowed;
+
+    &:hover {
+      background: ${({ primary, theme }) => (primary ? theme.palette.frost : 'transparent')};
+    }
+  }
 `
 
-const DisabledButton = StyledButton.extend`
-  border-color: ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.frost)};
-  color: ${T('palette.frost')};
+const StyledButtonSm = StyledButton.extend`
+  padding: 9px 7px;
+  font-size: ${({theme}) => theme.font.size.sm}px;
+  font-weight: normal;
+  line-height: ${({theme}) => theme.font.lineHeight.sm}px;
+  border: 1px solid ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.daisy)};
 `
 
-export default ({ children, icon, disabled, loading, ...rest }: ButtonProps) => {
-  const Button = disabled ? DisabledButton : SolidButton
+const StyledButtonMd = StyledButton.extend`
+  padding: 6px 24px;
+  font-size: ${({theme}) => theme.font.size.md}px;;
+  line-height: ${({theme}) => theme.font.lineHeight.md}px;
+`
+
+export default ({ children, size, icon, disabled, loading, ...rest }: ButtonProps) => {
+  const Button = size === 'sm' ? StyledButtonSm : (size === 'md' ? StyledButtonMd : StyledButton)
   return (
     <Button disabled={loading || disabled} {...rest}>
       {icon ? loading ? <Spinner size={16} inline={true} /> : <Icon glyph={icon} /> : ''}

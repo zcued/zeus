@@ -9,8 +9,8 @@ interface CardPorps {
   titlePosition?: 'bottom'
   title?: string
   subTitle?: string
-  tag?: React.SFC | React.ComponentClass | Element
-  operator?: React.SFC | React.ComponentClass | Element
+  tag?: JSX.Element
+  operator?: JSX.Element
   className?: string
 }
 
@@ -113,10 +113,7 @@ const CardStyled = styled(Card)`
     right: 24px;
     width: 14px;
     height: 8px;
-    background-image: linear-gradient(
-      ${T('palette.secondary')} 50%,
-      transparent 50%
-    );
+    background-image: linear-gradient(${T('palette.secondary')} 50%, transparent 50%);
     background-size: auto 4px;
 
     &::after {

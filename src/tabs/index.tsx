@@ -47,10 +47,11 @@ export const StyledTab = styled(Tab)`
         content: '';
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 50%;
         width: 40px;
         height: 4px;
         background: ${T('palette.primary')};
+        transform: translateX(-50%);
       }
     `}
   }
