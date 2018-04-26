@@ -6,6 +6,12 @@ export interface Size {
   xl: number
 }
 
+export interface LineHeight {
+  sm: number
+  md: number
+  lg: number
+}
+
 export default interface ThemeInterface {
   breakpoints: Size
   palette: {
@@ -29,6 +35,7 @@ export default interface ThemeInterface {
       bold: number
     }
     size: Size
+    lineHeight: LineHeight
   }
   misc: {
     radius: number
