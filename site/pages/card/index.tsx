@@ -12,6 +12,7 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             title="我是标题啊"
             subTitle="此文案"
+            tag={<div style={{background: 'yellow'}}>hhh</div>}
             operator={<div>a</div>}
           />
         </Col>
@@ -20,6 +21,7 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             imgAlt="baocuo"
             titlePosition="bottom"
+            tag={<div style={{background: 'yellow'}}>hhh</div>}
             title="我是标题啊我是标题啊我是标题啊我是标题啊我是标题啊"
           />
         </Col>

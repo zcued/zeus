@@ -25,6 +25,7 @@ class Col extends React.Component<ColProps, {}> {
 
 const ColStyled = styled(Col)`
   float: left;
+  margin-bottom: ${props => props.gutter ? px(props.gutter) : ''};
   padding: ${props => props.gutter ? '0 ' + px(props.gutter / 2) : ''};
   width: ${props => props.span ? (props.span / 24 * 100 + '%') : '100%'};
   box-sizing: border-box;

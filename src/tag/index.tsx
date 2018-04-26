@@ -10,6 +10,7 @@ interface TagProps {
   dotcolor: string
   checked?: boolean
   children?: any
+  className?: string
 }
 
 const TagWraper = FlexRow.extend`
@@ -68,8 +69,8 @@ const StyledIcon = styled(Icon)`
   color: ${T('palette.white')};
 `
 
-export default ({ children, type, checked, dotcolor, ...rest }: TagProps) => (
-  <TagWraper data-type={checked ? '' : type} aria-checked={checked}>
+export default ({ className, children, type, checked, dotcolor, ...rest }: TagProps) => (
+  <TagWraper data-type={checked ? '' : type} aria-checked={checked} className={className}>
     <LeftRadiusTag {...rest}>{children}</LeftRadiusTag>
     <StyledDot dotcolor={dotcolor} />
     {checked && <StyledIcon glyph="tag-close" />}
