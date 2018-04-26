@@ -9,6 +9,7 @@ interface CardPorps {
   titlePosition?: 'bottom'
   title?: string
   subTitle?: string
+  tag?: JSX.Element
   operator?: JSX.Element
   className?: string
 }
@@ -19,26 +20,33 @@ class Card extends React.Component<CardPorps, {}> {
   }
 
   render() {
-    const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, operator } = this.props
+    const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, tag, operator } = this.props
 
     return (
       <div className={className}>
-        <img src={imgSrc} alt={imgAlt} />
-        {type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom' ? (
-          <p className="title--bottom">{title}</p>
-        ) : (
-          <React.Fragment>
-            <div className="title__wrapper" />
-            {type !== 'picture' ? (
-              <div className="title">
-                <p>{title}</p>
-                <p>{subTitle}</p>
-              </div>
-            ) : null}
-            {type === 'atlas' ? <div className="tag" /> : null}
-            <div className="operator">{operator}</div>
-          </React.Fragment>
-        )}
+        <img src={imgSrc} alt={imgAlt}/>
+        {
+          type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom'
+            ? <p className="title--bottom">{title}</p>
+            : (
+              <React.Fragment>
+                <div className="title__wrapper" />
+                {
+                  type !== 'picture'
+                    ? (
+                      <div className="title">
+                        {title ? <p>{title}</p> : null}
+                        {subTitle ? <p>{subTitle}</p> : null}
+                      </div>
+                    )
+                    : null
+                }
+                {type === 'atlas' ? <div className="tag" /> : null}
+                <div className="operator">{operator}</div>
+              </React.Fragment>
+            )
+        }
+        {tag ? <div className="tag--custom">{tag}</div> : null}
       </div>
     )
   }
@@ -47,13 +55,13 @@ class Card extends React.Component<CardPorps, {}> {
 const CardStyled = styled(Card)`
   position: relative;
   width: 100%;
-  border-radius: ${props => (props.type === 'atlas' ? '0 16px 16px 0' : '')};
-  overflow: hidden;
+  border-radius: ${props => props.type === 'atlas' ? '0 16px 16px 0' : ''};
 
   img {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: ${props => props.type === 'atlas' ? '0 16px 16px 0' : ''};
   }
 
   p {
@@ -66,7 +74,8 @@ const CardStyled = styled(Card)`
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, .3);
+    border-radius: ${props => props.type === 'atlas' ? '0 16px 16px 0' : ''};
   }
 
   .title {
@@ -76,7 +85,7 @@ const CardStyled = styled(Card)`
     text-align: center;
     font-size: ${T('font.size.md')}px;
     color: ${T('palette.white')};
-    line-height: 40px;
+    line-height: 28px;
     transform: translateY(-50%);
 
     p + p {
@@ -119,12 +128,18 @@ const CardStyled = styled(Card)`
     }
   }
 
+  .tag--custom {
+    position: absolute;
+    top: 8px;
+    left: -8px;
+  }
+
   .operator {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 8px;
+    right: 8px;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all .3s;
   }
 
   &:hover {
