@@ -3,7 +3,6 @@ import styled from '../theme/styled-components'
 import Spinner from '../spinner'
 import Icon from '../icon'
 import { hexa } from '../globals'
-import { T } from '../util'
 
 interface ButtonProps {
   primary?: boolean
