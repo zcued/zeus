@@ -2,13 +2,12 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T } from '../util'
 
-interface HeadingProps {
+interface Props {
   className?: string
   size?: 1 | 2 | 3 | 4 | 5 | 6
 }
 
-const H: React.SFC<HeadingProps> = ({ size, children, ...rest }) =>
-  React.createElement(`h${size}`, { ...rest }, children)
+const H: React.SFC<Props> = ({ size, children, ...rest }) => React.createElement(`h${size}`, { ...rest }, children)
 
 const Heading = styled(H)`
   margin: ${T('spacing.sm') + 'px'};

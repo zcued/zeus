@@ -10,7 +10,9 @@ import Footer from '../components/footer'
 import Menu from '../components/menu'
 
 const StyledApp = styled.div`
-  font-size: 24px;
+  font-family: PingFangSC-Regular, "Microsoft YaHei", "微软雅黑";
+  font-size: 16px;
+  line-height: 22px;
 `
 
 const StyledContainer = styled.div`
@@ -52,7 +54,7 @@ class App extends React.Component<{}, AppState> {
   }
 
   getRoute() {
-    const hashs: string[] = location.hash.split('/');
+    const hashs: string[] = location.hash.split('/')
 
     if (hashs) { return hashs[1] }
 
@@ -68,11 +70,11 @@ class App extends React.Component<{}, AppState> {
   getComponent(route: string) {
     this.components = this.components || Object.assign(
       Object.values(routes.components).reduce((a, b) => {
-        return Object.assign(a, b);
+        return Object.assign(a, b)
       },                                      {}),
       routes.documents)
 
-    const component = this.components[route];
+    const component = this.components[route]
 
     if (component) { return React.createElement(component.default) }
   }
