@@ -64,13 +64,13 @@ class Pagination extends React.Component<Props> {
 
     return (
       <UL className={className}>
-        <LI onClick={this.prev}>
+        <LI onClick={this.prev} role="prev">
           <button disabled={current === 1}>&lt;</button>
         </LI>
         <LI>
           <JumperInput type="text" onKeyUp={this.handleKeyUp} value={currentInput} onChange={this.handleChange} />
         </LI>
-        <LI onClick={this.next}>
+        <LI onClick={this.next} role="next">
           <button disabled={current === total}>&gt;</button>
         </LI>
         <LI>

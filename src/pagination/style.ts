@@ -8,6 +8,7 @@ export const JumperInput = styled(Input)`
   border-bottom: 2px solid ${T('palette.black')};
   text-align: center;
   font-size: ${T('font.size.sm')}px;
+  padding: 0;
 `
 
 export const UL = styled.ul`
@@ -21,6 +22,10 @@ export const UL = styled.ul`
     letter-spacing: 0;
     text-align: center;
   }
+
+  & > li[role] {
+    cursor: pointer;
+  }
 `
 
 export const LI = styled.li`
@@ -28,6 +33,7 @@ export const LI = styled.li`
   display: flex;
   align-items: center;
   & > button {
+    cursor: inherit;
     border: none;
     outline: none;
     height: 100%;
