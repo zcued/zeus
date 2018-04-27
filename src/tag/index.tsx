@@ -7,7 +7,7 @@ import { T } from '../util'
 interface TagProps {
   type?: 'hot' | 'default'
   color?: string
-  dotcolor: string
+  dotcolor?: string
   checked?: boolean
   children?: any
   className?: string
@@ -69,7 +69,7 @@ const StyledIcon = styled(Icon)`
   color: ${T('palette.white')};
 `
 
-export default ({ className, children, type, checked, dotcolor, ...rest }: TagProps) => (
+export default ({ className, children, type = 'default', checked, dotcolor, ...rest }: TagProps) => (
   <TagWraper data-type={checked ? '' : type} aria-checked={checked} className={className}>
     <LeftRadiusTag {...rest}>{children}</LeftRadiusTag>
     <StyledDot dotcolor={dotcolor} />

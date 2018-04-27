@@ -24,7 +24,8 @@ const routes: Routes = {
       heading: require('./heading'),
       grid: require('./grid'),
       card: require('./card'),
-      carousel: require('./carousel')
+      carousel: require('./carousel'),
+      tag: require('./tag')
     },
     Nav: {
       tabs: require('./tabs'),

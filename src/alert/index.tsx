@@ -17,7 +17,10 @@ const Alert: React.SFC<Props> = ({ type, showIcon, title, ...rest }) => (
 )
 
 const StyledAlert = styled(Alert)`
-  width: 100%;
+  display: inline-block;
+  color: ${T('palette.white')};
+  align-self: flex-start;
+  flex: none;
   border-radius: 100px;
   font-size: ${T('font.size.sm')}px;
   line-height: 20px;

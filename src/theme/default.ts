@@ -97,7 +97,7 @@ export const theme: ThemeInterface = {
     lineHeight: {
       sm: 20,
       md: 28,
-      lg: 33,
+      lg: 33
     }
   },
   misc: {
