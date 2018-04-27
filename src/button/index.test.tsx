@@ -7,3 +7,15 @@ test('it works', () => {
   const wrapper = shallow(<Button />)
   expect(wrapper).toMatchSnapshot()
 })
+
+describe('button works', () => {
+  it('should render an `.icon`', () => {
+    const wrapper = shallow(<Button icon="close">button</Button>)
+    expect(wrapper.find('Icon')).toHaveLength(1)
+  })
+
+  it('should render a `spin`', () => {
+    const wrapper = shallow(<Button icon="close" loading={true} />)
+    expect(wrapper.prop('disabled')).toEqual(true)
+  })
+})
