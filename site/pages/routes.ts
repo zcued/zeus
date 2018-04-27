@@ -23,7 +23,8 @@ const routes: Routes = {
       button: require('./button'),
       heading: require('./heading'),
       grid: require('./grid'),
-      card: require('./card')
+      card: require('./card'),
+      tag: require('./tag')
     },
     Nav: {
       tabs: require('./tabs'),

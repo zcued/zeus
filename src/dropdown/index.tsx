@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { StyledClickOutSide, DropdownContainer, Button, PoppersContainer } from './style'
+import { StyledClickOutSide, Button, PoppersContainer } from './style'
 
 interface Props {
   trigger?: 'hover' | 'click'
   text?: string
+  className?: string
 }
 
 class Dropdown extends React.Component<Props> {
@@ -40,12 +41,12 @@ class Dropdown extends React.Component<Props> {
   render() {
     return (
       <StyledClickOutSide onClick={this.handleClickOutSide}>
-        <DropdownContainer onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter}>
+        <div className={this.props.className} onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter}>
           <Button type="button" aria-expanded={this.state.show} onClick={this.handleClick}>
             {this.props.text}
           </Button>
           {this.state.show ? <PoppersContainer>{this.props.children}</PoppersContainer> : null}
-        </DropdownContainer>
+        </div>
       </StyledClickOutSide>
     )
   }
