@@ -1,13 +1,13 @@
 import * as React from 'react'
 import styled, { keyframes } from '../theme/styled-components'
 
-interface SpinnerProps {
+interface Props {
   size?: number
   inline?: boolean
   color?: string
 }
 
-const Spinner: React.SFC<SpinnerProps> = ({ children, ...rest }) => <span {...rest}>{children}</span>
+const Spinner: React.SFC<Props> = ({ children, ...rest }) => <span {...rest}>{children}</span>
 
 const spin = keyframes`
   to {transform: rotate(360deg);}

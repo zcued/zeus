@@ -54,7 +54,7 @@ class App extends React.Component<{}, AppState> {
   }
 
   getRoute() {
-    const hashs: string[] = location.hash.split('/');
+    const hashs: string[] = location.hash.split('/')
 
     if (hashs) { return hashs[1] }
 
@@ -70,11 +70,11 @@ class App extends React.Component<{}, AppState> {
   getComponent(route: string) {
     this.components = this.components || Object.assign(
       Object.values(routes.components).reduce((a, b) => {
-        return Object.assign(a, b);
+        return Object.assign(a, b)
       },                                      {}),
       routes.documents)
 
-    const component = this.components[route];
+    const component = this.components[route]
 
     if (component) { return React.createElement(component.default) }
   }
