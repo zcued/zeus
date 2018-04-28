@@ -11,6 +11,7 @@ interface Props {
   name?: string
   value?: string | number
   extra?: JSX.Element
+  className?: string
 }
 
 const Input = styled.input`
@@ -62,11 +63,11 @@ class Checkbox extends React.Component<Props> {
   }
 
   render() {
-    const { name, value, label, disabled = false, extra } = this.props
+    const { className, name, value, label, disabled = false, extra } = this.props
     const { checked } = this.state
     return (
       <React.Fragment>
-        <Label>
+        <Label className={className}>
           <Input
             type="checkbox"
             onClick={this.handleClick}

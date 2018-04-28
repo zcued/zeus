@@ -4,6 +4,7 @@ import { T } from '../util'
 
 interface CardPorps {
   type?: 'card' | 'atlas' | 'picture'
+  size?: 'small'
   imgSrc: string
   imgAlt?: string
   titlePosition?: 'bottom'
@@ -49,13 +50,17 @@ class Card extends React.Component<CardPorps, {}> {
 const CardStyled = styled(Card)`
   position: relative;
   width: 100%;
-  border-radius: ${props => (props.type === 'atlas' ? '0 16px 16px 0' : '')};
+  border-radius: ${props => (
+    props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
+  )};
 
   img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: ${props => (props.type === 'atlas' ? '0 16px 16px 0' : '')};
+    border-radius: ${props => (
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
+    )};
   }
 
   p {
@@ -69,7 +74,9 @@ const CardStyled = styled(Card)`
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: ${props => (props.type === 'atlas' ? '0 16px 16px 0' : '')};
+    border-radius: ${props => (
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
+    )};
   }
 
   .title {
@@ -77,24 +84,28 @@ const CardStyled = styled(Card)`
     top: 50%;
     width: 100%;
     text-align: center;
-    font-size: ${T('font.size.md')}px;
+    font-size: ${props => (props.size === 'small' ? T('font.size.sm') : T('font.size.md'))}px;
     color: ${T('palette.white')};
-    line-height: 28px;
+    line-height: ${props => (props.size === 'small' ? '20px' : '28px')};
     transform: translateY(-50%);
 
+    p:first-child {
+      font-weight: bold;
+    }
+
     p + p {
-      margin-top: 8px;
-      font-size: 16px;
-      line-height: 22px;
+      margin-top: ${props => (props.size === 'small' ? '4px' : '8px')};
+      font-size: ${props => (props.size === 'small' ? T('font.size.xs') : '16')}px;
+      line-height: ${props => (props.size === 'small' ? '18px' : '22px')};
     }
   }
 
   .title--bottom {
     margin: 0;
-    padding: 16px 24px;
-    font-size: ${T('font.size.md')}px;
+    padding: ${props => (props.size === 'small' ? '8px 12px' : '16px 24px')};
+    font-size: ${props => (props.size === 'small' ? T('font.size.sm') : T('font.size.md'))}px;
     color: ${T('palette.spruce')};
-    line-height: 28px;
+    line-height: ${props => (props.size === 'small' ? '20px' : '28px')};
     background: ${T('palette.white')};
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -104,8 +115,8 @@ const CardStyled = styled(Card)`
   .tag {
     position: absolute;
     top: 0;
-    right: 24px;
-    width: 14px;
+    right: ${props => (props.size === 'small' ? '16px' : '24px')};
+    width: ${props => (props.size === 'small' ? '12px' : '14px')};
     height: 8px;
     background-image: linear-gradient(${T('palette.secondary')} 50%, transparent 50%);
     background-size: auto 4px;
@@ -116,9 +127,9 @@ const CardStyled = styled(Card)`
       top: 100%;
       width: 0;
       height: 0;
-      border: 7px solid ${T('palette.secondary')};
-      border-top: 11px solid ${T('palette.secondary')};
-      border-bottom: 5px solid transparent;
+      border: ${props => (props.size === 'small' ? '6px' : '7px')} solid ${T('palette.secondary')};
+      border-top: ${props => (props.size === 'small' ? '8px' : '11px')} solid ${T('palette.secondary')};
+      border-bottom: ${props => (props.size === 'small' ? '4px' : '5px')} solid transparent;
     }
   }
 
