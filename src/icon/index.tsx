@@ -78,6 +78,7 @@ const StyledSvgWrapper = styled(SvgWrapper)`
   min-height: ${computedSize};
   position: relative;
   color: inherit;
+  cursor: pointer;
 `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
