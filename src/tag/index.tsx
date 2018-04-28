@@ -17,7 +17,7 @@ const TagWraper = FlexRow.extend`
   display: inline-flex;
   position: relative;
   overflow: hidden;
-
+  cursor: pointer;
   &[data-type='hot']::after {
     content: '';
     display: inline-block;
