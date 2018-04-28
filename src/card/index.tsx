@@ -133,7 +133,7 @@ const CardStyled = styled(Card)`
     bottom: 8px;
     right: 8px;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all .3s;
   }
 
   &:hover {
