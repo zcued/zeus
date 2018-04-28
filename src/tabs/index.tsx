@@ -8,6 +8,7 @@ export const StyledTabs = styled(FlexRow)`
   margin: 0 32px;
   margin-top: 16px;
   align-items: stretch;
+  min-height: 36px;
 `
 
 interface TabProps {

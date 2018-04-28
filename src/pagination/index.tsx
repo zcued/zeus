@@ -45,6 +45,8 @@ class Pagination extends React.Component<Props> {
   next = () => {
     let { current } = this.state
 
+    if (current === this.props.total) return
+
     current = current + 1
     this.setState({ current, currentInput: current })
     this.props.onChange(current)
@@ -52,6 +54,8 @@ class Pagination extends React.Component<Props> {
 
   prev = () => {
     let { current } = this.state
+
+    if (current === 1) return
 
     current = current - 1
     this.setState({ current, currentInput: current })
