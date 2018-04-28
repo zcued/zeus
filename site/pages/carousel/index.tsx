@@ -1,7 +1,7 @@
 /* tslint:disable */
 
 import * as React from 'react'
-import { Carousel } from '../../../src'
+import { Carousel, Checkbox } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
@@ -13,6 +13,7 @@ export default class Page extends React.Component {
           <h1>3</h1>
           <h1>4</h1>
         </Carousel>
+        <Checkbox className="checkbox" label="关键词" />
       </div>
     )
   }
