@@ -120,7 +120,7 @@ const CarouselStyled = styled(Carousel)`
     bottom: 22px;
     left: 50%;
     line-height: 0;
-    transform: translateX(50%);
+    transform: translateX(-50%);
 
     span {
       display: inline-block;
