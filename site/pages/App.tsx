@@ -16,7 +16,6 @@ const StyledApp = styled.div`
 `
 
 const StyledContainer = styled.div`
-  height: 500px;
 `
 
 interface AppState {
