@@ -6,11 +6,11 @@ import { T } from '../util'
 interface Props {
   checked?: boolean
   disabled?: boolean
-  label?: string
+  label?: JSX.Element | string
   onChange?: Function
   name?: string
   value?: string | number
-  extra?: JSX.Element
+  extra?: JSX.Element | string
   className?: string
 }
 
@@ -59,7 +59,9 @@ class Checkbox extends React.Component<Props> {
     const { checked } = this.state
     this.setState({ checked: !checked })
 
-    if (!disabled && onChange) { onChange(!checked, e) }
+    if (!disabled && onChange) {
+      onChange(!checked, e)
+    }
   }
 
   render() {
@@ -78,7 +80,7 @@ class Checkbox extends React.Component<Props> {
             aria-checked={checked}
           />
           <Fake aria-checked={checked} />
-          {label ? <Text className="text">{label}</Text> : null}
+          {label ? typeof label === 'string' ? <Text className="text">{label}</Text> : label : null}
         </Label>
         {extra}
       </React.Fragment>
