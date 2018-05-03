@@ -7,12 +7,14 @@ const CollapseStyled = styled.div`
 
 interface Props {
   value?: string
+  onChange?: any
 }
 
-export default class Collapse extends React.Component<Props, {}> {
-  state = {
-    activeName: ''
-  }
+interface State {
+  activeName: string
+}
+
+export default class Collapse extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
@@ -24,6 +26,8 @@ export default class Collapse extends React.Component<Props, {}> {
   onItemClick(name: string) {
     this.setState({
       activeName: name
+    }, () => {
+      this.props.onChange(name)
     })
   }
 
