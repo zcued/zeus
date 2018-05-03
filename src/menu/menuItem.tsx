@@ -49,7 +49,7 @@ interface Props {
   className?: string
   isActive?: boolean
   name?: string
-  onClick: any
+  onClick?: any
 }
 
 export default class MenuItem extends React.Component<Props, {}> {
