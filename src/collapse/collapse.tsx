@@ -6,13 +6,16 @@ const CollapseStyled = styled.div`
 `
 
 interface Props {
+  className?: string
   value?: string
+  onChange?: any
 }
 
-export default class Collapse extends React.Component<Props, {}> {
-  state = {
-    activeName: ''
-  }
+interface State {
+  activeName: string
+}
+
+export default class Collapse extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
@@ -24,12 +27,14 @@ export default class Collapse extends React.Component<Props, {}> {
   onItemClick(name: string) {
     this.setState({
       activeName: name
+    }, () => {
+      if (this.props.onChange) this.props.onChange(name)
     })
   }
 
   render() {
     return (
-      <CollapseStyled>
+      <CollapseStyled className={this.props.className}>
         {React.Children.map(this.props.children, (child: any, index: number) => {
           const name = child.props.name || index.toString()
 
