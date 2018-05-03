@@ -46,6 +46,7 @@ const MenuItemStyled = styled.div`
 `
 
 interface Props {
+  className?: string
   isActive?: boolean
   name?: string
   onClick: any
@@ -53,10 +54,10 @@ interface Props {
 
 export default class MenuItem extends React.Component<Props, {}> {
   render() {
-    const { isActive, name, onClick, children } = this.props
+    const { className, isActive, name, onClick, children } = this.props
 
     return (
-      <MenuItemStyled className={isActive ? 'active' : ''} onClick={() => onClick(name)}>
+      <MenuItemStyled className={className + (isActive ? ' active' : '')} onClick={() => onClick(name)}>
         {children}
       </MenuItemStyled>
     )
