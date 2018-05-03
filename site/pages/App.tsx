@@ -16,6 +16,7 @@ const StyledApp = styled.div`
 `
 
 const StyledContainer = styled.div`
+  background: #f0f4f5;
 `
 
 interface AppState {
