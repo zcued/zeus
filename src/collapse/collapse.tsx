@@ -1,48 +1,61 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
+import { shallowEquals } from '../util'
 
 const CollapseStyled = styled.div`
-  background: ${({theme}) => theme.palette.white};
+  background: ${({ theme }) => theme.palette.white};
 `
 
+const toArray = value => {
+  let target = value
+  if (!Array.isArray(target)) {
+    target = target ? [target] : []
+  }
+  return target
+}
+
 interface Props {
+  value?: Array<string>
   className?: string
-  value?: string
   onChange?: any
 }
 
-interface State {
-  activeName: string
-}
+export default class Collapse extends React.Component<Props> {
+  state = {
+    activeKey: toArray(this.props.value)
+  }
 
-export default class Collapse extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      activeName: props.value
+  componentWillReceiveProps(nextProps: Props) {
+    if (!shallowEquals(this.props, nextProps)) {
+      this.setState({ activeKey: toArray(nextProps.value) })
     }
   }
 
-  onItemClick(name: string) {
-    this.setState({
-      activeName: name
-    }, () => {
-      if (this.props.onChange) this.props.onChange(name)
-    })
+  onItemClick(key: string) {
+    let { activeKey } = this.state
+
+    activeKey = toArray(activeKey)
+
+    if (activeKey.indexOf(key) > -1) {
+      this.setState({
+        activeKey: activeKey.filter(k => k !== key)
+      })
+    } else {
+      this.setState({
+        activeKey: activeKey.concat(key)
+      })
+    }
+    if (this.props.onChange) this.props.onChange(key)
   }
 
   render() {
     return (
       <CollapseStyled className={this.props.className}>
-        {React.Children.map(this.props.children, (child: any, index: number) => {
-          const name = child.props.name || index.toString()
-
+        {React.Children.map(this.props.children, (child: any) => {
           return React.cloneElement(child, {
-            isActive: this.state.activeName === name,
-            key: index,
-            name: name,
-            onClick: (item: string) => this.onItemClick(item)
+            isActive: this.state.activeKey.indexOf(child.key) > -1,
+            key: child.key,
+            onClick: () => this.onItemClick(child.key)
           })
         })}
       </CollapseStyled>

@@ -27,7 +27,6 @@ const StyledBadge = styled(Badge)`
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.25rem;
   color: ${T('palette.white')};
   background-color: ${({ theme, color }) => theme.palette[color] || color};
   ${props =>
@@ -37,7 +36,9 @@ const StyledBadge = styled(Badge)`
           padding-left: 0.6em;
           border-radius: 10rem;
         `
-      : null};
+      : css`
+          border-radius: 0.25rem;
+        `};
 `
 
 StyledBadge.defaultProps = {

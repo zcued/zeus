@@ -24,7 +24,7 @@ const Tab: React.SFC<TabProps> = ({ children, selected, ...rest }) => (
 export const StyledTab = styled(Tab)`
   margin: 0 ${T('spacing.md') + 'px'};
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   line-height: 28px;
   font-size: 20px;
