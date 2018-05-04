@@ -15,7 +15,8 @@ const toArray = value => {
 }
 
 interface Props {
-  value?: Array<string>
+  value?: string | Array<string>
+  accordion?: boolean
   className?: string
   onChange?: any
 }
@@ -42,20 +43,23 @@ export default class Collapse extends React.Component<Props> {
       })
     } else {
       this.setState({
-        activeKey: activeKey.concat(key)
+        activeKey: this.props.accordion ? [key] : activeKey.concat(key)
       })
     }
+
     if (this.props.onChange) this.props.onChange(key)
   }
 
   render() {
     return (
       <CollapseStyled className={this.props.className}>
-        {React.Children.map(this.props.children, (child: any) => {
+        {React.Children.map(this.props.children, (child: any, index: number) => {
+          const key = child.key === null ? index.toString() : child.key
+
           return React.cloneElement(child, {
-            isActive: this.state.activeKey.indexOf(child.key) > -1,
-            key: child.key,
-            onClick: () => this.onItemClick(child.key)
+            isActive: this.state.activeKey.indexOf(key) > -1,
+            key: key,
+            onClick: () => this.onItemClick(key)
           })
         })}
       </CollapseStyled>

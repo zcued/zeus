@@ -5,5 +5,5 @@
 
 Simple and elegant component-based UI library
 
-[license-image]:http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
-[license-url]:LICENSE.txt
+[license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
+[license-url]: https://oss.ninja/mit/zcued
