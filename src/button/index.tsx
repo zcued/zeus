@@ -4,7 +4,7 @@ import Spinner from '../spinner'
 import Icon from '../icon'
 import { hexa } from '../globals'
 
-interface ButtonProps {
+interface Props {
   primary?: boolean
   loading?: boolean
   ghost?: boolean
@@ -14,7 +14,7 @@ interface ButtonProps {
   children?: any
 }
 
-const BaseButton: React.SFC<ButtonProps> = ({ children, ...rest }) => <button {...rest}>{children}</button>
+const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest}>{children}</button>
 
 const StyledButton = styled(BaseButton)`
   position: relative;
@@ -73,7 +73,7 @@ const StyledButtonMd = StyledButton.extend`
   line-height: ${({theme}) => theme.font.lineHeight.md}px;
 `
 
-export default ({ children, size, icon, disabled, loading, ...rest }: ButtonProps) => {
+export default ({ children, size, icon, disabled, loading, ...rest }: Props) => {
   const Button = size === 'sm' ? StyledButtonSm : (size === 'md' ? StyledButtonMd : StyledButton)
   return (
     <Button disabled={loading || disabled} {...rest}>

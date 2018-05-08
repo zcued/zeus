@@ -15,11 +15,7 @@ interface CardPorps {
   className?: string
 }
 
-class Card extends React.Component<CardPorps, {}> {
-  constructor(props: CardPorps) {
-    super(props)
-  }
-
+class Card extends React.Component<CardPorps> {
   render() {
     const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, tag, operator } = this.props
 

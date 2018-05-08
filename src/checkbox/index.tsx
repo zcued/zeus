@@ -37,7 +37,6 @@ const Fake = styled.span`
 
 const Label = styled.label`
   display: inline-flex;
-
   align-items: center;
   padding: 10px 0;
   flex: none;
