@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Icon from '../icon'
 import { T } from '../util'
 
-interface Props {
+export interface Props {
   type?: 'warning' | 'success' | 'info' | 'error'
   showIcon?: boolean
   title?: string | JSX.Element

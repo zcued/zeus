@@ -1,23 +1,17 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-// import { T } from '../util'
 
-interface CarouselPorps {
+interface Porps {
   autoPlay?: boolean
   easing?: 'linear' | 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out'
   className?: string
 }
 
-class Carousel extends React.Component<CarouselPorps, {}> {
+class Carousel extends React.Component<Porps> {
   timer = null
   carousel: HTMLElement = null
   state = {
     currentIndex: 0
-  }
-
-  constructor(props: CarouselPorps) {
-    super(props)
-
   }
 
   componentDidMount() {
