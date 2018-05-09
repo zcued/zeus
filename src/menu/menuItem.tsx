@@ -17,9 +17,9 @@ const MenuItemStyled = styled.div`
       right: -40px;
       width: 0;
       height: 0;
-      border: 8px solid transparent;
-      border-top-width: 14px;
-      border-bottom-width: 14px;
+      border: 10px solid transparent;
+      border-top-width: 16px;
+      border-bottom-width: 16px;
       border-right-color:  ${({theme}) => theme.palette.white};
       transform: translateY(-50%);
     }
