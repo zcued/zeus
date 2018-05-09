@@ -37,7 +37,6 @@ const Fake = styled.span`
 
 const Label = styled.label`
   display: inline-flex;
-
   align-items: center;
   padding: 10px 0;
   flex: none;
@@ -54,7 +53,7 @@ class Checkbox extends React.Component<Props> {
     checked: this.props.checked
   }
 
-  handleClick = e => {
+  handleChange = e => {
     const { disabled, onChange } = this.props
     const { checked } = this.state
     this.setState({ checked: !checked })
@@ -72,7 +71,7 @@ class Checkbox extends React.Component<Props> {
         <Label className={className}>
           <Input
             type="checkbox"
-            onClick={this.handleClick}
+            onChange={this.handleChange}
             disabled={disabled}
             name={name}
             value={value}

@@ -15,11 +15,7 @@ interface CardPorps {
   className?: string
 }
 
-class Card extends React.Component<CardPorps, {}> {
-  constructor(props: CardPorps) {
-    super(props)
-  }
-
+class Card extends React.Component<CardPorps> {
   render() {
     const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, tag, operator } = this.props
 
@@ -53,6 +49,7 @@ const CardStyled = styled(Card)`
   border-radius: ${props => (
     props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
   )};
+  transition: all .3s;
 
   img {
     display: block;
@@ -148,6 +145,8 @@ const CardStyled = styled(Card)`
   }
 
   &:hover {
+    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, .16);
+
     .operator {
       opacity: 1;
     }

@@ -3,31 +3,19 @@ import styled from '../theme/styled-components'
 import GridContext from './gridContext'
 import { px } from '../util'
 
-interface ColProps {
+interface Props {
   gutter?: number
   span?: number
   className?: string
 }
 
-class Col extends React.Component<ColProps, {}> {
-  constructor(props: ColProps) {
-    super(props)
-  }
-
-  render() {
-    const { className, children } = this.props
-
-    return (
-      <div className={className}>{children}</div>
-    )
-  }
-}
+const Col: React.SFC<Props> = ({ className, children }) => <div className={className}>{children}</div>
 
 const ColStyled = styled(Col)`
   float: left;
-  margin-bottom: ${props => props.gutter ? px(props.gutter) : ''};
-  padding: ${props => props.gutter ? '0 ' + px(props.gutter / 2) : ''};
-  width: ${props => props.span ? (props.span / 24 * 100 + '%') : '100%'};
+  margin-bottom: ${props => (props.gutter ? px(props.gutter) : '')};
+  padding: ${props => (props.gutter ? '0 ' + px(props.gutter / 2) : '')};
+  width: ${props => (props.span ? props.span / 24 * 100 + '%' : '100%')};
   box-sizing: border-box;
 `
 
@@ -35,7 +23,9 @@ const ColWithContext = props => {
   return (
     <GridContext.Consumer>
       {context => (
-        <ColStyled {...props} {...context}>{props.children}</ColStyled>
+        <ColStyled {...props} {...context}>
+          {props.children}
+        </ColStyled>
       )}
     </GridContext.Consumer>
   )
