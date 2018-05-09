@@ -13,7 +13,7 @@ const spin = keyframes`
   to {transform: rotate(360deg);}
 `
 
-const hasminus = inline => (inline ? '' : '-')
+// const hasminus = inline => (inline ? '' : '-')
 
 const StyledSpinner = styled(Spinner)`
   width: ${props => (props.size ? `${props.size}px` : '32px')};
