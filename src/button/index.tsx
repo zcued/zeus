@@ -37,7 +37,7 @@ const StyledButton = styled(BaseButton)`
   color: ${({ primary, theme }) => (primary ? theme.palette.white : theme.palette.black)};
   background: ${({ primary, theme }) => (primary ? theme.palette.primary : 'transparent')};
   border: 4px solid ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.black)};
-  transition: background .3s;
+  transition: background 0.3s;
 
   &:hover {
     background: ${({ primary, theme }) => (primary ? hexa(theme.palette.primary, 0.8) : theme.palette.daisy)};
@@ -61,23 +61,23 @@ const StyledButton = styled(BaseButton)`
 
 const StyledButtonSm = StyledButton.extend`
   padding: 9px 7px;
-  font-size: ${({theme}) => theme.font.size.sm}px;
+  font-size: ${({ theme }) => theme.font.size.sm}px;
   font-weight: normal;
-  line-height: ${({theme}) => theme.font.lineHeight.sm}px;
+  line-height: ${({ theme }) => theme.font.lineHeight.sm}px;
   border: 1px solid ${({ primary, theme }) => (primary ? 'transparent' : theme.palette.daisy)};
 `
 
 const StyledButtonMd = StyledButton.extend`
   padding: 6px 24px;
-  font-size: ${({theme}) => theme.font.size.md}px;;
-  line-height: ${({theme}) => theme.font.lineHeight.md}px;
+  font-size: ${({ theme }) => theme.font.size.md}px;
+  line-height: ${({ theme }) => theme.font.lineHeight.md}px;
 `
 
 export default ({ children, size, icon, disabled, loading, ...rest }: Props) => {
-  const Button = size === 'sm' ? StyledButtonSm : (size === 'md' ? StyledButtonMd : StyledButton)
+  const Button = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
     <Button disabled={loading || disabled} {...rest}>
-      {icon ? loading ? <Spinner size={16} inline={true} /> : <Icon glyph={icon} /> : ''}
+      {icon ? loading ? <Spinner size={16} inline={true} /> : <Icon glyph={icon} size={16} /> : ''}
       {children}
     </Button>
   )
