@@ -27,7 +27,8 @@ const routes: Routes = {
       carousel: require('./carousel'),
       tag: require('./tag'),
       collapse: require('./collapse'),
-      menu: require('./menu')
+      menu: require('./menu'),
+      icon: require('./icon')
     },
     Nav: {
       tabs: require('./tabs'),
