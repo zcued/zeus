@@ -19,7 +19,7 @@ export const Glyph = ({ glyph }) => {
             d="M2,10 L2,27.8387503 L10,21.4387503 L18,27.8387503 L18,10 L2,10 Z"
             stroke="#1F1F1F"
             fill="none"
-            stroke-width="4"
+            strokeWidth="4"
           />
         </g>
       )
@@ -95,7 +95,7 @@ export const Glyph = ({ glyph }) => {
             <g>
               <circle cx="12.8" cy="11.2" r="3.2" />
               <rect fill="#FFD100" x="6.4" y="20.8" width="12.8" height="3.2" />
-              <rect fill="none" stroke="#1F1F1F" stroke-width="3.2" x="1.6" y="1.6" width="22.4" height="28.8" />
+              <rect fill="none" stroke="#1F1F1F" strokeWidth="3.2" x="1.6" y="1.6" width="22.4" height="28.8" />
             </g>
           </g>
         </g>
@@ -130,7 +130,7 @@ export const Glyph = ({ glyph }) => {
           <path
             d="M8,22 L16,22 L16,21.2410308 L16.9985481,20.6634019 C20.0700304,18.8866453 22,15.6125215 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,15.6125215 3.92996957,18.8866453 7.00145191,20.6634019 L8,21.2410308 L8,22 Z"
             stroke="#1F1F1F"
-            stroke-width="4"
+            strokeWidth="4"
             fill="none"
           />
           <rect fill="#FFD100" x="6" y="28" width="12" height="4" />
@@ -152,7 +152,7 @@ export const Glyph = ({ glyph }) => {
             d="M20.8249744,22.0275317 L29.2609933,6.84710403 L22.5657376,2.83111633 L14.1764773,17.9274029 L15.6084661,23.4797041 L20.8249744,22.0275317 Z"
             fill="none"
             stroke="#1F1F1F"
-            stroke-width="4.07576846"
+            strokeWidth="4.07576846"
           />
           <rect fill="#FFD100" x="0" y="28" width="20" height="4" />
         </g>
@@ -242,7 +242,7 @@ export const Glyph = ({ glyph }) => {
         <g transform="translate(-655.000000, -225.000000)">
           <g transform="translate(655.000000, 227.000000)">
             <g>
-              <polygon fill-rule="nonzero" points="5.33333333 14 0 14 16 0 32 14 26.6666667 14 16 5.05192362" />
+              <polygon fillRule="nonzero" points="5.33333333 14 0 14 16 0 32 14 26.6666667 14 16 5.05192362" />
               <rect fill="#FFD100" x="8" y="24" width="16" height="4" />
             </g>
           </g>

@@ -12,16 +12,16 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             title="我是标题啊"
             subTitle="此文案"
-            tag={<div style={{background: 'yellow'}}>hhh</div>}
+            tag={<div style={{background: '#ffd100'}}>hhh</div>}
             operator={<div>a</div>}
           />
         </Col>
         <Col span={6}>
           <Card
-            imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+            imgSrc="http://ali.image.hellorf.com/images/c1a0d418041d136843dd8b581c33a41c.jpeg"
             imgAlt="baocuo"
             titlePosition="bottom"
-            tag={<div style={{background: 'yellow'}}>hhh</div>}
+            tag={<div style={{background: '#ffd100'}}>hhh</div>}
             title="我是标题啊我是标题啊我是标题啊我是标题啊我是标题啊"
           />
         </Col>
@@ -48,7 +48,7 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             title="我是标题啊"
             subTitle="此文案"
-            tag={<div style={{background: 'yellow'}}>hhh</div>}
+            tag={<div style={{background: '#ffd100'}}>hhh</div>}
             operator={<div>a</div>}
           />
         </Col>
@@ -58,7 +58,7 @@ export default class Page extends React.Component {
             imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
             imgAlt="baocuo"
             titlePosition="bottom"
-            tag={<div style={{background: 'yellow'}}>hhh</div>}
+            tag={<div style={{background: '#ffd100'}}>hhh</div>}
             title="我是标题啊我是标题啊我是标题啊我是标题啊我是标题啊"
           />
         </Col>
