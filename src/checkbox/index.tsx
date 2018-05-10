@@ -33,6 +33,10 @@ const Fake = styled.span`
   &[aria-checked='true'] {
     border-color: ${T('palette.primary')};
   }
+
+  &.disabled {
+    background: ${({ theme }) => theme.palette.daisy};
+  }
 `
 
 const Label = styled.label`
@@ -40,12 +44,25 @@ const Label = styled.label`
   align-items: center;
   padding: 10px 0;
   flex: none;
+  color: ${T('palette.spruce')};
   cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    color: ${T('palette.primary')};
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      color: ${T('palette.spruce')};
+    }
+  }
 `
 
 const Text = styled.span`
   margin-left: 10px;
-  color: ${T('palette.spruce')};
 `
 
 class Checkbox extends React.Component<Props> {
@@ -68,7 +85,7 @@ class Checkbox extends React.Component<Props> {
     const { checked } = this.state
     return (
       <React.Fragment>
-        <Label className={className}>
+        <Label className={disabled ? `${className} disabled` : className}>
           <Input
             type="checkbox"
             onChange={this.handleChange}
@@ -78,8 +95,8 @@ class Checkbox extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake aria-checked={checked} />
-          {label ? typeof label === 'string' ? <Text className="text">{label}</Text> : label : null}
+          <Fake className={disabled ? 'disabled' : ''} aria-checked={checked} />
+          {label ? typeof label === 'string' ? <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text> : label : null}
         </Label>
         {extra}
       </React.Fragment>
