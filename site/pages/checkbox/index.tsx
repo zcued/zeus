@@ -25,6 +25,7 @@ export default class Page extends React.Component {
   }
 
   render() {
+    const { checked } = this.state
     const keyWords = ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
     console.log(this.state.checked)
 
@@ -33,10 +34,11 @@ export default class Page extends React.Component {
         {keyWords.map((item, index) => {
           return (
             <Checkbox
-              checked={this.state.checked.includes(item)}
+              checked={checked.includes(item)}
               key={index}
               label={item}
               value={item}
+              disabled={checked.length >= 2 && !checked.includes(item)}
               onChange={this.changeCheckbox}
             />
           )
