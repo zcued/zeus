@@ -25,12 +25,17 @@ export default class Page extends React.Component {
         <Icon glyph="pause" />
         <Icon glyph="play" />
         <Icon glyph="plus" />
+        <Icon glyph="minus" />
         <Icon glyph="question" />
         <Icon glyph="refresh" />
         <Icon glyph="search" />
         <Icon glyph="top" />
         <Icon glyph="warning" />
         <Icon glyph="grow" />
+        <Icon glyph="rmb" />
+        <Icon glyph="invoice" />
+        <Icon glyph="download-image" />
+        <Icon glyph="certificate" />
       </React.Fragment>
     )
   }
