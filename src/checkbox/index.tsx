@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 import { Transition } from '../globals'
 import { T } from '../util'
 
@@ -46,7 +46,7 @@ const Label = styled.label`
   flex: none;
   color: ${T('palette.spruce')};
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &:hover {
     color: ${T('palette.primary')};
@@ -96,7 +96,13 @@ class Checkbox extends React.Component<Props> {
             aria-checked={checked}
           />
           <Fake className={disabled ? 'disabled' : ''} aria-checked={checked} />
-          {label ? typeof label === 'string' ? <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text> : label : null}
+          {label ? (
+            typeof label === 'string' ? (
+              <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text>
+            ) : (
+              label
+            )
+          ) : null}
         </Label>
         {extra}
       </React.Fragment>

@@ -1,12 +1,12 @@
 /* tslint:disable */
 
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 
 interface Props {
+  glyph: string
   size?: number
   onClick?: Function
-  glyph: string
 }
 
 export const Glyph = ({ glyph }) => {
@@ -211,7 +211,7 @@ export const Glyph = ({ glyph }) => {
     case 'minus':
       return (
         <g>
-          <path d="M0 12.8h32v6.4H0z" fill="#1F1F1F" fillRule="evenodd"/>
+          <path d="M0 12.8h32v6.4H0z" fill="#1F1F1F" fillRule="evenodd" />
         </g>
       )
     case 'question':
@@ -318,16 +318,14 @@ const StyledSvgWrapper = styled(SvgWrapper)`
 `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
-  <StyledSvgWrapper size={size} {...rest}>
+  <StyledSvgWrapper aria-roles="icon" size={size} {...rest}>
     <InlineSvg
       fillRule="evenodd"
       clipRule="evenodd"
       strokeLinejoin="round"
       strokeMiterlimit="1.414"
       xmlns="http://www.w3.org/2000/svg"
-      aria-labelledby="title"
       viewBox="0 0 32 32"
-      preserveAspectRatio="xMidYMid meet"
       id={glyph}
     >
       <title>{glyph}</title>

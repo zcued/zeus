@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 import Input from '../input'
 import { T } from '../util'
 
