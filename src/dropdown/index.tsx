@@ -1,15 +1,20 @@
 import * as React from 'react'
+import Icon from '../icon'
 import { StyledClickOutSide, Button, PoppersContainer } from './style'
 
 interface Props {
   trigger?: 'hover' | 'click'
   text?: string
   className?: string
+  icon?: string
+  iconSize?: number
 }
 
 class Dropdown extends React.Component<Props> {
   static defaultProps = {
-    trigger: 'hover'
+    trigger: 'hover',
+    icon: 'angle-down',
+    iconSize: 10
   }
 
   state = {
@@ -39,13 +44,16 @@ class Dropdown extends React.Component<Props> {
   }
 
   render() {
+    const { className, text, icon, iconSize, children } = this.props
+
     return (
       <StyledClickOutSide onClick={this.handleClickOutSide}>
-        <div className={this.props.className} onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter}>
+        <div className={className} onMouseLeave={this.handleMouseLeave} onMouseEnter={this.handleMouseEnter}>
           <Button type="button" aria-expanded={this.state.show} onClick={this.handleClick}>
-            {this.props.text}
+            {text}
+            <Icon glyph={icon} aira-role="icon" size={iconSize} />
           </Button>
-          {this.state.show ? <PoppersContainer>{this.props.children}</PoppersContainer> : null}
+          {this.state.show ? <PoppersContainer>{children}</PoppersContainer> : null}
         </div>
       </StyledClickOutSide>
     )

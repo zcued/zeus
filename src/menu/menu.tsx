@@ -1,14 +1,14 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 
 const MenuStyled = styled.div`
   margin-right: 40px;
   padding: 24px 0;
   width: 212px;
-  font-size: ${({theme}) => theme.font.size.md}px;
+  font-size: ${({ theme }) => theme.font.size.md}px;
   line-height: 28px;
   text-align: center;
-  background: ${({theme}) => theme.palette.white};
+  background: ${({ theme }) => theme.palette.white};
 `
 
 interface Props {
@@ -31,11 +31,14 @@ export default class Menu extends React.Component<Props, State> {
   }
 
   onItemClick(name: string) {
-    this.setState({
-      activeName: name
-    }, () => {
-      if (this.props.onChange) this.props.onChange(name)
-    })
+    this.setState(
+      {
+        activeName: name
+      },
+      () => {
+        if (this.props.onChange) this.props.onChange(name)
+      }
+    )
   }
 
   render() {

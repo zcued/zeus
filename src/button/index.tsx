@@ -9,6 +9,7 @@ interface Props {
   loading?: boolean
   disabled?: boolean
   icon?: string
+  iconSize?: number
   size?: 'sm' | 'md'
   children?: any
 }
@@ -33,55 +34,42 @@ const StyledButton = styled(BaseButton)`
   font-size: 16px;
   font-weight: ${({ theme }) => theme.font.weight.bold};
   line-height: 1;
-  color: ${({ type, theme }) => (
-    type === 'primary'
-      ? theme.palette.white
-      : (type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black)
-  )};
+  color: ${({ type, theme }) =>
+    type === 'primary' ? theme.palette.white : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black};
   background: ${({ type, theme }) => (type === 'primary' ? theme.palette.primary : 'transparent')};
-  border: 4px solid ${({ type, theme }) => (
-    type === 'primary'
-      ? 'transparent'
-      : (type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black)
-  )};
+  border: 4px solid
+    ${({ type, theme }) =>
+      type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black};
   transition: all 0.3s;
 
   &:hover {
     color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
-    background: ${({ type, theme }) => (
-      type === 'primary'
-        ? hexa(theme.palette.primary, 0.8)
-        : (type === 'ghost' ? 'transparent' : theme.palette.daisy)
-    )};
+    background: ${({ type, theme }) =>
+      type === 'primary' ? hexa(theme.palette.primary, 0.8) : type === 'ghost' ? 'transparent' : theme.palette.daisy};
     border-color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
   }
 
   &:active {
     color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
-    background: ${({ type, theme }) => (
+    background: ${({ type, theme }) =>
       type === 'primary'
         ? hexa(theme.palette.primary, 0.6)
-        : (type === 'ghost' ? hexa(theme.palette.white, 0.3) : hexa('#000000', 0.08))
-    )};
+        : type === 'ghost'
+          ? hexa(theme.palette.white, 0.3)
+          : hexa('#000000', 0.08)};
     border-color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
   }
 
   &[disabled] {
-    color: ${({ type, theme }) => (
+    color: ${({ type, theme }) =>
       type === 'primary'
         ? theme.palette.white
-        : (type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost)
-    )};
-    background: ${({ type, theme }) => (
-      type === 'primary'
-        ? theme.palette.stone
-        : 'transparent'
-    )};
-    border-color: ${({ type, theme }) => (
-      type === 'primary'
-        ? 'transparent'
-        : (type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost)
-    )};
+        : type === 'ghost'
+          ? hexa(theme.palette.white, 0.16)
+          : theme.palette.frost};
+    background: ${({ type, theme }) => (type === 'primary' ? theme.palette.stone : 'transparent')};
+    border-color: ${({ type, theme }) =>
+      type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     cursor: not-allowed;
   }
 
@@ -92,61 +80,40 @@ const StyledButton = styled(BaseButton)`
 `
 
 const StyledButtonSm = StyledButton.extend`
+  font-size: ${({ theme }) => theme.font.size.sm}px;
   padding: 11px 24px;
   font-weight: ${({ theme }) => theme.font.weight.normal};
-  border: 1px solid ${({ type, theme }) => (
-    type === 'primary'
-      ? 'transparent'
-      : (type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.daisy)
-  )};
+  border: 1px solid
+    ${({ type, theme }) =>
+      type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.daisy};
 
   &:hover {
     color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
-    background: ${({ type, theme }) => (
-      type === 'primary'
-        ? hexa(theme.palette.primary, 0.8)
-        : 'transparent'
-    )};
-    border-color: ${({ type, theme }) => (
-      type === 'primary'
-        ? 'transparent'
-        : (type === 'ghost' ? theme.palette.white : theme.palette.stone)
-    )};
+    background: ${({ type, theme }) => (type === 'primary' ? hexa(theme.palette.primary, 0.8) : 'transparent')};
+    border-color: ${({ type, theme }) =>
+      type === 'primary' ? 'transparent' : type === 'ghost' ? theme.palette.white : theme.palette.stone};
   }
 
   &:active {
     color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
-    background: ${({ type, theme }) => (
+    background: ${({ type, theme }) =>
       type === 'primary'
         ? hexa(theme.palette.primary, 0.6)
-        : (type === 'ghost' ? hexa(theme.palette.white, 0.3) : 'transparent')
-    )};
+        : type === 'ghost'
+          ? hexa(theme.palette.white, 0.3)
+          : 'transparent'};
     border-color: ${({ theme }) => theme.palette.black};
-    border-color: ${({ type, theme }) => (
-      type === 'primary'
-        ? 'transparent'
-        : (type === 'ghost' ? theme.palette.white : '')
-    )};
+    border-color: ${({ type, theme }) =>
+      type === 'primary' ? 'transparent' : type === 'ghost' ? theme.palette.white : ''};
   }
 
   &[disabled] {
-    color: ${({ type, theme }) => (
-      type === 'ghost'
-        ? hexa(theme.palette.white, 0.16)
-        : ''
-    )};
-    background: ${({ type, theme }) => (
-      type === 'primary'
-        ? theme.palette.stone
-        : 'transparent'
-    )};
+    color: ${({ type, theme }) => (type === 'ghost' ? hexa(theme.palette.white, 0.16) : '')};
+    background: ${({ type, theme }) => (type === 'primary' ? theme.palette.stone : 'transparent')};
 
     &:hover {
-      border-color: ${({ type, theme }) => (
-        type === 'primary'
-          ? 'transparent'
-          : (type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost)
-      )};
+      border-color: ${({ type, theme }) =>
+        type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     }
   }
 `
@@ -156,15 +123,11 @@ const StyledButtonMd = StyledButton.extend`
   font-size: ${({ theme }) => theme.font.size.md}px;
 `
 
-export default ({ children, size, icon, disabled, loading, ...rest }: Props) => {
+export default ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
   const Button = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
     <Button disabled={loading || disabled} {...rest}>
-      {
-        loading
-          ? <Spinner size={16} inline={true} />
-          : (icon ? <Icon glyph={icon} size={16} /> : null)
-      }
+      {loading ? <Spinner size={16} inline={true} /> : icon ? <Icon glyph={icon} size={iconSize} /> : null}
       {children}
     </Button>
   )
