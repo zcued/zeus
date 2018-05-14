@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 
 const MenuItemStyled = styled.div`
   position: relative;
