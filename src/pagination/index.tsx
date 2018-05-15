@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Icon from '../icon'
 import { noop } from '../globals'
 import { JumperInput, UL, LI, Count } from './style'
 
@@ -69,13 +70,17 @@ class Pagination extends React.Component<Props> {
     return (
       <UL className={className}>
         <LI onClick={this.prev} role="prev">
-          <button disabled={current === 1}>&lt;</button>
+          <button disabled={current === 1}>
+            <Icon glyph="angle-left" size={10} />
+          </button>
         </LI>
         <LI>
           <JumperInput type="text" onKeyUp={this.handleKeyUp} value={currentInput} onChange={this.handleChange} />
         </LI>
         <LI onClick={this.next} role="next">
-          <button disabled={current === total}>&gt;</button>
+          <button disabled={current === total}>
+            <Icon glyph="angle-right" size={10} />
+          </button>
         </LI>
         <LI>
           总页数<Count>{total}</Count>页

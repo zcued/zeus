@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from '../theme/styled-components'
 import ClickOutSide from './click-outside'
 import { zIndex } from '../globals'
 import { T } from '../util'
@@ -15,6 +15,10 @@ export const Button = styled.button`
   outline: none;
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
+
+  & > [aira-role='icon'] {
+    margin-left: ${T('spacing.xs')}px;
+  }
 `
 
 export const fadeIn = keyframes`
