@@ -18,5 +18,6 @@ export { default as Spinner } from './spinner'
 export { default as Table } from './table'
 export { StyledTabs as Tabs, StyledTab as Tab } from './tabs'
 export { default as Toast } from './toast'
+export { default as Tooltip } from './tooltip'
 
 export { default as Provider } from './provider'
