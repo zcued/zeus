@@ -31,6 +31,7 @@ export default class Page extends React.Component {
         <Icon glyph="search" />
         <Icon glyph="top" />
         <Icon glyph="warning" />
+        <Icon glyph="zoom-in" />
         <Icon glyph="grow" />
         <Icon glyph="rmb" />
         <Icon glyph="invoice" />
