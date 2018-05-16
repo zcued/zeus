@@ -2,51 +2,74 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 
 interface Props {
-  head: Array<string>
+  columns: Array<Object>
+  data: Array<Object>
 }
 
 const TableWrapper = styled.table`
   width: 100%;
   text-align: left;
-  margin: 40px 0;
+  border-spacing: 0;
 `
 
 const TableHead = styled.thead`
-  border-bottom: 2px solid rgba(20, 20, 20, 0.1);
+  color: ${({ theme }) => theme.palette.white};
+  background: #2e3139;
+`
+
+const TableBody = styled.thead`
+  color: ${({ theme }) => theme.palette.spruce};
+  background: ${({ theme }) => theme.palette.white};
 `
 
 export const Row = styled.tr`
-  padding: 0 20px;
-  padding-left: 0;
-  &:not(:last-child) {
-    border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+  &:nth-child(even) {
+    background: ${({ theme }) => theme.palette.daisy};
   }
 `
 
 export const Column = styled.td`
-  font-weight: normal;
-  padding: 10px 12px;
-  padding-left: 0;
+  padding: 14px 24px;
+  border-left: 2px solid ${({ theme }) => theme.palette.daisy};
+  border-bottom: 2px solid ${({ theme }) => theme.palette.daisy};
+  box-sizing: border-box;
+
+  &:last-child {
+    border-right: 2px solid ${({ theme }) => theme.palette.daisy};
+  }
 `
 
 const TableHeadColumn = Column.withComponent('th').extend`
-  text-transform: uppercase;
-  font-size: 85%;
-  opacity: 0.8;
+  font-weight: ${({ theme }) => theme.font.weight.bold};
+  border-color: #2e3139;
+
+  &:last-child {
+    border-color: #2e3139;
+  }
 `
 
-const Table: React.SFC<Props> = ({ head, children }) => (
+const Table: React.SFC<Props> = ({ columns, data }) => (
   <TableWrapper>
     <TableHead>
-      <tr>
-        {head.map((text, i) => (
-          <TableHeadColumn key={i} title={text}>
-            {text}
+      <Row>
+        {columns.map((item: any, index: number) => (
+          <TableHeadColumn key={item.key || index} style={{ textAlign: item.align, width: item.width ? item.width + 'px' : '' }}>
+            {item.title}
           </TableHeadColumn>
         ))}
-      </tr>
+      </Row>
     </TableHead>
-    <tbody>{children}</tbody>
+    <TableBody>
+      {data.map((item: any) => (
+        <Row key={item.key}>
+          {columns.map((column: any, index: number) => (
+            <Column key={column.key || index} style={{ textAlign: column.align, width: column.width ? column.width + 'px' : '' }}>
+              {column.render ? column.render(item[column.dataIndex], column, index) : item[column.dataIndex]}
+            </Column>
+          ))}
+        </Row>
+      ))}
+    </TableBody>
   </TableWrapper>
 )
 
