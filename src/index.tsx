@@ -17,5 +17,6 @@ export { Row, Col } from './grid'
 export { default as Spinner } from './spinner'
 export { StyledTabs as Tabs, StyledTab as Tab } from './tabs'
 export { default as Toast } from './toast'
+export { default as Tooltip } from './tooltip'
 
 export { default as Provider } from './provider'

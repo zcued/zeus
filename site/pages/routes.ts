@@ -29,7 +29,8 @@ const routes: Routes = {
       collapse: require('./collapse'),
       menu: require('./menu'),
       icon: require('./icon'),
-      checkbox: require('./checkbox')
+      checkbox: require('./checkbox'),
+      tooltip: require('./tooltip')
     },
     Nav: {
       tabs: require('./tabs'),
