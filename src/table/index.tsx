@@ -4,6 +4,7 @@ import styled from '../theme/styled-components'
 interface Props {
   columns: Array<Object>
   data: Array<Object>
+  className?: string
 }
 
 const TableWrapper = styled.table`
@@ -17,7 +18,7 @@ const TableHead = styled.thead`
   background: #2e3139;
 `
 
-const TableBody = styled.thead`
+const TableBody = styled.tbody`
   color: ${({ theme }) => theme.palette.spruce};
   background: ${({ theme }) => theme.palette.white};
 `
@@ -48,8 +49,8 @@ const TableHeadColumn = Column.withComponent('th').extend`
   }
 `
 
-const Table: React.SFC<Props> = ({ columns, data }) => (
-  <TableWrapper>
+const Table: React.SFC<Props> = ({ columns, data, className }) => (
+  <TableWrapper className={className}>
     <TableHead>
       <Row>
         {columns.map((item: any, index: number) => (

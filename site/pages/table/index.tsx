@@ -11,6 +11,10 @@ const SpanDisabled = styled.span`
   color: ${({ theme }) => theme.palette.stone};
 `
 
+const TableStyled = styled(Table)`
+  margin-top: 20px;
+`
+
 export default class Page extends React.Component {
   render() {
     const columns = [{
@@ -57,7 +61,7 @@ export default class Page extends React.Component {
     return (
       <React.Fragment>
         <div style={{ padding: '10px', background: '#fff' }}>
-          <Table columns={columns} data={data} />
+          <TableStyled columns={columns} data={data} />
         </div>
       </React.Fragment>
     )
