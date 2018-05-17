@@ -48,7 +48,7 @@ class Tooltip extends React.Component<Props, State> {
               </ReferenceContainer>
             )}
           </Reference>
-          {/* {isHovering && ( */}
+          {isHovering && (
             <Portal>
               <Popper placement={placement}>
                 {({ ref, style }) => (
@@ -65,7 +65,7 @@ class Tooltip extends React.Component<Props, State> {
                 )}
               </Popper>
             </Portal>
-          {/* )} */}
+          )}
         </Manager>
       </span>
     )
