@@ -17,6 +17,7 @@ interface Props {
     | 'top-start'
     | 'top'
   title: JSX.Element
+  className?: string
 }
 
 interface State {
@@ -25,6 +26,7 @@ interface State {
 
 class Tooltip extends React.Component<Props, State> {
   state = { isHovering: false }
+
   handleEnter = () => {
     this.setState({ isHovering: true })
   }
@@ -35,28 +37,35 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isHovering } = this.state
-    const { placement, children, title } = this.props
+    const { placement, children, title, className } = this.props
     return (
-      <Manager>
-        <Reference>
-          {({ ref }) => (
-            <ReferenceContainer innerRef={ref} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
-              {children}
-            </ReferenceContainer>
+      <span onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+        <Manager>
+          <Reference>
+            {({ ref }) => (
+              <ReferenceContainer innerRef={ref}>
+                {children}
+              </ReferenceContainer>
+            )}
+          </Reference>
+          {isHovering && (
+            <Portal>
+              <Popper placement={placement}>
+                {({ ref, style }) => (
+                  <ToolTipContainer
+                    className={className}
+                    innerRef={ref}
+                    style={style}
+                    data-placement={placement}
+                  >
+                    {title}
+                  </ToolTipContainer>
+                )}
+              </Popper>
+            </Portal>
           )}
-        </Reference>
-        {isHovering && (
-          <Portal>
-            <Popper placement={placement}>
-              {({ ref, style }) => (
-                <ToolTipContainer innerRef={ref} style={style} data-placement={placement}>
-                  {title}
-                </ToolTipContainer>
-              )}
-            </Popper>
-          </Portal>
-        )}
-      </Manager>
+        </Manager>
+      </span>
     )
   }
 }

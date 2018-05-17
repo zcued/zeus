@@ -11,9 +11,10 @@ const fadeIn = keyframes`
 `
 
 export const ToolTipContainer = styled.div`
-  color: ${T('palette.white')};
-  background-color: ${T('palette.black30')};
-  padding: 4px 8px;
+  padding: 8px;
+  font-size: ${T('font.size.sm')}px;
+  background-color: ${T('palette.white')};
+  box-shadow: 0 2px 8px ${T('palette.black16')};
   animation: 0.3s ${fadeIn} ease-out;
 `
 
