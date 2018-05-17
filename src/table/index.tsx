@@ -61,10 +61,10 @@ const Table: React.SFC<Props> = ({ columns, data, className }) => (
       </Row>
     </TableHead>
     <TableBody>
-      {data.map((item: any) => (
+      {data.map((item: any, index: number) => (
         <Row key={item.key}>
-          {columns.map((column: any, index: number) => (
-            <Column key={column.key || index} style={{ textAlign: column.align, width: column.width ? column.width + 'px' : '' }}>
+          {columns.map((column: any, idx: number) => (
+            <Column key={column.key || idx} style={{ textAlign: column.align, width: column.width ? column.width + 'px' : '' }}>
               {column.render ? column.render(item[column.dataIndex], column, index) : item[column.dataIndex]}
             </Column>
           ))}
