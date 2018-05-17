@@ -47,5 +47,5 @@ export const LI = styled.li`
 export const Count = styled.span`
   color: ${T('palette.black')};
   margin: 0 4px;
-  font-family: Futura-Medium;
+  font-family: Futura, ${T('font.family')};
 `
