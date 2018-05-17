@@ -17,6 +17,7 @@ interface Props {
     | 'top-start'
     | 'top'
   title: JSX.Element
+  className?: string
 }
 
 interface State {
@@ -25,6 +26,7 @@ interface State {
 
 class Tooltip extends React.Component<Props, State> {
   state = { isHovering: false }
+
   handleEnter = () => {
     this.setState({ isHovering: true })
   }
@@ -35,7 +37,7 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isHovering } = this.state
-    const { placement, children, title } = this.props
+    const { placement, children, title, className } = this.props
     return (
       <Manager>
         <Reference>
@@ -49,7 +51,14 @@ class Tooltip extends React.Component<Props, State> {
           <Portal>
             <Popper placement={placement}>
               {({ ref, style }) => (
-                <ToolTipContainer innerRef={ref} style={style} data-placement={placement}>
+                <ToolTipContainer
+                  className={className}
+                  innerRef={ref}
+                  style={style}
+                  data-placement={placement}
+                  onMouseEnter={this.handleEnter}
+                  onMouseLeave={this.handleLeave}
+                >
                   {title}
                 </ToolTipContainer>
               )}
