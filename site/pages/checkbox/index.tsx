@@ -5,7 +5,8 @@ import { Checkbox } from '../../../src'
 
 export default class Page extends React.Component {
   state = {
-    checked: ['关键词1', '关键词2']
+    checked: ['关键词1', '关键词2'],
+    selected: null
   }
 
   changeCheckbox = (checked, e) => {
@@ -24,10 +25,22 @@ export default class Page extends React.Component {
     }
   }
 
+  changeCheckboxes = (checked, e) => {
+    if (checked) {
+      this.setState({
+        selected: Number(e.target.value)
+      })
+    } else {
+      this.setState({
+        selected: null
+      })
+    }
+  }
+
   render() {
-    const { checked } = this.state
+    const { checked, selected } = this.state
     const keyWords = ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
-    console.log(this.state.checked)
+    const checkboxes = ['关键词1', '关键词2', '关键词3', '关键词4', '关键词5']
 
     return (
       <div>
@@ -43,6 +56,20 @@ export default class Page extends React.Component {
             />
           )
         })}
+        <p>
+          {checkboxes.map((item, index) => {
+            console.log(selected)
+            return (
+              <Checkbox
+                checked={index === selected}
+                key={index}
+                label={item}
+                value={index}
+                onChange={this.changeCheckboxes}
+              />
+            )
+          })}
+        </p>
       </div>
     )
   }
