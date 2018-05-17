@@ -11,6 +11,12 @@ export default class Page extends React.Component {
         <Tooltip placement="top" title={<a href="/">asdfasdfasdf</a>}>
           <span>asdfasdfasdf</span>
         </Tooltip>
+        <Tooltip placement="bottom-end" title={<a href="/">asdfasdfasdf</a>}>
+          <span>asdfasdfasdf</span>
+        </Tooltip>
+        <Tooltip placement="right-start" title={<a href="/">asdfasdfasdf</a>}>
+          <span>asdfasdfasdf</span>
+        </Tooltip>
       </React.Fragment>
     )
   }
