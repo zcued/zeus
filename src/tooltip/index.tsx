@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Portal from '../portal'
 import { Manager, Popper, Reference } from 'react-popper'
-import { ToolTipContainer, ReferenceContainer } from './style'
+import { ToolTipContainer, ToolTipContent, ReferenceContainer } from './style'
 interface Props {
   placement:
     | 'bottom-end'
@@ -48,7 +48,7 @@ class Tooltip extends React.Component<Props, State> {
               </ReferenceContainer>
             )}
           </Reference>
-          {isHovering && (
+          {/* {isHovering && ( */}
             <Portal>
               <Popper placement={placement}>
                 {({ ref, style }) => (
@@ -58,12 +58,14 @@ class Tooltip extends React.Component<Props, State> {
                     style={style}
                     data-placement={placement}
                   >
-                    {title}
+                    <ToolTipContent>
+                      {title}
+                    </ToolTipContent>
                   </ToolTipContainer>
                 )}
               </Popper>
             </Portal>
-          )}
+          {/* )} */}
         </Manager>
       </span>
     )
