@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Portal from '../portal'
 import { Manager, Popper, Reference } from 'react-popper'
-import { ToolTipContainer, ToolTipContent, ReferenceContainer } from './style'
+import { ToolTipContainer, ReferenceContainer } from './style'
 interface Props {
   placement:
     | 'bottom-end'
@@ -26,20 +26,24 @@ interface State {
 
 class Tooltip extends React.Component<Props, State> {
   state = { isHovering: false }
+  timer = null
 
   handleEnter = () => {
+    clearTimeout(this.timer)
     this.setState({ isHovering: true })
   }
 
   handleLeave = () => {
-    this.setState({ isHovering: false })
+    this.timer = setTimeout(() => {
+      this.setState({ isHovering: false })
+    }, 300)
   }
 
   render() {
     const { isHovering } = this.state
     const { placement, children, title, className } = this.props
     return (
-      <span onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <div style={{ display: 'inline-block' }}  onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Manager>
           <Reference>
             {({ ref }) => (
@@ -58,16 +62,14 @@ class Tooltip extends React.Component<Props, State> {
                     style={style}
                     data-placement={placement}
                   >
-                    <ToolTipContent>
-                      {title}
-                    </ToolTipContent>
+                    {title}
                   </ToolTipContainer>
                 )}
               </Popper>
             </Portal>
           )}
         </Manager>
-      </span>
+      </div>
     )
   }
 }
