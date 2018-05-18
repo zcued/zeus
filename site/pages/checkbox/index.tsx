@@ -48,10 +48,10 @@ export default class Page extends React.Component {
           return (
             <Checkbox
               checked={checked.includes(item)}
+              disabled={true}
               key={index}
               label={item}
               value={item}
-              disabled={checked.length >= 2 && !checked.includes(item)}
               onChange={this.changeCheckbox}
             />
           )
