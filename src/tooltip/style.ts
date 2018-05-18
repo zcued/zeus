@@ -16,6 +16,22 @@ export const ToolTipContainer = styled.div`
   background-color: ${T('palette.white')};
   box-shadow: 0 2px 8px ${T('palette.black16')};
   animation: 0.3s ${fadeIn} ease-out;
+
+  &[data-placement|=top] {
+    margin-bottom: 8px;
+  }
+
+  &[data-placement|=right] {
+    margin-left: 8px;
+  }
+
+  &[data-placement|=bottom] {
+    margin-top: 8px;
+  }
+
+  &[data-placement|=left] {
+    margin-right: 8px;
+  }
 `
 
 export const ReferenceContainer = styled.div`
