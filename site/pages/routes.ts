@@ -31,6 +31,7 @@ const routes: Routes = {
       icon: require('./icon'),
       checkbox: require('./checkbox'),
       tooltip: require('./tooltip'),
+      toast: require('./toast'),
       table: require('./table')
     },
     Nav: {
