@@ -34,7 +34,7 @@ export const Fake = styled.span`
     background: ${({ theme }) => theme.palette.daisy};
   }
 
-  svg {
+  & > svg {
     display: none;
     position: absolute;
     top: 0px;
