@@ -44,6 +44,10 @@ const Fake = styled.span`
 
   &.disabled {
     background: ${({ theme }) => theme.palette.daisy};
+
+    &[aria-checked='true'] {
+      background: ${({ theme }) => theme.palette.primary};
+    }
   }
 
   svg {
@@ -67,6 +71,10 @@ const Label = styled.label`
 
   &:hover {
     color: ${T('palette.primary')};
+
+    ${Fake} {
+      border-color: ${T('palette.primary')};
+    }
   }
 
   &.disabled {
@@ -74,6 +82,14 @@ const Label = styled.label`
 
     &:hover {
       color: ${T('palette.spruce')};
+
+      ${Fake} {
+        border-color: ${T('palette.frost')};
+
+        &[aria-checked='true'] {
+          border-color: ${T('palette.primary')};
+        }
+      }
     }
   }
 `
