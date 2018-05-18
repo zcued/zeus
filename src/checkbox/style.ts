@@ -21,6 +21,15 @@ export const Fake = styled.span`
   box-sizing: border-box;
   transition: ${Transition.reaction.on};
 
+  & > svg {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+  }
+
   &[aria-checked='true'] {
     border-color: ${T('palette.primary')};
     background: ${T('palette.primary')};
@@ -32,15 +41,6 @@ export const Fake = styled.span`
 
   &.disabled {
     background: ${({ theme }) => theme.palette.daisy};
-  }
-
-  & > svg {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: -1px;
-    width: 10px;
-    height: 10px;
   }
 `
 
