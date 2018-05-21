@@ -37,6 +37,9 @@ export default class Page extends React.Component {
         <Icon glyph="invoice" />
         <Icon glyph="download-image" />
         <Icon glyph="certificate" />
+        <Icon glyph="download-plus" />
+        <Icon glyph="manage-plus" />
+        <Icon glyph="share-plus" />
       </React.Fragment>
     )
   }
