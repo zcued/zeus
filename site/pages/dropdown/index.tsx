@@ -3,11 +3,16 @@ import { Dropdown } from '../../../src'
 
 export default class Page extends React.Component {
   state = {
-    isOpen: false
+    isOpenClick: false,
+    isOpenHover: false
   }
 
-  handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen })
+  handleToggleClick = () => {
+    this.setState({ isOpenClick: !this.state.isOpenClick })
+  }
+
+  handleToggleHover = () => {
+    this.setState({ isOpenHover: !this.state.isOpenHover })
   }
 
   render() {
@@ -23,7 +28,16 @@ export default class Page extends React.Component {
           <div>456456</div>
         </Dropdown>
 
-        <Dropdown text="Controled dropdown" isOpen={this.state.isOpen} onClick={this.handleToggle} trigger="click">
+        <Dropdown
+          text="Controled click dropdown"
+          isOpen={this.state.isOpenClick}
+          onToggle={this.handleToggleClick}
+          trigger="click"
+        >
+          <div>123123</div>
+          <div>456456</div>
+        </Dropdown>
+        <Dropdown text="Controled hover dropdown" isOpen={this.state.isOpenHover} onToggle={this.handleToggleHover}>
           <div>123123</div>
           <div>456456</div>
         </Dropdown>

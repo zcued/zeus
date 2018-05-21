@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { noop } from '../globals'
 import Icon from '../icon'
 import { StyledClickOutSide, Button, PoppersContainer } from './style'
 
@@ -9,14 +10,15 @@ interface Props {
   icon?: string
   iconSize?: number
   isOpen?: boolean
-  onClick?: Function
+  onToggle?: Function
 }
 
 class Dropdown extends React.Component<Props> {
   static defaultProps = {
     trigger: 'hover',
     icon: 'angle-down',
-    iconSize: 10
+    iconSize: 10,
+    onToggle: noop
   }
 
   state = {
@@ -25,8 +27,8 @@ class Dropdown extends React.Component<Props> {
 
   isControl: boolean = this.props.hasOwnProperty('isOpen')
 
-  getDerivedStateFromProps(nextProps: Props) {
-    if (this.isControl) {
+  static getDerivedStateFromProps(nextProps: Props) {
+    if (nextProps.hasOwnProperty('isOpen')) {
       return {
         isOpen: nextProps.isOpen
       }
@@ -34,18 +36,23 @@ class Dropdown extends React.Component<Props> {
     return null
   }
 
-  handleClick = () => {
-    if (this.props.trigger === 'click' && !this.isControl) {
-      this.toggle()
+  handleClick = e => {
+    if (this.props.trigger === 'click') {
+      if (!this.isControl) {
+        this.toggle(e)
+      } else {
+        this.props.onToggle(e)
+      }
     }
-
-    const { onClick } = this.props
-    if (onClick) onClick()
   }
 
-  handleHover = () => {
-    if (this.props.trigger === 'hover' && !this.isControl) {
-      this.toggle()
+  handleHover = e => {
+    if (this.props.trigger === 'hover') {
+      if (!this.isControl) {
+        this.toggle(e)
+      } else {
+        this.props.onToggle(e)
+      }
     }
   }
 
@@ -55,9 +62,8 @@ class Dropdown extends React.Component<Props> {
     }
   }
 
-  toggle = () => {
-    const { onClick } = this.props
-    if (onClick) onClick()
+  toggle = e => {
+    this.props.onToggle(e)
 
     this.setState({ isOpen: !this.state.isOpen })
   }
@@ -76,11 +82,13 @@ class Dropdown extends React.Component<Props> {
           </Button>
           {isOpen ? (
             <PoppersContainer>
-              {React.Children.map(children, child =>
-                React.cloneElement(React.Children.only(child), {
-                  onClick: this.toggle
-                })
-              )}
+              {this.isControl
+                ? children
+                : React.Children.map(children, child =>
+                    React.cloneElement(React.Children.only(child), {
+                      onClick: this.toggle
+                    })
+                  )}
             </PoppersContainer>
           ) : null}
         </div>
