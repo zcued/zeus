@@ -16,7 +16,7 @@ export const Button = styled.button`
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
 
-  & > [aira-role='icon'] {
+  & > [data-icon='true'] {
     margin-left: ${T('spacing.xs')}px;
   }
 `
