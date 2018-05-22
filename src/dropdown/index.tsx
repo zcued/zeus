@@ -78,7 +78,7 @@ class Dropdown extends React.Component<Props> {
         <div className={className} onMouseLeave={this.handleHover} onMouseEnter={this.handleHover}>
           <Button type="button" aria-expanded={isOpen} onClick={this.handleClick}>
             {text}
-            <Icon glyph={icon} aira-role="icon" size={iconSize} />
+            <Icon glyph={icon} size={iconSize} />
           </Button>
           {isOpen ? (
             <PoppersContainer>
