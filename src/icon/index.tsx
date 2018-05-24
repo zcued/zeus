@@ -67,6 +67,12 @@ export const Glyph = ({ glyph }) => {
           </g>
         </g>
       )
+    case 'angle-right-light':
+      return (
+        <g>
+          <path id="a" d="M14.504 16L0 1.477 1.475 0l15.98 16-15.98 16L0 30.523z"/>
+        </g>
+      )
     case 'angle-left':
       return (
         <g transform="translate(-323.000000, -310.000000)">
@@ -85,6 +91,14 @@ export const Glyph = ({ glyph }) => {
           <g transform="translate(81.000000, 392.000000)">
             <polygon points="18.2857143 16.0221184 29.3110875 9.14285714 32 12.8739724 16 22.8571429 0 12.8739724 2.68891252 9.14285714 13.7142857 16.0221184 13.7142857 0 18.2857143 0" />
           </g>
+        </g>
+      )
+
+    case 'arrow-down-collapse':
+      return (
+        <g fill-rule="nonzero" fill="none">
+          <path fill="#1F1F1F" d="M29.311 4L32 7.731l-16 9.983L0 7.731 2.689 4 16 12.305z"/>
+          <path fill="#FFD100" d="M29.311 15.429L32 19.159l-16 9.984L0 19.16l2.689-3.731L16 23.734z"/>
         </g>
       )
 
@@ -211,7 +225,13 @@ export const Glyph = ({ glyph }) => {
     case 'minus':
       return (
         <g>
-          <path d="M0 12.8h32v6.4H0z" fill="#1F1F1F" fillRule="evenodd" />
+          <path d="M0 12.8h32v6.4H0z" />
+        </g>
+      )
+    case 'enter':
+      return (
+        <g>
+            <path d="M8.22 15.133h19.647V3H32v16.177H7.46l6.937 6.937-2.922 2.922L.035 17.597l11.69-11.689 2.86 2.86z" />
         </g>
       )
     case 'question':
