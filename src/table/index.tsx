@@ -65,7 +65,7 @@ const Table: React.SFC<Props> = ({ columns, data, className }) => (
         <Row key={item.key}>
           {columns.map((column: any, idx: number) => (
             <Column key={column.key || idx} style={{ textAlign: column.align, width: column.width ? column.width + 'px' : '' }}>
-              {column.render ? column.render(item[column.dataIndex], column, index) : item[column.dataIndex]}
+              {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
             </Column>
           ))}
         </Row>
