@@ -13,7 +13,9 @@ export default class Page extends React.Component {
         <Icon glyph="angle-down-sm" />
         <Icon glyph="angle-left" />
         <Icon glyph="angle-right" />
+        <Icon glyph="angle-right-light" />
         <Icon glyph="arrow-alt-down" />
+        <Icon glyph="arrow-down-collapse" />
         <Icon glyph="cart" />
         <Icon glyph="collect" />
         <Icon glyph="copy" />
@@ -26,6 +28,7 @@ export default class Page extends React.Component {
         <Icon glyph="play" />
         <Icon glyph="plus" />
         <Icon glyph="minus" />
+        <Icon glyph="enter" />
         <Icon glyph="question" />
         <Icon glyph="refresh" />
         <Icon glyph="search" />

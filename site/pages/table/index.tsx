@@ -36,8 +36,8 @@ export default class Page extends React.Component {
       dataIndex: 'extend',
       align: 'center',
       width: 206,
-      render: (text) => {
-        return text === '不允许' ? <SpanDisabled>{text}</SpanDisabled> : <Span>{text}</Span>
+      render: (text, record) => {
+        return text === '不允许' ? <SpanDisabled>{record.extend}</SpanDisabled> : <Span>{text}</Span>
       }
     }]
 
