@@ -37,6 +37,10 @@ export const Fake = styled.span`
     svg {
       display: block;
     }
+
+    &.disabled {
+      background: ${({ theme }) => theme.palette.primary};
+    }
   }
 
   &.disabled {
