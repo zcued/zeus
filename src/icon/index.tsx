@@ -6,7 +6,7 @@ import styled from '../theme/styled-components'
 interface Props {
   glyph: string
   size?: number
-  onClick?: Function
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 export const Glyph = ({ glyph }) => {
@@ -359,9 +359,7 @@ export const InlineSvg = styled.svg`
   fill: currentColor;
 `
 
-const SvgWrapper: React.SFC = ({ children, ...rest }) => <div {...rest}>{children}</div>
-
-const StyledSvgWrapper = styled(SvgWrapper)`
+const SvgWrapper = styled.div`
   display: inline-block;
   flex: 0 0 ${computedSize};
   width: ${computedSize};
@@ -374,7 +372,7 @@ const StyledSvgWrapper = styled(SvgWrapper)`
 `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
-  <StyledSvgWrapper aria-roles="icon" size={size} {...rest}>
+  <SvgWrapper data-icon={true} size={size} {...rest}>
     <InlineSvg
       fillRule="evenodd"
       clipRule="evenodd"
@@ -387,7 +385,7 @@ const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
       <title>{glyph}</title>
       <Glyph glyph={glyph} />
     </InlineSvg>
-  </StyledSvgWrapper>
+  </SvgWrapper>
 )
 
 export default Icon
