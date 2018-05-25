@@ -9,6 +9,7 @@ interface Props {
   name?: string
   value?: string | number
   extra?: JSX.Element | string
+  radius?: boolean
   className?: string
 }
 
@@ -26,7 +27,7 @@ class Radio extends React.Component<Props> {
   handleChange = e => {
     const { disabled, onChange } = this.props
     const { checked } = this.state
-    
+
     this.setState({ checked: !checked })
 
     if (!disabled && onChange) {
@@ -35,8 +36,10 @@ class Radio extends React.Component<Props> {
   }
 
   render() {
-    const { className, name, value, label, disabled = false, extra } = this.props
+    const { className, name, value, label, disabled = false, extra, radius } = this.props
     const { checked } = this.state
+    let fakeClassName = radius === false ? 'no-radius' : ''
+
     return (
       <React.Fragment>
         <Label className={disabled ? `${className} disabled` : className}>
@@ -49,7 +52,7 @@ class Radio extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake className={disabled ? 'disabled' : ''} aria-checked={checked}>
+          <Fake className={disabled ?  `${fakeClassName} disabled` : fakeClassName} aria-checked={checked}>
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <path

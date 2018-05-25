@@ -13,10 +13,6 @@ export default class Page extends React.Component {
       this.setState({
         selected: Number(e.target.value)
       })
-    } else {
-      this.setState({
-        selected: null
-      })
     }
   }
 
@@ -35,6 +31,7 @@ export default class Page extends React.Component {
                 label={item}
                 value={index}
                 name='radio'
+                radius={false}
                 onChange={this.changeRadioes}
               />
             )

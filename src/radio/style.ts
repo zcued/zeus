@@ -18,6 +18,7 @@ export const Fake = styled.span`
   width: 16px;
   height: 16px;
   border: 4px solid ${T('palette.frost')};
+  border-radius: 50%;
   box-sizing: border-box;
   transition: ${Transition.reaction.on};
 
@@ -41,6 +42,10 @@ export const Fake = styled.span`
     &.disabled {
       background: ${({ theme }) => theme.palette.primary};
     }
+  }
+
+  &.no-radius {
+    border-radius: 0;
   }
 
   &.disabled {
