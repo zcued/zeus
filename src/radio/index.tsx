@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Icon from '../../src/icon'
 import { Input, Fake, Label, Text } from './style'
 
 interface Props {
@@ -53,23 +54,7 @@ class Radio extends React.Component<Props> {
             aria-checked={checked}
           />
           <Fake className={disabled ?  `${fakeClassName} disabled` : fakeClassName} aria-checked={checked}>
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <path
-                  d="M21.244 1.092c.809-1.14 2.428-1.435 3.617-.66 1.189.776 1.497 2.329.688 3.468L13.242 24.908c-.965 1.36-3.016 1.469-4.131.218L.625 15.612c-.935-1.047-.806-2.623.286-3.519 1.093-.896 2.736-.773 3.671.275l6.272 7.03 10.39-18.306z"
-                  id="b"
-                />
-                <filter x="-23.1%" y="-11.5%" width="146.2%" height="146.2%" filterUnits="objectBoundingBox" id="a">
-                  <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1" />
-                  <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
-                  <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowBlurOuter1" />
-                </filter>
-              </defs>
-              <g transform="translate(3)" fillRule="nonzero" fill="none">
-                <use fill="#000" filter="url(#a)" xlinkHref="#b" />
-                <use fill="#FFF" fillRule="evenodd" xlinkHref="#b" />
-              </g>
-            </svg>
+            <Icon glyph="check" size={10} />
           </Fake>
           {label ? (
             typeof label === 'string' ? (

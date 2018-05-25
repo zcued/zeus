@@ -22,20 +22,19 @@ export const Fake = styled.span`
   box-sizing: border-box;
   transition: ${Transition.reaction.on};
 
-  & > svg {
+  [data-icon="true"] {
     display: none;
     position: absolute;
-    top: 0px;
+    top: -1px;
     left: -1px;
-    width: 10px;
-    height: 10px;
+    color: ${T('palette.white')};
   }
 
   &[aria-checked='true'] {
     border-color: ${T('palette.primary')};
     background: ${T('palette.primary')};
 
-    svg {
+    [data-icon="true"] {
       display: block;
     }
 
