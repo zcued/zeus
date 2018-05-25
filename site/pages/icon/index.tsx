@@ -20,6 +20,7 @@ export default class Page extends React.Component {
         <Icon glyph="collect" />
         <Icon glyph="copy" />
         <Icon glyph="close" />
+        <Icon glyph="check" />
         <Icon glyph="download" />
         <Icon glyph="edit" />
         <Icon glyph="like" />

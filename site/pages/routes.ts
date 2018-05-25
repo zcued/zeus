@@ -30,6 +30,7 @@ const routes: Routes = {
       menu: require('./menu'),
       icon: require('./icon'),
       checkbox: require('./checkbox'),
+      radio: require('./radio'),
       tooltip: require('./tooltip'),
       toast: require('./toast'),
       table: require('./table')
