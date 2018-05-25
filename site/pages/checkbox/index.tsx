@@ -9,7 +9,7 @@ export default class Page extends React.Component {
     selected: null
   }
 
-  changeCheckbox = (checked, e) => {
+  changeCheckbox = (e, checked) => {
     if (checked) {
       this.state.checked.push(e.target.value)
       this.setState({
@@ -25,7 +25,7 @@ export default class Page extends React.Component {
     }
   }
 
-  changeCheckboxes = (checked, e) => {
+  changeCheckboxes = (e, checked) => {
     if (checked) {
       this.setState({
         selected: Number(e.target.value)
