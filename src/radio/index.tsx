@@ -12,7 +12,7 @@ interface Props {
   className?: string
 }
 
-class Checkbox extends React.Component<Props> {
+class Radio extends React.Component<Props> {
   state = {
     checked: this.props.checked
   }
@@ -26,7 +26,7 @@ class Checkbox extends React.Component<Props> {
   handleChange = e => {
     const { disabled, onChange } = this.props
     const { checked } = this.state
-
+    
     this.setState({ checked: !checked })
 
     if (!disabled && onChange) {
@@ -41,7 +41,7 @@ class Checkbox extends React.Component<Props> {
       <React.Fragment>
         <Label className={disabled ? `${className} disabled` : className}>
           <Input
-            type="checkbox"
+            type="radio"
             onChange={this.handleChange}
             disabled={disabled}
             name={name}
@@ -82,4 +82,4 @@ class Checkbox extends React.Component<Props> {
   }
 }
 
-export default Checkbox
+export default Radio
