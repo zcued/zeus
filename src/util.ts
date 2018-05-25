@@ -16,3 +16,15 @@ export const get = (from, ...selectors) =>
  * @param path
  */
 export const T = (path: string) => (props): any => get(props, `theme.${path}`)
+
+export const shallowEquals = (a: object, b: object) => {
+  for (const i in a) {
+    if (b[i] !== a[i]) return false
+  }
+
+  for (const i in b) {
+    if (b[i] !== a[i]) return false
+  }
+
+  return true
+}

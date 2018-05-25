@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cd site && node server.js",
     "lint": "npm-run-all lint:stylelint lint:tslint",
-    "lint:stylelint": "stylelint '**/*.tsx'",
+    "lint:stylelint": "stylelint '**/*.ts'",
     "lint:tslint": "tslint -p . -t verbose",
     "pretest": "npm run lint",
     "test": "jest --forceExit --verbose",
@@ -26,11 +26,10 @@
   ],
   "author": "cuining",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "styled-components": "^3.2.5",
-    "tslint": "^5.9.1"
+    "styled-components": "^3.2.6"
   },
   "devDependencies": {
     "@types/jest": "^22.2.2",
@@ -45,25 +44,28 @@
     "jest-styled-components": "^5.0.1",
     "lint-staged": "^4.0.3",
     "npm-run-all": "^4.1.2",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-hot-loader": "^4.0.1",
+    "styled-components": "^3.2.6",
     "stylelint": "^9.2.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.3.1",
     "ts-jest": "^22.4.2",
-    "tslint-config-zcool": "^1.5.0",
+    "tslint": "^5.9.1",
+    "tslint-config-zcool": "^1.6.0",
     "typescript": "^2.8.1",
     "webpack": "^4.5.0",
     "webpack-dev-server": "^3.1.3"
   },
-  "peerDependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
-  },
   "lint-staged": {
-    "*.tsx": [
+    "*.{ts,tsx}": [
       "tslint --fix",
       "git add"
     ]
+  },
+  "dependencies": {
+    "react-popper": "^1.0.0-beta.6"
   }
 }

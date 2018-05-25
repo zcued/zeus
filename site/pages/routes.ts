@@ -1,30 +1,44 @@
-interface documentsInterface {
+interface Documents {
   [key: string]: {
     [key: string]: any
   }
 }
 
-interface componentsInterface {
+interface Components {
   [key: string]: {
     [key: string]: any
   }
 }
 
-interface routesInterface {
-  documents: documentsInterface
-  components: componentsInterface
+interface Routes {
+  documents: Documents
+  components: Components
 }
 
-const routes: routesInterface = {
+const routes: Routes = {
   documents: {},
   components: {
     Basic: {
+      alert: require('./alert'),
       button: require('./button'),
       heading: require('./heading'),
-      layout: require('./layout')
+      grid: require('./grid'),
+      card: require('./card'),
+      carousel: require('./carousel'),
+      tag: require('./tag'),
+      collapse: require('./collapse'),
+      menu: require('./menu'),
+      icon: require('./icon'),
+      checkbox: require('./checkbox'),
+      radio: require('./radio'),
+      tooltip: require('./tooltip'),
+      toast: require('./toast'),
+      table: require('./table')
     },
     Nav: {
-      tabs: require('./tabs')
+      tabs: require('./tabs'),
+      dropdown: require('./dropdown'),
+      pagination: require('./pagination')
     }
   }
 }
