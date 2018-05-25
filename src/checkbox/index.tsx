@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Icon from '../../src/icon'
+import Icon from '../icon'
 import { Input, Fake, Label, Text } from './style'
 
 interface Props {
