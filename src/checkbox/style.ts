@@ -44,6 +44,10 @@ export const Fake = styled.span`
 
   &.disabled {
     background: ${({ theme }) => theme.palette.daisy};
+
+    [data-icon="true"] {
+      cursor: not-allowed;
+    }
   }
 `
 
