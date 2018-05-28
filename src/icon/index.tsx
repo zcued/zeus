@@ -349,9 +349,9 @@ export const Glyph = ({ glyph }) => {
 
     case 'location':
       return (
-        <g transform="translate(4)" fill="none" fill-rule="evenodd">
+        <g transform="translate(4)" fill="none">
           <path d="M11.975 27.177C19.05 22.047 22.5 16.977 22.5 12c0-.359-.018-.715-.053-1.067C21.909 5.599 17.402 1.5 12 1.5c-5.392 0-9.893 4.084-10.444 9.405-.037.362-.056.727-.056 1.095 0 5.292 3.43 10.35 10.475 15.177z" stroke="#FFF" stroke-width="3"/>
-          <circle stroke="#FFF" stroke-width="3" cx="12" cy="11" r="4.5"/>
+          <circle stroke="#FFF" strokeWidth="3" cx="12" cy="11" r="4.5"/>
           <path fill="#FFD100" d="M0 29h24v3H0z"/>
         </g>
       )
