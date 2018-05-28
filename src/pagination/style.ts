@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 import Input from '../input'
 import { T } from '../util'
 
@@ -47,5 +47,4 @@ export const LI = styled.li`
 export const Count = styled.span`
   color: ${T('palette.black')};
   margin: 0 4px;
-  font-family: Futura-Medium, ${T('font.family')};
 `

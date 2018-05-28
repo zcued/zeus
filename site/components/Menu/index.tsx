@@ -24,7 +24,7 @@ export default class Menu extends React.Component<MenuProps, {}> {
               <div>{group}</div>
               {Object.keys(this.props.routes.components[group]).map(component => {
                 return (
-                  <a href={`#/${component}`} key={component}>
+                  <a style={{ padding: '10px' }} href={`#/${component}`} key={component}>
                     {component}
                   </a>
                 )

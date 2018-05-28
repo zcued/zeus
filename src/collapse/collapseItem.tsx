@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 import CollapseTransition from './collapseTransition'
+import Icon from '../icon'
 
 const CollapseItemStyled = styled.div`
   &:last-child div {
@@ -11,6 +12,7 @@ const CollapseItemStyled = styled.div`
 const CollapseItemTitile = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 32px;
   padding: 24px 8px;
   font-size: ${({ theme }) => theme.font.size.md}px;
@@ -33,18 +35,17 @@ interface Props {
   title: string | JSX.Element
   isActive?: boolean
   onClick?: any
-  icon?: Function
 }
 
 export default class CollapseItem extends React.Component<Props, {}> {
   render() {
-    const { className, title, isActive, onClick, icon, children } = this.props
+    const { className, title, isActive, onClick, children } = this.props
 
     return (
       <CollapseItemStyled className={className}>
         <CollapseItemTitile className={isActive ? 'active' : ''} onClick={onClick}>
           {title}
-          {icon ? icon(isActive) : null}
+          {isActive ? <Icon glyph="minus" size={20} /> : <Icon glyph="plus" size={20} />}
         </CollapseItemTitile>
         <CollapseTransition isShow={isActive}>
           <CollapseItemContainer>{children}</CollapseItemContainer>

@@ -26,7 +26,13 @@ class Row extends React.Component<RowProps, {}> {
 
 const RowStyled = styled(Row)`
   margin: ${props => props.gutter ? '0 -' + px(props.gutter / 2) : ''};
-  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+  }
 `
 
 export default RowStyled

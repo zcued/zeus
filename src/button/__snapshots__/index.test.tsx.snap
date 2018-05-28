@@ -18,14 +18,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        "",
+        null,
         undefined,
       ],
       "disabled": undefined,
     },
     "ref": null,
     "rendered": Array [
-      "",
+      null,
       undefined,
     ],
     "type": [Function],
@@ -37,14 +37,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          "",
+          null,
           undefined,
         ],
         "disabled": undefined,
       },
       "ref": null,
       "rendered": Array [
-        "",
+        null,
         undefined,
       ],
       "type": [Function],

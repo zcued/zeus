@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from '../theme/styled-components'
 import ClickOutSide from './click-outside'
 import { zIndex } from '../globals'
 import { T } from '../util'
@@ -15,6 +15,10 @@ export const Button = styled.button`
   outline: none;
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
+
+  & > [data-icon='true'] {
+    margin-left: ${T('spacing.xs')}px;
+  }
 `
 
 export const fadeIn = keyframes`
@@ -30,6 +34,6 @@ export const PoppersContainer = styled.div`
   z-index: ${zIndex.dropdown};
   box-shadow: 0 6px 12px ${T('palette.black16')};
   border-radius: 4px;
-  padding: ${T('spacing.xs')}px;
+  padding: ${T('spacing.xs')}px 0;
   min-width: 100%;
 `

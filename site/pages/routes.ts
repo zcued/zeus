@@ -27,7 +27,13 @@ const routes: Routes = {
       carousel: require('./carousel'),
       tag: require('./tag'),
       collapse: require('./collapse'),
-      menu: require('./menu')
+      menu: require('./menu'),
+      icon: require('./icon'),
+      checkbox: require('./checkbox'),
+      radio: require('./radio'),
+      tooltip: require('./tooltip'),
+      toast: require('./toast'),
+      table: require('./table')
     },
     Nav: {
       tabs: require('./tabs'),
