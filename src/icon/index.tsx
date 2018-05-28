@@ -346,6 +346,15 @@ export const Glyph = ({ glyph }) => {
           <path d="M14.545 11.182H8.727V1h14.546v10.182h-5.818v4.363H29.09v5.819H32v8.727h-8.727v-8.727h2.909v-2.91H5.818v2.91h2.91v8.727H0v-8.727h2.91v-5.819h11.635v-4.363zm-2.909-7.273v4.364h8.728V3.909h-8.728zm14.546 20.364v2.909h2.909v-2.91h-2.91zm-23.273 0v2.909h2.91v-2.91h-2.91z" />
         </g>
       )
+
+    case 'location':
+      return (
+        <g transform="translate(4)" fill="none">
+          <path d="M11.975 27.177C19.05 22.047 22.5 16.977 22.5 12c0-.359-.018-.715-.053-1.067C21.909 5.599 17.402 1.5 12 1.5c-5.392 0-9.893 4.084-10.444 9.405-.037.362-.056.727-.056 1.095 0 5.292 3.43 10.35 10.475 15.177z" stroke="#FFF" stroke-width="3"/>
+          <circle stroke="#FFF" strokeWidth="3" cx="12" cy="11" r="4.5"/>
+          <path fill="#FFD100" d="M0 29h24v3H0z"/>
+        </g>
+      )
     default:
       return null
   }
@@ -375,6 +384,7 @@ const SvgWrapper = styled.div`
   position: relative;
   color: inherit;
   cursor: pointer;
+  vertical-align: middle;
 `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
