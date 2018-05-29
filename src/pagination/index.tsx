@@ -21,6 +21,15 @@ class Pagination extends React.Component<Props> {
     currentInput: this.props.current
   }
 
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.current !== this.props.current) {
+      this.setState({
+        current: nextProps.current,
+        currentInput: nextProps.current
+      })
+    }
+  }
+
   handleChange = e => {
     let value = parseInt(e.target.value, 10)
 
