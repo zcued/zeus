@@ -6,6 +6,7 @@ import { JumperInput, UL, LI, Count } from './style'
 interface Props {
   pageSize?: number
   current?: number
+  defaultCurrent?: number
   total?: number
   onChange?: Function
   className?: string
@@ -17,8 +18,18 @@ class Pagination extends React.Component<Props> {
   }
 
   state = {
-    current: this.props.current,
-    currentInput: this.props.current
+    current: this.props.current || this.props.defaultCurrent || 1,
+    currentInput: this.props.current || this.props.defaultCurrent || 1
+  }
+
+  static getDerivedStateFromProps(nextProps: Props) {
+    if (nextProps.hasOwnProperty('current')) {
+      return {
+        current: nextProps.current,
+        currentInput: nextProps.current
+      }
+    }
+    return null
   }
 
   handleChange = e => {

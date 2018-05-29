@@ -44,6 +44,7 @@ export default class Page extends React.Component {
         <Icon glyph="download-plus" />
         <Icon glyph="manage-plus" />
         <Icon glyph="share-plus" />
+        <Icon glyph="location" />
       </React.Fragment>
     )
   }
