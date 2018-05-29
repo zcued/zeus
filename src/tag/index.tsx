@@ -39,7 +39,7 @@ const TagWraper = FlexRow.extend`
 const StyledTag = styled.span`
   background: ${props => props.color || props.theme.palette.daisy};
   color: ${T('palette.black')};
-  padding: 9px;
+  padding: ${T('spacing.xs')}px;
   line-height: 22px;
 `
 

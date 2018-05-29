@@ -10,9 +10,9 @@ interface Props {
 const H: React.SFC<Props> = ({ size, children, ...rest }) => React.createElement(`h${size}`, { ...rest }, children)
 
 const Heading = styled(H)`
-  margin: ${T('spacing.sm') + 'px'};
+  margin: ${T('spacing.sm')}px;
   color: ${T('palette.black')};
-  font-weight: 400;
+  font-weight: ${T('font.weight.normal')};
   line-height: 1.4;
 `
 

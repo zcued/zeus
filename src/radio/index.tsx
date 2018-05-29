@@ -19,9 +19,9 @@ class Radio extends React.Component<Props> {
     checked: this.props.checked
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.checked !== this.props.checked) {
-      this.setState({ checked: nextProps.checked })
+  static getDerivedStateFromProps(nextProps: Props) {
+    return {
+      current: nextProps.checked
     }
   }
 

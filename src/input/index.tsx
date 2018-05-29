@@ -8,7 +8,7 @@ const Input = styled.input`
   background: ${T('palette.white')};
   border: none;
   border-bottom: 4px solid ${T('palette.black')};
-  font-size: 32px;
+  font-size: ${T('font.size.xl')}px;
   height: 56px;
   color: ${T('palette.black')};
   padding: 0 ${T('spacing.md')}px;
