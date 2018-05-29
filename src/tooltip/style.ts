@@ -11,6 +11,10 @@ const fadeIn = keyframes`
 `
 
 export const ToolTipContainer = styled.div`
+  display: inline-block;
+`
+
+export const PopperContainer = styled.div`
   padding: ${T('spacing.xs')}px;
   font-size: ${T('font.size.sm')}px;
   background-color: ${T('palette.white')};

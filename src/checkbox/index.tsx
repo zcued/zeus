@@ -20,7 +20,7 @@ class Checkbox extends React.Component<Props> {
 
   static getDerivedStateFromProps(nextProps: Props) {
     return {
-      current: nextProps.checked
+      checked: nextProps.checked
     }
   }
 
@@ -38,6 +38,7 @@ class Checkbox extends React.Component<Props> {
   render() {
     const { className, name, value, label, disabled = false, extra } = this.props
     const { checked } = this.state
+    
     return (
       <React.Fragment>
         <Label className={disabled ? `${className} disabled` : className}>

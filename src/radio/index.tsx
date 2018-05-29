@@ -21,7 +21,7 @@ class Radio extends React.Component<Props> {
 
   static getDerivedStateFromProps(nextProps: Props) {
     return {
-      current: nextProps.checked
+      checked: nextProps.checked
     }
   }
 
