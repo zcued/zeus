@@ -7,12 +7,11 @@ interface Props {
   size?: 1 | 2 | 3 | 4 | 5 | 6
 }
 
-const H: React.SFC<Props> = ({ size, children, ...rest }) => React.createElement(`h${size}`, { ...rest }, children)
+const H: React.SFC<Props> = ({ size = 3, children, ...rest }) => React.createElement(`h${size}`, { ...rest }, children)
 
 const Heading = styled(H)`
-  margin: ${T('spacing.sm') + 'px'};
   color: ${T('palette.black')};
-  font-weight: 400;
+  font-weight: ${T('font.weight.normal')};
   line-height: 1.4;
 `
 

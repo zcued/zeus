@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Portal from '../portal'
 import { Manager, Popper, Reference } from 'react-popper'
-import { ToolTipContainer, ReferenceContainer } from './style'
+import { ToolTipContainer, ReferenceContainer, PopperContainer } from './style'
 
 interface Props {
   placement:
@@ -30,8 +30,8 @@ class Tooltip extends React.Component<Props, State> {
   timer = null
 
   handleEnter = () => {
-    clearTimeout(this.timer)
-    this.setState({ isHovering: true })
+    if (this.timer) clearTimeout(this.timer)
+    if (!this.state.isHovering) this.setState({ isHovering: true })
   }
 
   handleLeave = () => {
@@ -43,23 +43,37 @@ class Tooltip extends React.Component<Props, State> {
   render() {
     const { isHovering } = this.state
     const { placement, children, title, className } = this.props
+
     return (
-      <div style={{ display: 'inline-block' }} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <ToolTipContainer onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave} >
         <Manager>
-          <Reference>{({ ref }) => <ReferenceContainer innerRef={ref}>{children}</ReferenceContainer>}</Reference>
+          <Reference>
+            {({ ref }) => (
+              <ReferenceContainer innerRef={ref}>
+                {children}
+              </ReferenceContainer>
+            )}
+          </Reference>
           {isHovering && (
             <Portal>
               <Popper placement={placement}>
                 {({ ref, style }) => (
-                  <ToolTipContainer className={className} innerRef={ref} style={style} data-placement={placement}>
+                  <PopperContainer
+                    onMouseEnter={this.handleEnter}
+                    onMouseLeave={this.handleLeave}
+                    className={className}
+                    innerRef={ref}
+                    style={style}
+                    data-placement={placement}
+                  >
                     {title}
-                  </ToolTipContainer>
+                  </PopperContainer>
                 )}
               </Popper>
             </Portal>
           )}
         </Manager>
-      </div>
+      </ToolTipContainer>
     )
   }
 }

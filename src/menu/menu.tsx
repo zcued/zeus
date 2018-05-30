@@ -1,14 +1,15 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
+import { T } from '../util'
 
 const MenuStyled = styled.div`
-  margin-right: 40px;
-  padding: 24px 0;
+  margin-right: ${T('spacing.xl')}px;
+  padding: ${T('spacing.md')}px 0;
   width: 212px;
-  font-size: ${({ theme }) => theme.font.size.md}px;
+  font-size: ${T('font.size.md')}px;
   line-height: 28px;
   text-align: center;
-  background: ${({ theme }) => theme.palette.white};
+  background: ${T('palette.white')};
 `
 
 interface Props {
