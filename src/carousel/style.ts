@@ -1,6 +1,11 @@
 import styled from '../theme/styled-components'
 
 export const CarouselStyled = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
   /* Slider */
   .slick-slider {
       position: relative;
@@ -237,7 +242,7 @@ export const CarouselStyled = styled.div`
     transition: all .3s;
   }
 
-  .slick-dots li.slick-acitve,
+  .slick-dots li.slick-active,
   .slick-dots li:hover {
     transform: scale(1);
     background: ${props => props.theme.palette.primary};
