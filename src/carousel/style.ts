@@ -1,6 +1,6 @@
-import styled, { css } from '../theme/styled-components'
+import styled from '../theme/styled-components'
 
-const slickStyle = css`
+export const CarouselStyled = styled.div`
   /* Slider */
   .slick-slider {
       position: relative;
@@ -8,15 +8,9 @@ const slickStyle = css`
       display: block;
       box-sizing: border-box;
 
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
+      user-select: none;
 
-      -webkit-touch-callout: none;
-      -khtml-user-select: none;
-      -ms-touch-action: pan-y;
-          touch-action: pan-y;
+      touch-action: pan-y;
       -webkit-tap-highlight-color: transparent;
   }
 
@@ -39,34 +33,30 @@ const slickStyle = css`
       cursor: hand;
   }
 
-  .slick-slider .slick-track,
-  .slick-slider .slick-list {
-      -webkit-transform: translate3d(0, 0, 0);
-         -moz-transform: translate3d(0, 0, 0);
-          -ms-transform: translate3d(0, 0, 0);
-           -o-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-  }
-
   .slick-track {
-      position: relative;
-      top: 0;
-      left: 0;
+    position: relative;
+    top: 0;
+    left: 0;
 
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .slick-track:before,
   .slick-track:after {
-      display: table;
+    display: table;
 
-      content: '';
+    content: '';
   }
 
   .slick-track:after {
-      clear: both;
+    clear: both;
+  }
+
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
+    transform: translate3d(0, 0, 0);
   }
 
   .slick-loading .slick-track {
@@ -131,8 +121,6 @@ const slickStyle = css`
     width: 20px;
     height: 20px;
     padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 
     cursor: pointer;
@@ -143,6 +131,14 @@ const slickStyle = css`
     background: transparent;
   }
 
+  .slick-prev {
+    left: -25px;
+  }
+
+  .slick-next {
+    right: -25px;
+  }
+
   .slick-prev:hover,
   .slick-prev:focus,
   .slick-next:hover,
@@ -150,6 +146,26 @@ const slickStyle = css`
     color: transparent;
     outline: none;
     background: transparent;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 20px;
+    line-height: 1;
+
+    opacity: .75;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .slick-prev:before {
+    content: '←';
+  }
+
+  .slick-next:before {
+    content: '→';
   }
 
   .slick-prev:hover:before,
@@ -164,47 +180,18 @@ const slickStyle = css`
     opacity: .25;
   }
 
-  .slick-prev:before,
-  .slick-next:before {
-    font-family: 'slick';
-    font-size: 20px;
-    line-height: 1;
-
-    opacity: .75;
-    color: white;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .slick-prev {
-    left: -25px;
-  }
-
   [dir='rtl'] .slick-prev {
     right: -25px;
     left: auto;
-  }
-
-  .slick-prev:before {
-    content: '←';
   }
 
   [dir='rtl'] .slick-prev:before {
     content: '→';
   }
 
-  .slick-next {
-    right: -25px;
-  }
-
   [dir='rtl'] .slick-next {
     right: auto;
     left: -25px;
-  }
-
-  .slick-next:before {
-    content: '→';
   }
 
   [dir='rtl'] .slick-next:before {
@@ -218,7 +205,7 @@ const slickStyle = css`
 
   .slick-dots {
     position: absolute;
-    bottom: -25px;
+    bottom: 22px;
 
     display: block;
 
@@ -236,12 +223,24 @@ const slickStyle = css`
 
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
     padding: 0;
 
+    border-radius: 50%;
+
     cursor: pointer;
+    background: ${props => props.theme.palette.white};
+
+    transform: scale(0.6);
+    transition: all .3s;
+  }
+
+  .slick-dots li.slick-acitve,
+  .slick-dots li:hover {
+    transform: scale(1);
+    background: ${props => props.theme.palette.primary};
   }
 
   .slick-dots li button {
@@ -250,9 +249,9 @@ const slickStyle = css`
 
     display: block;
 
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
 
     cursor: pointer;
 
@@ -267,13 +266,8 @@ const slickStyle = css`
     outline: none;
   }
 
-  .slick-dots li button:hover:before,
-  .slick-dots li button:focus:before {
-    opacity: 1;
-  }
-
   .slick-dots li button:before {
-    font-family: 'slick';
+    display: none;
     font-size: 6px;
     line-height: 20px;
 
@@ -294,43 +288,13 @@ const slickStyle = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .slick-dots li button:hover:before,
+  .slick-dots li button:focus:before {
+    opacity: 1;
+  }
+
   .slick-dots li.slick-active button:before {
     opacity: .75;
     color: black;
-  }
-`
-
-export const CarouselStyled = styled.div`
-  ${slickStyle}
-
-  .slick-dots {
-    bottom: 22px;
-
-    li {
-      margin: 0 3px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: ${props => props.theme.palette.white};
-      cursor: pointer;
-      transform: scale(0.6);
-      transition: all .3s;
-
-      &.slick-active,
-      &:hover {
-        transform: scale(1);
-        background: ${props => props.theme.palette.primary};
-      }
-
-      button {
-        padding: 0;
-        width: 100%;
-        height: 100%;
-
-        &:before {
-          display: none;
-        }
-      }
-    }
   }
 `

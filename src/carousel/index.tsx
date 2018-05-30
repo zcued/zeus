@@ -49,10 +49,11 @@ export default class Carousel extends React.Component<Props> {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1
   }
-  
+
   slider = null
 
   next = () => {
