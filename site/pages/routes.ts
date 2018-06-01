@@ -33,7 +33,8 @@ const routes: Routes = {
       radio: require('./radio'),
       tooltip: require('./tooltip'),
       toast: require('./toast'),
-      table: require('./table')
+      table: require('./table'),
+      modal: require('./modal')
     },
     Nav: {
       tabs: require('./tabs'),
