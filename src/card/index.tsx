@@ -55,7 +55,7 @@ const CardStyled = styled(Card)`
   img {
     display: block;
     width: 100%;
-    height: ${props => typeof props.imgHeight === 'number' ? props.imgHeight + 'px' : 'auto' }
+    height: ${props => props.imgHeight ? props.imgHeight + 'px' : 'auto' }
     border-radius: ${props => (
       props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
     )};
