@@ -80,7 +80,7 @@ class Modal extends React.Component<Props> {
     ariaHideApp: false
   }
 
-  syncStyle(style) {
+  syncStyle(style: ModalStyle) {
     const { width, height } = this.props
 
     if (style) {
