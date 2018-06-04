@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T } from '../util'
 import Icon from '../icon'
-import { SubMenuTitle, SubMenuContainer } from './style'
+import { SubMenuTitle, SubMenuContainer, MenuItemContainer } from './style'
 
 interface Props {
   className?: string
@@ -96,6 +96,10 @@ const SubMenuStyled = styled(SubMenu)`
 
   ${SubMenuContainer} {
     display: ${({ isActive }) => isActive ? 'block' : 'none'};
+
+    ${MenuItemContainer} {
+      padding: 8px;
+    }
   }
 `
 

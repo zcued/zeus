@@ -43,6 +43,13 @@ export const SubMenuTitle = styled.div`
   }
 `
 
+export const SubMenuContainer = styled.ul`
+  padding: 0 0 16px;
+  list-style: none;
+  font-size: 16px;
+  color: ${T('palette.spruce')};
+`
+
 export const MenuItemContainer = styled.li`
   position: relative;
   padding: 16px;
@@ -89,16 +96,5 @@ export const MenuItemContainer = styled.li`
     &.active {
       color: ${T('palette.black')};
     }
-  }
-`
-
-export const SubMenuContainer = styled.ul`
-  padding: 0 0 16px;
-  list-style: none;
-  font-size: 16px;
-  color: ${T('palette.spruce')};
-
-  ${MenuItemContainer} {
-    padding: 8px;
   }
 `
