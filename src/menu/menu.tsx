@@ -56,7 +56,7 @@ export default class Menu extends React.Component<Props, State> {
             name: name,
             title: title,
             onClick: (item: string) => this.onItemClick(item),
-            onChange: (item: string) => onChange(item),
+            onChange: (item: string) => {if (onChange) onChange(item)},
             onOpenChange: (item: string) => this.onOpenChange(item)
           })
         })}
