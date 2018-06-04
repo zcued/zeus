@@ -70,7 +70,7 @@ export const Glyph = ({ glyph }) => {
     case 'angle-right-light':
       return (
         <g>
-          <path id="a" d="M14.504 16L0 1.477 1.475 0l15.98 16-15.98 16L0 30.523z"/>
+          <path id="a" d="M14.504 16L0 1.477 1.475 0l15.98 16-15.98 16L0 30.523z" />
         </g>
       )
     case 'angle-left':
@@ -97,8 +97,8 @@ export const Glyph = ({ glyph }) => {
     case 'arrow-down-collapse':
       return (
         <g fill-rule="nonzero" fill="none">
-          <path fill="#1F1F1F" d="M29.311 4L32 7.731l-16 9.983L0 7.731 2.689 4 16 12.305z"/>
-          <path fill="#FFD100" d="M29.311 15.429L32 19.159l-16 9.984L0 19.16l2.689-3.731L16 23.734z"/>
+          <path fill="#1F1F1F" d="M29.311 4L32 7.731l-16 9.983L0 7.731 2.689 4 16 12.305z" />
+          <path fill="#FFD100" d="M29.311 15.429L32 19.159l-16 9.984L0 19.16l2.689-3.731L16 23.734z" />
         </g>
       )
 
@@ -141,6 +141,23 @@ export const Glyph = ({ glyph }) => {
         <g transform="translate(2.000000, 0.000000)">
           <path d="M4,12 L4,28 L16,28 L16,12 L4,12 Z M0,8 L20,8 L20,32 L0,32 L0,8 Z" />
           <polygon fill="#FFD100" points="8 4.23084853 8 0 28 0 28 24 23.6 24 23.6 4.23084853" />
+        </g>
+      )
+
+    case 'delete':
+      return (
+        <g stroke="none" strokeWidth="1" fill="none">
+          <g>
+            <path
+              d="M14,4 L14,0 L18,0 L18,4 L32,4 L32,7 L-3.6739404e-16,7 L3.6739404e-16,4 L14,4 Z"
+              fill="#FFD100"
+            />
+            <path
+              d="M3.79731908,11.5 L7.25186453,30.5 L24.7481355,30.5 L28.2026809,11.5 L3.79731908,11.5 Z"
+              stroke="#1F1F1F"
+              strokeWidth="3"
+            />
+          </g>
         </g>
       )
 
@@ -237,7 +254,7 @@ export const Glyph = ({ glyph }) => {
     case 'enter':
       return (
         <g>
-            <path d="M8.22 15.133h19.647V3H32v16.177H7.46l6.937 6.937-2.922 2.922L.035 17.597l11.69-11.689 2.86 2.86z" />
+          <path d="M8.22 15.133h19.647V3H32v16.177H7.46l6.937 6.937-2.922 2.922L.035 17.597l11.69-11.689 2.86 2.86z" />
         </g>
       )
     case 'question':
@@ -346,6 +363,19 @@ export const Glyph = ({ glyph }) => {
           <path d="M14.545 11.182H8.727V1h14.546v10.182h-5.818v4.363H29.09v5.819H32v8.727h-8.727v-8.727h2.909v-2.91H5.818v2.91h2.91v8.727H0v-8.727h2.91v-5.819h11.635v-4.363zm-2.909-7.273v4.364h8.728V3.909h-8.728zm14.546 20.364v2.909h2.909v-2.91h-2.91zm-23.273 0v2.909h2.91v-2.91h-2.91z" />
         </g>
       )
+
+    case 'location':
+      return (
+        <g transform="translate(4)" fill="none">
+          <path
+            d="M11.975 27.177C19.05 22.047 22.5 16.977 22.5 12c0-.359-.018-.715-.053-1.067C21.909 5.599 17.402 1.5 12 1.5c-5.392 0-9.893 4.084-10.444 9.405-.037.362-.056.727-.056 1.095 0 5.292 3.43 10.35 10.475 15.177z"
+            stroke="#FFF"
+            stroke-width="3"
+          />
+          <circle stroke="#FFF" strokeWidth="3" cx="12" cy="11" r="4.5" />
+          <path fill="#FFD100" d="M0 29h24v3H0z" />
+        </g>
+      )
     default:
       return null
   }
@@ -375,6 +405,7 @@ const SvgWrapper = styled.div`
   position: relative;
   color: inherit;
   cursor: pointer;
+  vertical-align: middle;
 `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (

@@ -5,10 +5,10 @@ import { FlexRow } from '../globals'
 
 export const StyledTabs = styled(FlexRow)`
   align-self: stretch;
-  margin: 0 32px;
-  margin-top: 16px;
+  margin: 0 ${T('spacing.lg')}px;
+  margin-top: ${T('spacing.sm')}px;
   align-items: stretch;
-  min-height: 36px;
+  min-height: ${T('spacing.xl')}px;
 `
 
 interface TabProps {
@@ -22,18 +22,18 @@ const Tab: React.SFC<TabProps> = ({ children, selected, ...rest }) => (
 )
 
 export const StyledTab = styled(Tab)`
-  margin: 0 ${T('spacing.md') + 'px'};
+  margin: 0 ${T('spacing.md')}px;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
   line-height: 28px;
-  font-size: 20px;
+  font-size: ${T('font.size.md')}px;
   font-weight: ${props => (props.selected ? props.theme.font.weight.medium : props.theme.font.weight.normal)};
   color: ${T('palette.black')};
   cursor: pointer;
   position: relative;
   .icon {
-    margin-right: 8px;
+    margin-right: ${T('spacing.xs')}px;
   }
 
   &:hover {

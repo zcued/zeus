@@ -21,7 +21,7 @@ export const Fake = styled.span`
   box-sizing: border-box;
   transition: ${Transition.reaction.on};
 
-  [data-icon="true"] {
+  [data-icon='true'] {
     display: none;
     position: absolute;
     top: -1px;
@@ -33,24 +33,28 @@ export const Fake = styled.span`
     border-color: ${T('palette.primary')};
     background: ${T('palette.primary')};
 
-    [data-icon="true"] {
+    [data-icon='true'] {
       display: block;
     }
 
     &.disabled {
-      background: ${({ theme }) => theme.palette.primary};
+      background: ${T('palette.primary')};
     }
   }
 
   &.disabled {
-    background: ${({ theme }) => theme.palette.daisy};
+    background: ${T('palette.daisy')};
+
+    [data-icon='true'] {
+      cursor: not-allowed;
+    }
   }
 `
 
 export const Label = styled.label`
   display: inline-flex;
   align-items: center;
-  padding: 10px 0;
+  padding: ${T('spacing.xs')}px 0;
   flex: none;
   color: ${T('palette.spruce')};
   cursor: pointer;

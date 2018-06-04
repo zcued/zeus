@@ -10,7 +10,7 @@ export interface Props {
   title?: string | JSX.Element
 }
 
-const Alert: React.SFC<Props> = ({ type, showIcon, iconSize = 16, title, ...rest }) => (
+const Alert: React.SFC<Props> = ({ type, showIcon = true, iconSize = 12, title, ...rest }) => (
   <div data-type={type} {...rest}>
     {showIcon ? <Icon glyph="warning" size={iconSize} /> : null}
     {title}
@@ -21,7 +21,6 @@ const StyledAlert = styled(Alert)`
   display: inline-flex;
   align-items: center;
   color: ${T('palette.white')};
-  align-self: flex-start;
   flex: none;
   border-radius: 100px;
   font-size: ${T('font.size.sm')}px;
@@ -29,8 +28,9 @@ const StyledAlert = styled(Alert)`
   background-color: ${T('palette.primary')};
   box-sizing: border-box;
   position: relative;
+  line-height: 1;
 
-  & > div[aria-roles='icon'] {
+  & > div[data-icon='true'] {
     margin-right: ${T('spacing.xs')}px;
   }
 `

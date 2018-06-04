@@ -9,6 +9,7 @@ export default class Page extends React.Component {
         <Icon glyph="album-tag" />
         <Icon glyph="album-tag-sm" />
         <Icon glyph="design" />
+        <Icon glyph="delete" />
         <Icon glyph="angle-down" />
         <Icon glyph="angle-down-sm" />
         <Icon glyph="angle-left" />
@@ -44,6 +45,7 @@ export default class Page extends React.Component {
         <Icon glyph="download-plus" />
         <Icon glyph="manage-plus" />
         <Icon glyph="share-plus" />
+        <Icon glyph="location" />
       </React.Fragment>
     )
   }

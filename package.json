@@ -1,5 +1,5 @@
 {
-  "name": "Zeus",
+  "name": "zeus",
   "version": "0.0.1",
   "description": "zcool ui libary",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
     "test": "jest --forceExit --verbose",
     "build": "rm -rf lib && tsc",
     "watch": "tsc -w",
-    "prepare": "npm run build",
+    "preinstall": "npm install --ignore-scripts && npm run build",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -66,6 +66,8 @@
     ]
   },
   "dependencies": {
-    "react-popper": "^1.0.0-beta.6"
+    "react-modal": "^3.4.4",
+    "react-popper": "^1.0.0-beta.6",
+    "react-slick": "^0.23.1"
   }
 }
