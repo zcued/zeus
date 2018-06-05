@@ -33,7 +33,9 @@ export const Header = styled.div`
   line-height: 28px;
 `
 
-export const Body = styled(Flex)``
+export const Body = styled(Flex)`
+  height: 'auto';
+`
 
 export const Footer = styled(Flex)`
   margin-top: ${T('spacing.xl')}px;
