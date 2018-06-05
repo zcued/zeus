@@ -5,7 +5,7 @@ import { T } from '../util'
 interface CardPorps {
   type?: 'card' | 'atlas' | 'picture'
   size?: 'small'
-  imgSrc: string
+  imgSrc?: string
   imgAlt?: string
   imgHeight?: number
   titlePosition?: 'bottom'
@@ -13,18 +13,21 @@ interface CardPorps {
   subTitle?: string
   tag?: JSX.Element
   operator?: JSX.Element
+  borderStyle?: string
+  customImage?: JSX.Element
+  customContent?: JSX.Element
   className?: string
 }
 
 class Card extends React.Component<CardPorps> {
   render() {
-    const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, tag, operator } = this.props
+    const { className, type, imgSrc, imgAlt, customImage, titlePosition, title, subTitle, tag, operator, customContent } = this.props
 
     return (
       <div className={className}>
-        <img src={imgSrc} alt={imgAlt} />
+        {customImage ? customImage : <img src={imgSrc} alt={imgAlt} />}
         {type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom' ? (
-          <p className="title--bottom">{title}</p>
+          customContent ? customContent : <p className="title--bottom">{title}</p>
         ) : (
           <React.Fragment>
             <div className="title__wrapper" />
@@ -50,6 +53,8 @@ const CardStyled = styled(Card)`
   border-radius: ${props => (
     props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
   )};
+  border: ${({ borderStyle }) => borderStyle ? borderStyle : ''};
+  box-sizing: border-box;
   transition: all .3s;
 
   img {
@@ -145,10 +150,16 @@ const CardStyled = styled(Card)`
     transition: all .3s;
   }
 
+  .custom-hover {
+    opacity: 0;
+    transition: all .3s;
+  }
+
   &:hover {
     box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, .16);
 
-    .operator {
+    .operator,
+    .custom-hover {
       opacity: 1;
     }
   }
