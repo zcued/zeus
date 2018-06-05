@@ -1,9 +1,20 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 
+type Align = 'left' | 'right' | 'center'
+
+interface Col {
+  dataIndex: string
+  key?: string
+  render?: (text: string, record: any, index: number) => any
+  align?: Align
+  width?: string | number
+  title?: string | React.ReactNode
+}
+
 interface Props {
-  columns: Array<Object>
-  data: Array<Object>
+  columns: Array<Col>
+  data: Array<object>
   className?: string
 }
 
@@ -30,7 +41,7 @@ export const Row = styled.tr`
 `
 
 export const Column = styled.td`
-  padding: 14px 24px;
+  padding: 14px 16px;
   border-left: 2px solid ${({ theme }) => theme.palette.daisy};
   border-bottom: 2px solid ${({ theme }) => theme.palette.daisy};
   box-sizing: border-box;
@@ -49,29 +60,46 @@ const TableHeadColumn = Column.withComponent('th').extend`
   }
 `
 
-const Table: React.SFC<Props> = ({ columns, data, className }) => (
-  <TableWrapper className={className}>
-    <TableHead>
-      <Row>
-        {columns.map((item: any, index: number) => (
-          <TableHeadColumn key={item.key || index} style={{ textAlign: item.align, width: item.width ? item.width + 'px' : '' }}>
-            {item.title}
-          </TableHeadColumn>
-        ))}
-      </Row>
-    </TableHead>
-    <TableBody>
-      {data.map((item: any, index: number) => (
-        <Row key={item.key}>
-          {columns.map((column: any, idx: number) => (
-            <Column key={column.key || idx} style={{ textAlign: column.align, width: column.width ? column.width + 'px' : '' }}>
-              {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
-            </Column>
+const getStyleFromCol = (column: Col): object => {
+  const { align, width } = column
+
+  let style: { textAlign?: Align; width?: string | number } = {}
+
+  if (['left', 'right', 'center'].indexOf(align) > -1) {
+    style.textAlign = align
+  }
+  if (width) {
+    style.width = width
+  }
+
+  return style
+}
+
+const Table: React.SFC<Props> = ({ columns, data, className }) => {
+  return (
+    <TableWrapper className={className}>
+      <TableHead>
+        <Row>
+          {columns.map((column, idx: number) => (
+            <TableHeadColumn key={column.key || idx} style={getStyleFromCol(column)}>
+              {column.title}
+            </TableHeadColumn>
           ))}
         </Row>
-      ))}
-    </TableBody>
-  </TableWrapper>
-)
+      </TableHead>
+      <TableBody>
+        {data.map((item: any, index: number) => (
+          <Row key={item.key}>
+            {columns.map((column, idx: number) => (
+              <Column key={column.key || idx} style={getStyleFromCol(column)}>
+                {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
+              </Column>
+            ))}
+          </Row>
+        ))}
+      </TableBody>
+    </TableWrapper>
+  )
+}
 
 export default Table

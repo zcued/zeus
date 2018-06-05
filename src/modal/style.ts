@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../theme/styled-components'
 import Flex from '../flex'
 import { T } from '../util'
 

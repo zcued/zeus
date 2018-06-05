@@ -34,7 +34,8 @@ const routes: Routes = {
       tooltip: require('./tooltip'),
       toast: require('./toast'),
       table: require('./table'),
-      modal: require('./modal')
+      modal: require('./modal'),
+      list: require('./list')
     },
     Nav: {
       tabs: require('./tabs'),
