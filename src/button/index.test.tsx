@@ -18,4 +18,10 @@ describe('button works', () => {
     const wrapper = shallow(<Button icon="close" loading={true} />)
     expect(wrapper.prop('disabled')).toEqual(true)
   })
+  
+  it('should render a child', () => {
+    const children = <i className="test" />
+    const wrapper = shallow(<Button icon="close" children={children} />)
+    expect(wrapper.find('.test').length).toEqual(1)
+  })
 })
