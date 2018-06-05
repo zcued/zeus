@@ -34,6 +34,5 @@ export const PoppersContainer = styled.div`
   z-index: ${zIndex.dropdown};
   box-shadow: 0 6px 12px ${T('palette.black16')};
   border-radius: 4px;
-  padding: ${T('spacing.xs')}px 0;
   min-width: 100%;
 `

@@ -37,12 +37,16 @@ export const Fake = styled.span`
       display: block;
     }
 
-    &.disabled {
+    &[aria-disabled='true'] {
       background: ${T('palette.primary')};
     }
   }
 
-  &.disabled {
+  &[data-raidus='false'] {
+    border-radius: 0;
+  }
+
+  &[aria-disabled='true'] {
     background: ${T('palette.daisy')};
 
     [data-icon='true'] {
@@ -64,7 +68,7 @@ export const Label = styled.label`
     color: ${T('palette.primary')};
   }
 
-  &.disabled {
+  &[aria-disabled='true'] {
     cursor: not-allowed;
 
     &:hover {
@@ -74,5 +78,5 @@ export const Label = styled.label`
 `
 
 export const Text = styled.span`
-  margin-left: 10px;
+  margin-left: ${T('spacing.xs')}px;
 `
