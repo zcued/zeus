@@ -38,10 +38,10 @@ class Checkbox extends React.Component<Props> {
   render() {
     const { className, name, value, label, disabled = false, extra } = this.props
     const { checked } = this.state
-    
+
     return (
       <React.Fragment>
-        <Label className={disabled ? `${className} disabled` : className}>
+        <Label className={className} aria-disabled={disabled}>
           <Input
             type="checkbox"
             onChange={this.handleChange}
@@ -51,16 +51,10 @@ class Checkbox extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake className={disabled ? 'disabled' : ''} aria-checked={checked}>
+          <Fake aria-disabled={disabled} aria-checked={checked}>
             <Icon glyph="check" size={10} />
           </Fake>
-          {label ? (
-            typeof label === 'string' ? (
-              <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text>
-            ) : (
-              label
-            )
-          ) : null}
+          {label ? typeof label === 'string' ? <Text aria-disabled={disabled}>{label}</Text> : label : null}
         </Label>
         {extra}
       </React.Fragment>
