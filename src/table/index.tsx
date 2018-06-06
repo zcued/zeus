@@ -14,7 +14,10 @@ interface Col {
 
 interface Props {
   columns: Array<Col>
-  data: Array<object>
+  data?: Array<{
+    key: string | number
+    [key: string]: any
+  }>
   className?: string
 }
 
@@ -87,17 +90,20 @@ const Table: React.SFC<Props> = ({ columns, data, className }) => {
           ))}
         </Row>
       </TableHead>
-      <TableBody>
-        {data.map((item: any, index: number) => (
-          <Row key={item.key}>
-            {columns.map((column, idx: number) => (
-              <Column key={column.key || idx} style={getStyleFromCol(column)}>
-                {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
-              </Column>
+      {data &&
+        data.length > 0 && (
+          <TableBody>
+            {data.map((item, index: number) => (
+              <Row key={item.key}>
+                {columns.map((column, idx: number) => (
+                  <Column key={column.key || idx} style={getStyleFromCol(column)}>
+                    {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
+                  </Column>
+                ))}
+              </Row>
             ))}
-          </Row>
-        ))}
-      </TableBody>
+          </TableBody>
+        )}
     </TableWrapper>
   )
 }

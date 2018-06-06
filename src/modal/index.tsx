@@ -55,29 +55,29 @@ interface ModalStyle {
   }
 }
 
-const MODAL_STYLES: ModalStyle = {
-  content: {
-    width: 528,
-    height: '100%',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    margin: 'auto',
-    border: 'none',
-    padding: 0,
-    borderRadius: 0,
-    overflow: 'visible'
-  },
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
-    zIndex: zIndex.modal
-  }
-}
-
 class Modal extends React.Component<Props> {
   static defaultProps = {
     ariaHideApp: false
+  }
+
+  MODAL_STYLES: ModalStyle = {
+    content: {
+      width: 528,
+      height: '100%',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      margin: 'auto',
+      border: 'none',
+      padding: 0,
+      borderRadius: 0,
+      overflow: 'visible'
+    },
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.75)',
+      zIndex: zIndex.modal
+    }
   }
 
   syncStyle(style: ModalStyle) {
@@ -85,22 +85,22 @@ class Modal extends React.Component<Props> {
 
     if (style) {
       if (style.content) {
-        Object.assign(MODAL_STYLES.content, style.content)
+        Object.assign(this.MODAL_STYLES.content, style.content)
       }
       if (style.overlay) {
-        Object.assign(MODAL_STYLES.overlay, style.overlay)
+        Object.assign(this.MODAL_STYLES.overlay, style.overlay)
       }
     }
 
     if (width) {
-      MODAL_STYLES.content.width = width
+      this.MODAL_STYLES.content.width = width
     }
 
     if (height) {
-      MODAL_STYLES.content.height = height
+      this.MODAL_STYLES.content.height = height
     }
 
-    return MODAL_STYLES
+    return this.MODAL_STYLES
   }
 
   render() {
