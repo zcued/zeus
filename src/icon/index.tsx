@@ -146,18 +146,19 @@ export const Glyph = ({ glyph }) => {
 
     case 'delete':
       return (
-        <g stroke="none" strokeWidth="1" fill="none">
-          <g>
-            <path
-              d="M14,4 L14,0 L18,0 L18,4 L32,4 L32,7 L-3.6739404e-16,7 L3.6739404e-16,4 L14,4 Z"
-              fill="#FFD100"
-            />
-            <path
-              d="M3.79731908,11.5 L7.25186453,30.5 L24.7481355,30.5 L28.2026809,11.5 L3.79731908,11.5 Z"
-              stroke="#1F1F1F"
-              strokeWidth="3"
-            />
-          </g>
+        <g fill="none">
+          <path fill="#1F1F1F" d="M14 2V0h4v2h14v4H0V2z"/>
+          <path d="M3.174 10L4.84 30h22.32l1.666-20H3.174z" stroke="#1F1F1F" strokeWidth="4"/>
+          <path d="M8 14h4l1 12H9L8 14zm6 0h4l1 12h-4l-1-12z" fill="#FFD100"/>
+        </g>
+      )
+
+    case 'delete-white':
+      return (
+        <g fill="none">
+          <path fill="#FFF" d="M14 2V0h4v2h14v4H0V2z"/>
+          <path d="M3.174 10L4.84 30h22.32l1.666-20H3.174z" stroke="#FFF" strokeWidth="4"/>
+          <path d="M8 14h4l1 12H9L8 14zm6 0h4l1 12h-4l-1-12z" fill="#FFD100"/>
         </g>
       )
 

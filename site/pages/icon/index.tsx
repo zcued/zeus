@@ -22,6 +22,7 @@ export default class Page extends React.Component {
           <Icon glyph="cart" />
           <Icon glyph="refresh" />
           <Icon glyph="delete" />
+          <Icon glyph="delete-white" />
           <Icon glyph="zoom-in" />
         </div>
           <Icon glyph="add" />
