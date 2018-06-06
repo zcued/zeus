@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Icon from '../icon'
-import { Input, Fake, Label, Text } from './style'
+import { Input, Fake, Label, Text } from '../checkbox/style'
 
 interface Props {
   checked?: boolean
@@ -39,11 +39,10 @@ class Radio extends React.Component<Props> {
   render() {
     const { className, name, value, label, disabled = false, extra, radius } = this.props
     const { checked } = this.state
-    let fakeClassName = radius === false ? 'no-radius' : ''
 
     return (
       <React.Fragment>
-        <Label className={disabled ? `${className} disabled` : className}>
+        <Label className={className} aria-disabled={disabled}>
           <Input
             type="radio"
             onChange={this.handleChange}
@@ -53,16 +52,10 @@ class Radio extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake className={disabled ?  `${fakeClassName} disabled` : fakeClassName} aria-checked={checked}>
+          <Fake aria-disabled={disabled} aria-checked={checked} data-radius={radius}>
             <Icon glyph="check" size={10} />
           </Fake>
-          {label ? (
-            typeof label === 'string' ? (
-              <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text>
-            ) : (
-              label
-            )
-          ) : null}
+          {label ? typeof label === 'string' ? <Text aria-disabled={disabled}>{label}</Text> : label : null}
         </Label>
         {extra}
       </React.Fragment>

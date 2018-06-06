@@ -34,7 +34,7 @@ export const Header = styled.div`
 `
 
 export const Body = styled(Flex)`
-  height: 100%;
+  height: 'auto';
 `
 
 export const Footer = styled(Flex)`
