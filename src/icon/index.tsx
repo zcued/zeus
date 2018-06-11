@@ -153,15 +153,6 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case 'delete-white':
-      return (
-        <g fill="none">
-          <path fill="#FFF" d="M14 2V0h4v2h14v4H0V2z"/>
-          <path d="M3.174 10L4.84 30h22.32l1.666-20H3.174z" stroke="#FFF" strokeWidth="4"/>
-          <path d="M8 14h4l1 12H9L8 14zm6 0h4l1 12h-4l-1-12z" fill="#FFD100"/>
-        </g>
-      )
-
     case 'design':
       return (
         <g transform="translate(4.000000, 0.000000)">
@@ -370,10 +361,10 @@ export const Glyph = ({ glyph }) => {
         <g transform="translate(4)" fill="none">
           <path
             d="M11.975 27.177C19.05 22.047 22.5 16.977 22.5 12c0-.359-.018-.715-.053-1.067C21.909 5.599 17.402 1.5 12 1.5c-5.392 0-9.893 4.084-10.444 9.405-.037.362-.056.727-.056 1.095 0 5.292 3.43 10.35 10.475 15.177z"
-            stroke="#FFF"
+            stroke="#1F1F1F"
             stroke-width="3"
           />
-          <circle stroke="#FFF" strokeWidth="3" cx="12" cy="11" r="4.5" />
+          <circle stroke="#1F1F1F" strokeWidth="3" cx="12" cy="11" r="4.5" />
           <path fill="#FFD100" d="M0 29h24v3H0z" />
         </g>
       )
@@ -404,11 +395,11 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case 'author':
+    case 'account':
       return (
         <g fill="none">
-          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" fill="#FFF" fill-rule="nonzero"/>
-          <circle stroke="#FFF" strokeWidth="4" cx="16" cy="10" r="8"/>
+          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" fill="#1F1F1F" fill-rule="nonzero"/>
+          <circle stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8"/>
           <path fill="#FFD100" fillRule="nonzero" d="M20 24h4l-8 8-8-8h4l4 4z"/>
         </g>
       )
