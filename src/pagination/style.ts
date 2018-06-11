@@ -5,10 +5,17 @@ import { T } from '../util'
 export const JumperInput = styled(Input)`
   width: 56px;
   height: 100%;
+  border: none;
   border-bottom: 2px solid ${T('palette.black')};
   text-align: center;
   font-size: ${T('font.size.sm')}px;
   padding: 0;
+
+  &:focus {
+    border-color: ${T('palette.black')};
+    box-shadow: none;
+    outline: none;
+  }
 `
 
 export const UL = styled.ul`
