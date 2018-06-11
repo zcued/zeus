@@ -96,8 +96,8 @@ export const Glyph = ({ glyph }) => {
 
     case 'arrow-down-collapse':
       return (
-        <g fill-rule="nonzero" fill="none">
-          <path fill="#1F1F1F" d="M29.311 4L32 7.731l-16 9.983L0 7.731 2.689 4 16 12.305z" />
+        <g>
+          <path d="M29.311 4L32 7.731l-16 9.983L0 7.731 2.689 4 16 12.305z" />
           <path fill="#FFD100" d="M29.311 15.429L32 19.159l-16 9.984L0 19.16l2.689-3.731L16 23.734z" />
         </g>
       )
@@ -146,9 +146,9 @@ export const Glyph = ({ glyph }) => {
 
     case 'delete':
       return (
-        <g fill="none">
+        <g>
           <path fill="#1F1F1F" d="M14 2V0h4v2h14v4H0V2z"/>
-          <path d="M3.174 10L4.84 30h22.32l1.666-20H3.174z" stroke="#1F1F1F" strokeWidth="4"/>
+          <path d="M3.174 10L4.84 30h22.32l1.666-20H3.174z" fill="none" stroke="#1F1F1F" strokeWidth="4"/>
           <path d="M8 14h4l1 12H9L8 14zm6 0h4l1 12h-4l-1-12z" fill="#FFD100"/>
         </g>
       )
@@ -358,31 +358,32 @@ export const Glyph = ({ glyph }) => {
 
     case 'location':
       return (
-        <g transform="translate(4)" fill="none">
+        <g transform="translate(4)">
           <path
             d="M11.975 27.177C19.05 22.047 22.5 16.977 22.5 12c0-.359-.018-.715-.053-1.067C21.909 5.599 17.402 1.5 12 1.5c-5.392 0-9.893 4.084-10.444 9.405-.037.362-.056.727-.056 1.095 0 5.292 3.43 10.35 10.475 15.177z"
+            fill="none"
             stroke="#1F1F1F"
             stroke-width="3"
           />
-          <circle stroke="#1F1F1F" strokeWidth="3" cx="12" cy="11" r="4.5" />
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="3" cx="12" cy="11" r="4.5" />
           <path fill="#FFD100" d="M0 29h24v3H0z" />
         </g>
       )
 
     case 'share':
       return (
-        <g fill="none">
-          <circle stroke="#1F1F1F" strokeWidth="3" cx="26" cy="22" r="4.5"/>
-          <circle stroke="#1F1F1F" strokeWidth="3" cx="6" cy="26" r="4.5"/>
+        <g>
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="3" cx="26" cy="22" r="4.5"/>
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="3" cx="6" cy="26" r="4.5"/>
           <path fill="#1F1F1F" d="M10.806 23.757L21.972 21.9v2.736l-11.166 1.856zM7.487 8.104h2.736L8 21.514H5.264z"/>
-          <circle stroke="#FFD100" strokeWidth="3" cx="9" cy="5" r="3.5"/>
+          <circle fill="none" stroke="#FFD100" strokeWidth="3" cx="9" cy="5" r="3.5"/>
         </g>
       )
 
     case 'add':
       return (
-        <g fill="none">
-          <circle stroke="#1F1F1F" strokeWidth="2.667" cx="16" cy="16" r="14.667"/>
+        <g>
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="2.667" cx="16" cy="16" r="14.667"/>
           <path d="M14.667 14.667v-4h2.666v4h4v2.666h-4v4h-2.666v-4h-4v-2.666h4z" fill="#FFD100"/>
         </g>
       )
@@ -397,9 +398,9 @@ export const Glyph = ({ glyph }) => {
 
     case 'account':
       return (
-        <g fill="none">
-          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" fill="#1F1F1F" fill-rule="nonzero"/>
-          <circle stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8"/>
+        <g>
+          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" />
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8"/>
           <path fill="#FFD100" fillRule="nonzero" d="M20 24h4l-8 8-8-8h4l4 4z"/>
         </g>
       )
