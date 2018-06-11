@@ -30,7 +30,7 @@ export default class Page extends React.Component {
           <Icon glyph="location" />
           <Icon glyph="move" />
           <Icon glyph="similar" />
-          <Icon glyph="author" />
+          <Icon glyph="account" />
         <div>
           <Icon glyph="angle-down" />
           <Icon glyph="angle-down-sm" />

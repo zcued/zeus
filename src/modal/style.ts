@@ -26,7 +26,7 @@ export const ModalContainer = styled.div`
 
 export const Header = styled.div`
   margin-top: ${T('spacing.lg')}px;
-  margin-bottom: ${T('spacing.xl')}px;
+  margin-bottom: ${T('spacing.lg')}px;
   font-weight: ${T('font.weight.bold')};
   font-size: ${T('font.size.md')}px;
   color: ${T('palette.black')};
@@ -38,10 +38,14 @@ export const Body = styled(Flex)`
 `
 
 export const Footer = styled(Flex)`
-  margin-top: ${T('spacing.xl')}px;
+  margin-top: ${T('spacing.lg')}px;
   margin-bottom: ${T('spacing.lg')}px;
 
-  & > button + button {
-    margin-left: ${T('spacing.md')}px;
+  & > button {
+    width: 128px;
+
+    & + button {
+      margin-left: ${T('spacing.md')}px;
+    }
   }
 `
