@@ -65,6 +65,7 @@ export const hexa = (hex, alpha) => {
 export const zIndex = new function() {
   this.hide = -1
   this.base = 0
+  this.loading = 3
   this.selected = 25
   this.active = 50
   this.nav = 1000
@@ -73,9 +74,9 @@ export const zIndex = new function() {
   this.popover = 3000
   this.tooltip = 4000
   this.banner = 5000
+  this.overlay = 5998
+  this.modal = 5999
   this.toast = 6000
-  this.overlay = 8050
-  this.modal = 9000
 }()
 
 export const noop = () => {} // tslint:disable-line

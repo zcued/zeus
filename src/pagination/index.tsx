@@ -12,7 +12,12 @@ interface Props {
   className?: string
 }
 
-class Pagination extends React.Component<Props> {
+interface State {
+  current: number
+  currentInput: number | string
+}
+
+class Pagination extends React.Component<Props, State> {
   static defaultProps = {
     onChange: noop
   }
@@ -22,13 +27,14 @@ class Pagination extends React.Component<Props> {
     currentInput: this.props.current || this.props.defaultCurrent || 1
   }
 
-  static getDerivedStateFromProps(nextProps: Props) {
-    if (nextProps.hasOwnProperty('current')) {
+  static getDerivedStateFromProps(props: Props, state: State) {
+    if (props.hasOwnProperty('current')) {
       return {
-        current: nextProps.current,
-        currentInput: nextProps.current
+        current: props.current,
+        currentInput: state.currentInput
       }
     }
+
     return null
   }
 
