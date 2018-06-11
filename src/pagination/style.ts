@@ -12,8 +12,7 @@ export const JumperInput = styled(Input)`
   padding: 0;
 
   &:focus {
-    border-color: transparent;
-    border-bottom-color: ${T('palette.black')};
+    border-color: ${T('palette.black')};
     box-shadow: none;
     outline: none;
   }
