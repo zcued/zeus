@@ -23,7 +23,7 @@ export { StyledTabs as Tabs, StyledTab as Tab } from './tabs'
 export { default as Tag } from './tag'
 export { default as Toast } from './toast'
 export { default as Tooltip } from './tooltip'
-export { Select } from './select'
+export { Select, Select2 } from './select'
 
 export { default as Portal } from './portal'
 export { default as Provider } from './provider'

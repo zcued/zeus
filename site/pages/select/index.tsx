@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Select from 'react-select'
+import { Select, Select2 } from '../../../src'
 
 interface State {
     value: any
@@ -18,6 +18,20 @@ const opts = [
         value: 'demo3'
     }
 ]
+
+const opts2 = [
+    {
+      key: 1,
+      value: '1',
+      label: 'demo1'
+    },
+    {
+      key: 2,
+      value: '2',
+      label: 'demo2'
+    }
+  ]
+
 export default class Page extends React.Component<State> {
 
     state = {
@@ -44,6 +58,11 @@ export default class Page extends React.Component<State> {
                     value={value}
                     onChange={this.handleChange}
                     options={opts}
+                />
+
+                <Select2
+                    options={opts2}
+                    
                 />
             </div>
             
