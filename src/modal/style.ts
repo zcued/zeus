@@ -20,7 +20,6 @@ export const ModalContainer = styled.div`
   text-align: center;
   height: 100%;
   margin: 0 auto;
-  max-height: 80vh;
   overflow: scroll;
 `
 
@@ -34,7 +33,7 @@ export const Header = styled.div`
 `
 
 export const Body = styled(Flex)`
-  height: 'auto';
+  height: auto;
 `
 
 export const Footer = styled(Flex)`
