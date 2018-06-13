@@ -1,9 +1,7 @@
 # Zeus
 
-![](https://travis-ci.org/zcued/Zeus.svg?branch=master)
-[![MIT License][license-image]][license-url]
+![](https://travis-ci.org/zcued/zeus.svg?branch=master)
+![](https://img.shields.io/github/license/zcued/zeus.svg)
+![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 Simple and elegant component-based UI library
-
-[license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
-[license-url]: https://oss.ninja/mit/zcued
