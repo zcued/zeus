@@ -21,23 +21,24 @@ export const PopperContainer = styled.div`
   box-shadow: 0 2px 8px ${T('palette.black16')};
   animation: 0.3s ${fadeIn} ease-out;
 
-  &[data-placement|=top] {
+  &[data-placement|='top'] {
     margin-bottom: 8px;
   }
 
-  &[data-placement|=right] {
+  &[data-placement|='right'] {
     margin-left: 8px;
   }
 
-  &[data-placement|=bottom] {
+  &[data-placement|='bottom'] {
     margin-top: 8px;
   }
 
-  &[data-placement|=left] {
+  &[data-placement|='left'] {
     margin-right: 8px;
   }
 `
 
 export const ReferenceContainer = styled.div`
   display: inline-block;
+  font-size: ${T('font.size.sm')}px;
 `
