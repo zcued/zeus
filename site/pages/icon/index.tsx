@@ -26,6 +26,8 @@ export default class Page extends React.Component {
         </div>
           <Icon glyph="add" />
           <Icon glyph="share" />
+          <Icon glyph="import" />
+          <Icon glyph="statistics" />
           <Icon glyph="arrow-down-collapse" />
           <Icon glyph="location" />
           <Icon glyph="move" />
