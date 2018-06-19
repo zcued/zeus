@@ -5,7 +5,7 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "removeComments": false,
     "preserveConstEnums": true,
@@ -17,5 +17,5 @@
     "typeRoots": ["./node_modules/@types"],
     "lib": ["es6", "es2017", "dom"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.tsx"]
 }

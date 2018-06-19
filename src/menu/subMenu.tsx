@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T } from '../util'
 import Icon from '../icon'
-import { SubMenuTitle, SubMenuContainer, MenuItemContainer } from './style'
+import { MenuItemContainer } from './menuItem'
 
 interface Props {
   className?: string
@@ -13,7 +13,6 @@ interface Props {
   name?: string
   onChange?: Function
   onOpenChange?: Function
-
 }
 
 class SubMenu extends React.Component<Props> {
@@ -46,6 +45,44 @@ class SubMenu extends React.Component<Props> {
   }
 }
 
+const SubMenuTitle = styled.div`
+  position: relative;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  span {
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  [data-icon='true'] {
+    color: ${T('palette.black')};
+    transition: all 0.3s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 40px;
+    height: 4px;
+    background: ${T('palette.primary')};
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+  }
+`
+
+const SubMenuContainer = styled.ul`
+  padding: 0 0 16px;
+  list-style: none;
+  font-size: 16px;
+  color: ${T('palette.spruce')};
+`
+
 const SubMenuStyled = styled(SubMenu)`
   ${SubMenuTitle} {
     &.active {
@@ -53,10 +90,10 @@ const SubMenuStyled = styled(SubMenu)`
 
       &::before {
         content: '';
-        display: ${({ hasActiveArrow }) => hasActiveArrow ? 'block' : 'none'};
+        display: ${({ hasActiveArrow }) => (hasActiveArrow ? 'block' : 'none')};
         position: absolute;
         top: 50%;
-        right: -${({ activeArrowPosition }) => activeArrowPosition ? activeArrowPosition : 40}px;
+        right: -${({ activeArrowPosition }) => (activeArrowPosition ? activeArrowPosition : 40)}px;
         width: 0;
         height: 0;
         border: 8px solid transparent;
@@ -95,7 +132,7 @@ const SubMenuStyled = styled(SubMenu)`
   }
 
   ${SubMenuContainer} {
-    display: ${({ isActive }) => isActive ? 'block' : 'none'};
+    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
 
     ${MenuItemContainer} {
       padding: 8px;
