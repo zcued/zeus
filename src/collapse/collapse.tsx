@@ -2,6 +2,13 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { shallowEquals } from '../util'
 
+export interface Props {
+  value?: string | Array<string>
+  accordion?: boolean
+  className?: string
+  onChange?: any
+}
+
 const CollapseStyled = styled.div`
   background: ${({ theme }) => theme.palette.white};
 `
@@ -12,13 +19,6 @@ const toArray = value => {
     target = target ? [target] : []
   }
   return target
-}
-
-interface Props {
-  value?: string | Array<string>
-  accordion?: boolean
-  className?: string
-  onChange?: any
 }
 
 export default class Collapse extends React.Component<Props> {

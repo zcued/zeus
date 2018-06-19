@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T } from '../util'
 
-interface CardPorps {
+export interface Porps {
   type?: 'card' | 'atlas' | 'picture'
   size?: 'small'
   imgSrc?: string
@@ -19,15 +19,31 @@ interface CardPorps {
   className?: string
 }
 
-class Card extends React.Component<CardPorps> {
+class Card extends React.Component<Porps> {
   render() {
-    const { className, type, imgSrc, imgAlt, customImage, titlePosition, title, subTitle, tag, operator, customContent } = this.props
+    const {
+      className,
+      type,
+      imgSrc,
+      imgAlt,
+      customImage,
+      titlePosition,
+      title,
+      subTitle,
+      tag,
+      operator,
+      customContent
+    } = this.props
 
     return (
       <div className={className}>
         {customImage ? customImage : <img src={imgSrc} alt={imgAlt} />}
         {type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom' ? (
-          customContent ? customContent : <p className="title--bottom">{title}</p>
+          customContent ? (
+            customContent
+          ) : (
+            <p className="title--bottom">{title}</p>
+          )
         ) : (
           <React.Fragment>
             <div className="title__wrapper" />
@@ -50,20 +66,17 @@ class Card extends React.Component<CardPorps> {
 const CardStyled = styled(Card)`
   position: relative;
   width: 100%;
-  border-radius: ${props => (
-    props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-  )};
-  border: ${({ borderStyle }) => borderStyle ? borderStyle : ''};
+  border-radius: ${props => (props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : '')};
+  border: ${({ borderStyle }) => (borderStyle ? borderStyle : '')};
   box-sizing: border-box;
   transition: all .3s;
 
   img {
     display: block;
     width: 100%;
-    height: ${props => props.imgHeight ? props.imgHeight + 'px' : 'auto' }
-    border-radius: ${props => (
-      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-    )};
+    height: ${props => (props.imgHeight ? props.imgHeight + 'px' : 'auto')}
+    border-radius: ${props =>
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
   }
 
   p {
@@ -77,9 +90,8 @@ const CardStyled = styled(Card)`
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: ${props => (
-      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-    )};
+    border-radius: ${props =>
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
   }
 
   .title {

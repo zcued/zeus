@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Icon from '../icon'
-import { Input, Fake, Label, Text } from '../checkbox/style'
+import { Input, Fake, Label, Text } from '../checkbox'
 
 interface Props {
   checked?: boolean
