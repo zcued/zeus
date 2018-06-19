@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { noop } from '../globals'
+import styled, { keyframes } from '../theme/styled-components'
+import { noop, zIndex } from '../globals'
+import { T } from '../util'
 import Icon from '../icon'
-import { StyledClickOutSide, Button, PoppersContainer } from './style'
+import ClickOutSide from './click-outside'
 
-interface Props {
+export interface Props {
   trigger?: 'hover' | 'click'
   text?: string
   className?: string
@@ -12,6 +14,40 @@ interface Props {
   isOpen?: boolean
   onToggle?: Function
 }
+
+export const StyledClickOutSide = styled(ClickOutSide)`
+  display: inline-block;
+  background-color: transparent;
+  position: relative;
+  color: ${T('palette.black')};
+`
+
+export const Button = styled.button`
+  border: none;
+  outline: none;
+  padding: ${T('spacing.xs')}px 0;
+  cursor: pointer;
+
+  & > [data-icon='true'] {
+    margin-left: ${T('spacing.xs')}px;
+  }
+`
+
+export const fadeIn = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`
+
+export const PoppersContainer = styled.div`
+  opacity: 0;
+  position: absolute;
+  background-color: ${T('palette.white')};
+  animation: ${fadeIn} 0.1s ease-in 0.1s forwards;
+  z-index: ${zIndex.dropdown};
+  box-shadow: 0 6px 12px ${T('palette.black16')};
+  border-radius: 4px;
+  min-width: 100%;
+`
 
 class Dropdown extends React.Component<Props> {
   static defaultProps = {

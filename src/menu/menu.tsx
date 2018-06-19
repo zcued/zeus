@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { MenuContainer } from './style'
+import styled from '../theme/styled-components'
+import { T } from '../util'
 
 interface Props {
   className?: string
@@ -14,7 +15,18 @@ interface State {
   activeName: string
 }
 
-export default class Menu extends React.Component<Props, State> {
+export const MenuContainer = styled.ul`
+  margin: 0;
+  padding: ${T('spacing.md')}px 0;
+  width: 212px;
+  font-size: ${T('font.size.md')}px;
+  line-height: 28px;
+  text-align: center;
+  background: ${T('palette.white')};
+  list-style: none;
+`
+
+class Menu extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
@@ -24,19 +36,25 @@ export default class Menu extends React.Component<Props, State> {
   }
 
   onItemClick(name: string) {
-    this.setState({
-      activeName: name
-    }, () => {
-      if (this.props.onChange) this.props.onChange(name)
-    })
+    this.setState(
+      {
+        activeName: name
+      },
+      () => {
+        if (this.props.onChange) this.props.onChange(name)
+      }
+    )
   }
 
   onOpenChange(name: string) {
-    this.setState({
-      activeName: name
-    }, () => {
-      if (this.props.onOpenChange) this.props.onOpenChange(name)
-    })
+    this.setState(
+      {
+        activeName: name
+      },
+      () => {
+        if (this.props.onOpenChange) this.props.onOpenChange(name)
+      }
+    )
   }
 
   render() {
@@ -56,7 +74,9 @@ export default class Menu extends React.Component<Props, State> {
             name: name,
             title: title,
             onClick: (item: string) => this.onItemClick(item),
-            onChange: (item: string) => {if (onChange) onChange(item)},
+            onChange: (item: string) => {
+              if (onChange) onChange(item)
+            },
             onOpenChange: (item: string) => this.onOpenChange(item)
           })
         })}
@@ -64,3 +84,5 @@ export default class Menu extends React.Component<Props, State> {
     )
   }
 }
+
+export default Menu

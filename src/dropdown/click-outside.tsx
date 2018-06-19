@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { noop } from '../globals'
 
-interface Props {
+export interface Props {
   onClick?: Function
   className?: string
 }
@@ -22,13 +22,17 @@ class ClickOutSide extends React.Component<Props & React.HTMLAttributes<HTMLDivE
   }
 
   handleClick = e => {
-    if (this.isContains(e.target)) { return }
+    if (this.isContains(e.target)) {
+      return
+    }
 
     this.props.onClick(e)
   }
 
   isContains(node: HTMLElement): boolean {
-    if (!this.wrapper) { return true }
+    if (!this.wrapper) {
+      return true
+    }
 
     return this.wrapper !== node && this.wrapper.contains(node)
   }
