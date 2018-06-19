@@ -3,6 +3,13 @@ import styled from '../theme/styled-components'
 import CollapseTransition from './collapseTransition'
 import Icon from '../icon'
 
+export interface Props {
+  className?: string
+  title: string | JSX.Element
+  isActive?: boolean
+  onClick?: any
+}
+
 const CollapseItemStyled = styled.div`
   &:last-child div {
     border-bottom: 0;
@@ -29,13 +36,6 @@ const CollapseItemContainer = styled.div`
   padding: 40px 48px;
   background: #fafafa;
 `
-
-interface Props {
-  className?: string
-  title: string | JSX.Element
-  isActive?: boolean
-  onClick?: any
-}
 
 export default class CollapseItem extends React.Component<Props, {}> {
   render() {

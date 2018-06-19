@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 
-interface Props {
+export interface Props {
   basis?: string
   direction?: string
   grow?: number

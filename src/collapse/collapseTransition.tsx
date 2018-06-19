@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-const ANIMATION_DURATION = 300
-
-interface Props {
+export interface Props {
   isShow: boolean
 }
+
+const ANIMATION_DURATION = 300
 
 export default class CollapseTransition extends React.Component<Props> {
   selfRef = null
@@ -116,7 +116,7 @@ export default class CollapseTransition extends React.Component<Props> {
       <div
         className="collapse-transition"
         style={{ overflow: 'hidden', transition: 'all .3s' }}
-        ref={e => this.selfRef = e}
+        ref={e => (this.selfRef = e)}
       >
         {this.props.children}
       </div>

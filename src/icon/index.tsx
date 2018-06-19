@@ -476,7 +476,7 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case 'open-e`ye':
+    case 'open-eye':
       return (
         <g transform="translate(0 2)" strokeWidth="4" fill="none">
           <path d="M16 0v8M2 4l4 6.928M30.262 4.745l-4 6.928" stroke="#FFD100" />
@@ -510,6 +510,26 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case 'import':
+      return (
+        <g>
+          <path d="M24 22v-2h6V8H2v12h4v2H0V6h32v16h-8z" />
+          <circle fill="#FFD100" cx="26" cy="12" r="2" />
+          <path fill="none" stroke="#1F1F1F" strokeWidth="2" d="M7 1h18v6H7zM7 17h18v14H7z" />
+          <path fill="#FFD100" d="M14 26h8v2h-8z" />
+        </g>
+      )
+
+    case "statistics":
+      return (
+        <g>
+          <path d="M2 30h30v2H0V0h2v30z" />
+          <path d="M6 12h2v16H6zM12 18h2v10h-2z" />
+          <path fill="#FFD100" d="M12 10h2v6h-2zM24 4h2v4h-2z" />
+          <path d="M18 14h2v14h-2zM24 10h2v18h-2z" />
+        </g>
+      )
+
     default:
       return null
   }
@@ -530,17 +550,17 @@ export const InlineSvg = styled.svg`
 `
 
 const SvgWrapper = styled.div`
-  display: inline-block;
+            display: inline-block;
   flex: 0 0 ${computedSize};
   width: ${computedSize};
   height: ${computedSize};
   min-width: ${computedSize};
   min-height: ${computedSize};
-  position: relative;
-  color: inherit;
-  cursor: pointer;
-  vertical-align: middle;
-`
+          position: relative;
+          color: inherit;
+          cursor: pointer;
+          vertical-align: middle;
+        `
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
   <SvgWrapper data-icon={true} size={size} {...rest}>
