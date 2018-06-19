@@ -57,6 +57,53 @@ interface ModalStyle {
   }
 }
 
+export const CloseButton = styled.div`
+  position: absolute;
+  top: 0;
+  right: -56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: ${({ color, theme }) => color || theme.palette.white};
+`
+
+export const ModalContainer = styled.div`
+  text-align: center;
+  height: 100%;
+  margin: 0 auto;
+  overflow: scroll;
+`
+
+export const Header = styled.div`
+  margin-top: ${T('spacing.lg')}px;
+  margin-bottom: ${T('spacing.lg')}px;
+  font-weight: ${T('font.weight.bold')};
+  font-size: ${T('font.size.md')}px;
+  color: ${T('palette.black')};
+  line-height: 28px;
+`
+
+export const Body = styled(Flex)`
+  height: auto;
+`
+
+export const Footer = styled(Flex)`
+  margin-top: ${T('spacing.lg')}px;
+  margin-bottom: ${T('spacing.lg')}px;
+
+  & > button {
+    width: 128px;
+
+    & + button {
+      margin-left: ${T('spacing.md')}px;
+    }
+  }
+`
+
 class Modal extends React.Component<Props> {
   static defaultProps = {
     ariaHideApp: false
@@ -135,52 +182,5 @@ class Modal extends React.Component<Props> {
     )
   }
 }
-
-export const CloseButton = styled.div`
-  position: absolute;
-  top: 0;
-  right: -56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: ${({ color, theme }) => color || theme.palette.white};
-`
-
-export const ModalContainer = styled.div`
-  text-align: center;
-  height: 100%;
-  margin: 0 auto;
-  overflow: scroll;
-`
-
-export const Header = styled.div`
-  margin-top: ${T('spacing.lg')}px;
-  margin-bottom: ${T('spacing.lg')}px;
-  font-weight: ${T('font.weight.bold')};
-  font-size: ${T('font.size.md')}px;
-  color: ${T('palette.black')};
-  line-height: 28px;
-`
-
-export const Body = styled(Flex)`
-  height: auto;
-`
-
-export const Footer = styled(Flex)`
-  margin-top: ${T('spacing.lg')}px;
-  margin-bottom: ${T('spacing.lg')}px;
-
-  & > button {
-    width: 128px;
-
-    & + button {
-      margin-left: ${T('spacing.md')}px;
-    }
-  }
-`
 
 export default Modal

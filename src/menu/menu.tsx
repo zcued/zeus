@@ -15,6 +15,17 @@ interface State {
   activeName: string
 }
 
+export const MenuContainer = styled.ul`
+  margin: 0;
+  padding: ${T('spacing.md')}px 0;
+  width: 212px;
+  font-size: ${T('font.size.md')}px;
+  line-height: 28px;
+  text-align: center;
+  background: ${T('palette.white')};
+  list-style: none;
+`
+
 class Menu extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
@@ -73,16 +84,5 @@ class Menu extends React.Component<Props, State> {
     )
   }
 }
-
-export const MenuContainer = styled.ul`
-  margin: 0;
-  padding: ${T('spacing.md')}px 0;
-  width: 212px;
-  font-size: ${T('font.size.md')}px;
-  line-height: 28px;
-  text-align: center;
-  background: ${T('palette.white')};
-  list-style: none;
-`
 
 export default Menu

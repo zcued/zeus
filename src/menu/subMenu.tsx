@@ -15,36 +15,6 @@ interface Props {
   onOpenChange?: Function
 }
 
-class SubMenu extends React.Component<Props> {
-  onItemClick(name: string) {
-    if (this.props.onChange) this.props.onChange(this.props.name + '-' + name)
-  }
-
-  render() {
-    const { className, title, isActive, name, onOpenChange, children } = this.props
-
-    return (
-      <li className={className}>
-        <SubMenuTitle className={isActive ? ' active' : ''} onClick={() => onOpenChange(name)}>
-          <span>{title}</span>
-          <Icon glyph="angle-right" size={10} />
-        </SubMenuTitle>
-        <SubMenuContainer>
-          {React.Children.map(children, (child: any, index: number) => {
-            const subName = child.props.name || index.toString()
-
-            return React.cloneElement(child, {
-              key: index,
-              name: subName,
-              onClick: (item: string) => this.onItemClick(item)
-            })
-          })}
-        </SubMenuContainer>
-      </li>
-    )
-  }
-}
-
 const SubMenuTitle = styled.div`
   position: relative;
   padding: 16px;
@@ -82,6 +52,36 @@ const SubMenuContainer = styled.ul`
   font-size: 16px;
   color: ${T('palette.spruce')};
 `
+
+class SubMenu extends React.Component<Props> {
+  onItemClick(name: string) {
+    if (this.props.onChange) this.props.onChange(this.props.name + '-' + name)
+  }
+
+  render() {
+    const { className, title, isActive, name, onOpenChange, children } = this.props
+
+    return (
+      <li className={className}>
+        <SubMenuTitle className={isActive ? ' active' : ''} onClick={() => onOpenChange(name)}>
+          <span>{title}</span>
+          <Icon glyph="angle-right" size={10} />
+        </SubMenuTitle>
+        <SubMenuContainer>
+          {React.Children.map(children, (child: any, index: number) => {
+            const subName = child.props.name || index.toString()
+
+            return React.cloneElement(child, {
+              key: index,
+              name: subName,
+              onClick: (item: string) => this.onItemClick(item)
+            })
+          })}
+        </SubMenuContainer>
+      </li>
+    )
+  }
+}
 
 const SubMenuStyled = styled(SubMenu)`
   ${SubMenuTitle} {

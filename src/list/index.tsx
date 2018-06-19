@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react' // tslint:disable-line
 import styled from '../theme/styled-components'
 import { T } from '../util'
 

@@ -44,43 +44,6 @@ interface Props {
   slickGoTo?: number
 }
 
-export default class Carousel extends React.Component<Props> {
-  static defaultProps = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoplaySpeed: 5000,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  }
-
-  slider = null
-
-  next = () => {
-    this.slider.slickNext()
-  }
-
-  prev = () => {
-    this.slider.slickPrev()
-  }
-
-  goTo = (slide: number) => {
-    this.slider.slickGoTo(slide)
-  }
-
-  render() {
-    const { children, className, ...rest } = this.props
-
-    return (
-      <CarouselStyled className={className}>
-        <Slider ref={el => (this.slider = el)} {...rest}>
-          {children}
-        </Slider>
-      </CarouselStyled>
-    )
-  }
-}
-
 export const CarouselStyled = styled.div`
   position: relative;
   width: 100%;
@@ -384,3 +347,40 @@ export const CarouselStyled = styled.div`
     color: black;
   }
 `
+
+export default class Carousel extends React.Component<Props> {
+  static defaultProps = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplaySpeed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+
+  slider = null
+
+  next = () => {
+    this.slider.slickNext()
+  }
+
+  prev = () => {
+    this.slider.slickPrev()
+  }
+
+  goTo = (slide: number) => {
+    this.slider.slickGoTo(slide)
+  }
+
+  render() {
+    const { children, className, ...rest } = this.props
+
+    return (
+      <CarouselStyled className={className}>
+        <Slider ref={el => (this.slider = el)} {...rest}>
+          {children}
+        </Slider>
+      </CarouselStyled>
+    )
+  }
+}
