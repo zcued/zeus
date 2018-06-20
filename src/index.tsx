@@ -24,7 +24,7 @@ export { StyledTabs as Tabs, StyledTab as Tab } from './tabs'
 export { default as Tag } from './tag'
 export { default as Toast } from './toast'
 export { default as Tooltip } from './tooltip'
-export { default as DatePicker } from './datepicker'
+export { DatePicker, RangePicker } from './datepicker'
 
 export { default as Portal } from './portal'
 export { default as Provider } from './provider'
