@@ -1,11 +1,21 @@
 import * as React from 'react'
 import Calender from './calender'
 // import ClickOutSide from '../dropdown/click-outside'
-import { StyledClickOutSide, PoppersContainer, Button } from '../dropdown/style'
+import { StyledClickOutSide, PoppersContainer, Button } from '../dropdown'
 import Icon from '../icon'
 import { DateRangeWaper, SplitLine , FlexCenter } from './style'
+
+interface Date {
+  year: number,
+  month: number,
+  day: number
+}
 interface Props {
-  onSelectDate: Function
+  onSelectDate: Function,
+  defaultValue?: {
+    from: Array<Date>,
+    fo: Array<Date>
+  }
 }
 
 class DatePicker extends React.Component<Props> {
