@@ -487,9 +487,9 @@ export const Glyph = ({ glyph }) => {
 
     case 'close-eye':
       return (
-        <g fill="none" fill-rule="evenodd">
-          <path d="M16 30v-8M2 26l4-6.928M30.262 25.255l-4-6.928" stroke="#FFD100" stroke-width="4" />
-          <path d="M32 12.75c0-1.105-.495-1.863-1.664-2-.634-.074-1.26.368-1.696.984-.366.519-.58 1.177-.723 1.587C27 15.945 21.658 19.5 16 19.5c-4.79 0-9.49-2.554-11.262-4.931-.474-.637-.76-1.401-.888-1.819-.336-1.096-1.07-2.082-2.128-2-1.057.082-1.722.895-1.722 2C0 17.986 7.966 23.5 16 23.5c8.041 0 16-5.502 16-10.75z" fill="#1F1F1F" fill-rule="nonzero" />
+        <g fill="none">
+          <path d="M16 30v-8M2 26l4-6.928M30.262 25.255l-4-6.928" stroke="#FFD100" strokeWidth="4" />
+          <path d="M32 12.75c0-1.105-.495-1.863-1.664-2-.634-.074-1.26.368-1.696.984-.366.519-.58 1.177-.723 1.587C27 15.945 21.658 19.5 16 19.5c-4.79 0-9.49-2.554-11.262-4.931-.474-.637-.76-1.401-.888-1.819-.336-1.096-1.07-2.082-2.128-2-1.057.082-1.722.895-1.722 2C0 17.986 7.966 23.5 16 23.5c8.041 0 16-5.502 16-10.75z" fill="#1F1F1F" />
         </g>
       )
 
@@ -499,14 +499,6 @@ export const Glyph = ({ glyph }) => {
           <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" />
           <circle fill="none" stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8" />
           <path fill="#FFD100" d="M20 24h4l-8 8-8-8h4l4 4z" />
-        </g>
-      )
-
-    case 'mail':
-      return (
-        <g>
-          <path d="M30,10.0021385 L2,10.0320611 L2,10.8798748 L16,19.6406858 L30,10.8798748 L30,10.0021385 Z" id="Rectangle-9" stroke="#FFD100" stroke-width="4"></path>
-          <rect stroke="#1F1F1F" stroke-width="4" x="2" y="2" width="28" height="24"></rect>
         </g>
       )
 
@@ -530,6 +522,22 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case "manage":
+      return (
+        <g fill="none">
+          <path stroke="#1F1F1F" strokeWidth="4" d="M2 10h28v20H2zM8 2h16v8H8z" />
+          <path fill="#1F1F1F" d="M2 16h28v4H2z" />
+          <path fill="#FFD100" d="M8 14h4v8H8zM20 14h4v8h-4z" />
+        </g>
+      )
+
+    case "email":
+      return (
+        <g strokeWidth="4" fill="none">
+          <path d="M30 12.002l-28 .03v.848l14 8.76 14-8.76v-.878z" stroke="#FFD100" />
+          <path stroke="#1F1F1F" d="M2 4h28v24H2z" />
+        </g>
+      )
     default:
       return null
   }

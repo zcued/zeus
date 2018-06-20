@@ -70,7 +70,8 @@ export default class Page extends React.Component {
           <Icon glyph="warning" />
           <Icon glyph="open-eye" />
           <Icon glyph="close-eye" />
-          <Icon glyph="question" />
+          <Icon glyph="manage" />
+          <Icon glyph="email" />
         </div>
       </React.Fragment>
     )
