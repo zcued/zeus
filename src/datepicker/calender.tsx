@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { noop } from '../globals'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
-// import { CalenderHeader, CalenderBody, Wrapper, Title, Cell, Table } from './style'
 const width = '300px'
 
 export const CalenderHeader = styled.div`
