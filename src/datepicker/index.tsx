@@ -1,9 +1,30 @@
 import * as React from 'react'
 import Calender from './calender'
-// import ClickOutSide from '../dropdown/click-outside'
 import { StyledClickOutSide, PoppersContainer, Button } from '../dropdown'
 import Icon from '../icon'
-import { DateRangeWaper, SplitLine , FlexCenter } from './style'
+import styled from '../theme/styled-components'
+
+export const FlexCenter = styled.div`
+display:flex;
+align-items:center;
+justify-content:space-between;
+width:40%;
+`
+
+export const DateRangeWaper = styled.div`
+display:flex;
+align-items:center;
+justify-content:space-between;
+width: 240px;
+border: 1px solid #F0F4F5;
+
+`
+
+export const SplitLine = styled.div`
+border:1px solid #666666;
+height:0px;
+width:14px;
+`
 
 interface Date {
   year: number,
