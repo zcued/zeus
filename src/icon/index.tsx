@@ -7,6 +7,7 @@ interface Props {
   glyph: string
   size?: number
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  style?: object
 }
 
 export const Glyph = ({ glyph }) => {
@@ -483,6 +484,18 @@ export const Glyph = ({ glyph }) => {
           <path d="M29.154 6.075c1.751 1.634 2.431 4.098 2.04 7.394a1.323 1.323 0 0 1-1.313 1.167h-.035a.978.978 0 0 1-.968-1.112c.302-2.19-.05-3.996-1.055-5.42-1.036-1.467-2.945-2.166-5.725-2.095a1.1 1.1 0 0 1-1.127-1.099c0-.669.54-1.212 1.209-1.216 2.928-.018 5.253.776 6.974 2.381z" />
         </g>
       )
+    case 'calendar':
+    return (
+      <g  stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g>
+            <rect  stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
+            <rect  fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
+            <rect  fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
+            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
+            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
+          </g>
+      </g>
+    )
 
     case 'import':
       return (
