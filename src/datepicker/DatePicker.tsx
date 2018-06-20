@@ -4,6 +4,18 @@ import Calender from './calender'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
 
+
+const Outside = styled(StyledClickOutSide)`
+width:100px;
+backgrond-color:white;
+`
+
+const FlexCenter = styled.div`
+display:flex;
+align-items:center;
+justify-content:space-between;
+`
+
 interface DateObj {
   year: number,
   month: number,
@@ -99,13 +111,3 @@ export default class DatePicker extends React.Component<Props, State> {
   }
 }
 
-const Outside = styled(StyledClickOutSide)`
-width:100px;
-backgrond-color:white;
-`
-
-const FlexCenter = styled.div`
-display:flex;
-align-items:center;
-justify-content:space-between;
-`
