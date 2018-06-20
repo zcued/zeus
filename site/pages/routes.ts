@@ -36,7 +36,9 @@ const routes: Routes = {
       table: require('./table'),
       modal: require('./modal'),
       list: require('./list'),
-      form: require('./form')
+      form: require('./form'),
+      datepicker: require('./datepicker'),
+      select: require('./select')
     },
     Nav: {
       tabs: require('./tabs'),
