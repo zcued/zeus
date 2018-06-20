@@ -4,7 +4,6 @@ import Calender from './calender'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
 
-
 const Outside = styled(StyledClickOutSide)`
 width:100px;
 backgrond-color:white;
@@ -110,4 +109,3 @@ export default class DatePicker extends React.Component<Props, State> {
     )
   }
 }
-
