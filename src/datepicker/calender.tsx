@@ -9,7 +9,7 @@ display:flex;
 justify-content:space-between;
 height:20%;
 align-items:center;
-margin:10px 0 10px 0;
+margin:10px 0 30px 0;
 `
 export const CalenderBody = styled.div`
   table {
@@ -17,12 +17,13 @@ export const CalenderBody = styled.div`
   }
 `
 export const Wrapper = styled.div`
-width: ${width};
+padding:15px;
 `
 export const Title = styled.div`
-font-family: Futura - Bold
-font-size: 28px
-color: #282828
+font-family: Futura;
+font-size: 28px;
+color: #282828;
+font-weight: bold;
 letter-spacing: 0;
 `
 export const Table = styled.table`
@@ -223,14 +224,14 @@ class Calender extends React.Component<Props, State> {
           />
           <Icon
             glyph="angle-left"
-            size={26}
+            size={18}
             onClick={this.changeDate.bind(this, -1)}
           />
 
           <Title>{this.state.currentYear}</Title>
           <Title>{this.state.currentMonth + 1}</Title>
           <Icon
-            size={26}
+            size={18}
             glyph="angle-right"
             onClick={this.changeDate.bind(this, 1)}
           />

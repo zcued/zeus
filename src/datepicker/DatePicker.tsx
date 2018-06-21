@@ -6,13 +6,13 @@ import styled from '../theme/styled-components'
 
 const Outside = styled(StyledClickOutSide)`
 width:100px;
-backgrond-color:white;
+background-color:white;
 `
 
 const FlexCenter = styled.div`
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:space-around;
 `
 
 interface DateObj {
@@ -93,7 +93,10 @@ export default class DatePicker extends React.Component<Props, State> {
             >
               {value && `${value.month + 1}--${value.day}`}
             </Button>
-            <Icon glyph="calendar"/>
+            <Icon 
+              size={16}
+              glyph="calendar"
+            />
             </FlexCenter>
             
           {isOpen ? (

@@ -8,6 +8,7 @@ align-items:center;
 justify-content:space-between;
 width: 240px;
 height: 40px;
+background-color:white;
 border: 1px solid #F0F4F5;
 `
 
