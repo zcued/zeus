@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
+import { noop } from '../globals'
 const width = '300px'
 
 export const CalenderHeader = styled.div`
@@ -50,6 +51,12 @@ export const Cell = styled.button`
   &:focus{
     outline:none;
   }
+  &[disabled]{
+    background: #333;
+    color: white;
+    border-radius:50%;
+  }
+  
 `
 interface Date {
   year: number,
@@ -59,6 +66,7 @@ interface Date {
 
 interface Props {
   changeDate: Function,
+  disabledDate?: Function,
   defaultValue?: Date,
 }
 interface State {
@@ -72,6 +80,9 @@ const weekDayNames = ['一', '二', '三', '四', '五', '六', '日']
 
 class Calender extends React.Component<Props, State> {
 
+  static defaultProps = {
+    disabledDate: noop
+  }
   constructor(props: Props) {
     super(props)
 
@@ -188,6 +199,7 @@ class Calender extends React.Component<Props, State> {
                         null
                         :
                         <Cell
+                          disabled={this.props.disabledDate(date)}
                           className={
                             year === date.year &&
                             month === date.month &&

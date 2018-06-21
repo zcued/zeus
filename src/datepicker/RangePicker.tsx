@@ -46,6 +46,8 @@ class RangePicker extends React.Component<Props> {
 
   render() {
     const { defaultValue } = this.props
+    const { value } = this.state
+    const { from } = value
     return(
       
         <div>
@@ -58,6 +60,7 @@ class RangePicker extends React.Component<Props> {
             <DatePicker 
               defaultValue={defaultValue ? defaultValue.to : null}
               onSelectDate={e => this.changeDate(e, 'to')}
+              disabledDate={from}
             />
           </DateRangeWaper>
         </div>

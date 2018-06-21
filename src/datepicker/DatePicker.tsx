@@ -23,7 +23,8 @@ interface DateObj {
 
 interface Props {
   onSelectDate: Function,
-  defaultValue?: string
+  defaultValue?: string,
+  disabledDate?: string
 }
 interface State {
   value: DateObj,
@@ -75,9 +76,30 @@ export default class DatePicker extends React.Component<Props, State> {
     this.setState({isOpen: false, value: e}, () => {
       this.props.onSelectDate(`${e.year}-${e.month + 1}-${e.day}`)
     })
+  }
+
+  formatDate = (date: string) => {
+    const reg = /(\d{1,4}).+(\d{1,2}).+(\d{1,2})/
+    const matched = date.match(reg)
+    if (!matched) {
+      throw 'date 格式有误，请使用 XXXX-XX-XX'
+    }
+    return {
+      year: matched[1],
+      month: matched[2],
+      day: matched[3],
+    }
     
   }
 
+  disabledDate = e => {
+    const {disabledDate } = this.props
+    if (!disabledDate) {
+      return false
+    }
+    const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`) 
+    return selectedDate - (+new Date(disabledDate)) < 0
+  }
   render() {
     const { isOpen, value } = this.state
     return(
@@ -104,6 +126,7 @@ export default class DatePicker extends React.Component<Props, State> {
               <Calender
                 defaultValue={value}
                 changeDate={this.changeDate}
+                disabledDate={this.disabledDate}
               />
             </PoppersContainer>
           ) : null}
