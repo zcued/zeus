@@ -15,7 +15,7 @@ export const ListItem = styled.li`
   overflow: hidden;
 
   &:hover {
-    color: ${({ theme }) => theme.palette.white};
-    background-color: ${({ theme }) => theme.palette.primary};
+    color: ${T('palette.white')};
+    background-color: ${T('palette.primary')};
   }
 `

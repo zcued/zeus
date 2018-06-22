@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import CollapseTransition from './collapseTransition'
+import CollapseTransition from './collapse-transition'
 import Icon from '../icon'
 
 export interface Props {

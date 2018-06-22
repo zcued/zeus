@@ -69,12 +69,12 @@ const CardStyled = styled(Card)`
   border-radius: ${props => (props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : '')};
   border: ${({ borderStyle }) => (borderStyle ? borderStyle : '')};
   box-sizing: border-box;
-  transition: all .3s;
+  transition: all 0.3s;
 
   img {
     display: block;
     width: 100%;
-    height: ${props => (props.imgHeight ? props.imgHeight + 'px' : 'auto')}
+    height: ${props => (props.imgHeight ? props.imgHeight + 'px' : 'auto')};
     border-radius: ${props =>
       props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
   }
@@ -104,14 +104,14 @@ const CardStyled = styled(Card)`
     line-height: ${props => (props.size === 'small' ? '20px' : '28px')};
     transform: translateY(-50%);
 
-    p:first-child {
-      font-weight: bold;
-    }
-
     p + p {
       margin-top: ${props => (props.size === 'small' ? '4px' : '8px')};
       font-size: ${props => (props.size === 'small' ? T('font.size.xs') : '16')}px;
       line-height: ${props => (props.size === 'small' ? '18px' : '22px')};
+    }
+
+    p:first-child {
+      font-weight: bold;
     }
   }
 
@@ -159,16 +159,16 @@ const CardStyled = styled(Card)`
     bottom: 8px;
     right: 8px;
     opacity: 0;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   .custom-hover {
     opacity: 0;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &:hover {
-    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, .16);
+    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, 0.16);
 
     .operator,
     .custom-hover {

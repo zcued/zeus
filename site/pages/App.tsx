@@ -10,7 +10,8 @@ import Footer from '../components/footer'
 import Menu from '../components/menu'
 
 const StyledApp = styled.div`
-  font-family: PingFangSC-Regular, "Microsoft YaHei", "微软雅黑";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 22px;
 `
@@ -31,7 +32,7 @@ class App extends React.Component<{}, AppState> {
 
     this.hashChangeCallback = this.hashChangeCallback.bind(this)
     this.state = {
-      route: null,
+      route: null
     }
   }
 
@@ -56,7 +57,9 @@ class App extends React.Component<{}, AppState> {
   getRoute() {
     const hashs: string[] = location.hash.split('/')
 
-    if (hashs) { return hashs[1] }
+    if (hashs) {
+      return hashs[1]
+    }
 
     return 'quickStart'
   }
@@ -68,15 +71,20 @@ class App extends React.Component<{}, AppState> {
   }
 
   getComponent(route: string) {
-    this.components = this.components || Object.assign(
-      Object.values(routes.components).reduce((a, b) => {
-        return Object.assign(a, b)
-      },                                      {}),
-      routes.documents)
+    this.components =
+      this.components ||
+      Object.assign(
+        Object.values(routes.components).reduce((a, b) => {
+          return Object.assign(a, b)
+        }, {}),
+        routes.documents
+      )
 
     const component = this.components[route]
 
-    if (component) { return React.createElement(component.default) }
+    if (component) {
+      return React.createElement(component.default)
+    }
   }
 
   render() {

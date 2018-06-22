@@ -61,7 +61,7 @@
   "scripts": {
     "start": "cd site && node server.js",
     "lint": "npm-run-all lint:stylelint lint:tslint",
-    "lint:stylelint": "stylelint '**/*.ts'",
+    "lint:stylelint": "stylelint '**/*.tsx'",
     "lint:tslint": "tslint -p . -t verbose",
     "pretest": "npm run lint",
     "test": "jest --forceExit --verbose",
