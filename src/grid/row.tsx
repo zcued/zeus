@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import GridContext from './gridContext'
+import GridContext from './grid-context'
 import { px } from '../util'
 
 interface RowProps {
@@ -25,7 +25,7 @@ class Row extends React.Component<RowProps, {}> {
 }
 
 const RowStyled = styled(Row)`
-  margin: ${props => props.gutter ? '0 -' + px(props.gutter / 2) : ''};
+  margin: ${props => (props.gutter ? '0 -' + px(props.gutter / 2) : '')};
 
   &::after {
     content: '';

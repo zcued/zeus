@@ -61,7 +61,11 @@ export const MenuItemContainer = styled.li`
 `
 
 const MenuItem: React.SFC<Props> = ({ className, isActive, name, onClick, children }) => (
-  <MenuItemContainer className={className + (isActive ? ' active' : '')} onClick={() => onClick(name)}>
+  <MenuItemContainer
+    data-menu-item={true}
+    className={className + (isActive ? ' active' : '')}
+    onClick={() => onClick(name)}
+  >
     {children}
   </MenuItemContainer>
 )
