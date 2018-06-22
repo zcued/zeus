@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
+
 const width = '300px'
 
 export const CalenderHeader = styled.div`

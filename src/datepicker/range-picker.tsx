@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import DatePicker from './DatePicker'
+import DatePicker from './data-picker'
 
 const DateRangeWaper = styled.div`
   display: flex;
