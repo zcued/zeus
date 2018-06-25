@@ -55,6 +55,7 @@ export const Cell = styled.button`
     background: #333;
     color: white;
     border-radius:50%;
+    cursor: not-allowed;
   }
   
 `

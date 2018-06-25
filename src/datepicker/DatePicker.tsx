@@ -22,9 +22,10 @@ interface DateObj {
 }
 
 interface Props {
-  onSelectDate: Function,
-  defaultValue?: string,
+  onSelectDate: Function
+  defaultValue?: string
   disabledDate?: string
+  className?: string
 }
 interface State {
   value: DateObj,
@@ -32,14 +33,14 @@ interface State {
 }
 
 export default class DatePicker extends React.Component<Props, State> {
-  
+
   constructor(props: Props) {
     super(props)
 
     const d = new Date()
 
     this.state = {
-      isOpen:  false,
+      isOpen: false,
       value: {
         year: d.getFullYear(),
         month: d.getMonth(),
@@ -53,7 +54,7 @@ export default class DatePicker extends React.Component<Props, State> {
         throw new Error('defaultValue 格式错误，请使用 xxxx-xx-xx 格式')
       }
       this.state = {
-        isOpen:  false,
+        isOpen: false,
         value: {
           year: +matchedDate[1],
           month: +matchedDate[2] - 1,
@@ -61,11 +62,11 @@ export default class DatePicker extends React.Component<Props, State> {
         }
       }
     }
-    
+
   }
 
   handleClickOutSide = () => {
-      this.setState({ isOpen: false })
+    this.setState({ isOpen: false })
   }
 
   handleClick = () => {
@@ -73,7 +74,7 @@ export default class DatePicker extends React.Component<Props, State> {
   }
 
   changeDate = (e) => {
-    this.setState({isOpen: false, value: e}, () => {
+    this.setState({ isOpen: false, value: e }, () => {
       this.props.onSelectDate(`${e.year}-${e.month + 1}-${e.day}`)
     })
   }
@@ -89,49 +90,51 @@ export default class DatePicker extends React.Component<Props, State> {
       month: matched[2],
       day: matched[3],
     }
-    
+
   }
 
   disabledDate = e => {
-    const {disabledDate } = this.props
+    const { disabledDate } = this.props
     if (!disabledDate) {
       return false
     }
-    const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`) 
+    const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`)
     return selectedDate - (+new Date(disabledDate)) < 0
   }
   render() {
     const { isOpen, value } = this.state
-    return(
-      
-      <Outside 
+    const { className } = this.props
+    return (
+
+      <Outside
+        className={className}
         onClick={this.handleClickOutSide}
       >
-            <FlexCenter onClick={this.handleClick}>
-            <Button 
-              type="button" 
-              aria-expanded={isOpen} 
-              style={{width: 50}}
-            >
-              {value && `${value.month + 1}--${value.day}`}
-            </Button>
-            <Icon 
-              size={16}
-              glyph="calendar"
+        <FlexCenter onClick={this.handleClick}>
+          <Button
+            type="button"
+            aria-expanded={isOpen}
+            style={{ width: 50 }}
+          >
+            {value && `${value.month + 1}--${value.day}`}
+          </Button>
+          <Icon
+            size={16}
+            glyph="calendar"
+          />
+        </FlexCenter>
+
+        {isOpen ? (
+          <PoppersContainer>
+            <Calender
+              defaultValue={value}
+              changeDate={this.changeDate}
+              disabledDate={this.disabledDate}
             />
-            </FlexCenter>
-            
-          {isOpen ? (
-            <PoppersContainer>
-              <Calender
-                defaultValue={value}
-                changeDate={this.changeDate}
-                disabledDate={this.disabledDate}
-              />
-            </PoppersContainer>
-          ) : null}
+          </PoppersContainer>
+        ) : null}
       </Outside>
-      
+
     )
   }
 }
