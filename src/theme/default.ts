@@ -81,7 +81,7 @@ export const theme: ThemeInterface = {
     xl: unit * 5
   },
   font: {
-    family: '-apple-system, BlinkMacSystemFont, "Helvetica", "Segoe",sans-serif',
+    family: '-apple-system, BlinkMacSystemFont, "Helvetica", "Segoe", sans-serif',
     weight: {
       normal: 400,
       medium: 600,

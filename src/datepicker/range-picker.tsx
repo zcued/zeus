@@ -1,34 +1,33 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import DatePicker from './DatePicker'
+import DatePicker from './data-picker'
 
 const DateRangeWaper = styled.div`
-display:flex;
-align-items:center;
-justify-content:space-between;
-width: 240px;
-height: 40px;
-background-color:white;
-border: 1px solid #F0F4F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #f0f4f5;
 `
 
 const SplitLine = styled.div`
-border:1px solid #666666;
-height:0px;
-width:14px;
+  border: 1px solid #666666;
+  height: 0px;
+  width: 14px;
 `
 
 interface Props {
   onSelectDate: Function
   className?: string
   defaultValue?: {
-    from: string,
+    from: string
     to: string
   }
 }
 
 class RangePicker extends React.Component<Props> {
-
   state = {
     value: {
       from: null,
@@ -36,13 +35,14 @@ class RangePicker extends React.Component<Props> {
     }
   }
   changeDate = (value: string, type: string) => {
-    this.setState({
-      value: Object.assign({}, this.state.value,
-        {
+    this.setState(
+      {
+        value: Object.assign({}, this.state.value, {
           [type]: value
-        }
-      )
-    }, () => this.props.onSelectDate(this.state.value))
+        })
+      },
+      () => this.props.onSelectDate(this.state.value)
+    )
   }
 
   render() {
@@ -50,10 +50,7 @@ class RangePicker extends React.Component<Props> {
     const { value } = this.state
     const { from } = value
     return (
-
-      <div
-        className={className}
-      >
+      <div className={className}>
         <DateRangeWaper>
           <DatePicker
             defaultValue={defaultValue ? defaultValue.from : null}
@@ -67,7 +64,6 @@ class RangePicker extends React.Component<Props> {
           />
         </DateRangeWaper>
       </div>
-
     )
   }
 }

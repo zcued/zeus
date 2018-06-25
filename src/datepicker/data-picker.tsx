@@ -5,19 +5,19 @@ import Icon from '../icon'
 import styled from '../theme/styled-components'
 
 const Outside = styled(StyledClickOutSide)`
-width:100px;
-background-color:white;
+  width: 100px;
+  background-color: white;
 `
 
 const FlexCenter = styled.div`
-display:flex;
-align-items:center;
-justify-content:space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `
 
 interface DateObj {
-  year: number,
-  month: number,
+  year: number
+  month: number
   day: number
 }
 
@@ -27,13 +27,13 @@ interface Props {
   disabledDate?: string
   className?: string
 }
+
 interface State {
-  value: DateObj,
+  value: DateObj
   isOpen: boolean
 }
 
 export default class DatePicker extends React.Component<Props, State> {
-
   constructor(props: Props) {
     super(props)
 
@@ -53,6 +53,7 @@ export default class DatePicker extends React.Component<Props, State> {
       if (!matchedDate) {
         throw new Error('defaultValue 格式错误，请使用 xxxx-xx-xx 格式')
       }
+
       this.state = {
         isOpen: false,
         value: {
@@ -61,8 +62,18 @@ export default class DatePicker extends React.Component<Props, State> {
           day: +matchedDate[3]
         }
       }
-    }
+    } else {
+      const today = new Date()
 
+      this.state = {
+        isOpen: false,
+        value: {
+          year: today.getFullYear(),
+          month: today.getMonth(),
+          day: today.getDate()
+        }
+      }
+    }
   }
 
   handleClickOutSide = () => {
@@ -73,7 +84,7 @@ export default class DatePicker extends React.Component<Props, State> {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
-  changeDate = (e) => {
+  changeDate = e => {
     this.setState({ isOpen: false, value: e }, () => {
       this.props.onSelectDate(`${e.year}-${e.month + 1}-${e.day}`)
     })
@@ -88,9 +99,8 @@ export default class DatePicker extends React.Component<Props, State> {
     return {
       year: matched[1],
       month: matched[2],
-      day: matched[3],
+      day: matched[3]
     }
-
   }
 
   disabledDate = e => {
@@ -99,42 +109,26 @@ export default class DatePicker extends React.Component<Props, State> {
       return false
     }
     const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`)
-    return selectedDate - (+new Date(disabledDate)) < 0
+    return selectedDate - +new Date(disabledDate) < 0
   }
   render() {
     const { isOpen, value } = this.state
     const { className } = this.props
     return (
-
-      <Outside
-        className={className}
-        onClick={this.handleClickOutSide}
-      >
+      <Outside className={className} onClick={this.handleClickOutSide}>
         <FlexCenter onClick={this.handleClick}>
-          <Button
-            type="button"
-            aria-expanded={isOpen}
-            style={{ width: 50 }}
-          >
+          <Button type="button" aria-expanded={isOpen} style={{ width: 50 }}>
             {value && `${value.month + 1}--${value.day}`}
           </Button>
-          <Icon
-            size={16}
-            glyph="calendar"
-          />
+          <Icon size={16} glyph="calendar" />
         </FlexCenter>
 
         {isOpen ? (
           <PoppersContainer>
-            <Calender
-              defaultValue={value}
-              changeDate={this.changeDate}
-              disabledDate={this.disabledDate}
-            />
+            <Calender defaultValue={value} changeDate={this.changeDate} disabledDate={this.disabledDate} />
           </PoppersContainer>
         ) : null}
       </Outside>
-
     )
   }
 }
