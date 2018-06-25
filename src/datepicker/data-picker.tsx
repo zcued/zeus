@@ -36,15 +36,12 @@ interface State {
 export default class DatePicker extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
-
-    const d = new Date()
-
     this.state = {
       isOpen: false,
       value: {
-        year: d.getFullYear(),
-        month: d.getMonth(),
-        day: d.getDate()
+        year: null,
+        month: null,
+        day: null
       }
     }
     if (this.props.defaultValue) {
