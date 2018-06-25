@@ -20,15 +20,15 @@ const BaseInput = styled.input.attrs({
   cursor: ${({ readOnly }) => (readOnly ? 'not-allowed' : 'auto')};
   transition: border-color 0.25s, box-shadow 0.25s;
 
+  &::-webkit-input-placeholder {
+    color: ${T('palette.stone')};
+  }
+
   &:focus,
   &[data-error='true'] {
     border-color: ${T('palette.primary')};
     box-shadow: 0px 0px 0 1px ${T('palette.primary')};
     outline: none;
-  }
-
-  &::-webkit-input-placeholder {
-    color: ${T('palette.stone')};
   }
 `
 

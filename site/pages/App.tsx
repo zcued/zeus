@@ -10,7 +10,7 @@ import Footer from '../components/footer'
 import Menu from '../components/menu'
 
 const StyledApp = styled.div`
-  font-family: PingFangSC-Regular, "Microsoft YaHei", "微软雅黑";
+  font-family: PingFangSC-Regular, "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 16px;
   line-height: 22px;
 `

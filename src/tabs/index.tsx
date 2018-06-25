@@ -53,6 +53,5 @@ export const StyledTab = styled(Tab)`
         background: ${T('palette.primary')};
         transform: translateX(-50%);
       }
-    `}
-  }
+    `};
 `
