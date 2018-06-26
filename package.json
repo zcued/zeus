@@ -47,6 +47,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-hot-loader": "^4.3.3",
+    "prettier": "1.13.5",
     "styled-components": "^3.3.2",
     "stylelint": "^9.3.0",
     "stylelint-config-recommended": "^2.1.0",
@@ -62,7 +63,7 @@
   "scripts": {
     "start": "cd site && node server.js",
     "lint": "npm-run-all lint:stylelint lint:tslint",
-    "lint:stylelint": "stylelint '**/*.ts'",
+    "lint:stylelint": "stylelint '**/*.tsx'",
     "lint:tslint": "tslint -p . -t verbose",
     "pretest": "npm run lint",
     "test": "jest --forceExit --verbose",
@@ -73,6 +74,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
+      "prettier --write",
       "tslint --fix",
       "git add"
     ]

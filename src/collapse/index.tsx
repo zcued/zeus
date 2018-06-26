@@ -1,2 +1,2 @@
 export { default as Collapse } from './collapse'
-export { default as CollapseItem } from './collapseItem'
+export { default as CollapseItem } from './collapse-item'

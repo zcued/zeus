@@ -11,6 +11,7 @@ interface Props {
   value?: any
   defaultValue?: any
   options?: Array<Option>
+  onChange?: Function
   className?: string
 }
 
@@ -97,7 +98,7 @@ const SelectWrapperStyled = styled(SelectWrapper)`
       background: ${({ theme }) => hexa(theme.palette.primary, 0.6)};
     }
 
-    &[aria-selected="true"] {
+    &[aria-selected='true'] {
       background: ${({ theme }) => theme.palette.primary};
     }
   }
