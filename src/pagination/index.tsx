@@ -15,7 +15,7 @@ interface Props {
 }
 
 interface State {
-  current: number
+  current: number | string
   currentInput: number | string
 }
 
@@ -84,10 +84,10 @@ class Pagination extends React.Component<Props, State> {
   }
 
   static getDerivedStateFromProps(props: Props, state: State) {
-    if (props.hasOwnProperty('current')) {
+    if (props.hasOwnProperty('current') && state.current === state.currentInput) {
       return {
         current: props.current,
-        currentInput: state.currentInput
+        currentInput: props.current
       }
     }
 
@@ -102,6 +102,10 @@ class Pagination extends React.Component<Props, State> {
     } else {
       this.setState({ currentInput: value })
     }
+  }
+
+  handleBlur = () => {
+    this.setState({ currentInput: this.state.current })
   }
 
   handleKeyUp = e => {
@@ -148,7 +152,13 @@ class Pagination extends React.Component<Props, State> {
           </button>
         </LI>
         <LI>
-          <JumperInput type="text" onKeyUp={this.handleKeyUp} value={currentInput} onChange={this.handleChange} />
+          <JumperInput
+            type="text"
+            onKeyUp={this.handleKeyUp}
+            value={currentInput}
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
         </LI>
         <LI onClick={this.next} role="next">
           <button disabled={current === total}>
