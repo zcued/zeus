@@ -477,17 +477,17 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
     case 'calendar':
-    return (
-      <g  stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      return (
+        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g>
-            <rect  stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
-            <rect  fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
-            <rect  fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
-            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
-            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
+            <rect stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
+            <rect fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
+            <rect fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
           </g>
-      </g>
-    )
+        </g>
+      )
 
     case 'open-eye':
       return (
@@ -571,17 +571,17 @@ export const InlineSvg = styled.svg`
 `
 
 const SvgWrapper = styled.div`
-            display: inline-block;
+  display: inline-block;
   flex: 0 0 ${computedSize};
   width: ${computedSize};
   height: ${computedSize};
   min-width: ${computedSize};
   min-height: ${computedSize};
-          position: relative;
-          color: inherit;
-          cursor: pointer;
-          vertical-align: middle;
-        `
+  position: relative;
+  color: inherit;
+  cursor: pointer;
+  vertical-align: middle;
+`
 
 const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
   <SvgWrapper data-icon={true} size={size} {...rest}>
