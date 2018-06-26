@@ -12,7 +12,7 @@ const Outside = styled(StyledClickOutSide)`
 const FlexCenter = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `
 
 interface DateObj {
@@ -24,6 +24,8 @@ interface DateObj {
 interface Props {
   onSelectDate: Function
   defaultValue?: string
+  disabledDate?: string
+  className?: string
 }
 
 interface State {
@@ -34,7 +36,14 @@ interface State {
 export default class DatePicker extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
-
+    this.state = {
+      isOpen: false,
+      value: {
+        year: null,
+        month: null,
+        day: null
+      }
+    }
     if (this.props.defaultValue) {
       const dateReg = /(\d{4}).+(\d{1,2}).+(\d{2})/
       const matchedDate = this.props.defaultValue.match(dateReg)
@@ -51,14 +60,14 @@ export default class DatePicker extends React.Component<Props, State> {
         }
       }
     } else {
-      const d = new Date()
+      const today = new Date()
 
       this.state = {
         isOpen: false,
         value: {
-          year: d.getFullYear(),
-          month: d.getMonth(),
-          day: d.getDate()
+          year: today.getFullYear(),
+          month: today.getMonth(),
+          day: today.getDate()
         }
       }
     }
@@ -78,20 +87,42 @@ export default class DatePicker extends React.Component<Props, State> {
     })
   }
 
+  formatDate = (date: string) => {
+    const reg = /(\d{1,4}).+(\d{1,2}).+(\d{1,2})/
+    const matched = date.match(reg)
+    if (!matched) {
+      throw 'date 格式有误，请使用 XXXX-XX-XX'
+    }
+    return {
+      year: matched[1],
+      month: matched[2],
+      day: matched[3]
+    }
+  }
+
+  disabledDate = e => {
+    const { disabledDate } = this.props
+    if (!disabledDate) {
+      return false
+    }
+    const selectedDate = +new Date(`${e.year}-${e.month + 1}-${e.day}`)
+    return selectedDate - +new Date(disabledDate) < 0
+  }
   render() {
     const { isOpen, value } = this.state
+    const { className } = this.props
     return (
-      <Outside onClick={this.handleClickOutSide}>
+      <Outside className={className} onClick={this.handleClickOutSide}>
         <FlexCenter onClick={this.handleClick}>
           <Button type="button" aria-expanded={isOpen} style={{ width: 50 }}>
             {value && `${value.month + 1}--${value.day}`}
           </Button>
-          <Icon glyph="calendar" />
+          <Icon size={16} glyph="calendar" />
         </FlexCenter>
 
         {isOpen ? (
           <PoppersContainer>
-            <Calender defaultValue={value} changeDate={this.changeDate} />
+            <Calender defaultValue={value} changeDate={this.changeDate} disabledDate={this.disabledDate} />
           </PoppersContainer>
         ) : null}
       </Outside>

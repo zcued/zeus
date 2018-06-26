@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
-
+import { noop } from '../globals'
 const width = '300px'
 
 export const CalenderHeader = styled.div`
@@ -10,7 +10,7 @@ export const CalenderHeader = styled.div`
   justify-content: space-between;
   height: 20%;
   align-items: center;
-  margin: 10px 0 10px 0;
+  margin: 10px 0 30px 0;
 `
 export const CalenderBody = styled.div`
   table {
@@ -19,13 +19,13 @@ export const CalenderBody = styled.div`
 `
 
 export const Wrapper = styled.div`
-  width: ${width};
+  padding: 15px;
 `
 
 export const Title = styled.div`
-  font-family: Futura, sans-serif;
   font-size: 28px;
   color: #282828;
+  font-weight: bold;
   letter-spacing: 0;
 `
 
@@ -54,6 +54,12 @@ export const Cell = styled.button`
   &:focus {
     outline: none;
   }
+  &[disabled] {
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    cursor: not-allowed;
+  }
 `
 
 interface Date {
@@ -64,6 +70,7 @@ interface Date {
 
 interface Props {
   changeDate: Function
+  disabledDate?: Function
   defaultValue?: Date
 }
 
@@ -78,8 +85,9 @@ interface State {
 const weekDayNames = ['一', '二', '三', '四', '五', '六', '日']
 
 class Calender extends React.Component<Props, State> {
-  state: State
-
+  static defaultProps = {
+    disabledDate: noop
+  }
   constructor(props: Props) {
     super(props)
 
@@ -192,6 +200,7 @@ class Calender extends React.Component<Props, State> {
               <td key={i}>
                 {date.notThisMonth ? null : (
                   <Cell
+                    disabled={this.props.disabledDate(date)}
                     className={year === date.year && month === date.month && day === date.day && `selected`}
                     onClick={this.handleDaySelect.bind(this, date)}
                   >
@@ -217,11 +226,11 @@ class Calender extends React.Component<Props, State> {
             size={26}
             onClick={this.changeDate.bind(this, -1, 'year')}
           />
-          <Icon glyph="angle-left" size={26} onClick={this.changeDate.bind(this, -1)} />
+          <Icon glyph="angle-left" size={18} onClick={this.changeDate.bind(this, -1)} />
 
           <Title>{this.state.currentYear}</Title>
           <Title>{this.state.currentMonth + 1}</Title>
-          <Icon size={26} glyph="angle-right" onClick={this.changeDate.bind(this, 1)} />
+          <Icon size={18} glyph="angle-right" onClick={this.changeDate.bind(this, 1)} />
           <Icon
             size={26}
             style={{ transform: 'rotate(270deg)' }}

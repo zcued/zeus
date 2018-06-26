@@ -8,6 +8,7 @@ const DateRangeWaper = styled.div`
   justify-content: space-between;
   width: 240px;
   height: 40px;
+  background-color: white;
   border: 1px solid #f0f4f5;
 `
 
@@ -19,6 +20,7 @@ const SplitLine = styled.div`
 
 interface Props {
   onSelectDate: Function
+  className?: string
   defaultValue?: {
     from: string
     to: string
@@ -44,9 +46,11 @@ class RangePicker extends React.Component<Props> {
   }
 
   render() {
-    const { defaultValue } = this.props
+    const { defaultValue, className } = this.props
+    const { value } = this.state
+    const { from } = value
     return (
-      <div>
+      <div className={className}>
         <DateRangeWaper>
           <DatePicker
             defaultValue={defaultValue ? defaultValue.from : null}
@@ -56,6 +60,7 @@ class RangePicker extends React.Component<Props> {
           <DatePicker
             defaultValue={defaultValue ? defaultValue.to : null}
             onSelectDate={e => this.changeDate(e, 'to')}
+            disabledDate={from}
           />
         </DateRangeWaper>
       </div>
