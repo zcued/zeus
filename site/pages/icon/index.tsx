@@ -68,6 +68,10 @@ export default class Page extends React.Component {
           <Icon glyph="play" />
           <Icon glyph="question" />
           <Icon glyph="warning" />
+          <Icon glyph="open-eye" />
+          <Icon glyph="close-eye" />
+          <Icon glyph="manage" />
+          <Icon glyph="email" />
         </div>
       </React.Fragment>
     )

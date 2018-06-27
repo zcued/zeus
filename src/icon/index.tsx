@@ -435,14 +435,6 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case 'account':
-      return (
-        <g>
-          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" />
-          <circle fill="none" stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8" />
-          <path fill="#FFD100" d="M20 24h4l-8 8-8-8h4l4 4z" />
-        </g>
-      )
 
     case 'similar':
       return (
@@ -485,25 +477,51 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
     case 'calendar':
-    return (
-      <g  stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      return (
+        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g>
-            <rect  stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
-            <rect  fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
-            <rect  fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
-            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
-            <rect  fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
+            <rect stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
+            <rect fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
+            <rect fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
           </g>
-      </g>
-    )
+        </g>
+      )
+
+    case 'open-eye':
+      return (
+        <g transform="translate(0 2)" strokeWidth="4" fill="none">
+          <path d="M16 0v8M2 4l4 6.928M30.262 4.745l-4 6.928" stroke="#FFD100" />
+          <path d="M16 26c7.088 0 14-4.778 14-8 0-3.222-6.912-8-14-8-7.08 0-14 4.79-14 8s6.92 8 14 8z" stroke="#1F1F1F" />
+          <circle stroke="#1F1F1F" cx="16" cy="18" r="6" />
+        </g>
+      )
+
+    case 'close-eye':
+      return (
+        <g fill="none">
+          <path d="M16 30v-8M2 26l4-6.928M30.262 25.255l-4-6.928" stroke="#FFD100" strokeWidth="4" />
+          <path d="M32 12.75c0-1.105-.495-1.863-1.664-2-.634-.074-1.26.368-1.696.984-.366.519-.58 1.177-.723 1.587C27 15.945 21.658 19.5 16 19.5c-4.79 0-9.49-2.554-11.262-4.931-.474-.637-.76-1.401-.888-1.819-.336-1.096-1.07-2.082-2.128-2-1.057.082-1.722.895-1.722 2C0 17.986 7.966 23.5 16 23.5c8.041 0 16-5.502 16-10.75z" fill="#1F1F1F" />
+        </g>
+      )
+
+    case 'account':
+      return (
+        <g>
+          <path d="M0 32c0-8.837 7.163-16 16-16s16 7.163 16 16h-4c0-6.627-5.373-12-12-12S4 25.373 4 32H0z" />
+          <circle fill="none" stroke="#1F1F1F" strokeWidth="4" cx="16" cy="10" r="8" />
+          <path fill="#FFD100" d="M20 24h4l-8 8-8-8h4l4 4z" />
+        </g>
+      )
 
     case 'import':
       return (
         <g>
           <path d="M24 22v-2h6V8H2v12h4v2H0V6h32v16h-8z" />
-          <circle fill="#FFD100" cx="26" cy="12" r="2"/>
-          <path fill="none" stroke="#1F1F1F" strokeWidth="2" d="M7 1h18v6H7zM7 17h18v14H7z"/>
-          <path fill="#FFD100" d="M14 26h8v2h-8z"/>
+          <circle fill="#FFD100" cx="26" cy="12" r="2" />
+          <path fill="none" stroke="#1F1F1F" strokeWidth="2" d="M7 1h18v6H7zM7 17h18v14H7z" />
+          <path fill="#FFD100" d="M14 26h8v2h-8z" />
         </g>
       )
 
@@ -517,6 +535,22 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case "manage":
+      return (
+        <g fill="none">
+          <path stroke="#1F1F1F" strokeWidth="4" d="M2 10h28v20H2zM8 2h16v8H8z" />
+          <path fill="#1F1F1F" d="M2 16h28v4H2z" />
+          <path fill="#FFD100" d="M8 14h4v8H8zM20 14h4v8h-4z" />
+        </g>
+      )
+
+    case "email":
+      return (
+        <g strokeWidth="4" fill="none">
+          <path d="M30 12.002l-28 .03v.848l14 8.76 14-8.76v-.878z" stroke="#FFD100" />
+          <path stroke="#1F1F1F" d="M2 4h28v24H2z" />
+        </g>
+      )
     default:
       return null
   }
