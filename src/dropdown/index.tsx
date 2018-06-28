@@ -25,6 +25,7 @@ export const StyledClickOutSide = styled(ClickOutSide)`
 export const Button = styled.button`
   border: none;
   outline: none;
+  background: transparent;
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
 

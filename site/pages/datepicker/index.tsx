@@ -15,15 +15,15 @@ export default class Page extends React.Component {
     return (
       <React.Fragment>
         <DatePicker 
-          defaultValue="2018-06-22"
+          // defaultValue="2018-06-22"
           onSelectDate={this.onChange}
         />
         
         <RangePicker 
-          defaultValue={{
-            from: '2018-06-22',
-            to: '2018-06-25'
-          }}
+          // defaultValue={{
+          //   from: '2018-06-22',
+          //   to: '2018-06-25'
+          // }}
           onSelectDate={this.onChange}
         />
       </React.Fragment>

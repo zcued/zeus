@@ -25,6 +25,7 @@ export { default as Tag } from './tag'
 export { default as Toast } from './toast'
 export { default as Tooltip } from './tooltip'
 export { DatePicker, RangePicker } from './datepicker'
+export { default as Upload } from './upload'
 
 export { default as Portal } from './portal'
 export { default as Provider } from './provider'
