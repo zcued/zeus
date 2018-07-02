@@ -73,7 +73,7 @@ export const CloseButton = styled.div`
 
 export const ModalContainer = styled.div`
   text-align: center;
-  height: 100%;
+  max-height: 90vh;
   margin: 0 auto;
   overflow: scroll;
 `
