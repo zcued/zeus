@@ -102,6 +102,7 @@ const SelectWrapperStyled = styled(SelectWrapper)`
     border-color: ${({ theme }) => theme.palette.daisy};
     border-radius: 0;
     background-color: ${({ theme }) => theme.palette.white};
+    cursor: pointer;
 
     &.react-select__control-is-focused {
       border-color: ${({ theme }) => theme.palette.primary};
@@ -115,10 +116,6 @@ const SelectWrapperStyled = styled(SelectWrapper)`
         border-color: ${({ theme }) => theme.palette.primary};
       }
     }
-  }
-
-  .react-select__control {
-    cursor: pointer;
   }
 
   .react-select__value-container {
