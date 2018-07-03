@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import DatePicker from './data-picker'
 
-const DateRangeWaper = styled.div`
+const DateRangeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +57,7 @@ class RangePicker extends React.Component<Props> {
     const { from } = value
 
     return (
-      <DateRangeWaper className={className}>
+      <DateRangeWrapper className={className}>
         <DatePicker
           placeholder={placeholder}
           defaultValue={defaultValue ? defaultValue.from : null}
@@ -70,7 +70,7 @@ class RangePicker extends React.Component<Props> {
           onSelectDate={e => this.changeDate(e, 'to')}
           disabledDate={from}
         />
-      </DateRangeWaper>
+      </DateRangeWrapper>
     )
   }
 }
