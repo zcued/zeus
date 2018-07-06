@@ -134,10 +134,10 @@ class Calender extends React.Component<Props, State> {
     currentMonth: this.getDefaultValue('year', new Date().getMonth())
   }
 
-  getDefaultValue(key, d) {
+  getDefaultValue(key: string, value: any) {
     const { defaultValue } = this.props
 
-    return defaultValue ? defaultValue[key] : d
+    return defaultValue ? defaultValue[key] : value
   }
 
   // 当前月各天的时间状态
