@@ -10,6 +10,8 @@ export interface Props {
   type?: string
   valign?: string
   className?: string
+  style?: object
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
 
 const Flex: React.SFC<Props> = ({ children, type, ...rest }) =>
