@@ -75,7 +75,8 @@ export const ModalContainer = styled.div`
   text-align: center;
   max-height: 90vh;
   margin: 0 auto;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const Header = styled.div`
