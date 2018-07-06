@@ -60,13 +60,12 @@ interface State {
 }
 
 export default class DatePicker extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      isOpen: false,
-      value: null
-    }
+  state = {
+    isOpen: false,
+    value: this.getValue()
+  }
 
+  getValue() {
     if (this.props.defaultValue) {
       const dateReg = /(\d{4}).+(\d{1,2}).+(\d{2})/
       const matchedDate = this.props.defaultValue.match(dateReg)
@@ -75,20 +74,14 @@ export default class DatePicker extends React.Component<Props, State> {
         throw new Error('defaultValue 格式错误，请使用 xxxx-xx-xx 格式')
       }
 
-      this.state = {
-        isOpen: false,
-        value: {
-          year: +matchedDate[1],
-          month: +matchedDate[2] - 1,
-          day: +matchedDate[3]
-        }
-      }
-    } else {
-      this.state = {
-        isOpen: false,
-        value: null
+      return {
+        year: +matchedDate[1],
+        month: +matchedDate[2] - 1,
+        day: +matchedDate[3]
       }
     }
+
+    return null
   }
 
   handleClickOutSide = () => {

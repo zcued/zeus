@@ -6,12 +6,12 @@ import styled from '../theme/styled-components'
 import Flex from '../flex'
 import { T } from '../util'
 
-interface Props {
+export interface Props {
   title?: JSX.Element | string
-  footer?: JSX.Element | string
+  footer?: JSX.Element | Array<JSX.Element> | string
   closeStyle?: object
-  width: number
-  height: number
+  width?: number
+  height?: number
   style?: ModalStyle
   ariaHideApp?: boolean
   isOpen: boolean
@@ -48,7 +48,7 @@ interface Props {
   contentRef?: Function
 }
 
-interface ModalStyle {
+export interface ModalStyle {
   content: {
     [key: string]: any
   }

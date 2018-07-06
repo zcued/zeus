@@ -124,20 +124,20 @@ class Calender extends React.Component<Props, State> {
     disabledDate: noop
   }
 
-  constructor(props: Props) {
-    super(props)
+  state = {
+    // 选中的年月日
+    year: this.getDefaultValue('year', null),
+    month: this.getDefaultValue('month', null),
+    day: this.getDefaultValue('day', null),
+    // 切换后的年月
+    currentYear: this.getDefaultValue('year', new Date().getFullYear()),
+    currentMonth: this.getDefaultValue('year', new Date().getMonth())
+  }
 
-    const { defaultValue } = props
+  getDefaultValue(key, d) {
+    const { defaultValue } = this.props
 
-    this.state = {
-      // 选中的年月日
-      year: defaultValue ? defaultValue.year : null,
-      month: defaultValue ? defaultValue.month : null,
-      day: defaultValue ? defaultValue.day : null,
-      // 切换后的年月
-      currentYear: defaultValue ? defaultValue.year : new Date().getFullYear(),
-      currentMonth: defaultValue ? defaultValue.month : new Date().getMonth()
-    }
+    return defaultValue ? defaultValue[key] : d
   }
 
   // 当前月各天的时间状态
