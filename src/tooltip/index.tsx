@@ -18,7 +18,7 @@ interface Props {
     | 'top-end'
     | 'top-start'
     | 'top'
-  title: JSX.Element
+  title: string | JSX.Element
   className?: string
 }
 
