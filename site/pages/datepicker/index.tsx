@@ -14,7 +14,7 @@ export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DatePicker placeholder="下载时间" onSelectDate={this.onChange} />
+        <DatePicker placeholder="下载时间" onChange={this.onChange} />
 
         <RangePicker
           placeholder="下载时间"
@@ -22,7 +22,7 @@ export default class Page extends React.Component {
             from: '2018-06-22',
             to: '2018-06-25'
           }}
-          onSelectDate={this.onChange}
+          onChange={this.onChange}
         />
       </React.Fragment>
     )

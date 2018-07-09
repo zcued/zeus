@@ -20,7 +20,6 @@ const FlexCenter = styled.div`
   button {
     margin-right: 8px;
     padding: 0;
-    width: 56px;
     font-size: ${({ theme }) => theme.font.size.sm}px;
     color: ${({ theme }) => theme.palette.spruce};
     line-height: 20px;
@@ -47,7 +46,7 @@ interface DateObj {
 }
 
 interface Props {
-  onSelectDate: Function
+  onChange: Function
   defaultValue?: string
   disabledDate?: string
   placeholder?: string
@@ -94,7 +93,7 @@ export default class DatePicker extends React.Component<Props, State> {
 
   changeDate = e => {
     this.setState({ isOpen: false, value: e }, () => {
-      this.props.onSelectDate(`${e.year}-${e.month + 1}-${e.day}`)
+      this.props.onChange(`${e.year}-${e.month + 1}-${e.day}`)
     })
   }
 
