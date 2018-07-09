@@ -5,9 +5,9 @@ export default class Page extends React.Component {
   state = {
     value: null
   }
-  onChange = value => {
+  onChange = obj => {
     this.setState({
-      value
+      value: obj.value
     })
   }
 
