@@ -436,7 +436,6 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-
     case 'similar':
       return (
         <g>
@@ -481,11 +480,11 @@ export const Glyph = ({ glyph }) => {
       return (
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g>
-            <rect stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24"></rect>
-            <rect fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12"></rect>
-            <rect fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12"></rect>
-            <rect fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4"></rect>
-            <rect fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4"></rect>
+            <rect stroke="#1F1F1F" strokeWidth="4" x="2" y="6" width="28" height="24" />
+            <rect fill="#1F1F1F" fillRule="evenodd" x="8" y="0" width="4" height="12" />
+            <rect fill="#1F1F1F" fillRule="evenodd" x="20" y="0" width="4" height="12" />
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="14" width="16" height="4" />
+            <rect fill="#FFD100" fillRule="evenodd" x="8" y="20" width="16" height="4" />
           </g>
         </g>
       )
@@ -494,7 +493,10 @@ export const Glyph = ({ glyph }) => {
       return (
         <g transform="translate(0 2)" strokeWidth="4" fill="none">
           <path d="M16 0v8M2 4l4 6.928M30.262 4.745l-4 6.928" stroke="#FFD100" />
-          <path d="M16 26c7.088 0 14-4.778 14-8 0-3.222-6.912-8-14-8-7.08 0-14 4.79-14 8s6.92 8 14 8z" stroke="#1F1F1F" />
+          <path
+            d="M16 26c7.088 0 14-4.778 14-8 0-3.222-6.912-8-14-8-7.08 0-14 4.79-14 8s6.92 8 14 8z"
+            stroke="#1F1F1F"
+          />
           <circle stroke="#1F1F1F" cx="16" cy="18" r="6" />
         </g>
       )
@@ -503,7 +505,10 @@ export const Glyph = ({ glyph }) => {
       return (
         <g fill="none">
           <path d="M16 30v-8M2 26l4-6.928M30.262 25.255l-4-6.928" stroke="#FFD100" strokeWidth="4" />
-          <path d="M32 12.75c0-1.105-.495-1.863-1.664-2-.634-.074-1.26.368-1.696.984-.366.519-.58 1.177-.723 1.587C27 15.945 21.658 19.5 16 19.5c-4.79 0-9.49-2.554-11.262-4.931-.474-.637-.76-1.401-.888-1.819-.336-1.096-1.07-2.082-2.128-2-1.057.082-1.722.895-1.722 2C0 17.986 7.966 23.5 16 23.5c8.041 0 16-5.502 16-10.75z" fill="#1F1F1F" />
+          <path
+            d="M32 12.75c0-1.105-.495-1.863-1.664-2-.634-.074-1.26.368-1.696.984-.366.519-.58 1.177-.723 1.587C27 15.945 21.658 19.5 16 19.5c-4.79 0-9.49-2.554-11.262-4.931-.474-.637-.76-1.401-.888-1.819-.336-1.096-1.07-2.082-2.128-2-1.057.082-1.722.895-1.722 2C0 17.986 7.966 23.5 16 23.5c8.041 0 16-5.502 16-10.75z"
+            fill="#1F1F1F"
+          />
         </g>
       )
 
@@ -526,7 +531,7 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case "statistics":
+    case 'statistics':
       return (
         <g>
           <path d="M2 30h30v2H0V0h2v30z" />
@@ -536,7 +541,7 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case "manage":
+    case 'manage':
       return (
         <g fill="none">
           <path stroke="#1F1F1F" strokeWidth="4" d="M2 10h28v20H2zM8 2h16v8H8z" />
@@ -545,7 +550,7 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
-    case "email":
+    case 'email':
       return (
         <g strokeWidth="4" fill="none">
           <path d="M30 12.002l-28 .03v.848l14 8.76 14-8.76v-.878z" stroke="#FFD100" />
@@ -580,7 +585,6 @@ const SvgWrapper = styled.div`
   min-height: ${computedSize};
   position: relative;
   color: inherit;
-  cursor: pointer;
   vertical-align: middle;
 `
 
@@ -595,7 +599,6 @@ const Icon: React.SFC<Props> = ({ glyph, size, ...rest }) => (
       viewBox="0 0 32 32"
       id={glyph}
     >
-      <title>{glyph}</title>
       <Glyph glyph={glyph} />
     </InlineSvg>
   </SvgWrapper>

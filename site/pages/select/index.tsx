@@ -15,7 +15,10 @@ export default class Page extends React.Component {
         options: [
           { value: 'chocolate', label: 'Chocolate' },
           { value: 'strawberry', label: 'Strawberry' },
-          { value: 'vanilla', label: 'Vanilla' }
+          {
+            value: 'vanilla',
+            label: 'VanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanilla'
+          }
         ]
       })
     }, 2000)
@@ -27,7 +30,7 @@ export default class Page extends React.Component {
 
   render() {
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '20px', width: '300px' }}>
         <Select
           isSearchable={false}
           value={this.state.q_image_user_package_id}

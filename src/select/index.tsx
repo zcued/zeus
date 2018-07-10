@@ -151,6 +151,9 @@ const SelectWrapperStyled = styled(SelectWrapper)`
 
   .react-select__option {
     font-size: ${({ theme }) => theme.font.size.sm}px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     cursor: pointer;
 
     &.react-select__option--is-focused {
