@@ -3,7 +3,7 @@ import styled from '../theme/styled-components'
 
 type Align = 'left' | 'right' | 'center'
 
-interface Col {
+export interface Col {
   dataIndex: string
   key?: string
   render?: (text: string, record: any, index: number) => any
@@ -12,7 +12,7 @@ interface Col {
   title?: string | React.ReactNode
 }
 
-interface Props {
+export interface Props {
   columns: Array<Col>
   data?: Array<{
     key: string | number

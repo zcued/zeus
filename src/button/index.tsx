@@ -12,6 +12,9 @@ interface Props {
   iconSize?: number
   size?: 'sm' | 'md'
   children?: any
+  className?: string
+  style?: object
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest}>{children}</button>
@@ -128,11 +131,11 @@ const StyledButtonMd = StyledButton.extend`
 `
 
 export default ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
-  const Button = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
+  const Target = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
-    <Button disabled={loading || disabled} {...rest}>
+    <Target disabled={loading || disabled} {...rest}>
       {loading ? <Spinner size={16} inline={true} /> : icon ? <Icon glyph={icon} size={iconSize} /> : null}
       {children}
-    </Button>
+    </Target>
   )
 }

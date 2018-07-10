@@ -5,7 +5,7 @@ import { T } from '../util'
 import Icon from '../icon'
 import ClickOutSide from './click-outside'
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   trigger?: 'hover' | 'click'
   text?: string
   className?: string

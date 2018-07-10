@@ -8,6 +8,7 @@ interface Props {
   size?: number
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   style?: object
+  className?: string
 }
 
 export const Glyph = ({ glyph }) => {
