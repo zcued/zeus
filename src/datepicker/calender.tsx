@@ -131,7 +131,7 @@ class Calender extends React.Component<Props, State> {
     day: this.getDefaultValue('day', null),
     // 切换后的年月
     currentYear: this.getDefaultValue('year', new Date().getFullYear()),
-    currentMonth: this.getDefaultValue('year', new Date().getMonth())
+    currentMonth: this.getDefaultValue('month', new Date().getMonth())
   }
 
   getDefaultValue(key: string, value: any) {
