@@ -21,7 +21,7 @@ const Badge: React.SFC<Props> = ({ tag, children, ...rest }) =>
 
 const StyledBadge = styled(Badge)`
   display: inline-block;
-  width: ${({ pill }) => (pill ? '' : '20px')};
+  min-width: 20px;
   height: 20px;
   font-size: ${({ size }) => size}px;
   line-height: 20px;
