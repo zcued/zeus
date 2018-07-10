@@ -23,7 +23,7 @@ const SplitLine = styled.div`
 `
 
 interface Props {
-  onSelectDate: Function
+  onChange: Function
   className?: string
   placeholder?: string
   defaultValue?: {
@@ -47,7 +47,10 @@ class RangePicker extends React.Component<Props> {
           [type]: value
         })
       },
-      () => this.props.onSelectDate(this.state.value)
+      () =>
+        this.props.onChange({
+          value: this.state.value
+        })
     )
   }
 
@@ -61,13 +64,13 @@ class RangePicker extends React.Component<Props> {
         <DatePicker
           placeholder={placeholder}
           defaultValue={defaultValue ? defaultValue.from : null}
-          onSelectDate={e => this.changeDate(e, 'from')}
+          onChange={e => this.changeDate(e.value, 'from')}
         />
         <SplitLine />
         <DatePicker
           placeholder={placeholder}
           defaultValue={defaultValue ? defaultValue.to : null}
-          onSelectDate={e => this.changeDate(e, 'to')}
+          onChange={e => this.changeDate(e.value, 'to')}
           disabledDate={from}
         />
       </DateRangeWrapper>
