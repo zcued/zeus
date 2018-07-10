@@ -32,6 +32,8 @@ export const StyledTab = styled(Tab)`
   color: ${T('palette.black')};
   cursor: pointer;
   position: relative;
+  transition: color 0.3s;
+
   .icon {
     margin-right: ${T('spacing.xs')}px;
   }

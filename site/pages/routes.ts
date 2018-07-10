@@ -20,6 +20,7 @@ const routes: Routes = {
   components: {
     Basic: {
       alert: require('./alert'),
+      badge: require('./badge'),
       button: require('./button'),
       heading: require('./heading'),
       grid: require('./grid'),
@@ -44,7 +45,8 @@ const routes: Routes = {
     Nav: {
       tabs: require('./tabs'),
       dropdown: require('./dropdown'),
-      pagination: require('./pagination')
+      pagination: require('./pagination'),
+      spinner: require('./spinner')
     }
   }
 }
