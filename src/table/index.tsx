@@ -97,7 +97,7 @@ const Table: React.SFC<Props> = ({ columns, data, onColumnClick, className }) =>
           <TableBody>
             {data.map((item, index: number) => (
               <Row
-                key={item.key}
+                key={index}
                 onClick={() => onColumnClick && onColumnClick(item)}
                 style={{ cursor: onColumnClick ? 'pointer' : '' }}
               >
