@@ -25,7 +25,15 @@ const CollapseItemTitile = styled.div`
   font-size: ${({ theme }) => theme.font.size.md}px;
   line-height: 28px;
   border-bottom: 2px solid ${({ theme }) => theme.palette.daisy};
-  cursor: pointer;
+  cursor: pointer span {
+    transition: color 0.3s;
+  }
+
+  &:hover {
+    span {
+      color: ${({ theme }) => theme.palette.primary};
+    }
+  }
 
   &.active {
     border-bottom: 0;
@@ -44,7 +52,7 @@ export default class CollapseItem extends React.Component<Props, {}> {
     return (
       <CollapseItemStyled className={className}>
         <CollapseItemTitile className={isActive ? 'active' : ''} onClick={onClick}>
-          {title}
+          <span>{title}</span>
           {isActive ? <Icon glyph="minus" size={20} /> : <Icon glyph="plus" size={20} />}
         </CollapseItemTitile>
         <CollapseTransition isShow={isActive}>
