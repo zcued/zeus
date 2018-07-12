@@ -5,25 +5,36 @@ import { Select } from '../../../src'
 
 export default class Page extends React.Component {
   state = {
+    options: [],
     q_image_user_package_id: 'chocolate'
   }
 
-  change = (option) => {
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        options: [
+          { value: 'chocolate', label: 'Chocolate' },
+          { value: 'strawberry', label: 'Strawberry' },
+          {
+            value: 'vanilla',
+            label: 'VanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanillaVanilla'
+          }
+        ]
+      })
+    }, 2000)
+  }
+
+  change = option => {
     this.setState({ q_image_user_package_id: option.value })
   }
 
   render() {
-    const options = [
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' }
-    ]
-
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '20px', width: '300px' }}>
         <Select
+          isSearchable={false}
           value={this.state.q_image_user_package_id}
-          options={options}
+          options={this.state.options}
           onChange={this.change}
         />
       </div>

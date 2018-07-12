@@ -56,6 +56,7 @@ export const LI = styled.li`
   height: 24px;
   display: flex;
   align-items: center;
+
   & > button {
     cursor: inherit;
     border: none;
@@ -63,8 +64,12 @@ export const LI = styled.li`
     height: 100%;
     line-height: 1;
     background: transparent;
-    margin: 0 ${T('spacing.sm')}px;
-    padding: 0;
+    padding: 0 ${T('spacing.sm')}px;
+
+    &[disabled],
+    &[disabled] [data-icon='true'] {
+      cursor: not-allowed;
+    }
   }
 `
 
@@ -161,7 +166,7 @@ class Pagination extends React.Component<Props, State> {
           />
         </LI>
         <LI onClick={this.next} role="next">
-          <button disabled={current === total}>
+          <button disabled={current >= total}>
             <Icon glyph="angle-right" size={10} />
           </button>
         </LI>

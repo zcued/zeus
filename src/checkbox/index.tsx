@@ -8,7 +8,7 @@ export interface Props {
   checked?: boolean
   disabled?: boolean
   label?: JSX.Element | string
-  onChange?: Function
+  onChange?: (e: React.MouseEventHandler<HTMLLabelElement>, checked: boolean) => void
   name?: string
   value?: string | number
   extra?: JSX.Element | string
@@ -73,7 +73,7 @@ export const Label = styled.label`
   align-items: center;
   padding: ${T('spacing.xs')}px 0;
   flex: none;
-  color: ${T('palette.spruce')};
+  color: ${T('palette.black')};
   cursor: pointer;
   transition: all 0.3s;
 
@@ -81,11 +81,16 @@ export const Label = styled.label`
     color: ${T('palette.primary')};
   }
 
+  &[aria-checked='true'] {
+    font-weight: ${T('font.weight.bold')};
+  }
+
   &[aria-disabled='true'] {
+    color: ${T('palette.stone')};
     cursor: not-allowed;
 
     &:hover {
-      color: ${T('palette.spruce')};
+      color: ${T('palette.stone')};
     }
   }
 `
@@ -122,7 +127,7 @@ class Checkbox extends React.Component<Props> {
 
     return (
       <React.Fragment>
-        <Label className={className} aria-disabled={disabled}>
+        <Label className={className} aria-disabled={disabled} aria-checked={checked}>
           <Input
             type="checkbox"
             onChange={this.handleChange}

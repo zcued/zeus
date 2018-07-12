@@ -5,7 +5,7 @@ import { T } from '../util'
 import Icon from '../icon'
 import ClickOutSide from './click-outside'
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   trigger?: 'hover' | 'click'
   text?: string
   className?: string
@@ -46,7 +46,6 @@ export const PoppersContainer = styled.div`
   animation: ${fadeIn} 0.1s ease-in 0.1s forwards;
   z-index: ${zIndex.dropdown};
   box-shadow: 0 6px 12px ${T('palette.black16')};
-  border-radius: 4px;
   min-width: 100%;
 `
 

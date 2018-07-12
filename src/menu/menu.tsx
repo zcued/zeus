@@ -27,12 +27,8 @@ export const MenuContainer = styled.ul`
 `
 
 class Menu extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      activeName: props.value
-    }
+  state = {
+    activeName: this.props.value
   }
 
   onItemClick(name: string) {

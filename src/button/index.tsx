@@ -12,6 +12,9 @@ interface Props {
   iconSize?: number
   size?: 'sm' | 'md'
   children?: any
+  className?: string
+  style?: object
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest}>{children}</button>
@@ -39,13 +42,17 @@ const StyledButton = styled(BaseButton)`
   background: ${({ type, theme }) => (type === 'primary' ? theme.palette.primary : 'transparent')};
   border: 4px solid
     ${({ type, theme }) =>
-      type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black};
+      type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.6) : theme.palette.black};
   transition: all 0.3s;
 
   &:hover {
     color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
     background: ${({ type, theme }) =>
-      type === 'primary' ? hexa(theme.palette.primary, 0.8) : type === 'ghost' ? 'transparent' : theme.palette.daisy};
+      type === 'primary'
+        ? hexa(theme.palette.primary, 0.8)
+        : type === 'ghost'
+          ? 'transparent'
+          : hexa(theme.palette.black, 0.08)};
     border-color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
   }
 
@@ -56,7 +63,7 @@ const StyledButton = styled(BaseButton)`
         ? hexa(theme.palette.primary, 0.6)
         : type === 'ghost'
           ? hexa(theme.palette.white, 0.3)
-          : hexa('#000000', 0.08)};
+          : hexa(theme.palette.black, 0.16)};
     border-color: ${({ type, theme }) => (type === 'ghost' ? theme.palette.white : '')};
   }
 
@@ -124,11 +131,11 @@ const StyledButtonMd = StyledButton.extend`
 `
 
 export default ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
-  const Button = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
+  const Target = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
-    <Button disabled={loading || disabled} {...rest}>
+    <Target disabled={loading || disabled} {...rest}>
       {loading ? <Spinner size={16} inline={true} /> : icon ? <Icon glyph={icon} size={iconSize} /> : null}
       {children}
-    </Button>
+    </Target>
   )
 }
