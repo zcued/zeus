@@ -23,7 +23,7 @@
   "peerDependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.3.2"
   },
   "dependencies": {
     "react-modal": "^3.4.4",
@@ -48,7 +48,6 @@
     "react-dom": "^16.4.1",
     "react-hot-loader": "^4.3.3",
     "prettier": "1.13.5",
-    "styled-components": "^3.3.2",
     "stylelint": "^9.3.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
