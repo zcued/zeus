@@ -98,23 +98,15 @@ class SelectWrapper extends React.Component<Props> {
 
 const SelectWrapperStyled = styled(SelectWrapper)`
   .react-select__control {
-    min-height: 40px;
-    border-color: ${({ theme }) => theme.palette.daisy};
+    border-color: ${({ theme }) => theme.palette.frost};
     border-radius: 0;
     background-color: ${({ theme }) => theme.palette.white};
     cursor: pointer;
-
-    &.react-select__control-is-focused {
-      border-color: ${({ theme }) => theme.palette.primary};
-      box-shadow: 0px 0px 0 1px #ea4335;
-    }
+    box-shadow: none;
 
     &:hover {
-      border-color: ${({ theme }) => theme.palette.daisy};
-
-      &.react-select__control-is-focused {
-        border-color: ${({ theme }) => theme.palette.primary};
-      }
+      border-color: ${({ theme }) => theme.palette.stone};
+      box-shadow: none;
     }
   }
 
