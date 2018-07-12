@@ -18,6 +18,7 @@ export interface Props {
     key: string | number
     [key: string]: any
   }>
+  onColumnClick?: (record: any) => void
   className?: string
 }
 
@@ -71,6 +72,7 @@ const getStyleFromCol = (column: Col): object => {
   if (['left', 'right', 'center'].indexOf(align) > -1) {
     style.textAlign = align
   }
+
   if (width) {
     style.width = width
   }
@@ -78,7 +80,7 @@ const getStyleFromCol = (column: Col): object => {
   return style
 }
 
-const Table: React.SFC<Props> = ({ columns, data, className }) => {
+const Table: React.SFC<Props> = ({ columns, data, onColumnClick, className }) => {
   return (
     <TableWrapper className={className}>
       <TableHead>
@@ -94,7 +96,11 @@ const Table: React.SFC<Props> = ({ columns, data, className }) => {
         data.length > 0 && (
           <TableBody>
             {data.map((item, index: number) => (
-              <Row key={item.key}>
+              <Row
+                key={item.key}
+                onClick={() => onColumnClick && onColumnClick(item)}
+                style={{ cursor: onColumnClick ? 'pointer' : '' }}
+              >
                 {columns.map((column, idx: number) => (
                   <Column key={column.key || idx} style={getStyleFromCol(column)}>
                     {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
