@@ -85,6 +85,10 @@ class SelectWrapper extends React.Component<Props> {
 
     return (
       <Select
+        placeholder="请选择"
+        noOptionsMessage={() => {
+          return '没有任何选项'
+        }}
         className={className}
         classNamePrefix="react-select"
         value={option}
