@@ -168,7 +168,7 @@ const CardStyled = styled(Card)`
   }
 
   &:hover {
-    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, 0.16);
+    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, 0.3);
 
     .operator,
     .custom-hover {
