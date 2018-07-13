@@ -25,7 +25,9 @@ const CollapseItemTitile = styled.div`
   font-size: ${({ theme }) => theme.font.size.md}px;
   line-height: 28px;
   border-bottom: 2px solid ${({ theme }) => theme.palette.daisy};
-  cursor: pointer span {
+  cursor: pointer;
+
+  span {
     transition: color 0.3s;
   }
 
