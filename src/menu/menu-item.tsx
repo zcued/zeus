@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '../theme/styled-components'
+import styled, { css } from '../theme/styled-components'
 import { T } from '../util'
 
 interface Props {
@@ -7,15 +7,32 @@ interface Props {
   isActive?: boolean
   hasActiveArrow?: boolean
   activeArrowPosition?: number
+  align?: string
   name?: string
   onClick?: Function
 }
 
 export const MenuItemContainer = styled.li`
   position: relative;
-  padding: 16px;
+  padding: 16px 40px;
   cursor: pointer;
   transition: all 0.3s;
+
+  > span {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 32px;
+      height: 4px;
+      background: ${T('palette.primary')};
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
 
   &::after {
     content: '';
@@ -31,7 +48,7 @@ export const MenuItemContainer = styled.li`
   }
 
   &.active {
-    font-weight: bold;
+    font-weight: ${T('font.weight.bold')};
 
     &::before {
       content: '';
@@ -66,7 +83,7 @@ const MenuItem: React.SFC<Props> = ({ className, isActive, name, onClick, childr
     className={className + (isActive ? ' active' : '')}
     onClick={() => onClick(name)}
   >
-    {children}
+    <span>{children}</span>
   </MenuItemContainer>
 )
 
@@ -76,6 +93,20 @@ const MenuItemStyled = styled(MenuItem)`
       display: ${({ hasActiveArrow }) => (hasActiveArrow ? 'block' : 'none')};
       right: -${({ activeArrowPosition }) => (activeArrowPosition ? activeArrowPosition : 40)}px;
     }
+
+    ${props =>
+      props.align === 'left'
+        ? css`
+            > span::after {
+              width: 100%;
+              opacity: 1;
+            }
+
+            &::after {
+              opacity: 0;
+            }
+          `
+        : null};
   }
 `
 export default MenuItemStyled
