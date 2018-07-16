@@ -4,20 +4,18 @@ import { T } from '../util'
 
 interface Props {
   color?: string
-  tag?: string
   pill?: boolean
   size?: number
   className?: string
 }
 
-const Badge: React.SFC<Props> = ({ tag, children, ...rest }) =>
-  React.createElement(
-    tag,
-    {
-      ...rest
-    },
-    children
-  )
+class Badge extends React.Component<Props> {
+  render() {
+    const { className, children } = this.props
+
+    return <span className={className}>{children}</span>
+  }
+}
 
 const StyledBadge = styled(Badge)`
   display: inline-block;
@@ -41,7 +39,6 @@ const StyledBadge = styled(Badge)`
 `
 
 StyledBadge.defaultProps = {
-  tag: 'span',
   pill: false,
   color: 'primary',
   size: 14
