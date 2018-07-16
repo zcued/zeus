@@ -32,7 +32,7 @@ const BaseTitle: React.SFC<{
 
 const SubMenuTitle = styled(BaseTitle)`
   position: relative;
-  padding: 16px 40px;
+  padding: 16px 32px 16px 40px;
   cursor: pointer;
 
   span {

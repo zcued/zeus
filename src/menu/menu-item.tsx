@@ -14,7 +14,7 @@ interface Props {
 
 export const MenuItemContainer = styled.li`
   position: relative;
-  padding: 16px 40px;
+  padding: 16px 32px 16px 40px;
   cursor: pointer;
   transition: all 0.3s;
 
@@ -26,7 +26,6 @@ export const MenuItemContainer = styled.li`
       position: absolute;
       bottom: -8px;
       left: 0;
-      width: 32px;
       height: 4px;
       background: ${T('palette.primary')};
       opacity: 0;
@@ -61,10 +60,6 @@ export const MenuItemContainer = styled.li`
       border-bottom-width: 14px;
       border-right-color: ${T('palette.white')};
       transform: translateY(-50%);
-    }
-
-    &::after {
-      opacity: 1;
     }
   }
 
@@ -106,7 +101,16 @@ const MenuItemStyled = styled(MenuItem)`
               opacity: 0;
             }
           `
-        : null};
+        : css`
+            > span::after {
+              width: ;
+              opacity: 1;
+            }
+
+            &::after {
+              opacity: 1;
+            }
+          `};
   }
 `
 export default MenuItemStyled
