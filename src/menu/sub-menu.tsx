@@ -88,7 +88,7 @@ const ActivedSubMenuTitle = SubMenuTitle.extend`
 `
 
 const SubMenuContainer = styled.ul`
-  padding: 0;
+  padding: 0 0 8px;
   list-style: none;
   font-size: 16px;
   line-height: 22px;
