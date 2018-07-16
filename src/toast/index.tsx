@@ -1,11 +1,6 @@
-import * as React from 'react'
 import styled from '../theme/styled-components'
 import { zIndex } from '../globals'
 import { T } from '../util'
-
-interface Props {
-  children: any
-}
 
 export const Toast: any = styled.div`
   position: fixed;
