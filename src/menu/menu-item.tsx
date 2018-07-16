@@ -26,7 +26,6 @@ export const MenuItemContainer = styled.li`
       position: absolute;
       bottom: -8px;
       left: 0;
-      width: 32px;
       height: 4px;
       background: ${T('palette.primary')};
       opacity: 0;
@@ -61,10 +60,6 @@ export const MenuItemContainer = styled.li`
       border-bottom-width: 14px;
       border-right-color: ${T('palette.white')};
       transform: translateY(-50%);
-    }
-
-    &::after {
-      opacity: 1;
     }
   }
 
@@ -106,7 +101,15 @@ const MenuItemStyled = styled(MenuItem)`
               opacity: 0;
             }
           `
-        : null};
+        : css`
+            > span::after {
+              opacity: 0;
+            }
+
+            &::after {
+              opacity: 1;
+            }
+          `};
   }
 `
 export default MenuItemStyled
