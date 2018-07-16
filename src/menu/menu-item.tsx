@@ -14,7 +14,7 @@ interface Props {
 
 export const MenuItemContainer = styled.li`
   position: relative;
-  padding: 16px 32px 16px 40px;
+  padding: 16px 40px;
   cursor: pointer;
   transition: all 0.3s;
 
@@ -103,8 +103,7 @@ const MenuItemStyled = styled(MenuItem)`
           `
         : css`
             > span::after {
-              width: ;
-              opacity: 1;
+              opacity: 0;
             }
 
             &::after {
