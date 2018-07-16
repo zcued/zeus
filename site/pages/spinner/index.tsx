@@ -6,9 +6,22 @@ import { Spinner } from '../../../src'
 export default class Page extends React.Component {
   render() {
     return (
-      <div>
-        <Spinner />
-      </div>
+      <React.Fragment>
+        <div>
+          <Spinner color="#000" spinning={false} />
+        </div>
+        <div>
+          <Spinner>
+            <div style={{ background: 'red' }}>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+            </div>
+          </Spinner>
+        </div>
+      </React.Fragment>
     )
   }
 }
