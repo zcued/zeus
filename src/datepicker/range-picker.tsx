@@ -47,10 +47,7 @@ class RangePicker extends React.Component<Props> {
           [type]: value
         })
       },
-      () =>
-        this.props.onChange({
-          value: this.state.value
-        })
+      () => this.props.onChange(value)
     )
   }
 
