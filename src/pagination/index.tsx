@@ -128,7 +128,7 @@ class Pagination extends React.Component<Props, State> {
   next = () => {
     let { current } = this.state
 
-    if (current === this.props.total) return
+    if (current >= this.props.total) return
 
     current = current + 1
     this.setState({ current, currentInput: current })
