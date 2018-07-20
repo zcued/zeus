@@ -134,7 +134,11 @@ export default ({ children, size, icon, iconSize = 16, disabled, loading, ...res
   const Target = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
     <Target disabled={loading || disabled} {...rest}>
-      {loading ? <Spinner size={16} inline={true} /> : icon ? <Icon glyph={icon} size={iconSize} /> : null}
+      {loading ? (
+        <Spinner size={size ? (size === 'sm' ? 14 : 20) : 16} />
+      ) : icon ? (
+        <Icon glyph={icon} size={iconSize} />
+      ) : null}
       {children}
     </Target>
   )

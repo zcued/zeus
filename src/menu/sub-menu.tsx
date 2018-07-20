@@ -103,6 +103,7 @@ const SubMenuContainer = styled.ul`
 
     &::after {
       bottom: 0;
+      width: 32px;
     }
 
     &.active {

@@ -18,6 +18,7 @@ const TagWraper = FlexRow.extend`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+
   &[data-type='hot']::after {
     content: '';
     display: inline-block;
@@ -41,6 +42,11 @@ const StyledTag = styled.span`
   color: ${T('palette.black')};
   padding: ${T('spacing.xs')}px;
   line-height: 22px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${T('palette.primary')};
+  }
 `
 
 const LeftRadiusTag = StyledTag.extend`

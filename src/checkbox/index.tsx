@@ -8,7 +8,7 @@ export interface Props {
   checked?: boolean
   disabled?: boolean
   label?: JSX.Element | string
-  onChange?: (e: React.MouseEventHandler<HTMLLabelElement>, checked: boolean) => void
+  onChange?: (e: React.MouseEvent<HTMLInputElement>, checked: boolean) => void
   name?: string
   value?: string | number
   extra?: JSX.Element | string

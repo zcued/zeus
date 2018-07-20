@@ -30,9 +30,9 @@ export default interface ThemeInterface {
   font: {
     family: string
     weight: {
-      normal: number
-      medium: number
-      bold: number
+      normal: string | number
+      medium: string | number
+      bold: string | number
     }
     size: Size
     lineHeight: LineHeight
@@ -83,9 +83,9 @@ export const theme: ThemeInterface = {
   font: {
     family: '-apple-system, BlinkMacSystemFont, "Helvetica", "Segoe", sans-serif',
     weight: {
-      normal: 400,
+      normal: 'normal',
       medium: 600,
-      bold: 700
+      bold: 'bold'
     },
     size: {
       xs: 12,
