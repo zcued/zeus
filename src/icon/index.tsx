@@ -55,6 +55,13 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case 'angle-down-light':
+      return (
+        <g>
+          <path d="M16 20.292L29.09 7 32 9.954 16 26.2 0 9.954 2.91 7z" />
+        </g>
+      )
+
     case 'angle-down-sm':
       return (
         <g transform="translate(-163.000000, -310.000000)">
