@@ -42,7 +42,7 @@ class Radio extends React.Component<Props> {
 
     return (
       <React.Fragment>
-        <Label className={className} aria-disabled={disabled}>
+        <Label className={className} aria-disabled={disabled} aria-checked={checked}>
           <Input
             type="radio"
             onChange={this.handleChange}
