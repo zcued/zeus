@@ -84,6 +84,6 @@ export default ({ className, children, type = 'default', checked, dotcolor, onCl
   <TagWraper data-type={checked ? '' : type} aria-checked={checked} className={className} onClick={onClick}>
     <LeftRadiusTag {...rest}>{children}</LeftRadiusTag>
     <StyledDot dotcolor={dotcolor} />
-    {checked && <StyledIcon glyph="tag-close" />}
+    {checked && <StyledIcon glyph="tag-close" onClick={onClick} />}
   </TagWraper>
 )

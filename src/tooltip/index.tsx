@@ -40,7 +40,7 @@ export const ToolTipContainer = styled.div`
 `
 
 export const PopperContainer = styled.div`
-  padding: ${T('spacing.xs')}px;
+  padding: 10px 16px;
   font-size: ${T('font.size.sm')}px;
   background-color: ${T('palette.white')};
   box-shadow: 0 2px 8px ${T('palette.black16')};
