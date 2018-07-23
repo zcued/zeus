@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import { FlexRow, noop } from '../globals'
+import { noop } from '../globals'
 import Icon from '../icon'
 import { T } from '../util'
 
@@ -14,8 +14,10 @@ interface TagProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const TagWraper = FlexRow.extend`
+const TagWraper = styled.div`
   display: inline-flex;
+  align-items: center;
+  max-height: 38px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
