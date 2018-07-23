@@ -24,17 +24,18 @@ export default class Page extends React.Component {
           <Icon glyph="delete" />
           <Icon glyph="zoom-in" />
         </div>
-          <Icon glyph="add" />
-          <Icon glyph="share" />
-          <Icon glyph="import" />
-          <Icon glyph="statistics" />
-          <Icon glyph="arrow-down-collapse" />
-          <Icon glyph="location" />
-          <Icon glyph="move" />
-          <Icon glyph="similar" />
-          <Icon glyph="account" />
+        <Icon glyph="add" />
+        <Icon glyph="share" />
+        <Icon glyph="import" />
+        <Icon glyph="statistics" />
+        <Icon glyph="arrow-down-collapse" />
+        <Icon glyph="location" />
+        <Icon glyph="move" />
+        <Icon glyph="similar" />
+        <Icon glyph="account" />
         <div>
           <Icon glyph="angle-down" />
+          <Icon glyph="angle-down-light" />
           <Icon glyph="angle-down-sm" />
           <Icon glyph="angle-right" />
           <Icon glyph="angle-left" />
