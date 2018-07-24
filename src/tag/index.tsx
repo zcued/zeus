@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import { FlexRow } from '../globals'
+import { noop } from '../globals'
 import Icon from '../icon'
 import { T } from '../util'
 
@@ -11,10 +11,13 @@ interface TagProps {
   checked?: boolean
   children?: any
   className?: string
+  onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const TagWraper = FlexRow.extend`
+const TagWraper = styled.div`
   display: inline-flex;
+  align-items: center;
+  max-height: 38px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -65,6 +68,8 @@ const StyledDot = styled(Dot)`
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
   background: ${props => props.dotcolor || 'white'};
 `
 
@@ -75,10 +80,10 @@ const StyledIcon = styled(Icon)`
   color: ${T('palette.white')};
 `
 
-export default ({ className, children, type = 'default', checked, dotcolor, ...rest }: TagProps) => (
-  <TagWraper data-type={checked ? '' : type} aria-checked={checked} className={className}>
+export default ({ className, children, type = 'default', checked, dotcolor, onClick = noop, ...rest }: TagProps) => (
+  <TagWraper data-type={checked ? '' : type} aria-checked={checked} className={className} onClick={onClick}>
     <LeftRadiusTag {...rest}>{children}</LeftRadiusTag>
     <StyledDot dotcolor={dotcolor} />
-    {checked && <StyledIcon glyph="tag-close" />}
+    {checked && <StyledIcon glyph="tag-close" onClick={onClick} />}
   </TagWraper>
 )
