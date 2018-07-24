@@ -564,6 +564,17 @@ export const Glyph = ({ glyph }) => {
           <path stroke="#1F1F1F" d="M2 4h28v24H2z" />
         </g>
       )
+
+    case 'invoice-multiple':
+      return (
+        <g transform="translate(2)" fill="none">
+          <path stroke="#1F1F1F" strokeWidth="2" d="M7 7h20v24H7z" />
+          <path fill="#1F1F1F" d="M22 4h-2V2H2v24H0V0h22z" />
+          <path fill="#FFD100" d="M10 12h14v2H10zM10 16h8v2h-8z" />
+          <circle fill="#FFD100" cx="22" cy="26" r="2" />
+        </g>
+      )
+
     default:
       return null
   }

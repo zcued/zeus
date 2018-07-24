@@ -55,8 +55,8 @@ export const Fake = styled.span`
     }
   }
 
-  &[data-raidus='false'] {
-    border-radius: 0;
+  &[data-radius='true'] {
+    border-radius: 50%;
   }
 
   &[aria-disabled='true'] {

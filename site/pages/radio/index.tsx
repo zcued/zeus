@@ -30,8 +30,8 @@ export default class Page extends React.Component {
                 key={index}
                 label={item}
                 value={index}
-                name='radio'
-                radius={false}
+                name="radio"
+                radius={true}
                 onChange={this.changeRadioes}
               />
             )
