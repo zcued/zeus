@@ -1,29 +1,23 @@
 import * as React from 'react'
-import { Form, FormControl, FormHelperText, FormLabel, Input } from '../../../src'
+import { Form, FormControl, Input } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Form width={448}>
-          <FormControl>
-            <FormLabel>姓名</FormLabel>
+          <FormControl label="姓名" require={true} helper="请填写正确的纳税人识别号">
             <Input />
-            <FormHelperText>请填写正确的纳税人识别号</FormHelperText>
           </FormControl>
-          <FormControl error>
-            <FormLabel>年龄</FormLabel>
+          <FormControl error={true} labelWidth={150} helper="请填写正确的纳税人识别号">
             <Input />
-            <FormHelperText>请填写正确的纳税人识别号</FormHelperText>
           </FormControl>
         </Form>
         <Form width={300}>
-          <FormControl>
-            <FormLabel>姓名</FormLabel>
+          <FormControl label="姓名" labelWidth={150}>
             <Input />
           </FormControl>
-          <FormControl>
-            <FormLabel>年龄</FormLabel>
+          <FormControl label="年龄" labelWidth={150}>
             <Input />
           </FormControl>
         </Form>
