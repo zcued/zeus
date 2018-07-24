@@ -13,6 +13,10 @@ interface Props {
 
 interface ControlProps {
   error?: boolean
+  label?: string
+  labelWidth?: number
+  require?: boolean
+  helper?: string
   disabled?: boolean
   style?: object
   className?: string
@@ -30,42 +34,55 @@ const BaseFormControl = styled(FlexRow)`
   padding: ${T('spacing.sm')}px 0;
 `
 
-export const FormControl: React.SFC<ControlProps> = ({ error, className, style, children }) => (
-  <FormContext.Provider value={{ error }}>
-    <BaseFormControl className={className} style={style}>
-      {children}
-    </BaseFormControl>
-  </FormContext.Provider>
-)
-
-export const FormLabel = styled.label`
+const FormLabel = styled.label`
   flex: none;
   display: inline-block;
   text-align: right;
-  width: 98px;
+  width: 96px;
   font-size: ${T('font.size.sm')}px;
   color: ${T('palette.stone')};
   margin-right: ${T('spacing.sm')}px;
+
+  &[data-require='true']::before {
+    content: '*';
+    display: inline-block;
+    margin-right: 4px;
+    color: ${T('palette.primary')};
+  }
 
   &::after {
     content: '：';
   }
 `
 
-const BaseFormHelperText = styled.span`
+const FormHelperText = styled.span`
   color: ${T('palette.stone')};
   font-size: ${T('font.size.xs')}px;
   position: absolute;
-  right: 0;
-  bottom: -${T('spacing.xs')}px;
+  left: 112px;
+  bottom: -4px;
 
   &[data-error='true'] {
     color: ${T('palette.primary')};
   }
 `
 
-export const FormHelperText = ({ children }) => (
-  <FormContext.Consumer>
-    {(context: ControlProps) => <BaseFormHelperText data-error={context.error}>{children}</BaseFormHelperText>}
-  </FormContext.Consumer>
+const FormControlStyled: React.SFC<ControlProps> = ({ error, className, style, label, require, helper, children }) => (
+  <FormContext.Provider value={{ error }}>
+    <BaseFormControl className={className} style={style}>
+      {label && <FormLabel data-require={require}>{label}</FormLabel>}
+      {children}
+      {helper && <FormHelperText data-error={error}>{helper}</FormHelperText>}
+    </BaseFormControl>
+  </FormContext.Provider>
 )
+
+export const FormControl = styled(FormControlStyled)`
+  > label {
+    width: ${({ labelWidth }) => (labelWidth ? labelWidth + 'px' : '')};
+  }
+
+  > span {
+    left: ${({ label, labelWidth }) => (label ? (labelWidth ? labelWidth + 16 + 'px' : '') : 0)};
+  }
+`

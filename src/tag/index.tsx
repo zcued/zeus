@@ -11,7 +11,7 @@ interface TagProps {
   checked?: boolean
   children?: any
   className?: string
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const TagWraper = styled.div`
