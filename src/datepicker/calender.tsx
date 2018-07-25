@@ -42,7 +42,6 @@ const CalenderBody = styled.div`
 `
 
 const Table = styled.table`
-  width: 224px;
   font-size: ${({ theme }) => theme.font.size.sm}px;
 
   thead {
@@ -51,15 +50,13 @@ const Table = styled.table`
     th {
       width: 32px;
       padding-bottom: 8px;
+      font-weight: ${({ theme }) => theme.font.weight.normal};
       text-align: center;
     }
   }
 
   td {
     padding: 0;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
     text-align: center;
     outline: none;
     border: 0;
@@ -67,8 +64,11 @@ const Table = styled.table`
 `
 
 const Cell = styled.button`
-  width: 100%;
-  height: 100%;
+  display: inline-block;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   background: transparent;
   outline: none;
   border: 0;
@@ -77,8 +77,7 @@ const Cell = styled.button`
   transition: all 0.3s;
 
   &:hover {
-    background: ${({ theme }) => hexa(theme.palette.primary, 0.6)};
-    color: ${({ theme }) => theme.palette.white};
+    background: ${({ theme }) => hexa(theme.palette.primary, 0.3)};
   }
 
   &.selected {
@@ -91,8 +90,8 @@ const Cell = styled.button`
   }
 
   &[disabled] {
-    background: ${({ theme }) => theme.palette.frost};
-    color: ${({ theme }) => theme.palette.white};
+    background: transparent;
+    color: ${({ theme }) => theme.palette.frost};
     cursor: not-allowed;
   }
 `
@@ -262,6 +261,7 @@ class Calender extends React.Component<Props, State> {
 
   render() {
     const dates = this.getDates()
+
     return (
       <Wrapper>
         <CalenderHeader>

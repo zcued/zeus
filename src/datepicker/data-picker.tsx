@@ -33,7 +33,8 @@ const FlexCenter = styled.div`
 `
 
 const PoppersContainerStyled = styled(PoppersContainer)`
-  top: 120%;
+  margin-top: 8px;
+  top: 100%;
   border: 1px solid ${({ theme }) => theme.palette.daisy};
   border-radius: 0;
   box-sizing: border-box;
