@@ -107,7 +107,8 @@ const SelectWrapperStyled = styled(SelectWrapper)`
     background-color: ${({ theme }) => theme.palette.white};
     cursor: pointer;
     box-shadow: none;
-
+    height: 32px;
+    min-height: 32px;
     &:hover {
       border-color: ${({ theme }) => theme.palette.stone};
       box-shadow: none;
@@ -128,7 +129,7 @@ const SelectWrapperStyled = styled(SelectWrapper)`
   }
 
   .react-select__single-value {
-    font-weight: ${({ theme }) => theme.font.weight.bold};
+    font-weight: regular;
     color: ${({ theme }) => theme.palette.black};
   }
 
