@@ -5,6 +5,7 @@ import Icon from '../icon'
 import { hexa } from '../globals'
 
 interface Props {
+  width?: number
   type?: 'primary' | 'ghost'
   loading?: boolean
   disabled?: boolean
@@ -28,10 +29,11 @@ const StyledButton = styled(BaseButton)`
   outline: 0 !important;
   cursor: pointer;
   vertical-align: middle;
-  padding: 8px 24px;
+  padding: 8px ${({ width }) => (width ? 0 : 24 + 'px')};
   font-size: 16px;
   font-weight: ${({ theme }) => theme.font.weight.bold};
   line-height: 1;
+  width: ${({ width }) => (width ? width + 'px' : 'auto')};
   color: ${({ type, theme }) =>
     type === 'primary' ? theme.palette.white : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black};
   background: ${({ type, theme }) => (type === 'primary' ? theme.palette.primary : 'transparent')};
@@ -74,10 +76,14 @@ const StyledButton = styled(BaseButton)`
       type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     cursor: not-allowed;
   }
+  > div,
+  [data-icon='true'] {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
 
   > div,
   > span {
-    margin-right: 8px;
     vertical-align: middle;
   }
 `
