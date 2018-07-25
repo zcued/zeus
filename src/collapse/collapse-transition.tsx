@@ -7,7 +7,7 @@ export interface Props {
 export default class CollapseTransition extends React.Component<Props> {
   duration = 300
   panel: any = React.createRef()
-
+  imgs: any = null
   state = {
     height: 0,
     panelHeight: 0
@@ -23,10 +23,25 @@ export default class CollapseTransition extends React.Component<Props> {
     return preState
   }
 
-  componentDidMount() {
+  setHeight() {
+    const { isShow } = this.props
     this.state.panelHeight = this.panel.current.offsetHeight
-    if (this.props.isShow) {
+    if (isShow) {
       this.setState({ height: this.state.panelHeight })
+    }
+  }
+
+  componentDidMount() {
+    this.setHeight()
+    this.imgs = this.panel.current.querySelectorAll('img') || []
+    for (let i = 0; i < this.imgs.length; i++) {
+      this.imgs[i].addEventListener('load', this.setHeight)
+    }
+  }
+
+  componentWillUnmount() {
+    for (let i = 0; i < this.imgs.length; i++) {
+      this.imgs[i].removeEventListener('load', this.setHeight)
     }
   }
 

@@ -21,11 +21,6 @@ const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest
 
 const StyledButton = styled(BaseButton)`
   position: relative;
-  display: inline-flex;
-  flex: none;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
   word-break: keep-all;
   text-align: center;
