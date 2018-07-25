@@ -75,9 +75,10 @@ const StyledButton = styled(BaseButton)`
     cursor: not-allowed;
   }
 
-  div,
-  span {
+  > div,
+  > span {
     margin-right: 8px;
+    vertical-align: middle;
   }
 `
 
@@ -134,7 +135,7 @@ export default ({ children, size, icon, iconSize = 16, disabled, loading, ...res
       ) : icon ? (
         <Icon glyph={icon} size={iconSize} />
       ) : null}
-      {children}
+      <span>{children}</span>
     </Target>
   )
 }

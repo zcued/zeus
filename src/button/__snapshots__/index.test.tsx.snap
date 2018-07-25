@@ -19,14 +19,24 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         null,
-        undefined,
+        <span />,
       ],
       "disabled": undefined,
     },
     "ref": null,
     "rendered": Array [
       null,
-      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
     ],
     "type": [Function],
   },
@@ -38,14 +48,24 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           null,
-          undefined,
+          <span />,
         ],
         "disabled": undefined,
       },
       "ref": null,
       "rendered": Array [
         null,
-        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
       ],
       "type": [Function],
     },

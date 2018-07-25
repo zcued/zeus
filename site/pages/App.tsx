@@ -25,7 +25,9 @@ interface AppState {
 
 class App extends React.Component<{}, AppState> {
   components = null
-
+  state = {
+    route: null
+  }
   constructor(props: any) {
     super(props)
 
