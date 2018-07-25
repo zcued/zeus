@@ -77,6 +77,7 @@ const StyledButton = styled(BaseButton)`
   > div,
   [data-icon='true'] {
     margin-right: 8px;
+    vertical-align: middle;
   }
 
   > div,
