@@ -129,7 +129,6 @@ const SelectWrapperStyled = styled(SelectWrapper)`
   }
 
   .react-select__single-value {
-    font-weight: regular;
     color: ${({ theme }) => theme.palette.black};
   }
 
