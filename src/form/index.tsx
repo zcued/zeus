@@ -13,7 +13,7 @@ interface Props {
 
 interface ControlProps {
   error?: boolean
-  label?: string
+  label?: string | JSX.Element
   labelWidth?: number
   require?: boolean
   helper?: string
@@ -30,6 +30,7 @@ export const Form = styled(BaseForm)`
 `
 
 const BaseFormControl = styled(FlexRow)`
+  align-items: flex-start;
   position: relative;
   padding: ${T('spacing.sm')}px 0;
 `
@@ -42,7 +43,7 @@ const FormLabel = styled.label`
   font-size: ${T('font.size.sm')}px;
   color: ${T('palette.stone')};
   margin-right: ${T('spacing.sm')}px;
-
+  line-height: 32px;
   &[data-require='true']::before {
     content: '*';
     display: inline-block;

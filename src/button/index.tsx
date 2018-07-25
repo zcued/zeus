@@ -21,11 +21,6 @@ const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest
 
 const StyledButton = styled(BaseButton)`
   position: relative;
-  display: inline-flex;
-  flex: none;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
   word-break: keep-all;
   text-align: center;
@@ -80,9 +75,10 @@ const StyledButton = styled(BaseButton)`
     cursor: not-allowed;
   }
 
-  div,
-  span {
+  > div,
+  > span {
     margin-right: 8px;
+    vertical-align: middle;
   }
 `
 
@@ -139,7 +135,7 @@ export default ({ children, size, icon, iconSize = 16, disabled, loading, ...res
       ) : icon ? (
         <Icon glyph={icon} size={iconSize} />
       ) : null}
-      {children}
+      <span>{children}</span>
     </Target>
   )
 }
