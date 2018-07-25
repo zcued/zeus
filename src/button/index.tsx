@@ -76,15 +76,14 @@ const StyledButton = styled(BaseButton)`
       type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     cursor: not-allowed;
   }
-  > div,
-  [data-icon='true'] {
-    margin-right: 8px;
-    vertical-align: middle;
-  }
 
   > div,
   > span {
     vertical-align: middle;
+  }
+
+  > span:nth-child(2) {
+    margin-left: 8px;
   }
 `
 
@@ -141,7 +140,7 @@ export default ({ children, size, icon, iconSize = 16, disabled, loading, ...res
       ) : icon ? (
         <Icon glyph={icon} size={iconSize} />
       ) : null}
-      <span>{children}</span>
+      {children ? <span>{children}</span> : null}
     </Target>
   )
 }
