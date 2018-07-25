@@ -78,13 +78,12 @@ const StyledButton = styled(BaseButton)`
   }
 
   > div,
-  [data-icon='true'] {
+  > span {
     vertical-align: middle;
   }
 
-  > span {
+  > span:nth-child(2) {
     margin-left: 8px;
-    vertical-align: middle;
   }
 `
 
