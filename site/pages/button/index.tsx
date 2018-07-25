@@ -4,6 +4,10 @@ import { Flex } from '../../../src'
 import { Badge } from '../../../src'
 
 export default class Page extends React.Component {
+  state = {
+    loading1: false,
+    loading2: false
+  }
   render() {
     return (
       <React.Fragment>
@@ -44,6 +48,12 @@ export default class Page extends React.Component {
             购买授权
           </Button>
           <Button icon="design" size="md" type="primary" disabled={true}>
+            购买授权
+          </Button>
+          <Button size="md" loading={this.state.loading1} onClick={() => this.setState({ loading1: true })}>
+            购买授权
+          </Button>
+          <Button size="md" width={200} loading={this.state.loading2} onClick={() => this.setState({ loading2: true })}>
             购买授权
           </Button>
         </div>

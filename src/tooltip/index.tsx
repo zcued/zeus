@@ -83,6 +83,10 @@ class Tooltip extends React.Component<Props, State> {
     }, 300)
   }
 
+  handlePopperClick = () => {
+    this.setState({ isHovering: false })
+  }
+
   render() {
     const { isHovering } = this.state
     const { placement, children, title, className } = this.props
@@ -98,6 +102,7 @@ class Tooltip extends React.Component<Props, State> {
                   <PopperContainer
                     onMouseEnter={this.handleEnter}
                     onMouseLeave={this.handleLeave}
+                    onClick={this.handlePopperClick}
                     className={className}
                     innerRef={ref}
                     style={style}
