@@ -28,13 +28,11 @@ class App extends React.Component<{}, AppState> {
   state = {
     route: null
   }
+
   constructor(props: any) {
     super(props)
 
     this.hashChangeCallback = this.hashChangeCallback.bind(this)
-    this.state = {
-      route: null
-    }
   }
 
   componentWillMount() {
