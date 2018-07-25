@@ -11,6 +11,10 @@ const CalenderHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  [data-icon='true'] {
+    cursor: pointer;
+  }
 `
 
 const CalenderHeaderBox = styled.div`
