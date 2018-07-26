@@ -14,7 +14,7 @@ const FlexCenter = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 0 8px;
-  height: 38px;
+  height: 32px;
   cursor: pointer;
 
   button {
@@ -26,16 +26,16 @@ const FlexCenter = styled.div`
     text-align: left;
 
     &.value {
-      font-weight: ${({ theme }) => theme.font.weight.bold};
       color: ${({ theme }) => theme.palette.black};
     }
   }
 `
 
 const PoppersContainerStyled = styled(PoppersContainer)`
-  top: 120%;
-  border: 1px solid ${({ theme }) => theme.palette.daisy};
+  margin-top: 8px;
+  top: 100%;
   border-radius: 0;
+  box-shadow: 0px 4px 16px ${({ theme }) => theme.palette.black30};
   box-sizing: border-box;
 `
 

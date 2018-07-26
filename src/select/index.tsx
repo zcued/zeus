@@ -102,21 +102,22 @@ class SelectWrapper extends React.Component<Props> {
 
 const SelectWrapperStyled = styled(SelectWrapper)`
   .react-select__control {
-    border-color: ${({ theme }) => theme.palette.frost};
+    height: 32px;
+    min-height: 32px;
+    border-color: ${({ theme }) => theme.palette.black16};
     border-radius: 0;
     background-color: ${({ theme }) => theme.palette.white};
     cursor: pointer;
     box-shadow: none;
-    height: 32px;
-    min-height: 32px;
+
     &:hover {
-      border-color: ${({ theme }) => theme.palette.stone};
       box-shadow: none;
+      border-color: ${({ theme }) => theme.palette.black16};
     }
   }
 
   .react-select__value-container {
-    padding: 2px 8px;
+    padding: 0 16px;
   }
 
   .react-select__placeholder,
@@ -137,7 +138,7 @@ const SelectWrapperStyled = styled(SelectWrapper)`
   }
 
   .react-select__indicator {
-    padding: 8px 5px;
+    padding: 5px 12px 5px 5px;
     color: ${({ theme }) => theme.palette.black};
 
     &:hover {
@@ -145,19 +146,36 @@ const SelectWrapperStyled = styled(SelectWrapper)`
     }
   }
 
-  .react-select__option {
+  .react-select__menu {
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0px 4px 16px ${({ theme }) => theme.palette.black30};
     font-size: ${({ theme }) => theme.font.size.sm}px;
+    line-height: 1.4;
+  }
+
+  .react-select__menu-list {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .react-select__option {
+    padding: 14px 16px;
+    font-size: ${({ theme }) => theme.font.size.sm}px;
+    font-weight: normal;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
 
     &.react-select__option--is-focused {
-      background: ${({ theme }) => hexa(theme.palette.primary, 0.6)};
+      background-color: ${({ theme }) => hexa(theme.palette.primary, 0.3)};
     }
 
-    &[aria-selected='true'] {
-      background: ${({ theme }) => theme.palette.primary};
+    &.react-select__option--is-selected {
+      background-color: ${({ theme }) => theme.palette.primary};
     }
   }
 `
