@@ -4,6 +4,7 @@ import styled, { keyframes, css } from '../theme/styled-components'
 interface Props {
   size?: number
   color?: string
+  backgroundColor?: string
   opacity?: number
   top?: number
   spinning?: boolean
@@ -44,7 +45,7 @@ const SpinnerStyled = styled(Spinner)`
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: ${({ backgroundColor, theme }) => backgroundColor || theme.palette.white};
     opacity: ${({ opacity }) => (opacity || opacity === 0 ? opacity : 1)};
   }
 
