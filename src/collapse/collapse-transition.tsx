@@ -23,7 +23,7 @@ export default class CollapseTransition extends React.Component<Props> {
     return preState
   }
 
-  setHeight() {
+  setHeight = () => {
     const { isShow } = this.props
     this.state.panelHeight = this.panel.current.offsetHeight
     if (isShow) {
@@ -32,16 +32,20 @@ export default class CollapseTransition extends React.Component<Props> {
   }
 
   componentDidMount() {
-    this.setHeight()
-    this.imgs = this.panel.current.querySelectorAll('img') || []
-    for (let i = 0; i < this.imgs.length; i++) {
-      this.imgs[i].addEventListener('load', this.setHeight)
+    const { setHeight } = this
+    setHeight()
+
+    const imgs = this.panel.current.querySelectorAll('img') || []
+    this.imgs = imgs
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].addEventListener('load', setHeight)
     }
   }
 
   componentWillUnmount() {
-    for (let i = 0; i < this.imgs.length; i++) {
-      this.imgs[i].removeEventListener('load', this.setHeight)
+    const { setHeight, imgs } = this
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].removeEventListener('load', setHeight)
     }
   }
 
