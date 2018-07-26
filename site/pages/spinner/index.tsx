@@ -11,7 +11,7 @@ export default class Page extends React.Component {
           <Spinner color="#000" spinning={false} />
         </div>
         <div>
-          <Spinner opacity={0.8} top={100}>
+          <Spinner opacity={0.8} top={100} backgroundColor="blue">
             <div style={{ background: 'red' }}>
               <p>1</p>
               <p>2</p>
