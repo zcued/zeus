@@ -77,6 +77,11 @@ const StyledButton = styled(BaseButton)`
       type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     cursor: not-allowed;
   }
+  > div,
+  [data-icon='true'] {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
 
   > div {
     margin-right: 8px;
