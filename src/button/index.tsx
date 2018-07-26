@@ -78,17 +78,18 @@ const StyledButton = styled(BaseButton)`
     cursor: not-allowed;
   }
 
-  > div,
-  > span {
+  > div {
+    margin-right: 8px;
     vertical-align: middle;
+
+    &:only-child {
+      margin-right: 0;
+    }
   }
 
   > span {
+    vertical-align: middle;
     font-size: 16px;
-
-    &:nth-child(2) {
-      margin-left: 8px;
-    }
   }
 `
 
