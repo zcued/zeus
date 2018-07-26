@@ -4,6 +4,9 @@ import styled, { keyframes, css } from '../theme/styled-components'
 interface Props {
   size?: number
   color?: string
+  backgroundColor?: string
+  opacity?: number
+  top?: number
   spinning?: boolean
   className?: string
   children?: any
@@ -42,7 +45,8 @@ const SpinnerStyled = styled(Spinner)`
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: ${({ backgroundColor, theme }) => backgroundColor || theme.palette.white};
+    opacity: ${({ opacity }) => (opacity || opacity === 0 ? opacity : 1)};
   }
 
   [data-spinner='true'] {
@@ -56,9 +60,9 @@ const SpinnerStyled = styled(Spinner)`
       children
         ? css`
             position: absolute;
-            top: 50%;
+            top: ${({ top }) => (top || top === 0 ? top + 'px' : '50%')};
             left: 50%;
-            margin-top: -${({ size }) => (size ? size / 2 : 50 / 2)}px;
+            margin-top: -${({ top, size }) => (top || top === 0 ? 0 : size ? size / 2 : 50 / 2)}px;
             margin-left: -${({ size }) => (size ? size / 2 : 50 / 2)}px;
           `
         : null} path {

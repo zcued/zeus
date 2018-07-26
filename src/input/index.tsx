@@ -16,7 +16,7 @@ const BaseInput = styled.input.attrs({
   font-size: ${T('font.size.sm')}px;
   color: ${T('palette.black')};
   background: ${T('palette.white')};
-  border: 1px solid rgba(163, 163, 163, 0.3);
+  border: 1px solid ${({ theme }) => theme.palette.black16};
   box-sizing: border-box;
   cursor: ${({ readOnly }) => (readOnly ? 'not-allowed' : 'auto')};
   transition: border-color 0.25s, box-shadow 0.25s;
@@ -25,16 +25,15 @@ const BaseInput = styled.input.attrs({
     color: ${T('palette.stone')};
   }
 
-  &:hover,
   &:focus {
-    border-color: ${T('palette.stone')};
+    border-color: ${({ theme }) => theme.palette.black30};
     outline: none;
   }
 
   &[data-error='true'] {
     border-width: 2px;
     border-color: ${T('palette.primary')};
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 6px 0 ${({ theme }) => theme.palette.black16};
     outline: none;
   }
 `
