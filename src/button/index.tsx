@@ -29,11 +29,12 @@ const StyledButton = styled(BaseButton)`
   outline: 0 !important;
   cursor: pointer;
   vertical-align: middle;
-  padding: 8px ${({ width }) => (width ? 0 : 24 + 'px')};
-  font-size: 16px;
+  padding: 0 ${({ width }) => (width ? 0 : 24 + 'px')};
+  font-size: 0;
   font-weight: ${({ theme }) => theme.font.weight.bold};
   line-height: 1;
   width: ${({ width }) => (width ? width + 'px' : 'auto')};
+  height: 40px;
   color: ${({ type, theme }) =>
     type === 'primary' ? theme.palette.white : type === 'ghost' ? hexa(theme.palette.white, 0.8) : theme.palette.black};
   background: ${({ type, theme }) => (type === 'primary' ? theme.palette.primary : 'transparent')};
@@ -77,19 +78,23 @@ const StyledButton = styled(BaseButton)`
     cursor: not-allowed;
   }
 
-  > div,
-  > span {
+  > div {
+    margin-right: 8px;
     vertical-align: middle;
+
+    &:only-child {
+      margin-right: 0;
+    }
   }
 
-  > span:nth-child(2) {
-    margin-left: 8px;
+  > span {
+    vertical-align: middle;
+    font-size: 16px;
   }
 `
 
 const StyledButtonSm = StyledButton.extend`
-  font-size: ${({ theme }) => theme.font.size.sm}px;
-  padding: 11px 24px;
+  padding: 0 24px;
   font-weight: ${({ theme }) => theme.font.weight.normal};
   border: 1px solid
     ${({ type, theme }) =>
@@ -124,11 +129,20 @@ const StyledButtonSm = StyledButton.extend`
         type === 'primary' ? 'transparent' : type === 'ghost' ? hexa(theme.palette.white, 0.16) : theme.palette.frost};
     }
   }
+
+  > span {
+    font-size: ${({ theme }) => theme.font.size.sm}px;
+  }
 `
 
 const StyledButtonMd = StyledButton.extend`
-  padding: 10px 24px;
-  font-size: ${({ theme }) => theme.font.size.md}px;
+  padding: 0 24px;
+  height: 48px;
+  line-height: 40px;
+
+  > span {
+    font-size: ${({ theme }) => theme.font.size.md}px;
+  }
 `
 
 export default ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
