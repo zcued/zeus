@@ -7,6 +7,7 @@ interface Props {
   backgroundColor?: string
   opacity?: number
   top?: number
+  minHeight?: number
   spinning?: boolean
   className?: string
   children?: any
@@ -36,6 +37,7 @@ class Spinner extends React.Component<Props> {
 
 const SpinnerStyled = styled(Spinner)`
   position: relative;
+  min-height: ${({ minHeight }) => minHeight + 'px' || ''};
   display: ${({ children }) => (children ? 'block' : 'inline-block')};
 
   [data-spinner-shadow='true'] {
