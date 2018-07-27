@@ -37,7 +37,7 @@ class Spinner extends React.Component<Props> {
 
 const SpinnerStyled = styled(Spinner)`
   position: relative;
-  min-height: ${({ minHeight }) => minHeight + 'px' || ''};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight + 'px' : '')};
   display: ${({ children }) => (children ? 'block' : 'inline-block')};
 
   [data-spinner-shadow='true'] {
