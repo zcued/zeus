@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '../theme/styled-components'
+import styled, { css } from '../theme/styled-components'
 import { T } from '../util'
 
 export interface Porps {
@@ -78,10 +78,16 @@ const CardStyled = styled(Card)`
     height: ${props => (props.imgHeight ? props.imgHeight + 'px' : 'auto')};
     border-radius: ${props =>
       props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
-    background: rgba(255, 255, 255, 0.3);
-    background-image: ${({ imgPlaceHolder }) => (imgPlaceHolder ? 'url(' + imgPlaceHolder + ')' : '')};
-    background-position: center;
-    background-repeat: no-repeat;
+
+    ${({ imgPlaceHolder }) =>
+      imgPlaceHolder
+        ? css`
+            background: rgba(255, 255, 255, 0.3);
+            background-image: ${() => 'url(' + imgPlaceHolder + ')'};
+            background-position: center;
+            background-repeat: no-repeat;
+          `
+        : null};
   }
 
   p {
