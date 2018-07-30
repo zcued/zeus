@@ -33,9 +33,10 @@ export default class Page extends React.Component {
       <div style={{ padding: '20px', width: '300px' }}>
         <Select
           isSearchable={false}
+          value={null}
           options={this.state.options}
           onChange={this.change}
-          placeholder={'请选择请选择请选择请选择请选择请选择请选择请选择请选择请选择'}
+          placeholder={'请选择'}
         />
       </div>
     )
