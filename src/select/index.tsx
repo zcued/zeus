@@ -127,6 +127,10 @@ const SelectWrapperStyled = styled(SelectWrapper)`
 
   .react-select__placeholder {
     color: ${({ theme }) => theme.palette.spruce};
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .react-select__single-value {

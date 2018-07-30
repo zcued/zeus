@@ -7,46 +7,43 @@ export interface Props {
 export default class CollapseTransition extends React.Component<Props> {
   duration = 300
   panel: any = React.createRef()
+  panelHeight: string | number = 'auto'
   imgs: any = null
-  state = {
-    height: 0,
-    panelHeight: 0
-  }
 
-  static getDerivedStateFromProps = (nextProps: any, preState: any) => {
-    if (!!nextProps.isShow) {
-      return { height: preState.panelHeight || 'auto' }
-    }
-    if (!nextProps.isShow) {
-      return { height: 0 }
-    }
-    return preState
+  state = {
+    height: 0
   }
 
   setHeight = () => {
-    const { isShow } = this.props
-    this.state.panelHeight = this.panel.current.offsetHeight
-    if (isShow) {
-      this.setState({ height: this.state.panelHeight })
-    }
+    return (this.panelHeight = this.panel.current.offsetHeight)
+  }
+
+  // 重新加载高度，在有图片的时候，需要等待图片加载完毕重新加载高度
+  reloadHeight = () => {
+    this.setHeight()
+    this.setState({ height: this.panelHeight })
   }
 
   componentDidMount() {
     this.setHeight()
     this.imgs = this.panel.current.querySelectorAll('img') || []
     for (let i = 0; i < this.imgs.length; i++) {
-      this.imgs[i].addEventListener('load', this.setHeight)
+      this.imgs[i].addEventListener('load', this.reloadHeight)
     }
   }
 
   componentWillUnmount() {
     for (let i = 0; i < this.imgs.length; i++) {
-      this.imgs[i].removeEventListener('load', this.setHeight)
+      this.imgs[i].removeEventListener('load', this.reloadHeight)
     }
   }
 
   render() {
-    const { height } = this.state
+    // 每次渲染的时候都拿到最新的高度
+    if (this.panel.current) {
+      this.setHeight()
+    }
+    const height = this.props.isShow ? this.panelHeight || 'auto' : 0
     return (
       <div
         className="collapse-transition"

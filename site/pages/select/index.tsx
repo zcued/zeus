@@ -33,9 +33,9 @@ export default class Page extends React.Component {
       <div style={{ padding: '20px', width: '300px' }}>
         <Select
           isSearchable={false}
-          value={this.state.q_image_user_package_id}
           options={this.state.options}
           onChange={this.change}
+          placeholder={'请选择请选择请选择请选择请选择请选择请选择请选择请选择请选择'}
         />
       </div>
     )
