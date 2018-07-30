@@ -117,17 +117,19 @@ const SelectWrapperStyled = styled(SelectWrapper)`
   }
 
   .react-select__value-container {
-    padding: 0 16px;
+    padding: 0 0 0 16px;
   }
 
   .react-select__placeholder,
   .react-select__single-value {
+    width: calc(100% - 16px);
     font-size: ${({ theme }) => theme.font.size.sm}px;
+    text-align: left;
   }
 
   .react-select__placeholder {
-    color: ${({ theme }) => theme.palette.spruce};
     width: 100%;
+    color: ${({ theme }) => theme.palette.spruce};
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
