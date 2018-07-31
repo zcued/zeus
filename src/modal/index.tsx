@@ -163,12 +163,19 @@ class Modal extends React.Component<Props> {
       children,
       ariaHideApp,
       onRequestClose,
+      shouldCloseOnOverlayClick = false,
       style,
       ...rest
     } = this.props
 
     return (
-      <ReactModal ariaHideApp={ariaHideApp} onRequestClose={onRequestClose} style={this.syncStyle(style)} {...rest}>
+      <ReactModal
+        ariaHideApp={ariaHideApp}
+        onRequestClose={onRequestClose}
+        shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+        style={this.syncStyle(style)}
+        {...rest}
+      >
         <ModalContainer>
           <CloseButton onClick={onRequestClose as any} style={closeStyle}>
             <Icon glyph="close" size={14} />
