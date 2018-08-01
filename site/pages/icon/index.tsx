@@ -51,6 +51,7 @@ export default class Page extends React.Component {
           <Icon glyph="certificate" />
           <Icon glyph="invoice" />
           <Icon glyph="link" />
+          <Icon glyph="customer-service" />
         </div>
         <div>
           <Icon glyph="wechat" />
