@@ -18,14 +18,13 @@ export default class CollapseTransition extends React.Component<Props> {
     return (this.panelHeight = this.panel.current.offsetHeight)
   }
 
-  // 重新加载高度，在有图片的时候，需要等待图片加载完毕重新加载高度
   reloadHeight = () => {
     this.setHeight()
     this.setState({ height: this.panelHeight })
   }
 
   componentDidMount() {
-    this.setHeight()
+    this.reloadHeight()
     this.imgs = this.panel.current.querySelectorAll('img') || []
     for (let i = 0; i < this.imgs.length; i++) {
       this.imgs[i].addEventListener('load', this.reloadHeight)
@@ -38,11 +37,19 @@ export default class CollapseTransition extends React.Component<Props> {
     }
   }
 
-  render() {
-    // 每次渲染的时候都拿到最新的高度
+  componentDidUpdate() {
+    // 更新的时候去获取新的高度
+    const oldHeihgt = this.panelHeight
     if (this.panel.current) {
       this.setHeight()
     }
+    if (this.panelHeight !== oldHeihgt) {
+      this.reloadHeight()
+    }
+  }
+
+  render() {
+    // 每次渲染的时候都拿到最新的高度
     const height = this.props.isShow ? this.panelHeight || 'auto' : 0
     return (
       <div
