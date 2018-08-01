@@ -109,6 +109,7 @@ const ClearDate = styled.span`
   color: ${({ theme }) => theme.palette.spruce};
   font-size: 14px;
   cursor: pointer;
+  transition: color 0.3s;
   &:hover {
     color: ${({ theme }) => theme.palette.primary};
   }
@@ -244,13 +245,6 @@ class Calender extends React.Component<Props, State> {
         currentMonth: d.getMonth()
       })
     }
-  }
-
-  handleClear = () => {
-    this.setState({
-      month: null,
-      day: null
-    })
   }
 
   renderCalender(dates: any[]) {
