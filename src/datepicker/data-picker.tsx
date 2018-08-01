@@ -79,7 +79,6 @@ export default class DatePicker extends React.Component<Props, State> {
         day: +matchedDate[3]
       }
     }
-
     return null
   }
 
@@ -94,7 +93,7 @@ export default class DatePicker extends React.Component<Props, State> {
   changeDate = e => {
     this.setState({ isOpen: false, value: e }, () => {
       this.props.onChange({
-        value: `${e.year}-${e.month + 1}-${e.day}`
+        value: e ? `${e.year}-${e.month + 1}-${e.day}` : null
       })
     })
   }

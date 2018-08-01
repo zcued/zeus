@@ -100,6 +100,19 @@ const Cell = styled.button`
   }
 `
 
+const CalenderFooter = styled.div`
+  padding-top: 8px;
+  font-size: 14px;
+`
+
+const ClearDate = styled.span`
+  color: ${({ theme }) => theme.palette.spruce};
+  font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary};
+  }
+`
 interface Date {
   year: number
   month: number
@@ -195,22 +208,25 @@ class Calender extends React.Component<Props, State> {
     return dates
   }
 
-  handleDaySelect(date: any) {
-    const { year, month, day } = date
+  handleDaySelect(date?: any) {
+    if (date) {
+      const { year, month, day } = date
+      this.setState({
+        year,
+        month,
+        day,
+        currentYear: year,
+        currentMonth: month
+      })
 
-    this.setState({
-      year,
-      month,
-      day,
-      currentYear: year,
-      currentMonth: month
-    })
-
-    this.props.changeDate({
-      year,
-      month,
-      day
-    })
+      this.props.changeDate({
+        year,
+        month,
+        day
+      })
+    } else {
+      this.props.changeDate(null)
+    }
   }
 
   changeDate(change: number, type?: string) {
@@ -228,6 +244,13 @@ class Calender extends React.Component<Props, State> {
         currentMonth: d.getMonth()
       })
     }
+  }
+
+  handleClear = () => {
+    this.setState({
+      month: null,
+      day: null
+    })
   }
 
   renderCalender(dates: any[]) {
@@ -300,6 +323,9 @@ class Calender extends React.Component<Props, State> {
             <tbody>{this.renderCalender(dates)}</tbody>
           </Table>
         </CalenderBody>
+        <CalenderFooter>
+          <ClearDate onClick={() => this.handleDaySelect(null)}>清空日期</ClearDate>
+        </CalenderFooter>
       </Wrapper>
     )
   }
