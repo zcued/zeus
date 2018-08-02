@@ -40,7 +40,7 @@ const SpinnerStyled = styled(Spinner)`
   min-height: ${({ minHeight }) => (minHeight ? minHeight + 'px' : '')};
   display: ${({ children }) => (children ? 'block' : 'inline-block')};
 
-  [data-spinner-shadow='true'] {
+  > [data-spinner-shadow='true'] {
     display: ${({ spinning }) => (spinning === false ? 'none' : 'block')};
     position: absolute;
     top: 0;
@@ -51,7 +51,7 @@ const SpinnerStyled = styled(Spinner)`
     opacity: ${({ opacity }) => (opacity || opacity === 0 ? opacity : 1)};
   }
 
-  [data-spinner='true'] {
+  > [data-spinner='true'] {
     display: ${({ spinning }) => (spinning === false ? 'none' : 'block')};
     width: ${({ size }) => size || 50}px;
     height: ${({ size }) => size || 50}px;
