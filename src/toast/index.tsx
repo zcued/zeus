@@ -1,8 +1,16 @@
+import * as React from 'react'
 import styled from '../theme/styled-components'
 import { zIndex } from '../globals'
 import { T } from '../util'
 
-export const Toast: any = styled.div`
+interface Props {
+  offsetTop?: number
+  offsetLeft?: number
+}
+
+const Toast: React.SFC<Props> = ({ children, ...rest }) => <div {...rest}>{children}</div>
+
+const ToastStyled: any = styled(Toast)`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,7 +28,8 @@ export const Toast: any = styled.div`
   pointer-events: none;
   z-index: ${zIndex.toast};
   overflow: hidden;
-  transform: translateX(-50%) translateY(calc(-50% - 100px));
+  transform: translateX(calc(-50% - ${({ offsetLeft }) => offsetLeft || 0}px))
+    translateY(calc(-50% - 100px - ${({ offsetTop }) => offsetTop || 0}px));
 `
 
-export default Toast
+export default ToastStyled

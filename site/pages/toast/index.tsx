@@ -3,6 +3,10 @@ import { Toast } from '../../../src'
 
 export default class Page extends React.Component {
   render() {
-    return <Toast>this is a toast</Toast>
+    return (
+      <Toast offsetLeft={-500} offsetTop={-300}>
+        this is a toast
+      </Toast>
+    )
   }
 }
