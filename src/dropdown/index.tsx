@@ -22,9 +22,7 @@ export const StyledClickOutSide = styled(ClickOutSide)`
   color: ${T('palette.black')};
 `
 
-export const Button = styled.button`
-  border: none;
-  outline: none;
+export const Button = styled.span`
   background: transparent;
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
