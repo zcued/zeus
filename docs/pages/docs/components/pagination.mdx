@@ -1,0 +1,27 @@
+# 分页
+
++++
+--- demo ---
+#### pagination
+分页
+``` jsx
+import { Pagination } from 'zeus'
+
+class Page extends React.Component {
+  state = {
+    current: 1
+  }
+
+  onChange = (current) => {
+    this.setState({ current })
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Pagination defaultCurrent={1} total={25} pageSize={10} />
+      </React.Fragment>
+    )
+  }
+}
+```

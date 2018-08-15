@@ -1,0 +1,140 @@
+---
+id: button-page
+demo-columns: 2
+---
+
+# Card 卡片
+
+## 代码演示
++++
+--- demo ---
+#### 设置背景图
+``` jsx
+import { Card } from 'zeus'
+class CardWithBackgroundDemo extends React.Component {
+  render(){
+    return (
+      <Card
+        imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+        title="一张可爱的卡片"
+      />
+    )
+  }
+} 
+```
+
++++
+--- demo ---
+#### 不同形态的卡片
+卡片有三种不同的形式，分别是card, picture 和 atlas。
+``` jsx
+import { Card } from 'zeus'
+class CardWithOperatorDemo extends React.Component {
+  render(){
+    return (
+      <div>
+        <div>
+          <Card
+            type="atlas"
+            title="我是标题啊"
+            subTitle="此文案"
+            imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+          />
+        </div>
+
+        <div style={{marginTop: 16}}>
+          <Card
+            type="card"
+            title="我是标题啊"
+            subTitle="此文案"
+            imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+          />
+        </div>
+
+        <div style={{marginTop: 16}}>
+          <Card
+            type="picture"
+            title="我是标题啊"
+            subTitle="此文案"
+            imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+          />
+        </div>
+      </div>
+    )
+  }
+} 
+```
+
++++
+--- demo ---
+#### 带标签的卡片
+ 
+``` jsx
+import { Card } from 'zeus'
+class CardWithTagDemo extends React.Component {
+  render(){
+    return (
+      <Card
+        imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+        title="一张可爱的卡片"
+        tag={<div style={{background: '#ffd100', padding: 4}}>超级酷</div>}
+      />
+    )
+  }
+} 
+```
++++
+
+
++++
+--- demo ---
+#### 小点的卡片
+设置size为small可以让标题内容缩小
+``` jsx
+import { Card } from 'zeus'
+class SmallCardDemo extends React.Component {
+  render(){
+    return (
+      <Card
+        imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+        title="一张可爱的卡片"
+        size="small"
+        tag={<div style={{background: '#ffd100', padding: 4}}>超级酷</div>}
+      />
+    )
+  }
+} 
+```
+
++++
+--- demo ---
+#### 标题位置修改
+设置修改标题的位置
+``` jsx
+import { Card } from 'zeus'
+class BottomTitleCardDemo extends React.Component {
+  render(){
+    return (
+      <Card
+        imgSrc="http://ali.image.hellorf.com/images/1b90734b946e92a5c24738bde66879f5.jpeg"
+        title="一张可爱的卡片"
+        subTitle="我是卡片的子标题"
+        titlePostion="bottom"
+      />
+    )
+  }
+} 
+```
++++
+
+## 参数
+
+| 属性     | 类型     | 说明                                 | 默认值  |
+| -------- | -------- | ------------------------------------ | ------- |
+| type     | stirng   | 按钮的基本类型，包括primary和default | default |
+| size     | number   | 控制按钮的大小，可以是 md 或者 sm    | md      |
+| disabled | boolean  | 是否禁用按钮                         | false   |
+| icon     | string   | 图标类型                             | -       |
+| iconSize | number   | 图标大小                             | 16      |
+| onClick  | function | 出发用户的点击事件                   | -       |
+

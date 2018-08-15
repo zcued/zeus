@@ -1,5 +1,7 @@
 # Zeus
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zcued/zeus.svg)](https://greenkeeper.io/)
+
 ![](https://travis-ci.org/zcued/zeus.svg?branch=master)
 ![](https://img.shields.io/github/license/zcued/zeus.svg)
 ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
