@@ -133,11 +133,11 @@ export default class DatePicker extends React.Component<Props, State> {
       <Outside className={className} onClick={this.handleClickOutSide}>
         <FlexCenter onClick={this.handleClick}>
           {value === null ? (
-            <Button type="button" aria-expanded={isOpen}>
+            <Button aria-expanded={isOpen}>
               {placeholder || '请选择'}
             </Button>
           ) : (
-            <Button className="value" type="button" aria-expanded={isOpen}>
+            <Button className="value" aria-expanded={isOpen}>
               {value &&
                 `${value.month + 1 < 10 ? '0' + (value.month + 1) : value.month + 1}-${
                   value.day < 10 ? '0' + value.day : value.day
