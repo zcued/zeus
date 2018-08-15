@@ -1,0 +1,129 @@
+---
+demo-columns: 2
+---
+# Form 表单
+
+## 示例
++++
+--- demo ---
+#### 表单
+常见的表单是由多个部分组成，包括文字提示，错误提示，标签，以及用来接受用户信息的元素包括输入框，选项卡，复选框
+``` jsx
+import { Form, FormControl, Input } from 'zeus'
+class Page extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Form>
+          <FormControl label="姓名" message="请填写正确的姓名">
+            <Input />
+          </FormControl>
+          <FormControl error label="年龄"  message="请填写正常人的年龄">
+            <Input type="number"/>
+          </FormControl>
+        </Form>
+      </React.Fragment>
+    )
+  }
+}
+
+```
+
+
++++
+--- demo ---
+#### 不同的输入形式
+常见的表单是由多个部分组成，包括文字提示，错误提示，标签，提交按钮，以及用来接受用户信息的元素包括输入框，选项卡，复选框
+``` jsx
+import { Checkbox, FormControl, Select, Button } from 'zeus'
+class CheckboxDemo extends React.Component {
+  state = {
+    checked: null,
+    selected: null,
+    input: ''
+  }
+
+  handleChangeSelect = opt => {
+    this.setState({ selected: Number(opt.value) })
+  }
+
+  handleCheckBoxChange = e => {
+    this.setState({ checked: Number(e.target.value) })
+  }
+
+  handleChangeInput = e => {
+    this.setState({ input: e.target.value })
+  }
+
+  render() {
+    const {selected, checked, input} = this.state
+    const checkboxes = [
+      { name: '鸣人', value: 1 },
+      { name: '小李', value: 2 },
+      { name: '佐助', value: 3 },
+      { name: '斑', value: 4 }
+    ]
+    const opts = [
+      {label: '技能牛逼', value: 1},
+      {label: '长得帅', value: 2},
+      {label: '踏实认真', value: 3},
+      {label: '其他', value: 4}
+    ]
+
+    return (
+      <Form onSubmit={ e => e.preventDefault() }>
+        <FormControl labelWidth={140} label="最帅的角色">
+          {checkboxes.map((item, index) => {
+            return (
+              <span key={index} style={{marginRight: 16}}>
+                <Checkbox
+                  checked={checked === item.value}
+                  label={item.name}
+                  value={item.value}
+                  onChange={this.handleCheckBoxChange}
+                />
+              </span>
+            )
+          })}
+        </FormControl>
+        <FormControl labelWidth={140} label="选择他的理由">
+          <div style={{width: '100%'}}>
+            <Select 
+              options={opts}
+              value={selected}
+              onChange={this.handleChangeSelect}
+            />
+          </div>
+        </FormControl>
+        <FormControl labelWidth={140} label="想对他说的话">
+          <Input 
+            placeholder="普通输入框"
+            value={input}
+            onChange={this.handleChangeInput}
+          />
+        </FormControl>
+        <FormControl>
+          <Button style={{marginLeft: 156}} type="primary">提交</Button>
+          <Button style={{marginLeft: 16}}>取消</Button>
+        </FormControl>
+      </Form>
+    )
+  }
+}
+```
+
++++
+## 参数
+#### From 属性
+属性 | 类型 | 作用
+---- | ---
+width | number | 表单宽度
+
+#### FormControl 属性
+属性 | 类型 | 作用
+---- | ---
+error | boolean | 是否填写有误
+disabled | boolean | 禁用表单
+label | string | 标签
+labelWidth | number | 标签宽度
+error | boolean | 是否处于错误状态

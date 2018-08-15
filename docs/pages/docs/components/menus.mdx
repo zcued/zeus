@@ -1,0 +1,129 @@
+---
+demo-columns: 1
+---
+# Menu
+
++++
+--- demo ---
+#### 菜单栏
+用于导航
+``` jsx
+import { Menu, MenuItem } from 'zeus'
+
+class MenuDemo extends React.Component {
+  render() {
+    return (
+      <div style={{background: '#ccc', border: '1px solid #ccc'}}>
+        <Menu
+          value="1"
+        >
+          <MenuItem>
+            menu 1
+          </MenuItem>
+          <MenuItem>
+            menu 2
+          </MenuItem>
+          <MenuItem>
+            menu 3
+          </MenuItem>
+        </Menu>
+      </div>
+    )
+  }
+}
+
+```
+
+
++++
+--- demo ---
+#### 带指示箭头的菜单栏
+可以用一个小箭头更加明确的指出当前处于active状态的菜单栏
+``` jsx
+import { Menu, MenuItem } from 'zeus'
+
+class MenuDemoWithArrow extends React.Component {
+  render() {
+    return (
+      <div style={{background: '#ccc', border: '1px solid #ccc'}}>
+        <Menu
+          hasActiveArrow={true}
+          value="1"
+        >
+          <MenuItem>
+            menu 1
+          </MenuItem>
+          <MenuItem>
+            menu 2
+          </MenuItem>
+          <MenuItem>
+            menu 3
+          </MenuItem>
+        </Menu>
+      </div>
+    )
+  }
+}
+```
+
+
++++
+--- demo ---
+#### 二级菜单
+
+``` jsx
+import { Menu, MenuItem, SubMenu} from 'zeus'
+
+class MenuDemoWithSub extends React.Component {
+  render() {
+    return (
+      <div style={{background: '#ccc', border: '1px solid #ccc'}}>
+        <Menu
+          hasActiveArrow={true}
+          value="1"
+        >
+          <MenuItem>
+            menu 1
+          </MenuItem>
+          <MenuItem>
+            menu 2
+          </MenuItem>
+          <SubMenu title="Sub Menu">
+            <MenuItem>
+              option 1
+            </MenuItem>
+            <MenuItem>
+              option 2
+            </MenuItem>
+          </SubMenu>
+          <MenuItem>
+            menu 3
+          </MenuItem>
+        </Menu>
+      </div>
+    )
+  }
+}
+```
+
++++
+## 参数
+### Menu 参数
+| 属性 | 类型 | 说明 | 默认值
+| -------- | ------- |------- |------- |
+| hasActiveArrow | boolean | 菜单栏是否有导航的箭头 | false
+| activeArrowPosition | number | 导航的箭头距离菜单栏的距离 | 40
+| value | string | 用于锁定当前处于active状态的菜单 | -
+| onChange | function | 切换菜单时的回调函数 | -
+| onOpenChange | function | --- | -
+
+### SubMenu 参数
+| 属性 | 类型 | 说明 | 默认值
+| -------- | ------- |------- |------- |
+| title | string | 子菜单的标题 | -
+| value | string | 子菜单的值 | -
+
+### MenuItem 参数
+| 属性 | 类型 | 说明 | 默认值
+| -------- | ------- |------- |------- |
+| value | string | 菜单的值 | -
