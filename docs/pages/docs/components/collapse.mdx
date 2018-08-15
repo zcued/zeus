@@ -1,0 +1,55 @@
+---
+demo-columns: 1
+---
+
+# Collapse 折叠面板
+
+## 示例
++++
+--- demo ---
+#### 折叠面板
+折叠面板通常用于大量数据在同一个页面时，隐藏不必要的数据。
+``` jsx
+import { Collapse, CollapseItem} from 'zeus'
+
+class CollapseDemo extends React.Component {
+  state = {
+    value: null
+  }
+  onChange = (value) => {
+    this.setState({
+      value
+    })
+  }
+
+  render() {
+    return (
+      <Collapse value="2" accordion={true}>
+        <CollapseItem title="猜猜里边是什么">
+          我是一个带图片的collpase
+          <img src="http://seopic.699pic.com/photo/50052/7491.jpg_wh1200.jpg" alt="" />
+        </CollapseItem>
+        <CollapseItem title={"猜猜里面是什么"}>猜不到吧</CollapseItem>
+        <CollapseItem title="猜猜里头是什么">什么都没有</CollapseItem>
+      </Collapse>
+    )
+  }
+}
+```
++++
+## 参数
+
+#### Collapse 属性
+
+| 属性         | 类型     | 说明                           | 默认值 |
+| ------------ | -------- |
+| value | number   | 当前展开的面板的index | -      |
+| onChange | function | 展开收缩时的回调函数 | - |
+
+#### CollapseItem 属性
+
+| 属性         | 类型     | 说明                     | 默认值 |
+| ------------ | -------- |
+| title | string, element     | 面板标题             | -      |
+| children | string, element  | 面板里的内容 | -      |
+

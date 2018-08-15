@@ -59,7 +59,6 @@
     "typescript": "^2.9.2",
     "webpack": "^4.16.4",
     "webpack-dev-server": "^3.1.5"
-
   },
   "scripts": {
     "start": "cd site && node server.js",
