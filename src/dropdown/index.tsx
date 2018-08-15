@@ -110,7 +110,7 @@ class Dropdown extends React.Component<Props> {
     return (
       <StyledClickOutSide onClick={this.handleClickOutSide}>
         <div className={className} onMouseLeave={this.handleHover} onMouseEnter={this.handleHover}>
-          <Button type="button" aria-expanded={isOpen} onClick={this.handleClick}>
+          <Button aria-expanded={isOpen} onClick={this.handleClick}>
             {text}
             {icon ? <Icon glyph={icon} size={iconSize} /> : null}
           </Button>
