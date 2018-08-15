@@ -1,0 +1,86 @@
+---
+demo-columns: 2
+---
+# Toast 和 Modal 模态提示
+
+## 示例
++++
+--- demo ---
+#### 提示框
+用户反馈用户的操作结果
+
+``` jsx
+import { Toast, Button } from 'zeus'
+
+class ToastDemo extends React.Component {
+  time = 1000
+  state = {
+    visible: false
+  }
+  showToast = e => {
+    this.setState({
+      visible: true
+    })
+    setTimeout(() => {
+      this.setState({ visible: false })
+    }, this.time)
+  }
+  render() {
+    const { visible } = this.state
+    return <div>
+      <Button name="delete" onClick={this.showToast}>删除</Button>
+      {visible && <Toast>删除成功</Toast>}
+    </div>
+  }
+}
+```
+
+
++++
+--- demo ---
+#### 模态框
+
+通过模态框的形式去展示信息，相比toast，模态框可以更加自如的交互，在模态框内也可以完成相对复杂的操作
+``` jsx
+import { Modal, Button } from 'zeus'
+class ModalDemo extends React.Component {
+  state = {
+    isOpen: false
+  }
+  open = () => {
+    this.setState({isOpen: true})
+  }
+  close = () => {
+    this.setState({isOpen: false})
+  }
+  render() {
+    return (
+      <div>
+        <Button onClick={this.open}>打开</Button>
+        <Modal 
+          title="Modal"
+          footer={<Button onClick={this.close}>关闭</Button>}
+          isOpen={this.state.isOpen}
+          onRequestClose={this.close}
+          height={230}
+          width={500}
+        >
+          恭喜你，打开了一个炫酷的模态框
+        </Modal>
+      </div>
+    )
+  }
+}
+
+```
+
++++
+## Modal 参数
+| 属性      | 类型    | 作用         |
+| -- | -- | -- |
+| title | string | 标题 |
+| footer | React Node | 底部内容 |
+| isOpen | boolean | 是否打开 |
+| onReqeustClose | function | 关闭时的回掉函数 |
+| width | number | 宽度 |
+| height | number | 高度 |

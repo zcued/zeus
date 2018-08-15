@@ -1,0 +1,202 @@
+---
+demo-columns: 2
+---
+
+# checkbox
+
+## 示例
++++
+--- demo ---
+#### 基本使用
+切换选中的状态
+
+``` jsx
+import { Checkbox } from 'zeus'
+
+class BasicDemo extends React.Component {
+  state = {
+    checked: false
+  }
+
+  toggle = () => {
+    this.setState({ checked: !this.state.checked })
+  }
+
+  render() {
+    const { checked } = this.state
+    return (
+      <Checkbox label="是否选中" checked={this.state.checked} onChange={this.toggle}/>
+    )
+  }
+}
+```
+
+
++++
+--- demo ---
+#### 禁用状态
+不可用
+
+``` jsx
+import { Checkbox } from 'zeus'
+class DisabeldDemo extends React.Component {
+  render() {
+    return (
+      <Checkbox disabled={true} label="是否选中" checked={false}/>
+    )
+  }
+}
+```
++++
+--- demo ---
+#### 多选框
+如果需要设置多选，也很容易实现
+``` jsx
+import { Checkbox, FormControl } from 'zeus'
+class MutiCheckboxDemo extends React.Component {
+  state = {
+    checked: new Set([1, 2])
+  }
+
+  handleCheckBoxChange = e => {
+    let checked = this.state.checked
+    e.target.checked 
+      ? checked.add(Number(e.target.value))
+      : checked.delete(Number(e.target.value))
+    this.setState({ checked })
+  }
+  render() {
+    const checked = Array.from(this.state.checked)
+    const checkboxes = [
+      { name: '鸣人', value: 1 },
+      { name: '小李', value: 2 },
+      { name: '佐助', value: 3 },
+      { name: '斑', value: 4 }
+    ]
+
+    return (
+      <FormControl label="最帅的角色">
+        {checkboxes.map((item, index) => {
+          return (
+            <span key={index} style={{marginRight: 16}}>
+              <Checkbox
+                checked={checked.findIndex(value => item.value === value) !== -1}
+                label={item.name}
+                value={item.value}
+                onChange={this.handleCheckBoxChange}
+              />
+            </span>
+          )
+        })}
+      </FormControl>
+    )
+  }
+}
+```
+
++++
+--- demo ---
+#### 多选一
+如果需要设置多选，也很容易实现
+``` jsx
+import { Checkbox, FormControl } from 'zeus'
+class CheckboxDemo extends React.Component {
+  state = {
+    checked: 1
+  }
+
+  handleCheckBoxChange = e => {
+    this.setState({ checked: Number(e.target.value) })
+  }
+
+  render() {
+    const checked = this.state.checked
+    const checkboxes = [
+      { name: '鸣人', value: 1 },
+      { name: '小李', value: 2 },
+      { name: '佐助', value: 3 },
+      { name: '斑', value: 4 }
+    ]
+
+    const opts = [
+      {
+        label: '陕西',
+        value: '陕西',
+        cities: [{label: '西安', value: '西安'}, {label: '榆林', value: '榆林'}]
+      },
+      {
+        label: '北京',
+        value: '北京',
+        cities: [{label: '北京', value: '北京'}]
+      },
+      {
+        label: '河南',
+        value: '河南',
+        cities: [{label: '洛阳', value: '洛阳'}, {label: '郑州', value: '郑州'}]
+      }
+    ]
+
+    const { privince, city } = this.state
+    const cityOpts = opts.find(item => item.value === privince)
+
+    return (
+      <FormControl label="最帅的角色">
+        {checkboxes.map((item, index) => {
+          return (
+            <span key={index} style={{marginRight: 16}}>
+              <Checkbox
+                checked={checked === item.value}
+                label={item.name}
+                value={item.value}
+                onChange={this.handleCheckBoxChange}
+              />
+            </span>
+          )
+        })}
+      </FormControl>
+    )
+  }
+}
+```
+
++++
+--- demo ---
+#### 复杂的复选框
+label不是简单的字符串的时候，可以用extra属性去添加额外的label信息
+``` jsx
+import { Checkbox, FormControl, , Icon } from 'zeus'
+class ExtraDemo extends React.Component {
+  render() {
+    return (
+      <FormControl label="最喜欢的Icon" labelWidth="120">
+        <span style={{marginRight: 16}}>
+          <Checkbox
+            checked={false}
+            label=" "
+            extra={<Icon glyph="account" size={16}/>}
+          />
+        </span>
+        <span>
+          <Checkbox
+            checked={false}
+            label=" "
+            extra={<Icon glyph="plus" size={16}/>}
+          />
+        </span>
+      </FormControl>
+    )
+  }
+}
+```
++++
+
+## 参数
+
+属性 | 类型 | 说明 |  默认值
+---- | --- | --- | ---
+checked | boolean | 是否处于选中状态 | false
+disabled | boolean | 是否禁用复选框 | false
+label | string | 复选框的文字 | -
+extra | any | 复选框的额外内容 | -
+onChange | boolean | 切换复选框状态时的回调函数 | -
+
