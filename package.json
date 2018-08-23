@@ -48,7 +48,7 @@
     "prettier": "1.14.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-hot-loader": "^4.3.4",
+    "react-hot-loader": "^4.3.5",
     "stylelint": "^9.4.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
