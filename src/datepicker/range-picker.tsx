@@ -30,7 +30,8 @@ const SplitLine = styled.div`
 interface Props {
   onChange: Function
   className?: string
-  placeholder?: string
+  startPlaceholder?: string
+  endPlaceholder?: string
   defaultValue?: {
     from: string
     to: string
@@ -38,6 +39,7 @@ interface Props {
 }
 
 class RangePicker extends React.Component<Props> {
+  
   state = {
     value: {
       from: null,
@@ -57,20 +59,20 @@ class RangePicker extends React.Component<Props> {
   }
 
   render() {
-    const { placeholder, defaultValue, className } = this.props
+    const { startPlaceholder, endPlaceholder, defaultValue, className } = this.props
     const { value } = this.state
     const { from } = value
 
     return (
       <DateRangeWrapper className={className}>
         <DatePicker
-          placeholder={placeholder}
+          placeholder={startPlaceholder}
           defaultValue={defaultValue ? defaultValue.from : null}
           onChange={e => this.changeDate(e.value, 'from')}
         />
         <SplitLine />
         <DatePicker
-          placeholder={placeholder}
+          placeholder={endPlaceholder}
           defaultValue={defaultValue ? defaultValue.to : null}
           onChange={e => this.changeDate(e.value, 'to')}
           disabledDate={from}
