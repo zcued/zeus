@@ -1,5 +1,5 @@
 {
-  "name": "zeus",
+  "name": "zeus-ui",
   "version": "0.0.1",
   "description": "zcool ui libary",
   "main": "lib/index.js",
