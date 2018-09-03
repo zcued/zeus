@@ -26,6 +26,7 @@ class Row extends React.Component<RowProps, {}> {
 
 const RowStyled = styled(Row)`
   margin: ${props => (props.gutter ? '0 -' + px(props.gutter / 2) : '')};
+  margin-bottom: ${props => (props.gutter ? px(-props.gutter) : '')};
 
   &::after {
     content: '';

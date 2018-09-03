@@ -39,7 +39,6 @@ interface Props {
 }
 
 class RangePicker extends React.Component<Props> {
-  
   state = {
     value: {
       from: null,
