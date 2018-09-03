@@ -3,11 +3,6 @@ import { shallow } from 'enzyme'
 import 'jest-styled-components'
 import Button from '.'
 
-test('it works', () => {
-  const wrapper = shallow(<Button />)
-  expect(wrapper).toMatchSnapshot()
-})
-
 describe('button works', () => {
   it('should render an `.icon`', () => {
     const wrapper = shallow(<Button icon="close">button</Button>)

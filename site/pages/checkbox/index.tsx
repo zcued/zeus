@@ -47,7 +47,7 @@ export default class Page extends React.Component {
         {keyWords.map((item, index) => {
           return (
             <Checkbox
-              checked={checked.includes(item)}
+              checked={checked.indexOf(item) > -1}
               disabled={true}
               key={index}
               label={item}
