@@ -11,7 +11,7 @@ demo-columns: 2
 切换选中的状态
 
 ``` jsx
-import { Checkbox } from 'zeus'
+import { Checkbox } from 'zeus-ui'
 
 class BasicDemo extends React.Component {
   state = {
@@ -38,7 +38,7 @@ class BasicDemo extends React.Component {
 不可用
 
 ``` jsx
-import { Checkbox } from 'zeus'
+import { Checkbox } from 'zeus-ui'
 class DisabeldDemo extends React.Component {
   render() {
     return (
@@ -52,7 +52,7 @@ class DisabeldDemo extends React.Component {
 #### 多选框
 如果需要设置多选，也很容易实现
 ``` jsx
-import { Checkbox, FormControl } from 'zeus'
+import { Checkbox, FormControl } from 'zeus-ui'
 class MutiCheckboxDemo extends React.Component {
   state = {
     checked: new Set([1, 2])
@@ -99,7 +99,7 @@ class MutiCheckboxDemo extends React.Component {
 #### 多选一
 如果需要设置多选，也很容易实现
 ``` jsx
-import { Checkbox, FormControl } from 'zeus'
+import { Checkbox, FormControl } from 'zeus-ui'
 class CheckboxDemo extends React.Component {
   state = {
     checked: 1
@@ -164,7 +164,7 @@ class CheckboxDemo extends React.Component {
 #### 复杂的复选框
 label不是简单的字符串的时候，可以用extra属性去添加额外的label信息
 ``` jsx
-import { Checkbox, FormControl, , Icon } from 'zeus'
+import { Checkbox, FormControl, , Icon } from 'zeus-ui'
 class ExtraDemo extends React.Component {
   render() {
     return (
