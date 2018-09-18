@@ -37,6 +37,7 @@ export default class Page extends React.Component {
           <Icon glyph="angle-down" />
           <Icon glyph="angle-down-light" />
           <Icon glyph="angle-down-sm" />
+          <Icon glyph="angle-down-shim" />
           <Icon glyph="angle-right" />
           <Icon glyph="angle-left" />
           <Icon glyph="angle-right-light" />
