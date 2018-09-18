@@ -1,6 +1,6 @@
 {
   "name": "zeus-ui",
-  "version": "0.0.1-canary.8",
+  "version": "0.0.1-canary.10",
   "description": "zcool ui libary",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

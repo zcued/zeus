@@ -22,10 +22,7 @@ export const StyledClickOutSide = styled(ClickOutSide)`
   color: ${T('palette.black')};
 `
 
-export const Button = styled.button`
-  border: 0;
-  outline: 0;
-  background: transparent;
+export const TextContainer = styled.div`
   padding: ${T('spacing.xs')}px 0;
   cursor: pointer;
 
@@ -112,10 +109,10 @@ class Dropdown extends React.Component<Props> {
     return (
       <StyledClickOutSide onClick={this.handleClickOutSide}>
         <div className={className} onMouseLeave={this.handleHover} onMouseEnter={this.handleHover}>
-          <Button aria-expanded={isOpen} onClick={this.handleClick}>
+          <TextContainer data-text={true} aria-expanded={isOpen} onClick={this.handleClick}>
             {text}
             {icon ? <Icon glyph={icon} size={iconSize} /> : null}
-          </Button>
+          </TextContainer>
           {isOpen ? (
             <PoppersContainer>
               {this.isControl
