@@ -71,6 +71,16 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case 'angle-down-shim':
+      return (
+        <g transform="translate(-778.000000, -1278.000000)">
+          <g transform="translate(168.000000, 1009.000000)">
+            <g transform="translate(610.000000, 269.000000)">
+              <polygon points="10 8.30769231 18.1818182 0 20 1.84615385 10 12 0 1.84615385 1.81818182 0" />
+            </g>
+          </g>
+        </g>
+      )
     case 'angle-right':
       return (
         <g transform="translate(-245.000000, -310.000000)">
