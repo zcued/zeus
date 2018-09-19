@@ -17,7 +17,7 @@ const FlexCenter = styled.div`
   height: 32px;
   cursor: pointer;
 
-  button {
+  [data-text] {
     margin-right: 8px;
     padding: 0;
     font-size: ${({ theme }) => theme.font.size.sm}px;
@@ -133,9 +133,11 @@ export default class DatePicker extends React.Component<Props, State> {
       <Outside className={className} onClick={this.handleClickOutSide}>
         <FlexCenter onClick={this.handleClick}>
           {value === null ? (
-            <TextContainer aria-expanded={isOpen}>{placeholder || '请选择'}</TextContainer>
+            <TextContainer data-text={true} aria-expanded={isOpen}>
+              {placeholder || '请选择'}
+            </TextContainer>
           ) : (
-            <TextContainer className="value" aria-expanded={isOpen}>
+            <TextContainer data-text={true} className="value" aria-expanded={isOpen}>
               {value &&
                 `${value.month + 1 < 10 ? '0' + (value.month + 1) : value.month + 1}-${
                   value.day < 10 ? '0' + value.day : value.day
