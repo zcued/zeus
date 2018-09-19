@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyledClickOutSide, PoppersContainer, Button } from '../dropdown'
+import { StyledClickOutSide, PoppersContainer, TextContainer } from '../dropdown'
 import Calender from './calender'
 import Icon from '../icon'
 import styled from '../theme/styled-components'
@@ -17,7 +17,7 @@ const FlexCenter = styled.div`
   height: 32px;
   cursor: pointer;
 
-  button {
+  [data-text] {
     margin-right: 8px;
     padding: 0;
     font-size: ${({ theme }) => theme.font.size.sm}px;
@@ -133,16 +133,16 @@ export default class DatePicker extends React.Component<Props, State> {
       <Outside className={className} onClick={this.handleClickOutSide}>
         <FlexCenter onClick={this.handleClick}>
           {value === null ? (
-            <Button aria-expanded={isOpen}>
+            <TextContainer data-text={true} aria-expanded={isOpen}>
               {placeholder || '请选择'}
-            </Button>
+            </TextContainer>
           ) : (
-            <Button className="value" aria-expanded={isOpen}>
+            <TextContainer data-text={true} className="value" aria-expanded={isOpen}>
               {value &&
                 `${value.month + 1 < 10 ? '0' + (value.month + 1) : value.month + 1}-${
                   value.day < 10 ? '0' + value.day : value.day
                 }`}
-            </Button>
+            </TextContainer>
           )}
           <Icon size={16} glyph="calendar" />
         </FlexCenter>
