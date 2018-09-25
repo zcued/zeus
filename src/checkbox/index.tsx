@@ -28,6 +28,7 @@ export const Input = styled.input`
 export const Fake = styled.span`
   position: relative;
   flex: 0 0 16px;
+  flex-basis: auto;
   width: 16px;
   height: 16px;
   border: 4px solid ${T('palette.frost')};
