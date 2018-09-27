@@ -28,7 +28,7 @@ export const StyledTab = styled(Tab)`
   text-align: center;
   line-height: 28px;
   font-size: ${T('font.size.md')}px;
-  font-weight: ${props => (props.selected ? props.theme.font.weight.medium : props.theme.font.weight.normal)};
+  font-weight: ${props => (props.selected ? props.theme.font.weight.bold : props.theme.font.weight.normal)};
   color: ${T('palette.black')};
   cursor: pointer;
   position: relative;
