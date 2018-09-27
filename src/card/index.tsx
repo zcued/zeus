@@ -2,8 +2,8 @@ import * as React from 'react'
 import styled, { css } from '../theme/styled-components'
 import { T } from '../util'
 
-export interface Porps {
-  type?: 'card' | 'atlas' | 'picture'
+export interface Props {
+  type?: 'default' | 'atlas' | 'album'
   size?: 'small'
   imgSrc?: string
   imgAlt?: string
@@ -20,51 +20,43 @@ export interface Porps {
   className?: string
 }
 
-class Card extends React.Component<Porps> {
-  render() {
-    const {
-      className,
-      type,
-      imgSrc,
-      imgAlt,
-      customImage,
-      titlePosition,
-      title,
-      subTitle,
-      tag,
-      operator,
-      customContent
-    } = this.props
+const Card: React.SFC<Props> = ({
+  className,
+  type,
+  imgSrc,
+  imgAlt,
+  customImage,
+  titlePosition,
+  title,
+  subTitle,
+  tag,
+  operator,
+  customContent
+}) => (
+  <div className={className}>
+    {customImage ? customImage : <img src={imgSrc} alt={imgAlt} />}
+    {type === 'default' && titlePosition === 'bottom' ? (
+      customContent ? (
+        customContent
+      ) : (
+        <p className="title--bottom">{title}</p>
+      )
+    ) : (
+      <React.Fragment>
+        <div className={type === 'album' ? 'album-placeholder' : 'title__wrapper'} />
+        <div className="title">
+          {title ? <p>{title}</p> : null}
+          {subTitle ? <p>{subTitle}</p> : null}
+        </div>
+        {type === 'atlas' ? <div className="tag" /> : null}
+        {operator ? <div className="operator">{operator}</div> : null}
+      </React.Fragment>
+    )}
+    {tag ? <div className="tag--custom">{tag}</div> : null}
+  </div>
+)
 
-    return (
-      <div className={className}>
-        {customImage ? customImage : <img src={imgSrc} alt={imgAlt} />}
-        {type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom' ? (
-          customContent ? (
-            customContent
-          ) : (
-            <p className="title--bottom">{title}</p>
-          )
-        ) : (
-          <React.Fragment>
-            <div className="title__wrapper" />
-            {type !== 'picture' ? (
-              <div className="title">
-                {title ? <p>{title}</p> : null}
-                {subTitle ? <p>{subTitle}</p> : null}
-              </div>
-            ) : null}
-            {type === 'atlas' ? <div className="tag" /> : null}
-            <div className="operator">{operator}</div>
-          </React.Fragment>
-        )}
-        {tag ? <div className="tag--custom">{tag}</div> : null}
-      </div>
-    )
-  }
-}
-
-const CardStyled = styled(Card)`
+const StyledCard = styled(Card)`
   position: relative;
   width: 100%;
   border-radius: ${props => (props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : '')};
@@ -103,6 +95,19 @@ const CardStyled = styled(Card)`
     background: rgba(0, 0, 0, 0.3);
     border-radius: ${props =>
       props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
+  }
+
+  .album-placeholder {
+    content: '';
+    position: absolute;
+    margin: auto;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 64px;
+    border-radius: 100% 0 0 100%/50%;
+    background: ${T('palette.daisy')};
   }
 
   .title {
@@ -178,14 +183,23 @@ const CardStyled = styled(Card)`
     transition: all 0.3s;
   }
 
-  &:hover {
-    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, 0.3);
+  ${({ type, size }) =>
+    type !== 'album'
+      ? css`
+          &:hover {
+            box-shadow: 0 4px ${size === 'small' ? '8px' : '16px'} rgba(0, 0, 0, 0.3);
 
-    .operator,
-    .custom-hover {
-      opacity: 1;
-    }
-  }
+            .operator,
+            .custom-hover {
+              opacity: 1;
+            }
+          }
+        `
+      : null};
 `
 
-export default CardStyled
+StyledCard.defaultProps = {
+  type: 'default'
+}
+
+export default StyledCard
