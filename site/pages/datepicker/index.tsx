@@ -17,7 +17,8 @@ export default class Page extends React.Component {
         <DatePicker placeholder="下载时间" onChange={this.onChange} />
 
         <RangePicker
-          placeholder="下载时间"
+          startPlaceholder="开始时间"
+          endPlaceholder="结束时间"
           defaultValue={{
             from: '2018-06-22',
             to: '2018-06-25'
