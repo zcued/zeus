@@ -1,9 +1,31 @@
 import * as React from 'react'
 import styled, { css } from '../theme/styled-components'
+import Flex from '../flex'
 import { T } from '../util'
-import { FlexRow } from '../globals'
 
-export const StyledTabs = styled(FlexRow)`
+interface TabsProps {
+  align?: 'start' | 'center' | 'end'
+}
+
+interface TabProps {
+  selected?: boolean
+}
+
+const Tabs: React.SFC<TabsProps> = ({ children, align, ...rest }) => {
+  return (
+    <Flex {...rest} halign={align}>
+      {children}
+    </Flex>
+  )
+}
+
+const Tab: React.SFC<TabProps> = ({ children, selected, ...rest }) => (
+  <Flex {...rest} halign="center">
+    {children}
+  </Flex>
+)
+
+export const StyledTabs = styled(Tabs)`
   align-self: stretch;
   margin: 0 ${T('spacing.lg')}px;
   margin-top: ${T('spacing.sm')}px;
@@ -11,20 +33,8 @@ export const StyledTabs = styled(FlexRow)`
   min-height: ${T('spacing.xl')}px;
 `
 
-interface TabProps {
-  selected?: boolean
-}
-
-const Tab: React.SFC<TabProps> = ({ children, selected, ...rest }) => (
-  <FlexRow data-selected={selected} {...rest}>
-    {children}
-  </FlexRow>
-)
-
 export const StyledTab = styled(Tab)`
   margin: 0 ${T('spacing.md')}px;
-  justify-content: center;
-  align-items: flex-start;
   text-align: center;
   line-height: 28px;
   font-size: ${T('font.size.md')}px;
