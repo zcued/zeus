@@ -15,7 +15,7 @@ export interface Col {
 export interface Props {
   columns: Array<Col>
   data?: Array<{
-    key: string | number
+    key?: string | number
     [key: string]: any
   }>
   onColumnClick?: (record: any) => void
