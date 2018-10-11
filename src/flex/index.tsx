@@ -12,13 +12,11 @@ export interface Props {
   onClick?: React.MouseEventHandler<HTMLElement>
 }
 
-const Flex: React.SFC<Props> = ({ children, type, style, className, onClick }) =>
+const Flex: React.SFC<Props> = ({ children, type, direction, halign, flex, valign, ...rest }) =>
   React.createElement(
     type,
     {
-      onClick,
-      className,
-      style
+      ...rest
     },
     children
   )
