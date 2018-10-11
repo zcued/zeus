@@ -11,6 +11,9 @@ export default class Page extends React.Component {
           <Icon glyph="album-tag-sm" />
           <Icon glyph="list" />
           <Icon glyph="play" />
+          <Icon glyph="pause" />
+          <Icon glyph="hf-play" />
+          <Icon glyph="hf-pause" />
         </div>
         <div>
           <Icon glyph="more" />
