@@ -2,10 +2,20 @@ import * as React from 'react'
 import { Tooltip } from '../../../src'
 
 export default class Page extends React.Component {
+  state = {
+    isHovering: false
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isHovering: true })
+    }, 2000)
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Tooltip placement="top" title={<div>alsdjalsdj</div>}>
+        <Tooltip placement="top" title={<div>alsdjalsdj</div>} isHovering={this.state.isHovering}>
           <span>12312123</span>
         </Tooltip>
         <Tooltip placement="top" title={<a href="/">asdfasdfasdf</a>}>

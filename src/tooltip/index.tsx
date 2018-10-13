@@ -19,6 +19,7 @@ interface Props {
     | 'top-start'
     | 'top'
   title: string | JSX.Element
+  isHovering?: boolean
   className?: string
 }
 
@@ -69,8 +70,17 @@ export const ReferenceContainer = styled.div`
 `
 
 class Tooltip extends React.Component<Props, State> {
-  state = { isHovering: false }
+  state = {
+    isHovering: this.props.isHovering || false
+  }
+
   timer = null
+
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.isHovering !== this.props.isHovering) {
+      this.setState({ isHovering: nextProps.isHovering })
+    }
+  }
 
   handleEnter = () => {
     if (this.timer) clearTimeout(this.timer)
