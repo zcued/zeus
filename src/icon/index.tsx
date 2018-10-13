@@ -642,6 +642,27 @@ export const Glyph = ({ glyph }) => {
         </g>
       )
 
+    case 'camera':
+      return (
+        <g fill="none">
+          <path stroke="#1F1F1F" strokeWidth="4" d="M2 10h28v20H2z" />
+          <path fill="#1F1F1F" d="M13 0h11v4H13z" />
+          <path fill="#FFD100" d="M8 14h4v3H8z" />
+          <circle stroke="#1F1F1F" strokeWidth="3" cx="19" cy="20" r="4" />
+        </g>
+      )
+
+    case 'crop':
+      return (
+        <g fill="none">
+          <path fill="#1F1F1F" d="M14.373 21.462H7.8v-13.5h13.6v6.75l3.4 1.706V4.578H4.4v20.269h11.193z" />
+          <path fill="#FFD100" d="M19.882 31.103h.001l11.032-9.196-16.315-8.19z" />
+          <g fill="#1F1F1F">
+            <path d="M6 1.296a4 4 0 1 1 0 8 4 4 0 0 1 0-8M23 1.296a4 4 0 1 1 0 8 4 4 0 0 1 0-8M6 20.296a4 4 0 1 1 0 8 4 4 0 0 1 0-8" />
+          </g>
+        </g>
+      )
+
     default:
       return null
   }
