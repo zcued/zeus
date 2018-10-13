@@ -23,6 +23,8 @@ export default class Page extends React.Component {
           <Icon glyph="refresh" />
           <Icon glyph="delete" />
           <Icon glyph="zoom-in" />
+          <Icon glyph="camera" />
+          <Icon glyph="crop" />
         </div>
         <Icon glyph="add" />
         <Icon glyph="share" />
