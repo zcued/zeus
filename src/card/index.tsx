@@ -101,11 +101,11 @@ const StyledCard = styled(Card)`
     content: '';
     position: absolute;
     margin: auto;
-    right: 0px;
+    right: -10px;
     top: 0;
     bottom: 0;
-    width: 32px;
-    height: 64px;
+    width: 30px;
+    height: 60px;
     border-radius: 100% 0 0 100%/50%;
     background: ${T('palette.daisy')};
   }
