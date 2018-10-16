@@ -5,10 +5,7 @@ import { T } from '../util'
 import Icon from '../icon'
 import ClickOutSide from './click-outside'
 
-enum Trigger {
-  hover = 'hover',
-  click = 'click'
-}
+type Trigger = 'hover' | 'click'
 
 export interface Props {
   trigger?: Trigger
@@ -52,8 +49,8 @@ export const PoppersContainer = styled.div`
 `
 
 class Dropdown extends React.Component<Props> {
-  static defaultProps = {
-    trigger: Trigger.hover,
+  static defaultProps: Props = {
+    trigger: 'click',
     icon: 'angle-down',
     iconSize: 10,
     onToggle: noop
