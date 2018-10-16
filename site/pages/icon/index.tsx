@@ -14,6 +14,7 @@ export default class Page extends React.Component {
           <Icon glyph="pause" />
           <Icon glyph="hf-play" />
           <Icon glyph="hf-pause" />
+          <Icon glyph="hf-check" />
         </div>
         <div>
           <Icon glyph="more" />

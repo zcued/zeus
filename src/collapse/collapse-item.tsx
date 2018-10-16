@@ -10,7 +10,7 @@ export interface Props {
   onClick?: any
 }
 
-const CollapseItemStyled = styled.div`
+const StyledCollapseItem = styled.div`
   &:last-child div {
     border-bottom: 0;
   }
@@ -47,20 +47,18 @@ const CollapseItemContainer = styled.div`
   background: #fafafa;
 `
 
-export default class CollapseItem extends React.Component<Props, {}> {
-  render() {
-    const { className, title, isActive, onClick, children } = this.props
-
-    return (
-      <CollapseItemStyled className={className}>
-        <CollapseItemTitile className={isActive ? 'active' : ''} onClick={onClick}>
-          <span>{title}</span>
-          {isActive ? <Icon glyph="minus" size={20} /> : <Icon glyph="plus" size={20} />}
-        </CollapseItemTitile>
-        <CollapseTransition isShow={isActive}>
-          <CollapseItemContainer>{children}</CollapseItemContainer>
-        </CollapseTransition>
-      </CollapseItemStyled>
-    )
-  }
+const CollapseItem: React.SFC<Props> = ({ className, title, isActive, onClick, children }) => {
+  return (
+    <StyledCollapseItem className={className}>
+      <CollapseItemTitile className={isActive ? 'active' : ''} onClick={onClick}>
+        <span>{title}</span>
+        {isActive ? <Icon glyph="minus" size={20} /> : <Icon glyph="plus" size={20} />}
+      </CollapseItemTitile>
+      <CollapseTransition isShow={isActive}>
+        <CollapseItemContainer>{children}</CollapseItemContainer>
+      </CollapseTransition>
+    </StyledCollapseItem>
+  )
 }
+
+export default CollapseItem
