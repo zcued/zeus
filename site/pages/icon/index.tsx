@@ -39,6 +39,7 @@ export default class Page extends React.Component {
         <Icon glyph="arrow-down-collapse" />
         <Icon glyph="location" />
         <Icon glyph="move" />
+        <Icon glyph="move-folder" />
         <Icon glyph="similar" />
         <Icon glyph="account" />
         <div>
