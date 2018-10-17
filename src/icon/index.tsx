@@ -178,8 +178,8 @@ export const Glyph = ({ glyph }) => {
       )
     case 'hf-check':
       return (
-        <g transform="translate(8.000000, 8.000000)">
-          <path d="M6.18 8.57L12.56.738l3.101 2.526-8.929 10.966-6.609-5.49 2.556-3.077z" />
+        <g>
+          <path d="M12.36 17.142L25.117 1.474l6.204 5.052-17.858 21.932L.244 17.477l5.112-6.154z" />
         </g>
       )
     case 'collect':
