@@ -15,6 +15,7 @@ export default class Page extends React.Component {
           <Icon glyph="hf-play" />
           <Icon glyph="hf-pause" />
           <Icon glyph="hf-check" />
+          <Icon glyph="move-folder" />
         </div>
         <div>
           <Icon glyph="more" />
