@@ -98,6 +98,7 @@ export const Footer = styled(Flex)`
 
   & > button {
     width: 128px;
+    padding: 0;
 
     & + button {
       margin-left: ${T('spacing.md')}px;
