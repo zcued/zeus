@@ -50,7 +50,7 @@ export const PoppersContainer = styled.div`
 
 class Dropdown extends React.Component<Props> {
   static defaultProps: Props = {
-    trigger: 'click',
+    trigger: 'hover',
     icon: 'angle-down',
     iconSize: 10,
     onToggle: noop
