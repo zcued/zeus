@@ -19,6 +19,7 @@ interface Props {
     | 'top-start'
     | 'top'
   title: string | JSX.Element
+  mouseEnterDelay?: number
   defaultHovering?: boolean
   className?: string
 }
@@ -70,17 +71,28 @@ export const ReferenceContainer = styled.div`
 `
 
 class Tooltip extends React.Component<Props, State> {
-  state = {
-    isHovering: this.props.defaultHovering || false
+  static defaultProps = {
+    mouseEnterDelay: 0,
+    defaultHovering: false
   }
+
+  state = {
+    isHovering: this.props.defaultHovering
+  }
+
   timer = null
 
   handleEnter = () => {
     if (this.timer) clearTimeout(this.timer)
-    if (!this.state.isHovering) this.setState({ isHovering: true })
+    if (!this.state.isHovering) {
+      this.timer = setTimeout(() => {
+        this.setState({ isHovering: true })
+      }, this.props.mouseEnterDelay)
+    }
   }
 
   handleLeave = () => {
+    if (this.timer) clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.setState({ isHovering: false })
     }, 300)
