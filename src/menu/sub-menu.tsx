@@ -58,7 +58,7 @@ const SubMenuTitle = styled(BaseTitle)`
   }
 `
 
-const ActivedSubMenuTitle = SubMenuTitle.extend`
+const ActivedSubMenuTitle = styled(SubMenuTitle)`
   font-weight: bold;
 
   &[data-has-arrow='true']::before {
