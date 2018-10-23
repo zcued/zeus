@@ -109,7 +109,7 @@ class Tooltip extends React.Component<Props, State> {
     return (
       <ToolTipContainer onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Manager>
-          <Reference>{({ ref }) => <ReferenceContainer innerRef={ref}>{children}</ReferenceContainer>}</Reference>
+          <Reference>{({ ref }) => <ReferenceContainer ref={ref}>{children}</ReferenceContainer>}</Reference>
           {isHovering && (
             <Portal>
               <Popper placement={placement}>
@@ -119,7 +119,7 @@ class Tooltip extends React.Component<Props, State> {
                     onMouseLeave={this.handleLeave}
                     onClick={this.handlePopperClick}
                     className={className}
-                    innerRef={ref}
+                    ref={ref}
                     style={style}
                     data-placement={placement}
                   >
