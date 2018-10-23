@@ -31,6 +31,7 @@ export const StyledTabs = styled(Tabs)`
   margin-top: ${T('spacing.sm')}px;
   align-items: stretch;
   min-height: ${T('spacing.xl')}px;
+  height: ${T('spacing.xl')}px;
 `
 
 export const StyledTab = styled(Tab)`
