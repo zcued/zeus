@@ -22,13 +22,13 @@ const CalenderHeaderBox = styled.div`
   align-items: center;
 `
 
-const CalenderHeaderLeft = CalenderHeaderBox.extend`
+const CalenderHeaderLeft = styled(CalenderHeaderBox)`
   div[data-icon='true']:nth-child(2) {
     margin: 0 12px 0 16px;
   }
 `
 
-const CalenderHeaderRight = CalenderHeaderBox.extend`
+const CalenderHeaderRight = styled(CalenderHeaderBox)`
   div[data-icon='true']:nth-child(2) {
     margin: 0 16px 0 12px;
   }
@@ -312,7 +312,11 @@ class Calender extends React.Component<Props, State> {
         <CalenderBody>
           <Table>
             <thead>
-              <tr>{weekDayNames.map((name, i) => <th key={i}>{name}</th>)}</tr>
+              <tr>
+                {weekDayNames.map((name, i) => (
+                  <th key={i}>{name}</th>
+                ))}
+              </tr>
             </thead>
             <tbody>{this.renderCalender(dates)}</tbody>
           </Table>
