@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
 import { T, px } from '../util'
-import { FlexRow } from '../globals'
+import Flex from '../flex'
 
 export const FormContext = React.createContext({})
 
@@ -29,8 +29,7 @@ export const Form = styled(BaseForm)`
   width: ${props => (props.width ? px(props.width) : '100%')};
 `
 
-const BaseFormControl = styled(FlexRow)`
-  align-items: flex-start;
+const BaseFormControl = styled(Flex)`
   position: relative;
   padding: ${T('spacing.sm')}px 0;
 `

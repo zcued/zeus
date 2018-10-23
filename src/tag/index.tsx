@@ -52,7 +52,7 @@ const StyledTag = styled.span`
   }
 `
 
-const LeftRadiusTag = StyledTag.extend`
+const LeftRadiusTag = styled(StyledTag)`
   padding-left: 34px;
   padding-right: 20px;
   position: relative;
