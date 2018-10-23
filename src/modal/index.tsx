@@ -52,7 +52,7 @@ export interface ModalStyle {
   content: {
     [key: string]: any
   }
-  overlay: {
+  overlay?: {
     [key: string]: any
   }
 }
