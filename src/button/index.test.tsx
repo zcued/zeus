@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import 'jest-styled-components'
 import Button from '.'
 
-describe('button works', () => {
+describe('Button', () => {
   it('should render an `.icon`', () => {
     const wrapper = shallow(<Button icon="close">button</Button>)
     expect(wrapper.find('Icon')).toHaveLength(1)
