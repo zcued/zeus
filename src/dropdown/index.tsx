@@ -89,7 +89,7 @@ class Dropdown extends React.Component<Props> {
     this.timer = setTimeout(() => {
       if (this.props.trigger === 'hover') {
         if (!this.isControl) {
-          this.setState({ isOpen: true })
+          this.setState({ isOpen: false })
         } else {
           this.props.onToggle(e)
         }
