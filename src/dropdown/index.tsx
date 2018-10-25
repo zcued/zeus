@@ -14,6 +14,7 @@ export interface Props {
   icon?: string
   iconSize?: number
   isOpen?: boolean
+  mouseLeaveDelay?: number
   onToggle?: Function
 }
 
@@ -53,7 +54,8 @@ class Dropdown extends React.Component<Props> {
     trigger: 'hover',
     icon: 'angle-down',
     iconSize: 10,
-    onToggle: noop
+    onToggle: noop,
+    mouseLeaveDelay: 300
   }
 
   state = {
@@ -61,6 +63,7 @@ class Dropdown extends React.Component<Props> {
   }
 
   isControl: boolean = this.props.hasOwnProperty('isOpen')
+  timer = null
 
   static getDerivedStateFromProps(nextProps: Props) {
     if (nextProps.hasOwnProperty('isOpen')) {
@@ -81,10 +84,24 @@ class Dropdown extends React.Component<Props> {
     }
   }
 
-  handleHover = e => {
+  handleLeave = e => {
+    if (this.timer) clearTimeout(this.timer)
+    this.timer = setTimeout(() => {
+      if (this.props.trigger === 'hover') {
+        if (!this.isControl) {
+          this.setState({ isOpen: true })
+        } else {
+          this.props.onToggle(e)
+        }
+      }
+    }, this.props.mouseLeaveDelay)
+  }
+
+  handleEnter = e => {
+    if (this.timer) clearTimeout(this.timer)
     if (this.props.trigger === 'hover') {
       if (!this.isControl) {
-        this.toggle(e)
+        this.setState({ isOpen: true })
       } else {
         this.props.onToggle(e)
       }
@@ -110,8 +127,14 @@ class Dropdown extends React.Component<Props> {
 
     return (
       <StyledClickOutSide onClick={this.handleClickOutSide}>
-        <div className={className} onMouseLeave={this.handleHover} onMouseEnter={this.handleHover}>
-          <TextContainer data-text={true} aria-expanded={isOpen} onClick={this.handleClick}>
+        <div className={className}>
+          <TextContainer
+            data-text={true}
+            aria-expanded={isOpen}
+            onClick={this.handleClick}
+            onMouseLeave={this.handleLeave}
+            onMouseEnter={this.handleEnter}
+          >
             {text}
             {icon ? <Icon glyph={icon} size={iconSize} /> : null}
           </TextContainer>
@@ -121,7 +144,9 @@ class Dropdown extends React.Component<Props> {
                 ? children
                 : React.Children.map(children, child =>
                     React.cloneElement(React.Children.only(child), {
-                      onClick: this.toggle
+                      onClick: this.toggle,
+                      onMouseEnter: this.handleEnter,
+                      onMouseLeave: this.handleLeave
                     })
                   )}
             </PoppersContainer>
