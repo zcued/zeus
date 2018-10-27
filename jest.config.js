@@ -4,10 +4,11 @@ module.exports = {
       tsConfigFile: 'tsconfig.json'
     }
   },
+  modulePathIgnorePatterns: ['site', 'docs', 'lib'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   testPathIgnorePatterns: ['/node_modules/', 'lib'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
+    '^.+\\.(tsx?)$': 'ts-jest'
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   testEnvironment: 'node',

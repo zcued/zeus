@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert sets title on alert 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-htpNat",
+        "isStatic": false,
+        "rules": Array [
+          "
+  display: inline-flex;
+  align-items: center;
+  color: ",
+          [Function],
+          ";
+  flex: none;
+  border-radius: 100px;
+  font-size: ",
+          [Function],
+          "px;
+  padding: ",
+          [Function],
+          "px ",
+          [Function],
+          "px;
+  background-color: ",
+          [Function],
+          ";
+  box-sizing: border-box;
+  position: relative;
+  line-height: 1;
+
+  & > div[data-icon='true'] {
+    margin-right: ",
+          [Function],
+          "px;
+  }
+",
+        ],
+      },
+      "displayName": "Styled(Alert)",
+      "render": [Function],
+      "styledComponentId": "sc-htpNat",
+      "target": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+      Symbol(Symbol.hasInstance): [Function],
+    }
+  }
+  forwardedRef={null}
+  title="status"
+/>
+`;
