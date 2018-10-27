@@ -22,6 +22,7 @@ interface Props {
   mouseEnterDelay?: number
   defaultHovering?: boolean
   className?: string
+  overlayClassName?: string
 }
 
 interface State {
@@ -104,10 +105,10 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isHovering } = this.state
-    const { placement, children, title, className } = this.props
+    const { placement, children, title, className, overlayClassName } = this.props
 
     return (
-      <ToolTipContainer onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <ToolTipContainer className={className} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Manager>
           <Reference>{({ ref }) => <ReferenceContainer ref={ref}>{children}</ReferenceContainer>}</Reference>
           {isHovering && (
@@ -118,7 +119,7 @@ class Tooltip extends React.Component<Props, State> {
                     onMouseEnter={this.handleEnter}
                     onMouseLeave={this.handleLeave}
                     onClick={this.handlePopperClick}
-                    className={className}
+                    className={overlayClassName}
                     ref={ref}
                     style={style}
                     data-placement={placement}

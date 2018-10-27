@@ -1,13 +1,17 @@
 import * as React from 'react'
 import { Tooltip } from '../../../src'
+import styled from 'styled-components'
 
+const Stoop = styled(Tooltip)`
+  color: pink;
+`
 export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Tooltip placement="top" title={<div>顶部默认显示</div>} defaultHovering={true}>
+        <Stoop placement="top" title={<div>顶部默认显示</div>} defaultHovering={true}>
           <span>顶部默认显示</span>
-        </Tooltip>
+        </Stoop>
         <Tooltip placement="top" title={<a href="/">顶部</a>}>
           <span>顶部</span>
         </Tooltip>
