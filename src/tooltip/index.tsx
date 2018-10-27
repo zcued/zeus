@@ -22,6 +22,9 @@ interface Props {
   mouseEnterDelay?: number
   defaultHovering?: boolean
   className?: string
+  overlayClassName?: string
+  overlayStyle?: object
+  overlayReset?: boolean
 }
 
 interface State {
@@ -42,9 +45,12 @@ export const ToolTipContainer = styled.div`
 `
 
 export const PopperContainer = styled.div`
-  padding: 10px 16px;
+  &[data-reset='false'] {
+    padding: 10px 16px;
+    background-color: ${T('palette.white')};
+  }
+
   font-size: ${T('font.size.sm')}px;
-  background-color: ${T('palette.white')};
   box-shadow: 0 2px 8px ${T('palette.black16')};
   animation: 0.3s ${fadeIn} ease-out;
 
@@ -73,7 +79,9 @@ export const ReferenceContainer = styled.div`
 class Tooltip extends React.Component<Props, State> {
   static defaultProps = {
     mouseEnterDelay: 0,
-    defaultHovering: false
+    defaultHovering: false,
+    overlayReset: false,
+    overlayStyle: {}
   }
 
   state = {
@@ -104,10 +112,10 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isHovering } = this.state
-    const { placement, children, title, className } = this.props
+    const { placement, children, title, className, overlayClassName, overlayReset, overlayStyle } = this.props
 
     return (
-      <ToolTipContainer onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <ToolTipContainer className={className} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Manager>
           <Reference>{({ ref }) => <ReferenceContainer ref={ref}>{children}</ReferenceContainer>}</Reference>
           {isHovering && (
@@ -118,9 +126,10 @@ class Tooltip extends React.Component<Props, State> {
                     onMouseEnter={this.handleEnter}
                     onMouseLeave={this.handleLeave}
                     onClick={this.handlePopperClick}
-                    className={className}
+                    className={overlayClassName}
                     ref={ref}
-                    style={style}
+                    style={{ ...style, ...overlayStyle }}
+                    data-reset={overlayReset}
                     data-placement={placement}
                   >
                     {title}
