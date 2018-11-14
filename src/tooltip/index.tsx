@@ -19,8 +19,12 @@ interface Props {
     | 'top-start'
     | 'top'
   title: string | JSX.Element
-  isHovering?: boolean
+  mouseEnterDelay?: number
+  defaultHovering?: boolean
   className?: string
+  overlayClassName?: string
+  overlayStyle?: object
+  overlayReset?: boolean
 }
 
 interface State {
@@ -41,9 +45,12 @@ export const ToolTipContainer = styled.div`
 `
 
 export const PopperContainer = styled.div`
-  padding: 10px 16px;
+  &[data-reset='false'] {
+    padding: 10px 16px;
+    background-color: ${T('palette.white')};
+  }
+
   font-size: ${T('font.size.sm')}px;
-  background-color: ${T('palette.white')};
   box-shadow: 0 2px 8px ${T('palette.black16')};
   animation: 0.3s ${fadeIn} ease-out;
 
@@ -70,8 +77,15 @@ export const ReferenceContainer = styled.div`
 `
 
 class Tooltip extends React.Component<Props, State> {
+  static defaultProps = {
+    mouseEnterDelay: 0,
+    defaultHovering: false,
+    overlayReset: false,
+    overlayStyle: {}
+  }
+
   state = {
-    isHovering: this.props.isHovering || false
+    isHovering: this.props.defaultHovering
   }
 
   timer = null
@@ -84,10 +98,15 @@ class Tooltip extends React.Component<Props, State> {
 
   handleEnter = () => {
     if (this.timer) clearTimeout(this.timer)
-    if (!this.state.isHovering) this.setState({ isHovering: true })
+    if (!this.state.isHovering) {
+      this.timer = setTimeout(() => {
+        this.setState({ isHovering: true })
+      }, this.props.mouseEnterDelay)
+    }
   }
 
   handleLeave = () => {
+    if (this.timer) clearTimeout(this.timer)
     this.timer = setTimeout(() => {
       this.setState({ isHovering: false })
     }, 300)
@@ -99,12 +118,12 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isHovering } = this.state
-    const { placement, children, title, className } = this.props
+    const { placement, children, title, className, overlayClassName, overlayReset, overlayStyle } = this.props
 
     return (
-      <ToolTipContainer onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <ToolTipContainer className={className} onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Manager>
-          <Reference>{({ ref }) => <ReferenceContainer innerRef={ref}>{children}</ReferenceContainer>}</Reference>
+          <Reference>{({ ref }) => <ReferenceContainer ref={ref}>{children}</ReferenceContainer>}</Reference>
           {isHovering && (
             <Portal>
               <Popper placement={placement}>
@@ -113,9 +132,10 @@ class Tooltip extends React.Component<Props, State> {
                     onMouseEnter={this.handleEnter}
                     onMouseLeave={this.handleLeave}
                     onClick={this.handlePopperClick}
-                    className={className}
-                    innerRef={ref}
-                    style={style}
+                    className={overlayClassName}
+                    ref={ref}
+                    style={{ ...style, ...overlayStyle }}
+                    data-reset={overlayReset}
                     data-placement={placement}
                   >
                     {title}

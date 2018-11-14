@@ -9,6 +9,13 @@ export default class Page extends React.Component {
           <Icon glyph="grow" />
           <Icon glyph="album-tag" />
           <Icon glyph="album-tag-sm" />
+          <Icon glyph="list" />
+          <Icon glyph="hf-pause-circle" />
+          <Icon glyph="hf-play-circle" />
+          <Icon glyph="hf-play" />
+          <Icon glyph="hf-pause" />
+          <Icon glyph="hf-check" />
+          <Icon glyph="move-folder" />
         </div>
         <div>
           <Icon glyph="more" />
@@ -16,6 +23,7 @@ export default class Page extends React.Component {
           <Icon glyph="album" />
           <Icon glyph="download" />
           <Icon glyph="collect" />
+          <Icon glyph="collected" />
           <Icon glyph="copy" />
           <Icon glyph="edit" />
           <Icon glyph="top" />
@@ -33,6 +41,7 @@ export default class Page extends React.Component {
         <Icon glyph="arrow-down-collapse" />
         <Icon glyph="location" />
         <Icon glyph="move" />
+        <Icon glyph="move-folder" />
         <Icon glyph="similar" />
         <Icon glyph="account" />
         <div>

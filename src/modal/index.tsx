@@ -52,7 +52,7 @@ export interface ModalStyle {
   content: {
     [key: string]: any
   }
-  overlay: {
+  overlay?: {
     [key: string]: any
   }
 }
@@ -98,6 +98,7 @@ export const Footer = styled(Flex)`
 
   & > button {
     width: 128px;
+    padding: 0;
 
     & + button {
       margin-left: ${T('spacing.md')}px;

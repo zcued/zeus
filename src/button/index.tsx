@@ -93,7 +93,7 @@ const StyledButton = styled(BaseButton)`
   }
 `
 
-const StyledButtonSm = StyledButton.extend`
+const StyledButtonSm = styled(StyledButton)`
   padding: 0 24px;
   font-weight: ${({ theme }) => theme.font.weight.normal};
   border: 1px solid
@@ -135,7 +135,7 @@ const StyledButtonSm = StyledButton.extend`
   }
 `
 
-const StyledButtonMd = StyledButton.extend`
+const StyledButtonMd = styled(StyledButton)`
   padding: 0 24px;
   height: 48px;
   line-height: 40px;

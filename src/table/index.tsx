@@ -15,7 +15,7 @@ export interface Col {
 export interface Props {
   columns: Array<Col>
   data?: Array<{
-    key: string | number
+    key?: string | number
     [key: string]: any
   }>
   onColumnClick?: (record: any) => void
@@ -55,7 +55,7 @@ export const Column = styled.td`
   }
 `
 
-const TableHeadColumn = Column.withComponent('th').extend`
+const TableHeadColumn = styled(Column)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   border-color: #2e3139;
 
@@ -86,7 +86,7 @@ const Table: React.SFC<Props> = ({ columns, data, onColumnClick, className }) =>
       <TableHead>
         <Row>
           {columns.map((column, idx: number) => (
-            <TableHeadColumn key={column.key || idx} style={getStyleFromCol(column)}>
+            <TableHeadColumn as="th" key={column.key || idx} style={getStyleFromCol(column)}>
               {column.title}
             </TableHeadColumn>
           ))}

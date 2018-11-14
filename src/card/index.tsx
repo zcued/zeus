@@ -43,7 +43,7 @@ const Card: React.SFC<Props> = ({
       )
     ) : (
       <React.Fragment>
-        <div className={type === 'album' ? 'album-placeholder' : 'title__wrapper'} />
+        <div className={type === 'album' ? 'album-placeholder title__wrapper' : 'title__wrapper'} />
         <div className="title">
           {title ? <p>{title}</p> : null}
           {subTitle ? <p>{subTitle}</p> : null}
@@ -97,15 +97,15 @@ const StyledCard = styled(Card)`
       props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
   }
 
-  .album-placeholder {
+  .album-placeholder::before {
     content: '';
     position: absolute;
     margin: auto;
-    right: 0px;
+    right: -10px;
     top: 0;
     bottom: 0;
-    width: 32px;
-    height: 64px;
+    width: 30px;
+    height: 60px;
     border-radius: 100% 0 0 100%/50%;
     background: ${T('palette.daisy')};
   }
