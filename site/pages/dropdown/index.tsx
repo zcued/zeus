@@ -22,7 +22,18 @@ export default class Page extends React.Component {
           <div>123123</div>
           <div>456456</div>
         </Dropdown>
-
+        <Dropdown text="hover2">
+          <div>hover2</div>
+          <div>hover2</div>
+        </Dropdown>
+        <Dropdown text="hover3">
+          <div>hover3</div>
+          <div>hover3</div>
+        </Dropdown>
+        <Dropdown text="hover4">
+          <div>hover4</div>
+          <div>hover4</div>
+        </Dropdown>
         <Dropdown text="click" trigger="click">
           <div>123123</div>
           <div>456456</div>

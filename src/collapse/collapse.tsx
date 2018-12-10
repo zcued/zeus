@@ -2,7 +2,14 @@ import * as React from 'react'
 import styled from '../theme/styled-components'
 import { shallowEquals } from '../util'
 
-const CollapseStyled = styled.div`
+export interface Props {
+  value?: string | Array<string>
+  accordion?: boolean
+  className?: string
+  onChange?: any
+}
+
+const StyledCollapse = styled.div`
   background: ${({ theme }) => theme.palette.white};
 `
 
@@ -14,14 +21,7 @@ const toArray = value => {
   return target
 }
 
-interface Props {
-  value?: string | Array<string>
-  accordion?: boolean
-  className?: string
-  onChange?: any
-}
-
-export default class Collapse extends React.Component<Props> {
+class Collapse extends React.Component<Props> {
   state = {
     activeKey: toArray(this.props.value)
   }
@@ -52,7 +52,7 @@ export default class Collapse extends React.Component<Props> {
 
   render() {
     return (
-      <CollapseStyled className={this.props.className}>
+      <StyledCollapse className={this.props.className}>
         {React.Children.map(this.props.children, (child: any, index: number) => {
           const key = child.key === null ? index.toString() : child.key
 
@@ -62,7 +62,9 @@ export default class Collapse extends React.Component<Props> {
             onClick: () => this.onItemClick(key)
           })
         })}
-      </CollapseStyled>
+      </StyledCollapse>
     )
   }
 }
+
+export default Collapse

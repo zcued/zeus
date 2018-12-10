@@ -1,0 +1,114 @@
+---
+demo-columns: 2
+---
+
+# Select
+
+## 示例
++++
+--- demo ---
+#### 选项 
+在多个选项中，选择一个确切的值作为选项的值，以接受用户的输入信息
+
+``` jsx
+import { Select } from 'zeus-ui'
+
+class SelectDemo extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Select 
+          options={[
+            {label: '佐助', value: 1},
+            {label: '鸣人', value: 2},
+            {label: '卡卡西', value: 3}
+          ]}
+          value={2}
+        />
+      </React.Fragment>
+    )
+  }
+}
+
+```
+
+
++++
+--- demo ---
+#### 及联选项 
+在多个选项中，选择一个确切的值作为选项的值，以接受用户的输入信息
+
+``` jsx
+import { Select, FormControl } from 'zeus-ui'
+
+class Page extends React.Component {
+  state = {
+    privince: '北京',
+    city: '北京'
+  }
+
+  changePrivince = (opt) => {
+    this.setState({privince: opt.value})
+  }
+
+  changeCity = (opt) => {
+    this.setState({city: opt.value})
+  }
+
+  render() {
+    const opts = [
+      {
+        label: '陕西',
+        value: '陕西',
+        cities: [{label: '西安', value: '西安'}, {label: '榆林', value: '榆林'}]
+      },
+      {
+        label: '北京',
+        value: '北京',
+        cities: [{label: '北京', value: '北京'}]
+      },
+      {
+        label: '河南',
+        value: '河南',
+        cities: [{label: '洛阳', value: '洛阳'}, {label: '郑州', value: '郑州'}]
+      }
+    ]
+
+    const { privince, city } = this.state
+    const cityOpts = opts.find(item => item.value === privince)
+    return (
+      <React.Fragment>
+        <FormControl label="选择城市">
+          <div style={{display: 'flex', width: '100%'}}>
+            <div style={{ width: '100%'}}>
+              <Select 
+                options={opts}
+                value={privince}
+                onChange={this.changePrivince}
+              />
+            </div>
+            <div style={{marginLeft: 16, width: '100%'}}>
+              <Select 
+                options={cityOpts ? cityOpts.cities : []}
+                value={city}
+                onChange={this.changeCity}
+              />
+            </div>
+          </div>
+        </FormControl>
+      </React.Fragment>
+    )
+  }
+}
+
+```
++++
+
+
+## 参数
+属性 | 类型 | 说明 | 默认值
+---- | --- | --- | ---
+options | array | 选项，必须要有label和value两个属性的对象组成的数组 | -
+value |  string | 当前的选择的选项 | -
+defaultValue | string | 默认选中的选项 | -
+onChange | function | 选项发生改变时 | -

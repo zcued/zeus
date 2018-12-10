@@ -1,0 +1,112 @@
+---
+demo-columns: 2
+---
+# Input 表单
+
+表单用于获得用户的输入值
+
+## 示例
++++
+--- demo ---
+#### 基本使用
+基本用法和原生input是一样的
+
+``` jsx
+import { Input } from 'zeus-ui'
+
+class InputDemo extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div>
+          <Input placeholder="普通输入框"/>
+        </div>
+        <div style={{marginTop: 16}}>
+          <Input type="password" placeholder="密码输入框"/>
+        </div>
+        <div style={{marginTop: 16}}>
+          <Input type="number" placeholder="数值输入框"/>
+        </div>
+      </React.Fragment>
+    )
+  }
+}
+
+```
+
++++
+--- demo ---
+#### 禁用表单
+禁止用户输入
+
+``` jsx
+import { Input } from 'zeus-ui'
+
+class DisabledInputDemo extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div>
+          <Input placeholder="普通输入框" disabled={true}/>
+        </div>
+      </React.Fragment>
+    )
+  }
+}
+
+```
+
++++
+--- demo ---
+#### 表单错误
+当表单的内容有一定限制时，需要用户输入检查
+
+``` jsx
+import { Input, FormControl, FormHelperText } from 'zeus-ui'
+
+class InputWithErrorDemo extends React.Component {
+  emailReg = /[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+  state = {
+    input: '',
+    inputDirty: false
+  }
+  handleInputChange = e => {
+    !this.state.inputDirty && this.setState({ inputDirty: true })
+    this.setState({ 
+      input: e.target.value
+    })
+  }
+  handleInputBlur = () => {
+    !this.state.inputDirty && this.setState({ inputDirty: true })
+  }
+  render() {
+    const { inputDirty, input } = this.state
+    const emailError = inputDirty && !this.emailReg.test(input)
+    return (
+      <React.Fragment>
+        <FormControl error={emailError}>
+          <Input placeholder="普通输入框" value={input} onChange={this.handleInputChange} onBlur={this.handleInputBlur}/>
+          { emailError && <FormHelperText>
+            {input ? '请输入正确的邮箱' : '邮箱不能为空'}
+          </FormHelperText> }
+        </FormControl>
+      </React.Fragment>
+    )
+  }
+}
+
+```
++++
+
+## 参数
+属性 | 类型 | 说明 |  默认值
+---- | --- | --- | ---
+type | stirng | 表单的类型，和原生input一样的 | text
+defaultValue | string | 表单的默认输入值 | -
+value | string | 表单的当前值 | -
+disabled | boolean | 表单是否禁用 | false
+onFocus | function | 当表单获得用户的焦点的回调函数 | -
+onBlur | function | 当表单失去用户的焦点的回调函数 | -
+onChange | function | 表单改变时的回调函数 | -
+...  
+表单接收React中的Input所接收其他的参数

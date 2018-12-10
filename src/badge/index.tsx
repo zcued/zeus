@@ -4,47 +4,44 @@ import { T } from '../util'
 
 interface Props {
   color?: string
-  tag?: string
   pill?: boolean
+  size?: number
   className?: string
 }
 
-const Badge: React.SFC<Props> = ({ tag, children, ...rest }) =>
-  React.createElement(
-    tag,
-    {
-      ...rest
-    },
-    children
-  )
+class Badge extends React.Component<Props> {
+  render() {
+    const { className, children } = this.props
+
+    return <span className={className}>{children}</span>
+  }
+}
 
 const StyledBadge = styled(Badge)`
   display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: ${T('font.weight.weight')};
-  line-height: 1;
+  min-width: 20px;
+  height: 20px;
+  font-size: ${({ size }) => size}px;
+  line-height: 20px;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
   color: ${T('palette.white')};
   background-color: ${({ theme, color }) => theme.palette[color] || color};
+  border-radius: 10px;
   ${props =>
     props.pill
       ? css`
-          padding-right: 0.6em;
-          padding-left: 0.6em;
-          border-radius: 10rem;
+          padding-right: 6px;
+          padding-left: 6px;
         `
-      : css`
-          border-radius: 0.25rem;
-        `};
+      : null};
 `
 
 StyledBadge.defaultProps = {
-  tag: 'span',
   pill: false,
-  color: 'primary'
+  color: 'primary',
+  size: 14
 }
 
 export default StyledBadge

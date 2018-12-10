@@ -1,0 +1,81 @@
+---
+demo-columns: 2
+---
+
+# Dropdown 下拉菜单
+
+## 示例
++++
+--- demo ---
+#### 下拉菜单
+
+可以通过tigger属性去设置触发方式，触发方式有两种hover和click，默认为hover
+``` jsx
+import { Dropdown } from 'zeus-ui'
+
+class DropdownDemo extends React.Component {
+  render() {
+    return <div>
+      <Dropdown text="鼠标移动到这里">
+        <div style={{padding: 8}}>哒哒哒</div>
+      </Dropdown>
+
+      <span style={{marginLeft: 20}}>
+        <Dropdown text="点击这里" trigger="click">
+          <div style={{padding: 8}}>哒哒哒</div>
+        </Dropdown>
+      </span>
+    </div>
+  }
+}
+```
+
++++
+--- demo ---
+#### 可控下拉菜单
+也可以去手动控制组件的值，用过isOpen和onToggle来控制状态的改变
+``` jsx
+import { Dropdown } from 'zeus-ui'
+
+class HoverDropdownDemo extends React.Component {
+  state = {
+    isOpenClick: false,
+    isOpenHover: false
+  }
+
+  handleToggleClick = () => {
+    this.setState({ isOpenClick: !this.state.isOpenClick })
+  }
+
+  handleToggleHover = () => {
+    this.setState({ isOpenHover: !this.state.isOpenHover })
+  }
+
+  render() {
+    return <div>
+        <Dropdown text="鼠标移动到这里" isOpen={this.state.isOpenHover} onToggle={this.handleToggleHover}>
+          <div style={{padding: 8}}>哒哒哒</div>
+        </Dropdown>
+        <span style={{marginLeft: 20}}>
+          <Dropdown
+            text="点击这里"
+            isOpen={this.state.isOpenClick}
+            onToggle={this.handleToggleClick}
+            trigger="click"
+          >
+            <div style={{padding: 8}}>哒哒哒</div>
+          </Dropdown>
+        </span>
+    </div>
+  }
+}
+
+```
++++
+## 参数
+| 属性 | 类型        | 说明       | 默认值 |
+| ---- | ----------- |
+| text | string | 下拉菜单的标题文字 | -     |
+| triggler | boolean | 触发方式 | hover     |
+| onTriggler | function | 触发下拉或者收起时的回调函数 | -     |
+| isOpen | boolean | 下拉菜单状态 | false    |

@@ -13,7 +13,7 @@ export interface Props {
 const Alert: React.SFC<Props> = ({ type, showIcon = true, iconSize = 12, title, ...rest }) => (
   <div data-type={type} {...rest}>
     {showIcon ? <Icon glyph="warning" size={iconSize} /> : null}
-    {title}
+    {title ? <span>{title}</span> : null}
   </div>
 )
 

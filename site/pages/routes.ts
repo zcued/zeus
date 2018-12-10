@@ -20,6 +20,7 @@ const routes: Routes = {
   components: {
     Basic: {
       alert: require('./alert'),
+      badge: require('./badge'),
       button: require('./button'),
       heading: require('./heading'),
       grid: require('./grid'),
@@ -35,12 +36,17 @@ const routes: Routes = {
       toast: require('./toast'),
       table: require('./table'),
       modal: require('./modal'),
-      list: require('./list')
+      list: require('./list'),
+      form: require('./form'),
+      datepicker: require('./datepicker'),
+      select: require('./select'),
+      upload: require('./upload')
     },
     Nav: {
       tabs: require('./tabs'),
       dropdown: require('./dropdown'),
-      pagination: require('./pagination')
+      pagination: require('./pagination'),
+      spinner: require('./spinner')
     }
   }
 }

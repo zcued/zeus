@@ -1,64 +1,85 @@
 import * as React from 'react'
-import styled from '../theme/styled-components'
+import styled, { css } from '../theme/styled-components'
 import { T } from '../util'
 
-interface CardPorps {
-  type?: 'card' | 'atlas' | 'picture'
+export interface Props {
+  type?: 'default' | 'atlas' | 'album'
   size?: 'small'
-  imgSrc: string
+  imgSrc?: string
   imgAlt?: string
   imgHeight?: number
+  imgPlaceHolder?: string
   titlePosition?: 'bottom'
   title?: string
   subTitle?: string
   tag?: JSX.Element
   operator?: JSX.Element
+  borderStyle?: string
+  customImage?: JSX.Element
+  customContent?: JSX.Element
   className?: string
 }
 
-class Card extends React.Component<CardPorps> {
-  render() {
-    const { className, type, imgSrc, imgAlt, titlePosition, title, subTitle, tag, operator } = this.props
+const Card: React.SFC<Props> = ({
+  className,
+  type,
+  imgSrc,
+  imgAlt,
+  customImage,
+  titlePosition,
+  title,
+  subTitle,
+  tag,
+  operator,
+  customContent
+}) => (
+  <div className={className}>
+    {customImage ? customImage : <img src={imgSrc} alt={imgAlt} />}
+    {type === 'default' && titlePosition === 'bottom' ? (
+      customContent ? (
+        customContent
+      ) : (
+        <p className="title--bottom">{title}</p>
+      )
+    ) : (
+      <React.Fragment>
+        <div className={type === 'album' ? 'album-placeholder title__wrapper' : 'title__wrapper'} />
+        <div className="title">
+          {title ? <p>{title}</p> : null}
+          {subTitle ? <p>{subTitle}</p> : null}
+        </div>
+        {type === 'atlas' ? <div className="tag" /> : null}
+        {operator ? <div className="operator">{operator}</div> : null}
+      </React.Fragment>
+    )}
+    {tag ? <div className="tag--custom">{tag}</div> : null}
+  </div>
+)
 
-    return (
-      <div className={className}>
-        <img src={imgSrc} alt={imgAlt} />
-        {type !== 'atlas' && type !== 'picture' && titlePosition === 'bottom' ? (
-          <p className="title--bottom">{title}</p>
-        ) : (
-          <React.Fragment>
-            <div className="title__wrapper" />
-            {type !== 'picture' ? (
-              <div className="title">
-                {title ? <p>{title}</p> : null}
-                {subTitle ? <p>{subTitle}</p> : null}
-              </div>
-            ) : null}
-            {type === 'atlas' ? <div className="tag" /> : null}
-            <div className="operator">{operator}</div>
-          </React.Fragment>
-        )}
-        {tag ? <div className="tag--custom">{tag}</div> : null}
-      </div>
-    )
-  }
-}
-
-const CardStyled = styled(Card)`
+const StyledCard = styled(Card)`
   position: relative;
   width: 100%;
-  border-radius: ${props => (
-    props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-  )};
-  transition: all .3s;
+  border-radius: ${props => (props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : '')};
+  border: ${({ borderStyle }) => (borderStyle ? borderStyle : '')};
+  box-sizing: border-box;
+  transition: all 0.3s;
 
   img {
     display: block;
     width: 100%;
-    height: ${props => props.imgHeight ? props.imgHeight + 'px' : 'auto' }
-    border-radius: ${props => (
-      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-    )};
+    height: ${props => (props.imgHeight ? props.imgHeight + 'px' : 'auto')};
+    border-radius: ${props =>
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
+
+    ${({ imgPlaceHolder }) =>
+      imgPlaceHolder
+        ? css`
+            background: rgba(255, 255, 255, 0.3);
+            background-image: ${() => 'url(' + imgPlaceHolder + ')'};
+            background-position: center;
+            background-repeat: no-repeat;
+          `
+        : null};
   }
 
   p {
@@ -72,9 +93,21 @@ const CardStyled = styled(Card)`
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: ${props => (
-      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''
-    )};
+    border-radius: ${props =>
+      props.type === 'atlas' ? (props.size === 'small' ? '0 8px 8px 0' : '0 16px 16px 0') : ''};
+  }
+
+  .album-placeholder::before {
+    content: '';
+    position: absolute;
+    margin: auto;
+    right: -10px;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    height: 60px;
+    border-radius: 100% 0 0 100%/50%;
+    background: ${T('palette.daisy')};
   }
 
   .title {
@@ -87,14 +120,14 @@ const CardStyled = styled(Card)`
     line-height: ${props => (props.size === 'small' ? '20px' : '28px')};
     transform: translateY(-50%);
 
-    p:first-child {
-      font-weight: bold;
-    }
-
     p + p {
       margin-top: ${props => (props.size === 'small' ? '4px' : '8px')};
       font-size: ${props => (props.size === 'small' ? T('font.size.xs') : '16')}px;
       line-height: ${props => (props.size === 'small' ? '18px' : '22px')};
+    }
+
+    p:first-child {
+      font-weight: bold;
     }
   }
 
@@ -142,16 +175,31 @@ const CardStyled = styled(Card)`
     bottom: 8px;
     right: 8px;
     opacity: 0;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  &:hover {
-    box-shadow: 0 4px ${props => (props.size === 'small' ? '8px' : '16px')} rgba(0, 0, 0, .16);
-
-    .operator {
-      opacity: 1;
-    }
+  .custom-hover {
+    opacity: 0;
+    transition: all 0.3s;
   }
+
+  ${({ type, size }) =>
+    type !== 'album'
+      ? css`
+          &:hover {
+            box-shadow: 0 4px ${size === 'small' ? '8px' : '16px'} rgba(0, 0, 0, 0.3);
+
+            .operator,
+            .custom-hover {
+              opacity: 1;
+            }
+          }
+        `
+      : null};
 `
 
-export default CardStyled
+StyledCard.defaultProps = {
+  type: 'default'
+}
+
+export default StyledCard

@@ -1,0 +1,35 @@
+---
+demo-columns: 2
+---
+
+# Heading 标题
+
+## 示例
++++
+--- demo ---
+#### 标题
+段落或者内容块的标题
+``` jsx
+import { Heading } from 'zeus-ui'
+
+class HeadingDemo extends React.Component {
+  render() {
+    return <div>
+      <Heading size={1}>我是超级大的标题</Heading>
+      <Heading size={2}>我是比较大的标题</Heading>
+      <Heading size={3}>我是有点大的标题</Heading>
+      <Heading size={4}>我是有点小的标题</Heading>
+      <Heading size={5}>我是比较小的标题</Heading>
+      <Heading size={6}>我是超级小的标题</Heading>
+    </div>
+  }
+}
+
+```
+
++++
+## 参数
+属性 | 类型 | 说明 | 默认值
+---- | ---
+size | number[1-6] | 标题的大小 | 3
+

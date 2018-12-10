@@ -1,17 +1,104 @@
 import * as React from 'react'
+import styled from '../theme/styled-components'
 import Icon from '../icon'
-import { Input, Fake, Label, Text } from './style'
+import { Transition } from '../globals'
+import { T } from '../util'
 
-interface Props {
+export interface Props {
   checked?: boolean
   disabled?: boolean
   label?: JSX.Element | string
-  onChange?: Function
+  onChange?: (e: React.MouseEvent<HTMLInputElement>, checked: boolean) => void
   name?: string
   value?: string | number
   extra?: JSX.Element | string
   className?: string
 }
+
+export const Input = styled.input`
+  border: 0;
+  height: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  width: 0;
+`
+
+export const Fake = styled.span`
+  position: relative;
+  flex: 0 0 16px;
+  flex-basis: auto;
+  width: 16px;
+  height: 16px;
+  border: 4px solid ${T('palette.frost')};
+  box-sizing: border-box;
+  transition: ${Transition.reaction.on};
+
+  [data-icon='true'] {
+    display: none;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    color: ${T('palette.white')};
+  }
+
+  &[aria-checked='true'] {
+    border-color: ${T('palette.primary')};
+    background: ${T('palette.primary')};
+
+    [data-icon='true'] {
+      display: block;
+    }
+
+    &[aria-disabled='true'] {
+      background: ${T('palette.primary')};
+    }
+  }
+
+  &[data-radius='true'] {
+    border-radius: 50%;
+  }
+
+  &[aria-disabled='true'] {
+    background: ${T('palette.daisy')};
+
+    [data-icon='true'] {
+      cursor: not-allowed;
+    }
+  }
+`
+
+export const Label = styled.label`
+  display: inline-flex;
+  align-items: center;
+  padding: ${T('spacing.xs')}px 0;
+  flex: none;
+  color: ${T('palette.black')};
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: ${T('palette.primary')};
+  }
+
+  &[aria-checked='true'] {
+    font-weight: ${T('font.weight.bold')};
+  }
+
+  &[aria-disabled='true'] {
+    color: ${T('palette.stone')};
+    cursor: not-allowed;
+
+    &:hover {
+      color: ${T('palette.stone')};
+    }
+  }
+`
+
+export const Text = styled.span`
+  margin-left: ${T('spacing.xs')}px;
+`
 
 class Checkbox extends React.Component<Props> {
   state = {
@@ -38,10 +125,10 @@ class Checkbox extends React.Component<Props> {
   render() {
     const { className, name, value, label, disabled = false, extra } = this.props
     const { checked } = this.state
-    
+
     return (
       <React.Fragment>
-        <Label className={disabled ? `${className} disabled` : className}>
+        <Label className={className} aria-disabled={disabled} aria-checked={checked}>
           <Input
             type="checkbox"
             onChange={this.handleChange}
@@ -51,16 +138,10 @@ class Checkbox extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake className={disabled ? 'disabled' : ''} aria-checked={checked}>
+          <Fake aria-disabled={disabled} aria-checked={checked}>
             <Icon glyph="check" size={10} />
           </Fake>
-          {label ? (
-            typeof label === 'string' ? (
-              <Text className={disabled ? 'text disabled' : 'text'}>{label}</Text>
-            ) : (
-              label
-            )
-          ) : null}
+          {label ? typeof label === 'string' ? <Text aria-disabled={disabled}>{label}</Text> : label : null}
         </Label>
         {extra}
       </React.Fragment>

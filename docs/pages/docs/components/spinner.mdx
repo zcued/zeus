@@ -1,0 +1,63 @@
+---
+demo-columns: 2
+---
+# Spinner 遮罩层
+
+## 示例
++++
+--- demo ---
+#### 遮罩层
+加载状态时的遮罩层
+
+``` jsx
+import { Spinner } from 'zeus-ui'
+
+class SpinnerDemo extends React.Component {
+  render() {
+    return (
+        <Spinner spinning={true}>
+            <div style={{width: '100%', height: 200}}></div>
+        </Spinner>
+    )
+  }
+}
+```
+
+
++++
+--- demo ---
+#### 遮罩层样式
+修改遮罩层样式
+
+``` jsx
+import { Spinner } from 'zeus-ui'
+
+class SpinnerWithMinHeightDemo extends React.Component {
+  render() {
+    return (
+        <Spinner 
+            spinning={true}
+            minHeight={200}
+            opacity={0.8}
+            backgroundColor={'#000'}
+            size={30}
+            color={'#fff'}
+        >
+          <div/>
+        </Spinner>
+    )
+  }
+}
+```
+
+
++++
+## Modal 参数
+| 属性      | 类型    | 作用         |
+| ------- | ------ | ----- |
+| spinning | boolean | 是否处于加载状态 |
+| background | color | 背景色 |
+| color | color | 图标颜色 |
+| size | number | 图标大小 |
+| opacity | number | 遮罩透明度 |
+| minHeight | number | 高度 |

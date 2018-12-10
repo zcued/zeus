@@ -1,0 +1,68 @@
+---
+demo-columns: 2
+---
+
+# Datepicker
+
+## 示例
++++
+--- demo ---
+#### 日期选择器
+``` jsx
+import { DatePicker } from 'zeus-ui'
+
+class DatePickerDemo extends React.Component {
+  state = {
+    value: null
+  }
+  onChange = (value) => {
+    this.setState({
+      value
+    })
+  }
+
+  render() {
+    return <DatePicker onSelectDate={this.onChange}/>
+  }
+}
+```
+
++++
+--- demo ---
+#### 日期段选择器
+``` jsx
+import { RangePicker } from 'zeus-ui' 
+
+class RangePickerDemo extends React.Component {
+  state = {
+    value: null
+  }
+  onChange = (value) => {
+    this.setState({
+      value
+    })
+  }
+
+  render() {
+    return <RangePicker onSelectDate={this.onChange}/>
+  }
+}
+```
++++
+## 参数
+
+#### DatePicker 属性
+
+属性 | 类型 | 说明 | 默认值
+---- | ---
+defaultValue | date | 显示的默认值 | -
+onChange | function | 日期发生改变时的回调函数 | -
+disabledDate | date | 禁用的日期 | -
+
+#### RangePicker 属性
+
+属性 | 类型 | 说明 | 默认值
+---- | ---
+defaultValue | object | 由 from 和 to 组成的一个时间段 | -
+onChange | function | 日期发生改变时的回调函数 | -
+

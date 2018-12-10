@@ -1,0 +1,49 @@
+# Table
+
+## 演示
++++
+--- demo ---
+#### 基本类型 
+展示基本的数据
+
+``` jsx
+import { Table } from 'zeus-ui'
+export class ButtonDemo2 extends React.Component {
+  render(){
+      const columns = [
+        {dataIndex: 'name', title: '名字' },
+        {dataIndex: 'age', title: '年龄' },
+        {dataIndex: 'sex', title: '性别' },
+        {dataIndex: 'habby', title: '爱好' }
+    ]
+    const data = [
+        {name: '小明', age: '22', key: 1, sex: '男', habby: '吃'},
+        {name: '小王', age: '33', key: 2, sex: '男', habby: '上班'},
+        {name: '小李', age: '12', key: 2, sex: '男', habby: '玩耍'},
+        {name: '小红', age: '18', key: 2, sex: '女', habby: '打扮'},
+    ]
+    return (
+        <Table columns={columns} data={data}/>
+	)
+  }
+} 
+```
++++
+
+## 参数
+
+#### 基本属性
+| 属性    | 类型  | 作用     |
+| ------ | ----- | ---- |
+| columns | array | 列数据   |
+| data    | array | 数据信息 |
+
+
+#### columns属性
+| 属性       | 类型             | 作用             |
+| --- | --- | ---   |
+| dataIndex | string           | 列数据           |
+| render    | function         | 渲染列数据的方法   |
+| width     | number&string    | 宽度             |
+| align     | string           | 对齐方式         |
+| title     | string&ReactNode | 标题            |

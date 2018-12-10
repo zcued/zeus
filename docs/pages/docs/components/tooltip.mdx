@@ -1,0 +1,71 @@
+---
+demo-columns: 2
+---
+# ToolTip 提示
+## 示例
+
++++
+--- demo ---
+#### 提示框
+给予提示
+
+``` jsx
+import { Tooltip } from 'zeus-ui'
+
+class TooltipDemo extends React.Component {
+  render() {
+    return <div>
+      <Tooltip title="温馨提示：你真乖">
+      鼠标移动到这里
+      </Tooltip>
+    </div>
+  }
+}
+```
++++
+
++++
+--- demo ---
+#### 不同位置提示框
+可以通过placement改变提示语的位置，共支持12种，分别是 `top`, `top-start`, `top-end`, `right`, `right-start`, `right-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`
+
+``` jsx
+import { Tooltip } from 'zeus-ui'
+
+class TooltipPlaceDemo extends React.Component {
+  render() {
+    return <div>
+      <div>
+        <Tooltip title="温馨提示：你真乖" placement="top">
+          鼠标移动到这里
+        </Tooltip>
+      </div>
+
+      <div>
+        <Tooltip title="温馨提示：你真乖" placement="right-start">
+          鼠标移动到这里
+        </Tooltip>
+      </div>
+
+      <div>
+        <Tooltip title="温馨提示：你真乖" placement="left-end">
+          鼠标移动到这里
+        </Tooltip>
+      </div>
+
+      <div>
+        <Tooltip title="温馨提示：你真乖" placement="bottom">
+          鼠标移动到这里
+        </Tooltip>
+      </div>
+    </div>
+  }
+}
+```
++++
+
+## Modal 参数
+| 属性      | 类型    | 作用         |
+| -- | -- | -- |
+| title | string | 标题 |
+| placement | string | 位置 | 

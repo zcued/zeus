@@ -1,0 +1,130 @@
+---
+id: button-page
+demo-columns: 2
+---
+
+# Button 按钮
+
+标记需要点击的地方，用来响应用户的点击事件。
+
+
+## 代码演示
++++
+--- demo ---
+#### 基本状态
+按钮类型有两种 default 和 primary  
+``` jsx
+import { Button } from 'zeus-ui'
+class ButtonDemo extends React.Component {
+  render(){
+    return (
+      <React.Fragment>
+        <Button>Default</Button>
+        <Button style={{marginLeft: 16}} type="primary">Primary</Button>
+      </React.Fragment>
+    )
+  }
+} 
+```
+ 
++++
+
+--- demo ---
+#### 按钮尺寸
+可以通过size属性控制按钮的大小
+``` jsx
+class SizeDemo extends React.Component {
+  render(){
+    return (
+      <React.Fragment>
+        <div>
+          <Button disabled={true} size="md">Middle</Button>
+          <Button style={{marginLeft: 16}} size="sm">Small</Button>
+        </div>
+        <div style={{marginTop: 16}}>
+          <Button disabled={true} type="primary" size="md">Middle</Button>
+          <Button style={{marginLeft: 16}} type="primary" size="sm">Small</Button>
+        </div>
+       </React.Fragment>
+    )
+  }
+} 
+```
+
+
++++
+--- demo ---
+#### 禁用按钮
+可以通过disabled属性来控制按钮的可用状态
+``` jsx
+class DisabledDemo extends React.Component {
+  render(){
+    return (
+      <React.Fragment>
+        <Button disabled={true} type="default">Default</Button>
+        <Button style={{marginLeft: 16}} disabled={true} type="primary">Primary</Button>
+      </React.Fragment>
+    )
+  }
+} 
+```
+
++++
+--- demo ---
+#### 图标按钮
+icon属性可以为按钮在文字前边加一个icon
+> 当然icon的大小也是可以控制的，我们为此添加了iconSize属性
+
+``` jsx
+import { Button, Icon } from 'zeus-ui'
+class IconButtonDemo extends React.Component {
+  render(){
+    return (
+      <React.Fragment>
+        <Button icon="add">添加</Button>
+        <Button style={{marginLeft: 16}} icon="copy">复制</Button>
+        <Button style={{marginLeft: 16}} icon="check">勾选</Button>
+
+        <div style={{marginTop: 16}}>
+          <Button icon="add" iconSize="20">添加</Button>
+          <Button style={{marginLeft: 16}} icon="add" iconSize="12">添加</Button>
+        </div>
+      </React.Fragment>
+    )
+  }
+} 
+```
+
+
++++
+--- demo ---
+#### 加载状态
+  
+这种效果通常用于点击按钮之后产生发起http请求之类的异步操作
+> loading状态的button同时也是处于disabled状态 
+``` jsx
+import { Button } from 'zeus-ui'
+class LoadingButton extends React.Component {
+  render(){
+    return (
+      <React.Fragment>
+        <Button loading={true}>Loading Default</Button>
+        <Button style={{marginLeft: 16}} type="primary" loading={true}>Loading Disabled</Button>
+      </React.Fragment>
+    )
+  }
+} 
+```
++++
+
+## 参数
+
+属性 | 类型 | 说明 |  默认值
+---- | --- | --- | ---
+type | stirng | 按钮的基本类型，包括primary和default | default
+size | number | 控制按钮的大小，可以是 md 或者 sm | md
+disabled | boolean | 是否禁用按钮 | false
+icon | string | 图标类型 | -
+iconSize | number | 图标大小 | 16
+onClick | function | 出发用户的点击事件 | -
+

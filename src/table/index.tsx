@@ -3,7 +3,7 @@ import styled from '../theme/styled-components'
 
 type Align = 'left' | 'right' | 'center'
 
-interface Col {
+export interface Col {
   dataIndex: string
   key?: string
   render?: (text: string, record: any, index: number) => any
@@ -12,9 +12,13 @@ interface Col {
   title?: string | React.ReactNode
 }
 
-interface Props {
+export interface Props {
   columns: Array<Col>
-  data: Array<object>
+  data?: Array<{
+    key?: string | number
+    [key: string]: any
+  }>
+  onColumnClick?: (record: any) => void
   className?: string
 }
 
@@ -51,7 +55,7 @@ export const Column = styled.td`
   }
 `
 
-const TableHeadColumn = Column.withComponent('th').extend`
+const TableHeadColumn = styled(Column)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   border-color: #2e3139;
 
@@ -68,6 +72,7 @@ const getStyleFromCol = (column: Col): object => {
   if (['left', 'right', 'center'].indexOf(align) > -1) {
     style.textAlign = align
   }
+
   if (width) {
     style.width = width
   }
@@ -75,29 +80,36 @@ const getStyleFromCol = (column: Col): object => {
   return style
 }
 
-const Table: React.SFC<Props> = ({ columns, data, className }) => {
+const Table: React.SFC<Props> = ({ columns, data, onColumnClick, className }) => {
   return (
     <TableWrapper className={className}>
       <TableHead>
         <Row>
           {columns.map((column, idx: number) => (
-            <TableHeadColumn key={column.key || idx} style={getStyleFromCol(column)}>
+            <TableHeadColumn as="th" key={column.key || idx} style={getStyleFromCol(column)}>
               {column.title}
             </TableHeadColumn>
           ))}
         </Row>
       </TableHead>
-      <TableBody>
-        {data.map((item: any, index: number) => (
-          <Row key={item.key}>
-            {columns.map((column, idx: number) => (
-              <Column key={column.key || idx} style={getStyleFromCol(column)}>
-                {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
-              </Column>
+      {data &&
+        data.length > 0 && (
+          <TableBody>
+            {data.map((item, index: number) => (
+              <Row
+                key={index}
+                onClick={() => onColumnClick && onColumnClick(item)}
+                style={{ cursor: onColumnClick ? 'pointer' : '' }}
+              >
+                {columns.map((column, idx: number) => (
+                  <Column key={column.key || idx} style={getStyleFromCol(column)}>
+                    {column.render ? column.render(item[column.dataIndex], item, index) : item[column.dataIndex]}
+                  </Column>
+                ))}
+              </Row>
             ))}
-          </Row>
-        ))}
-      </TableBody>
+          </TableBody>
+        )}
     </TableWrapper>
   )
 }

@@ -16,6 +16,10 @@ const TableStyled = styled(Table)`
 `
 
 export default class Page extends React.Component {
+  onClick = record => {
+    console.error(record)
+  }
+
   render() {
     const columns: any = [
       {
@@ -69,7 +73,7 @@ export default class Page extends React.Component {
     return (
       <React.Fragment>
         <div style={{ padding: '10px', background: '#fff' }}>
-          <TableStyled columns={columns} data={data} />
+          <TableStyled columns={columns} data={data} onColumnClick={this.onClick} />
         </div>
       </React.Fragment>
     )

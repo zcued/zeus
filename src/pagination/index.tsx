@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Icon from '../icon'
 import { noop } from '../globals'
-import { JumperInput, UL, LI, Count } from './style'
+import styled from '../theme/styled-components'
+import Input from '../input'
+import { T } from '../util'
 
 interface Props {
   pageSize?: number
@@ -12,7 +14,71 @@ interface Props {
   className?: string
 }
 
-class Pagination extends React.Component<Props> {
+interface State {
+  current: number | string
+  currentInput: number | string
+}
+
+export const JumperInput = styled(Input)`
+  width: 56px;
+  height: 100%;
+  border: none;
+  border-bottom: 2px solid ${T('palette.black')};
+  text-align: center;
+  font-size: ${T('font.size.sm')}px;
+  padding: 0;
+
+  &:focus {
+    border-color: ${T('palette.black')};
+    box-shadow: none;
+    outline: none;
+  }
+`
+
+export const UL = styled.ul`
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  font-size: ${T('font.size.sm')}px;
+  & > li:last-child {
+    color: ${T('palette.spruce')};
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  & > li[role] {
+    cursor: pointer;
+  }
+`
+
+export const LI = styled.li`
+  height: 24px;
+  display: flex;
+  align-items: center;
+
+  & > button {
+    cursor: inherit;
+    border: none;
+    outline: none;
+    height: 100%;
+    line-height: 1;
+    background: transparent;
+    padding: 0 ${T('spacing.sm')}px;
+
+    &[disabled],
+    &[disabled] [data-icon='true'] {
+      cursor: not-allowed;
+    }
+  }
+`
+
+export const Count = styled.span`
+  color: ${T('palette.black')};
+  margin: 0 4px;
+`
+
+class Pagination extends React.Component<Props, State> {
   static defaultProps = {
     onChange: noop
   }
@@ -22,13 +88,14 @@ class Pagination extends React.Component<Props> {
     currentInput: this.props.current || this.props.defaultCurrent || 1
   }
 
-  static getDerivedStateFromProps(nextProps: Props) {
-    if (nextProps.hasOwnProperty('current')) {
+  static getDerivedStateFromProps(props: Props, state: State) {
+    if (props.hasOwnProperty('current') && state.current === state.currentInput) {
       return {
-        current: nextProps.current,
-        currentInput: nextProps.current
+        current: props.current,
+        currentInput: props.current
       }
     }
+
     return null
   }
 
@@ -40,6 +107,10 @@ class Pagination extends React.Component<Props> {
     } else {
       this.setState({ currentInput: value })
     }
+  }
+
+  handleBlur = () => {
+    this.setState({ currentInput: this.state.current })
   }
 
   handleKeyUp = e => {
@@ -57,7 +128,7 @@ class Pagination extends React.Component<Props> {
   next = () => {
     let { current } = this.state
 
-    if (current === this.props.total) return
+    if (current >= this.props.total) return
 
     current = current + 1
     this.setState({ current, currentInput: current })
@@ -86,15 +157,22 @@ class Pagination extends React.Component<Props> {
           </button>
         </LI>
         <LI>
-          <JumperInput type="text" onKeyUp={this.handleKeyUp} value={currentInput} onChange={this.handleChange} />
+          <JumperInput
+            type="text"
+            onKeyUp={this.handleKeyUp}
+            value={currentInput}
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
         </LI>
         <LI onClick={this.next} role="next">
-          <button disabled={current === total}>
+          <button disabled={current >= total}>
             <Icon glyph="angle-right" size={10} />
           </button>
         </LI>
         <LI>
-          总页数<Count>{total}</Count>页
+          总页数
+          <Count>{total}</Count>页
         </LI>
       </UL>
     )

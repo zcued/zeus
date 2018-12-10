@@ -1,0 +1,32 @@
+---
+demo-columns: 2
+---
+# Tabs
+
++++
+--- demo ---
+#### 选项卡
+用于导航
+``` jsx
+import { Tabs, Tab } from 'zeus-ui'
+
+class Page extends React.Component {
+  render() {
+    return (
+      <Tabs>
+        <Tab selected={true}>美食</Tab>
+        <Tab>博客</Tab>
+        <Tab>论谈</Tab>
+        <Tab>留言</Tab>
+      </Tabs>
+    )
+  }
+}
+```
+
++++
+
+属性 | 类型 | 作用
+---- | ---
+selected | boolean | 是否选中状态
+
