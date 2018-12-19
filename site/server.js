@@ -29,19 +29,12 @@ new WebpackDevServer(
         {
           test: /\.tsx?$/,
           use: [
-            'babel-inline-import-loader',
             {
               loader: 'babel-loader',
               options: {
                 plugins: [
-                  [
-                    'inline-import', {
-                      extensions: ['.css', '.txt']
-                    }
-                  ],
                   'react-hot-loader/babel'
-                ],
-                cacheDirectory: false
+                ]
               }
             },
             'awesome-typescript-loader'
