@@ -20,7 +20,12 @@ export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Tooltip placement="top" title={<Title>顶部默认显示</Title>} overlayReset={true} defaultHovering={true}>
+        <Tooltip
+          placement="top"
+          title={<Title>顶部默认显示</Title>}
+          overlayReset={true}
+          defaultHovering={this.state.isHovering}
+        >
           <span>顶部默认显示</span>
         </Tooltip>
         <Tooltip placement="top" title={<a href="/">顶部</a>}>
