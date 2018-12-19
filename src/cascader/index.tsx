@@ -16,7 +16,6 @@ interface Option {
 interface Props {
   options: Array<Option>
   value?: Array<any>
-  defaultValue?: Array<any>
   placeholder?: string
   disabled?: boolean
   title?: Array<string>
@@ -215,7 +214,7 @@ class Cascader extends React.Component<Props> {
   }
 
   render() {
-    const { className, value, defaultValue, placeholder, disabled, title, level, listWidth, listHeight } = this.props
+    const { className, value, placeholder, disabled, title, level, listWidth, listHeight } = this.props
     const { isOpen, showValue } = this.state
     let list = []
     let options = this.props.options
