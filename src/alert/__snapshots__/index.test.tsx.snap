@@ -2,10 +2,10 @@
 
 exports[`Alert sets title on alert 1`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-htpNat",
         "isStatic": false,
@@ -42,9 +42,11 @@ exports[`Alert sets title on alert 1`] = `
         ],
       },
       "displayName": "Styled(Alert)",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-htpNat",
       "target": [Function],
+      "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
       Symbol(Symbol.hasInstance): [Function],
