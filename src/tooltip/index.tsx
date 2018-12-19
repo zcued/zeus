@@ -90,6 +90,12 @@ class Tooltip extends React.Component<Props, State> {
 
   timer = null
 
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.defaultHovering !== this.props.defaultHovering) {
+      this.setState({ isHovering: nextProps.defaultHovering })
+    }
+  }
+
   handleEnter = () => {
     if (this.timer) clearTimeout(this.timer)
     if (!this.state.isHovering) {
