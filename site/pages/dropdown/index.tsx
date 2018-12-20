@@ -31,7 +31,7 @@ export default class Page extends React.Component {
           <div>hover3</div>
         </Dropdown>
         <Dropdown text="hover4">
-          <div>hover4</div>
+          <div onClick={() => console.error(4)}>hover4</div>
           <div>hover4</div>
         </Dropdown>
         <Dropdown text="click" trigger="click">
