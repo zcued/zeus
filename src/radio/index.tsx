@@ -1,6 +1,8 @@
 import * as React from 'react'
-import Icon from '../icon'
-import { Input, Fake, Label, Text } from '../checkbox'
+import styled from '../theme/styled-components'
+import { Transition } from '../globals'
+import { T } from '../util'
+import { Input, Label, Text } from '../checkbox'
 
 interface Props {
   checked?: boolean
@@ -13,6 +15,46 @@ interface Props {
   radius?: boolean
   className?: string
 }
+
+const Fake = styled.span`
+  position: relative;
+  flex: 0 0 16px;
+  flex-basis: auto;
+  width: 16px;
+  height: 16px;
+  border: 1px solid ${T('palette.stone')};
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: ${Transition.reaction.on};
+
+  &[aria-checked='true'] {
+    border-color: ${T('palette.primary')};
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: ${T('palette.primary')};
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    &[aria-disabled='true'] {
+      border-color: ${T('palette.frost')};
+
+      &::after {
+        background: ${T('palette.frost')};
+      }
+    }
+  }
+
+  &[aria-disabled='true'] {
+    border-color: ${T('palette.frost')};
+  }
+`
 
 class Radio extends React.Component<Props> {
   state = {
@@ -52,9 +94,7 @@ class Radio extends React.Component<Props> {
             checked={checked}
             aria-checked={checked}
           />
-          <Fake aria-disabled={disabled} aria-checked={checked} data-radius={radius}>
-            <Icon glyph="check" size={10} />
-          </Fake>
+          <Fake aria-disabled={disabled} aria-checked={checked} />
           {label ? typeof label === 'string' ? <Text aria-disabled={disabled}>{label}</Text> : label : null}
         </Label>
         {extra}

@@ -37,6 +37,23 @@ export default class Page extends React.Component {
             )
           })}
         </p>
+        <p>
+          {checkboxes.map((item, index) => {
+            console.log(selected)
+            return (
+              <Radio
+                checked={true}
+                key={index}
+                label={item}
+                value={index}
+                name="radio"
+                radius={true}
+                disabled={true}
+                onChange={this.changeRadioes}
+              />
+            )
+          })}
+        </p>
       </div>
     )
   }
