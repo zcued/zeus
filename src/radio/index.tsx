@@ -79,7 +79,7 @@ class Radio extends React.Component<Props> {
   }
 
   render() {
-    const { className, name, value, label, disabled = false, extra, radius } = this.props
+    const { className, name, value, label, disabled = false, extra } = this.props
     const { checked } = this.state
 
     return (
