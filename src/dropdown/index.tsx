@@ -16,6 +16,7 @@ export interface Props {
   isOpen?: boolean
   mouseLeaveDelay?: number
   onToggle?: Function
+  onOutSideClick?: Function
 }
 
 export const StyledClickOutSide = styled(ClickOutSide)`
@@ -109,7 +110,10 @@ class Dropdown extends React.Component<Props> {
   }
 
   handleClickOutSide = () => {
-    if (!this.isControl) {
+    const { onOutSideClick } = this.props
+    if (this.isControl) {
+      if (onOutSideClick) onOutSideClick()
+    } else {
       this.setState({ isOpen: false })
     }
   }
