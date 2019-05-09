@@ -15,6 +15,10 @@ export default class Page extends React.Component {
     this.setState({ isOpenHover: !this.state.isOpenHover })
   }
 
+  handleOutSideClick = () => {
+    this.setState({ isOpenClick: false })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -44,6 +48,7 @@ export default class Page extends React.Component {
           isOpen={this.state.isOpenClick}
           onToggle={this.handleToggleClick}
           trigger="click"
+          onOutSideClick={this.handleOutSideClick}
         >
           <div>123123</div>
           <div>456456</div>
