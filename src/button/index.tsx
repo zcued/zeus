@@ -6,6 +6,7 @@ import { hexa } from '../globals'
 
 interface Props {
   width?: number
+  htmlType?: 'submit' | 'reset' | 'button'
   type?: 'primary' | 'ghost'
   loading?: boolean
   disabled?: boolean
@@ -18,7 +19,11 @@ interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const BaseButton: React.SFC<Props> = ({ children, ...rest }) => <button {...rest}>{children}</button>
+const BaseButton: React.SFC<Props> = ({ children, htmlType, ...rest }) => (
+  <button {...rest} type={htmlType || 'button'}>
+    {children}
+  </button>
+)
 
 const StyledButton = styled(BaseButton)`
   position: relative;
