@@ -35,12 +35,9 @@ class App extends React.Component<{}, AppState> {
     this.hashChangeCallback = this.hashChangeCallback.bind(this)
   }
 
-  componentWillMount() {
-    window.addEventListener('hashchange', this.hashChangeCallback, false)
-  }
-
   componentDidMount() {
     this.setRoute()
+    window.addEventListener('hashchange', this.hashChangeCallback, false)
   }
 
   componentWillUnmount() {

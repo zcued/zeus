@@ -1,13 +1,10 @@
 import * as React from 'react'
 
 class Upload extends React.Component {
-
   render() {
-    return(
+    return (
       <>
-        <input
-          type="file"
-        /> 
+        <input type="file" />
       </>
     )
   }

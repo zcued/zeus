@@ -171,7 +171,8 @@ class Pagination extends React.Component<Props, State> {
           </button>
         </LI>
         <LI>
-          总页数<Count>{total}</Count>页
+          总页数
+          <Count>{total}</Count>页
         </LI>
       </UL>
     )

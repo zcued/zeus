@@ -5,7 +5,7 @@ export default class Page extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Upload/>
+        <Upload />
       </React.Fragment>
     )
   }
