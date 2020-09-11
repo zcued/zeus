@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
-import { shallowEquals } from '../util'
 
 export interface Props {
   value?: string | Array<string>
@@ -22,7 +21,6 @@ const toArray = value => {
 }
 
 class Collapse extends React.Component<Props> {
-
   state = {
     activeKey: toArray(this.props.value)
   }
