@@ -1,6 +1,6 @@
 {
   "name": "zeus-ui",
-  "version": "1.1.0-alpha.0",
+  "version": "1.1.0-alpha.1",
   "description": "zcool ui libary",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -21,8 +21,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "styled-components": "^5.2.0"
   },
   "dependencies": {
