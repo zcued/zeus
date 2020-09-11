@@ -16,6 +16,7 @@ export interface Props {
   isOpen?: boolean
   mouseLeaveDelay?: number
   onToggle?: Function
+  onOutSideClick?: Function
 }
 
 export const StyledClickOutSide = styled(ClickOutSide)`
@@ -109,12 +110,19 @@ class Dropdown extends React.Component<Props> {
   }
 
   handleClickOutSide = () => {
-    if (!this.isControl) {
+    const { onOutSideClick } = this.props
+    if (this.isControl) {
+      if (onOutSideClick) onOutSideClick()
+    } else {
       this.setState({ isOpen: false })
     }
   }
 
-  toggle = e => {
+  toggle = (e, callback?) => {
+    if (callback) {
+      callback(e)
+    }
+
     this.props.onToggle(e)
 
     this.setState({ isOpen: !this.state.isOpen })
@@ -142,9 +150,9 @@ class Dropdown extends React.Component<Props> {
             <PoppersContainer>
               {this.isControl
                 ? children
-                : React.Children.map(children, child =>
+                : React.Children.map(children, (child: any) =>
                     React.cloneElement(React.Children.only(child), {
-                      onClick: this.toggle,
+                      onClick: e => this.toggle(e, child.props.onClick),
                       onMouseEnter: this.handleEnter,
                       onMouseLeave: this.handleLeave
                     })

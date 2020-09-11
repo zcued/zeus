@@ -32,8 +32,9 @@ new WebpackDevServer(
             {
               loader: 'babel-loader',
               options: {
-                babelrc: true,
-                plugins: ['react-hot-loader/babel']
+                plugins: [
+                  'react-hot-loader/babel'
+                ]
               }
             },
             'awesome-typescript-loader'
