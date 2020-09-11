@@ -4,5 +4,3 @@ lib
 npm-debug.log
 .DS_Store
 .next
-package-lock.json
-yarn.lock
