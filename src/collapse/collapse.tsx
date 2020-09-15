@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '../theme/styled-components'
+import { shallowEquals } from '../util'
 
 export interface Props {
   value?: string | Array<string>
@@ -24,9 +25,10 @@ class Collapse extends React.Component<Props> {
   state = {
     activeKey: toArray(this.props.value)
   }
-  static getDerivedStateFromProps(nextProps: Props) {
-    return {
-      activeKey: toArray(nextProps.value)
+
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
+    if (!shallowEquals(this.props, nextProps)) {
+      this.setState({ activeKey: toArray(nextProps.value) })
     }
   }
 
