@@ -90,9 +90,9 @@ class Tooltip extends React.Component<Props, State> {
 
   timer = null
 
-  static getDerivedStateFromProps(nextProps: Props) {
-    return {
-      isHovering: nextProps.defaultHovering
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.defaultHovering !== this.props.defaultHovering) {
+      this.setState({ isHovering: nextProps.defaultHovering })
     }
   }
 
