@@ -150,7 +150,7 @@ const StyledButtonMd = styled(StyledButton)`
   }
 `
 
-export default ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
+const Button = ({ children, size, icon, iconSize = 16, disabled, loading, ...rest }: Props) => {
   const Target = size === 'sm' ? StyledButtonSm : size === 'md' ? StyledButtonMd : StyledButton
   return (
     <Target disabled={loading || disabled} {...rest}>
@@ -163,3 +163,5 @@ export default ({ children, size, icon, iconSize = 16, disabled, loading, ...res
     </Target>
   )
 }
+
+export default Button
